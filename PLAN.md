@@ -385,10 +385,10 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 **Goal:** The player can navigate and select a simple single-level grotto. **Depends on:** M00.
 
 - [x] **GG-013 — SPIKE projection with two miniature scenes.** Compare JRPG oblique vs 64×32 isometric floor for 32×32 goblins; include walls, overlap and item click tests. **Done:** screenshots and pros/cons documented; choose one in ADR/ART_BIBLE.
-- [ ] **GG-014 — Integrate PixiJS WebGL.** Resize-aware canvas, nearest-neighbour pixel art, lost-context/error state. **Done:** demo renders on desktop and fails helpfully without usable WebGL.
+- [x] **GG-014 — Integrate PixiJS WebGL.** Resize-aware canvas, nearest-neighbour pixel art, lost-context/error state. **Done:** demo renders on desktop and fails helpfully without usable WebGL.
 - [x] **GG-015 — Build logical-to-screen projection adapter.** Project/unproject and tile hit-testing separated from world coordinates. **Done:** roundtrip tests cover edges, negative values and camera zoom.
 - [ ] **GG-016 — Implement camera controls.** Pan/drag, wheel/keyboard zoom, bounds, reset and focus-on-entity. **Done:** navigation remains stable after resize and pause.
-- [ ] **GG-017 — Render a simple tile field.** Solid/floor tiles, visible grid and hover. **Done:** a 64×64 map is visible without per-tile HTML elements.
+- [x] **GG-017 — Render a simple tile field.** Solid/floor tiles, visible grid and hover. **Done:** a 64×64 map is visible without per-tile HTML elements.
 - [ ] **GG-018 — Implement depth and occlusion.** Sort by logical feet/structure depth, fade selected foreground walls, preserve correct click targets. **Done:** a goblin behind walls remains selectable by deliberate reveal mode.
 - [ ] **GG-019 — Add scene/entity selection.** Click tiles, goblins and structures; consistent selected/hovered highlights. **Done:** selection is independent of sprite transparency and zoom.
 - [ ] **GG-020 — Build semantic UI shell.** Top resource/status bar, tool rail, right inspector, Chronicle drawer, help and pause controls in HTML/CSS. **Done:** keyboard tab navigation works outside canvas.
@@ -414,7 +414,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [ ] **GG-033 — Build reachability and validation pass.** Connected spawn, legal buildable floor, food access, entrances, meaningful resource placement. **Done:** automated batch of 1,000 seeds meets invariants, reports failing seed.
 - [ ] **GG-034 — Add simple calendar/weather state.** Seasons and clear/rain/snow probabilities with outside-only modest effects. **Done:** repeatable weather transitions and visible indicator; no detailed atmosphere grid.
 - [ ] **GG-035 — Implement region-level pathfinding service.** A* or suitable grid search, obstacles, occupied-cell tolerance and cached paths on terrain changes. **Done:** navigation tests cover cave tunnel, exterior entrance and newly dug shortcut.
-- [ ] **GG-036 — Add new-world seed/config UI.** Choose seed, generate, restart and display seed for bug reporting. **Done:** same seed/config reproduces layout across reload.
+- [x] **GG-036 — Add new-world seed/config UI.** Choose seed, generate, restart and display seed for bug reporting. **Done:** same seed/config reproduces layout across reload.
 
 **Gate M02:** Multiple seeds give distinctive, accessible, believable caves and a modest outside world; no modern geological classifications appear in goblin-facing UI.
 
@@ -451,7 +451,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-056 — Build save schema/version.** Serialize world, seed, RNG, goblins, tasks, resources, calendar, reservations, event IDs. **Done:** save is pure validated data, not a Pixi snapshot.
 - [x] **GG-057 — Implement save/load in IndexedDB.** Manual slots, autosave interval, save errors and migration placeholder. **Done:** reload restores running tasks and no items disappear/duplicate.
 - [x] **GG-058 — Export/import human-portable saves.** Version identification, validation, helpful unsupported version message. **Done:** exported save imports in a fresh browser profile.
-- [ ] **GG-059 — Add game-speed and basic onboarding.** Pause/1×/2×/4×, simple guided hints, help overlay. **Done:** player can learn to dig and eat without documentation.
+- [x] **GG-059 — Add game-speed and basic onboarding.** Pause/1×/2×/4×, simple guided hints, help overlay. **Done:** player can learn to dig and eat without documentation.
 - [x] **GG-060 — Run headless colony endurance test.** Simulate days with four goblins on several fixed seeds. **Done:** no deadlock, runaway hunger with adequate supplies, or invalid entities.
 - [ ] **GG-061 — Package and tag v0.1.0.** Update README, controls, limitations, screenshot/GIF, changelog, hosted preview. **Done:** an outsider can make a four-goblin settlement and reload it.
 

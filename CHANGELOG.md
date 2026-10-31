@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Playable PixiJS WebGL map, seeded new-world dialog, inspection and work tools, keyboard controls, speed controls and onboarding guide (GG-014,GG-017,GG-036,GG-059).
+
 - Validated versioned IndexedDB manual and autosave slots, portable JSON import/export and exact save continuation (GG-056,GG-057,GG-058).
 
 - Compared isometric and oblique scenes; selected fixed isometric projection with inverse-picking tests (GG-013,GG-015).
