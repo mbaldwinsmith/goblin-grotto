@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Distinct stable IDs and grid position contracts (GG-005).
+
 - Headless Vitest harness with real core assertions (GG-004).
 
 - Biome lint and formatting plus strict type checks (GG-003).
