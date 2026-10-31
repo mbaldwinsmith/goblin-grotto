@@ -77,10 +77,7 @@ export function dispatch(s: GameState, c: Command): Result {
     )
   )
     return { ok: false, reason: "Work is already planned here." };
-  if (
-    c.tool === "dig" &&
-    (!t.solid || !Number.isFinite(materials[t.material].hardness))
-  )
+  if (c.tool === "dig" && (!t.solid || !materials[t.material].diggable))
     return {
       ok: false,
       reason: "Choose diggable rock; the boundary cannot be dug.",
@@ -177,7 +174,11 @@ function release(s: GameState, g: Goblin): void {
 function move(s: GameState, g: Goblin, p: Position, adjacent = false): boolean {
   const route = path(s, g.position, p, adjacent);
   if (!route) return false;
-  if (route.length && s.tick % 3 === 0) g.position = route[0];
+  if (
+    route.length &&
+    s.tick % materials[tileAt(s, route[0])!.material].moveTicks === 0
+  )
+    g.position = route[0];
   return route.length === 0;
 }
 function nearest(
@@ -374,7 +375,12 @@ function work(s: GameState, g: Goblin, j: Job): void {
   if (j.progress < required) return;
   if (j.kind === "dig") {
     t.solid = false;
-    addItem(s, j.target, t.deposit === "ore" ? "ore" : "stone", 2);
+    addItem(
+      s,
+      j.target,
+      t.deposit === "ore" ? "ore" : materials[t.material].drop,
+      2,
+    );
     t.deposit = null;
     for (let dy = -1; dy <= 1; dy++)
       for (let dx = -1; dx <= 1; dx++) {

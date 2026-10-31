@@ -6,6 +6,12 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.3 — map interaction and terrain
+
+#### Added
+
+- GG-025: all six terrain materials now define readable names, hardness, support ratings, movement intervals and resource drops. Walking and mining use the registry; the inspector explains the costs. Cave-in behavior remains GG-032.
+
 ### 0.1.0-prototype.2 — three-quarter JRPG perspective
 
 #### Changed

@@ -414,7 +414,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 
 **Goal:** Generate interesting and playable goblin homes, not geological textbooks. **Depends on:** M01 + `GG-006`.
 
-- [ ] **GG-025 — Define typed terrain material registry.** Sand, mud, loose rock, hard stone, bedrock and impenetrable stone; hardness/stability/drop/movement rules. **Done:** gameplay queries use properties, never material-name string comparisons.
+- [x] **GG-025 — Define typed terrain material registry.** Sand, mud, loose rock, hard stone, bedrock and impenetrable stone; hardness/stability/drop/movement rules. **Done:** gameplay queries use properties, never material-name string comparisons.
 - [x] **GG-026 — Split tile data into terrain, deposit, constructed structure and visibility.** **Done:** placing a chair does not replace the underlying floor material.
 - [x] **GG-027 — Generate seeded caverns.** At least two irregular connected rooms, tunnels, rock walls, a safe starting area and an entrance. **Done:** reproducible world hashes and all starting goblins can reach food/exit.
 - [ ] **GG-028 — Place chamber archetypes and discoveries.** Fungal grove, beast den, ruins, old mine, water feature or shrine chosen by seed. **Done:** each generated site has flavour text/visible affordance and does not trap the start.
