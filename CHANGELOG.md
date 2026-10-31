@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Architecture decisions for fixed-step simulation, DOM UI, rendering separation and versioned local saves (GG-012).
+
 - Canonical snapshot hashes and deterministic command replay regression tests (GG-010).
 
 - Deterministic command-driven colony slice: connected seeded caves and surface, autonomous jobs, resource hauling, mushroom food cycle, workshop bed kits, dashboard totals and multi-seed endurance tests (GG-008,GG-009,GG-026,GG-027,GG-029,GG-039,GG-042,GG-043,GG-051,GG-052,GG-054,GG-055,GG-060).

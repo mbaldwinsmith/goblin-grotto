@@ -376,7 +376,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-009 — Implement typed event bus and Chronicle foundations.** Strongly typed events, event IDs, game timestamps and bounded retention. **Done:** a command produces a verifiable event; malformed references are rejected.
 - [x] **GG-010 — Add canonical snapshot hashing/replay fixture.** Record seed and commands, compare serialisable state. **Done:** same inputs = same checksum; different command produces explainable difference.
 - [ ] **GG-011 — Wire GitHub Actions.** Install, typecheck, lint, test and build on PR/push; cache dependencies without committing generated output. **Done:** intentional failure blocks merge.
-- [ ] **GG-012 — Record architecture decisions.** Initial ADRs for fixed-step sim, renderer separation, no framework UI and save strategy. **Done:** each ADR lists alternatives and trade-offs, not just conclusions.
+- [x] **GG-012 — Record architecture decisions.** Initial ADRs for fixed-step sim, renderer separation, no framework UI and save strategy. **Done:** each ADR lists alternatives and trade-offs, not just conclusions.
 
 **Gate M00:** A contributor can clone and run a deterministic headless game loop; CI is green. No gameplay is required yet.
 
