@@ -1,4 +1,4 @@
-# 0.1.0-prototype.3 — verification and handoff
+# 0.1.0-prototype.4 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,15 +16,16 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 20 headless tests in six files. Includes 1,000 seeded starts;
+- `npm test`: 26 headless tests in seven files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: five Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: six Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
-  and imports into a fresh browser profile. Also checks both projection studies, wall reveal/entity picking, keyboard focus,
+  and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
+  actual schema-1 save import, wall reveal/entity picking, keyboard focus,
   resize/paused camera use, Escape during a stroke and drag-painted stockpiles.
 - A temporary intentionally invalid TypeScript/debugger fixture was rejected by
   both type checking and linting, then removed.
@@ -45,9 +46,7 @@ checks/branch protection are not verified here. M00's full gate remains open for
 GG-022/GG-023: production art bible/atlas and polished animation.
 Current original code-drawn 32×32 sprites are temporary references.
 
-GG-028–035: chamber discoveries, full outdoor dressing,
-resource variety, robust fog, cave-ins, comprehensive seed validation, weather and
-cached navigation. The prototype uses deterministic BFS and a safe connected layout.
+GG-032/GG-034/GG-035: cave-ins, calendar/weather and cached navigation. The prototype uses deterministic BFS and a safe connected layout.
 
 GG-037/038/040/044–050/053: complete kind definitions, smooth movement and
 congestion handling, richer utility/priorities,
@@ -60,7 +59,22 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-Saves are version 1 with explicit rejection of unsupported versions. Future schema
+New saves are schema 2; schema-1 saves migrate in place with their existing map,
+knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
 docs use MIT; creative material follows ASSETS-LICENSE.md.
+
+## Iteration 4 verification
+
+New grottos contain four landmark sites, including concealed chambers. The six
+landmark archetypes occur across tested seeds. Exterior stone, undergrowth,
+entrance and approach markers complement guaranteed trees and forage. The
+generator runs validateWorld before returning; the existing 1,000-seed sweep
+therefore checks the full generation invariants as well as physical reachability.
+Fog is persistent knowledge, not an omniscient reveal of connected chambers.
+Scouting and excavation update sight; gameplay path queries use known terrain.
+The browser scenario scouts through the eastern passage, reads a newly revealed
+landmark and then imports the previous committed save and finishes its active farm.
+See [discovery screenshot](screenshots/discovery.png). No new generation is injected
+into an imported colony.

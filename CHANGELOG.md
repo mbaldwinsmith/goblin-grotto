@@ -6,6 +6,21 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.4 — discoveries beyond the firelight
+
+#### Added
+
+- GG-028: seed-selected fungal groves, ruins, old workings, pools, shrines and abandoned dens with visible markers, flavour text and discovery entries.
+- GG-029: forest undergrowth, gatherable loose stone, a grotto entrance and a marked traveller approach, with accessible surface food and trees.
+- GG-030: iron, copper, gold and gem deposits, ancient masonry, distinct resource visuals and inspection. Mining/gathering create the corresponding physical resources; ore totals show their breakdown.
+- GG-031: persistent settlement discovery, wall-blocked sight, an Explore designation and frontier hints. Unseen landmarks and deposits stay hidden; work routes use known terrain.
+- GG-033: generation validates spawn/food access, buildable floor, entrance/outdoor routes, immutable boundaries, resource placement and landmarks. The 1,000-seed sweep fails with the seed and concrete invariant if generation regresses.
+
+#### Changed
+
+- Save schema 2 adds landmark metadata and resource types. Existing schema-1 saves migrate without losing map knowledge, items or running jobs; new chamber layouts apply to new grottos. Includes a compressed migration fixture generated from the previous committed simulation.
+- Applying a tile coordinate centres the view on the chosen location.
+
 ### 0.1.0-prototype.3 — map interaction and terrain
 
 #### Added

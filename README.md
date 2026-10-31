@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.3`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.4`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -27,7 +27,19 @@ with WebGL enabled is required. The game uses no backend or remote art services.
 
 Four named goblins—Nib, Moss, Grub and Pip—autonomously dig, haul, build,
 gather, eat and sleep. The seeded 64×64 world has connected chambers, an entrance,
-a small outdoor strip, mushrooms, trees and ore. Designate work and let them do it.
+a small outdoor strip, hidden chambers, mushrooms, trees and distinct ore veins. Designate work and let them do it.
+
+### Explore the new world
+
+Start **New grotto** to see the new generation rules. Existing saves retain their
+original layouts and knowledge. Choose **Explore** and click a turquoise frontier
+dot on a known passage: a goblin walks there and reveals more. Digging can open
+sealed chambers. Inspect groves, ruins, old workings, pools, shrines and dens for
+local stories and resources. Pools block movement; known terrain stays remembered.
+
+Mine coloured iron, copper, gold and gem deposits. Gather trees, edible mushrooms,
+loose stone and ancient masonry. The ore counter's tooltip breaks down the metals;
+gems have their own total. Distant, unseen landmarks do not appear in the inspector.
 
 ### Your first home
 
@@ -59,7 +71,7 @@ work to look after themselves. The sidebar tracks food and energy.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
   is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1 save before replacing the current game. Future
+- **Import** validates a version-1 or version-2 save before replacing the current game. Future
   or damaged saves show a message and leave the current grotto intact.
 - **New grotto** asks for a seed and replaces the active session; save first.
 

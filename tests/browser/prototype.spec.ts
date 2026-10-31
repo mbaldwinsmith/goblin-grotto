@@ -202,3 +202,67 @@ test("reveal mode selects a goblin behind a foreground wall", async ({
   await page.mouse.click(x, y);
   await expect(page.locator("#actor-inspection")).toContainText("Nib");
 });
+test("scouting uncovers a landmark without leaking fog, and v1 saves still resume work", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const coords = async (x: number, y: number) => {
+    await page.locator("#tile-x").fill(String(x));
+    await page.locator("#tile-y").fill(String(y));
+    await page.getByRole("button", { name: "Apply tool" }).click();
+  };
+  await coords(26, 27);
+  await expect(page.locator("#discovery-inspection")).toContainText(
+    /Lanterncap|Forgotten|Crooked/,
+  );
+  await coords(44, 36);
+  await expect(page.locator("#tile-name")).toHaveText("Unexplored");
+  await expect(page.locator("#discovery-inspection")).toBeEmpty();
+  await expect(page.locator("#inspection")).not.toContainText(
+    /Bedrock|Iron|Den|Pool/,
+  );
+  await page.getByRole("button", { name: "Explore", exact: false }).click();
+  for (const [x, y] of [
+    [38, 31],
+    [41, 31],
+    [44, 31],
+    [44, 34],
+  ]) {
+    await coords(x, y);
+    await expect(page.locator("#notice")).toContainText("planned");
+    await page.getByRole("button", { name: "4×", exact: true }).click();
+    await expect(page.locator("#inspection")).not.toContainText("explore:", {
+      timeout: 12000,
+    });
+  }
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator(".goblin").last().click();
+  await page
+    .getByRole("button", { name: "Inspect", exact: false })
+    .first()
+    .click();
+  await coords(44, 36);
+  await expect(page.locator("#discovery-inspection")).toContainText(
+    /delver|Whispering|beast den/,
+  );
+  await expect(page.locator("#events")).toContainText("Discovered");
+  await page.screenshot({
+    path: "docs/screenshots/discovery.png",
+    fullPage: true,
+  });
+  const { readFileSync } = await import("node:fs");
+  const { gunzipSync } = await import("node:zlib");
+  await page.locator("#import").setInputFiles({
+    name: "old-save.json",
+    mimeType: "application/json",
+    buffer: gunzipSync(readFileSync("tests/fixtures/v1-active-colony.json.gz")),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  await coords(30, 29);
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect(page.locator("#tile-name")).toHaveText("farm", {
+    timeout: 12000,
+  });
+});

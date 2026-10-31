@@ -648,3 +648,8 @@ nav {
   flex-shrink: 0;
   margin-top: 12px;
 }
+#discovery-inspection {
+  font: 11px / 1.7 system-ui;
+  color: #c8d8b9;
+  margin-top: 9px;
+}

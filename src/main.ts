@@ -6,6 +6,9 @@ import { createGame, dispatch, quantities, step } from "./sim/game";
 import {
   costs,
   materials,
+  deposits,
+  features,
+  walkable,
   type Command,
   type Structure,
   position,
@@ -24,13 +27,13 @@ let selected: Position = position(30, 30);
 let ready = false;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.innerHTML = `
-<header><a class="brand" href="./"><span class="sigil">♧</span><span>GOBLIN GROTTO<small>A HOME IN THE ROCK</small></span></a><div id="resources"></div><div class="time"><span id="day"></span><small>EARLY PLAYABLE · 0.1.0-prototype.3</small></div></header>
+<header><a class="brand" href="./"><span class="sigil">♧</span><span>GOBLIN GROTTO<small>A HOME IN THE ROCK</small></span></a><div id="resources"></div><div class="time"><span id="day"></span><small>EARLY PLAYABLE · 0.1.0-prototype.4</small></div></header>
 <div class="workspace"><nav aria-label="Grotto tools"><span class="eyebrow">YOUR INFLUENCE</span><div id="tools"></div><div class="nav-bottom"><button id="home">⌂ <span>Home</span></button><button id="reveal" aria-pressed="false">◈ <span>Reveal walls</span></button><button id="help-button">? <span>How to play</span></button></div></nav>
 <main><div class="map-heading"><span class="eyebrow">THE HOLLOW UNDER THE HILL</span><h1>A little cave.<br>A grand beginning.</h1><p>Dig deep. Hoard shinies. Make a home.</p></div><div id="map"></div><div class="map-caption"><span class="live-dot"></span><span id="mode">Inspect your grotto</span><span class="map-hint">Scroll to zoom · Right-drag to pan</span></div><div id="notice" role="status" aria-live="polite">Welcome, Spirit. Plant two mushroom patches, build beds, then carve out a home.</div></main>
-<aside><div class="aside-title"><span class="eyebrow">THE GROTTO</span><span class="badge">4 SOULS</span></div><h2>Your little troublemakers</h2><p class="muted">A home is only as good as its goblins.</p><div id="goblins"></div><section class="inspector"><span class="eyebrow">UNDER YOUR GAZE</span><h3 id="tile-name">Cavern floor</h3><div id="inspection"></div><div id="actor-inspection"></div><form id="tile-form"><label>X <input id="tile-x" type="number" min="0" max="63" value="30"></label><label>Y <input id="tile-y" type="number" min="0" max="63" value="30"></label><button>Apply tool</button></form><p class="muted">Coordinates also let you work by keyboard.</p></section><section class="goal"><span>✧</span><div><strong>A home, not just a hole</strong><p id="goals">Plant patches · Make beds · Dig a room</p></div></section></aside></div>
+<aside><div class="aside-title"><span class="eyebrow">THE GROTTO</span><span class="badge">4 SOULS</span></div><h2>Your little troublemakers</h2><p class="muted">A home is only as good as its goblins.</p><div id="goblins"></div><section class="inspector"><span class="eyebrow">UNDER YOUR GAZE</span><h3 id="tile-name">Cavern floor</h3><div id="inspection"></div><div id="actor-inspection"></div><div id="discovery-inspection"></div><form id="tile-form"><label>X <input id="tile-x" type="number" min="0" max="63" value="30"></label><label>Y <input id="tile-y" type="number" min="0" max="63" value="30"></label><button>Apply tool</button></form><p class="muted">Coordinates also let you work by keyboard.</p></section><section class="goal"><span>✧</span><div><strong>A home, not just a hole</strong><p id="goals">Plant patches · Make beds · Dig a room</p></div></section></aside></div>
 <footer><div class="speed" aria-label="Simulation speed"><button data-speed="0" aria-label="Pause">Ⅱ</button><button data-speed="1" aria-pressed="true">1×</button><button data-speed="2">2×</button><button data-speed="4">4×</button></div><span id="seed-label"></span><div class="saves"><button id="save">Save</button><button id="load">Load</button><button id="load-auto">Load auto</button><button id="export">Export</button><label class="file-button">Import<input id="import" type="file" accept=".json"></label><button id="new">New grotto</button></div></footer>
 <details class="chronicle" id="chronicle" open><summary><div><span class="eyebrow">THE CHRONICLE</span><h2>Small lives. Lasting stories.</h2></div></summary><ol id="events"></ol></details>
-<dialog id="help"><span class="eyebrow">WELCOME, SPIRIT</span><h2>Make this hollow a home.</h2><p>Your four goblins choose reachable jobs themselves. Select a tool, then click a tile or enter coordinates. Gold outlines are digging jobs; teal outlines are other work.</p><ol><li>Plant two <b>mushroom patches</b> on empty floor. They grow and harvest automatically.</li><li>Build <b>beds</b> with two stored wood each. Goblins eat and rest when they need to.</li><li><b>Dig</b> the exposed rock around your cave. Mark a <b>stockpile</b> on floor to have loose supplies hauled there.</li><li><b>Gather</b> outdoor trees and wild mushrooms. Build a <b>workshop</b>, then use <b>Craft</b> there to turn one wood into a bed kit, automatically used when building a bed.</li></ol><p>Scroll / + / − to zoom. Right-drag or arrow keys to pan. Hold the left mouse button to paint work. Reveal walls lets you inspect goblins behind foreground walls. Home recentres. Space pauses. Escape selects Inspect. Browser tabs pause when hidden.</p><p>This prototype has no raids, Souls, possession, or win condition yet. Your goal: a sustainable little home. Saves stay in this browser; export a backup to keep it.</p><button id="close-help">Into the grotto →</button></dialog>
+<dialog id="help"><span class="eyebrow">WELCOME, SPIRIT</span><h2>Make this hollow a home.</h2><p>Your four goblins choose reachable jobs themselves. Select Explore and send a goblin to the edge of a known passage to reveal more of the world. Inspect glowing groves, old ruins and other discoveries. Select a tool, then click a tile or enter coordinates. Gold outlines are digging jobs; teal outlines are other work.</p><ol><li>Plant two <b>mushroom patches</b> on empty floor. They grow and harvest automatically.</li><li>Build <b>beds</b> with two stored wood each. Goblins eat and rest when they need to.</li><li><b>Dig</b> the exposed rock around your cave. Mark a <b>stockpile</b> on floor to have loose supplies hauled there.</li><li><b>Gather</b> outdoor trees and wild mushrooms. Build a <b>workshop</b>, then use <b>Craft</b> there to turn one wood into a bed kit, automatically used when building a bed.</li></ol><p>Scroll / + / − to zoom. Right-drag or arrow keys to pan. Hold the left mouse button to paint work. Reveal walls lets you inspect goblins behind foreground walls. Home recentres. Space pauses. Escape selects Inspect. Browser tabs pause when hidden.</p><p>This prototype has no raids, Souls, possession, or win condition yet. Your goal: a sustainable little home. Saves stay in this browser; export a backup to keep it.</p><button id="close-help">Into the grotto →</button></dialog>
 <dialog id="new-dialog"><h2>A fresh beginning</h2><p>Save your current grotto before replacing it.</p><form id="new-form"><label>World seed <input id="new-seed" maxlength="100" value="a-golden-spoon" required></label><button>Begin new grotto</button><button id="cancel-new" type="button">Keep this grotto</button></form></dialog>`;
 function el<T extends HTMLElement = HTMLElement>(id: string): T {
   return document.getElementById(id) as T;
@@ -49,6 +52,12 @@ const buttons: {
   disabled?: boolean;
 }[] = [
   { tool: "inspect", label: "Inspect", icon: "◇", hint: "Look closer" },
+  {
+    tool: "explore",
+    label: "Explore",
+    icon: "⌖",
+    hint: "Scout a known passage",
+  },
   { tool: "dig", label: "Dig", icon: "⚒", hint: "Expose rock faces" },
   {
     tool: "stockpile",
@@ -91,12 +100,15 @@ function setTool(next: Tool): void {
   if (buttons.find((b) => b.tool === next)?.disabled) return;
   interaction.select(next);
   tool = next;
+  scene.scouting = tool === "explore";
   for (const b of document.querySelectorAll<HTMLButtonElement>("[data-tool]"))
     b.setAttribute("aria-pressed", String(b.dataset.tool === tool));
   el("mode").textContent =
     tool === "inspect"
       ? "Inspect your grotto"
-      : `${buttons.find((b) => b.tool === tool)?.label} · Choose a tile`;
+      : tool === "explore"
+        ? "Explore · Send a goblin to a turquoise frontier dot"
+        : `${buttons.find((b) => b.tool === tool)?.label} · Choose a tile`;
 }
 function choose(p: Position): void {
   if (!tileAt(state, p)) return;
@@ -112,7 +124,13 @@ function choose(p: Position): void {
       type: "designate",
       tool: build
         ? "build"
-        : (tool as "dig" | "stockpile" | "cancel" | "harvest" | "craft"),
+        : (tool as
+            | "dig"
+            | "stockpile"
+            | "cancel"
+            | "harvest"
+            | "craft"
+            | "explore"),
       position: p,
       ...(build ? { structure: tool as Structure } : {}),
     };
@@ -133,6 +151,7 @@ el("tile-form").onsubmit = (e) => {
       Number(el<HTMLInputElement>("tile-y").value),
     ),
   );
+  scene.focus(selected);
 };
 function setSpeed(speed: number): void {
   clock.speed = speed;
@@ -211,11 +230,15 @@ el("new-form").onsubmit = (e) => {
 function update(): void {
   const q = quantities(state);
   el("resources").replaceChildren(
-    ...(["food", "wood", "stone", "ore", "bedkit"] as const).map((r) => {
-      const span = document.createElement("span");
-      span.innerHTML = `<i>${r === "food" ? "♧" : r === "wood" ? "▥" : r === "stone" ? "◆" : "✧"}</i><b>${q[r]}</b><small>${r === "bedkit" ? "kits" : r}</small>`;
-      return span;
-    }),
+    ...(["food", "wood", "stone", "ore", "gems", "bedkit"] as const).map(
+      (r) => {
+        const span = document.createElement("span");
+        span.innerHTML = `<i>${r === "food" ? "♧" : r === "wood" ? "▥" : r === "stone" ? "◆" : "✧"}</i><b>${r === "ore" ? q.ore + q.iron + q.copper + q.gold : q[r]}</b><small>${r === "bedkit" ? "kits" : r}</small>`;
+        if (r === "ore")
+          span.title = `Mixed ${q.ore} · Iron ${q.iron} · Copper ${q.copper} · Gold ${q.gold}`;
+        return span;
+      },
+    ),
   );
   el("day").textContent =
     `Day ${1 + Math.floor(state.tick / 2400)} · ${clock.speed === 0 ? "Paused" : "The early days"}`;
@@ -277,16 +300,34 @@ function update(): void {
     ? "Unexplored"
     : t.solid
       ? `${materials[t.material].label} face`
-      : (t.structure ?? (t.outside ? "The world outside" : "Cavern floor"));
+      : (t.structure ??
+        (t.feature
+          ? features[t.feature].label
+          : t.outside
+            ? "The world outside"
+            : "Cavern floor"));
   const jobs = state.jobs.filter(
     (j) =>
       j.target.x === selected.x &&
       j.target.y === selected.y &&
       ["active", "open"].includes(j.status),
   );
+  el("discovery-inspection").textContent = t.discovered
+    ? [
+        t.feature
+          ? `${features[t.feature].label} — ${features[t.feature].description}`
+          : "",
+        t.deposit
+          ? `${deposits[t.deposit].label} · ${deposits[t.deposit].action === "mine" ? "Dig to extract" : "Gather to collect"} ${deposits[t.deposit].quantity} ${deposits[t.deposit].resource}`
+          : "",
+      ]
+        .filter(Boolean)
+        .join(" ")
+    : "";
   const terrain = materials[t.material];
-  el("inspection").textContent =
-    `${selected.x}, ${selected.y} · ${t.stockpile ? "Stockpile" : t.solid ? "Needs excavation" : "Walkable"}${t.structure === "farm" ? ` · Growth ${Math.floor(t.growth / 6)}%` : ""} · ${terrain.label}: ${t.solid ? `dig ${terrain.diggable ? `${terrain.hardness} work` : "blocked"} · support ${terrain.stability}/10` : `step ${terrain.moveTicks} ticks`}${jobs.map((j) => ` · ${j.kind}: ${j.reason} (${j.progress} work)`).join("")}`;
+  el("inspection").textContent = !t.discovered
+    ? "No goblin has seen this place. Scout the edge of a known passage to reveal more."
+    : `${selected.x}, ${selected.y} · ${t.stockpile ? "Stockpile" : t.solid ? "Needs excavation" : walkable(t) ? "Walkable" : "Blocked"}${t.structure === "farm" ? ` · Growth ${Math.floor(t.growth / 6)}%` : ""} · ${terrain.label}: ${t.solid ? `dig ${terrain.diggable ? `${terrain.hardness} work` : "blocked"} · support ${terrain.stability}/10` : `step ${terrain.moveTicks} ticks`}${jobs.map((j) => ` · ${j.kind}: ${j.reason} (${j.progress} work)`).join("")}`;
   const farm = state.tiles.filter((t) => t.structure === "farm").length,
     bed = state.tiles.filter((t) => t.structure === "bed").length,
     dug = state.jobs.some((j) => j.kind === "dig" && j.status === "done");

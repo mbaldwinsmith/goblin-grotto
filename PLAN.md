@@ -10,15 +10,14 @@
 **Repository:** New GitHub repository; this document is intended to be its planning source of truth  
 **Planning rule:** Check off a task only when its acceptance criteria are met and its commit is merged. Update this plan whenever scope or architecture changes.
 
-### Prototype implementation note — 0.1.0-prototype.3
+### Prototype implementation note — 0.1.0-prototype.4
 
 The first playable colony slice is implemented and verified. The current presentation uses the owner-requested fixed three-quarter JRPG view, with rectangular floors and raised front wall faces (GG-013/GG-015/GG-017); it supersedes the initial isometric choice. Checkmarks in
 this change identify criteria verified on this branch and become completion
 records when merged, as required above. No milestone release gate or tag is claimed.
 See `docs/PROTOTYPE.md` for evidence and remaining gaps. Iteration 3 verifies bounded camera controls, interleaved depth/reveal, entity selection, the semantic shell, safe tool states, drag excavation and the full terrain registry (GG-016, GG-018–021, GG-025, GG-041). Existing work tools remain enabled because this is already the playable colony stage; Guard and Possess stay disabled until their milestones. GG-011 remains open: hosted quality checks are green, but required merge protection has not been verified. M01–M04 were developed as
 a narrow vertical slice after the core; unchecked dependencies remain explicitly
-open rather than being waived. GG-029 has a traversable forest edge but lacks the
-complete undergrowth/stone/visitor presentation. GG-054 has one tested bed-kit
+open rather than being waived. Iteration 4 verifies chamber archetypes, outdoor dressing, resource deposits, persistent discovery with scouting, and the 1,000-seed validation gate (GG-028–031/GG-033). Save schema 2 migrates schema-1 colonies without regenerating their maps. GG-054 has one tested bed-kit
 recipe; the broader starter furnishing/tool set remains open.
 
 ---
@@ -417,12 +416,12 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-025 — Define typed terrain material registry.** Sand, mud, loose rock, hard stone, bedrock and impenetrable stone; hardness/stability/drop/movement rules. **Done:** gameplay queries use properties, never material-name string comparisons.
 - [x] **GG-026 — Split tile data into terrain, deposit, constructed structure and visibility.** **Done:** placing a chair does not replace the underlying floor material.
 - [x] **GG-027 — Generate seeded caverns.** At least two irregular connected rooms, tunnels, rock walls, a safe starting area and an entrance. **Done:** reproducible world hashes and all starting goblins can reach food/exit.
-- [ ] **GG-028 — Place chamber archetypes and discoveries.** Fungal grove, beast den, ruins, old mine, water feature or shrine chosen by seed. **Done:** each generated site has flavour text/visible affordance and does not trap the start.
-- [ ] **GG-029 — Generate compact outdoors.** Small hillside/forest strip accessible from entrance: trees, undergrowth, stones, traveller approach and boundary. **Done:** goblins can path from starting cavern to a surface forage location.
-- [ ] **GG-030 — Add resource/deposit overlays.** Iron/copper/gold, gems, wood, edible fungi, forage and occasional ancient masonry. **Done:** deposits are inspectable without defining dozens of rock types.
-- [ ] **GG-031 — Add fog of war / discovery.** Unknown chambers, discovered features and known terrain tracked per settlement. **Done:** player does not see unrevealed relics, but known paths remain visible.
+- [x] **GG-028 — Place chamber archetypes and discoveries.** Fungal grove, beast den, ruins, old mine, water feature or shrine chosen by seed. **Done:** each generated site has flavour text/visible affordance and does not trap the start.
+- [x] **GG-029 — Generate compact outdoors.** Small hillside/forest strip accessible from entrance: trees, undergrowth, stones, traveller approach and boundary. **Done:** goblins can path from starting cavern to a surface forage location.
+- [x] **GG-030 — Add resource/deposit overlays.** Iron/copper/gold, gems, wood, edible fungi, forage and occasional ancient masonry. **Done:** deposits are inspectable without defining dozens of rock types.
+- [x] **GG-031 — Add fog of war / discovery.** Unknown chambers, discovered features and known terrain tracked per settlement. **Done:** player does not see unrevealed relics, but known paths remain visible.
 - [ ] **GG-032 — Add material strength/support rules.** Loose materials next to excavations may create a small, telegraphed cave-in; no particle-based physics. **Done:** supports/collapses are deterministic and avoid instant unfair colony wipe.
-- [ ] **GG-033 — Build reachability and validation pass.** Connected spawn, legal buildable floor, food access, entrances, meaningful resource placement. **Done:** automated batch of 1,000 seeds meets invariants, reports failing seed.
+- [x] **GG-033 — Build reachability and validation pass.** Connected spawn, legal buildable floor, food access, entrances, meaningful resource placement. **Done:** automated batch of 1,000 seeds meets invariants, reports failing seed.
 - [ ] **GG-034 — Add simple calendar/weather state.** Seasons and clear/rain/snow probabilities with outside-only modest effects. **Done:** repeatable weather transitions and visible indicator; no detailed atmosphere grid.
 - [ ] **GG-035 — Implement region-level pathfinding service.** A* or suitable grid search, obstacles, occupied-cell tolerance and cached paths on terrain changes. **Done:** navigation tests cover cave tunnel, exterior entrance and newly dug shortcut.
 - [x] **GG-036 — Add new-world seed/config UI.** Choose seed, generate, restart and display seed for bug reporting. **Done:** same seed/config reproduces layout across reload.

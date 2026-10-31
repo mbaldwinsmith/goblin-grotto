@@ -7,13 +7,29 @@ import {
   type Resource,
   type StoryEvent,
   costs,
+  deposits,
+  features,
+  buildable,
+  walkable,
   distance,
   materials,
   position,
   same,
   tileAt,
 } from "./model";
-import { path } from "./world";
+import { path as worldPath } from "./world";
+import { revealFrom } from "./visibility";
+function path(s: GameState, from: Position, to: Position, adjacent = false) {
+  return worldPath(s, from, to, adjacent, true);
+}
+function discover(s: GameState, p: Position): void {
+  for (const kind of revealFrom(s, p))
+    emit(
+      s,
+      "world",
+      `Discovered ${features[kind].label}: ${features[kind].description}`,
+    );
+}
 export { createGame } from "./world";
 export function emit(
   s: GameState,
@@ -82,12 +98,23 @@ export function dispatch(s: GameState, c: Command): Result {
       ok: false,
       reason: "Choose diggable rock; the boundary cannot be dug.",
     };
-  if (c.tool === "build" && (t.solid || t.structure || !c.structure))
+  if (c.tool === "build" && (!buildable(t) || !c.structure))
     return { ok: false, reason: "Choose empty floor and a structure." };
-  if (c.tool === "harvest" && (t.solid || !t.deposit))
-    return { ok: false, reason: "Choose mushrooms or a tree." };
+  if (
+    c.tool === "harvest" &&
+    (t.solid || !t.deposit || deposits[t.deposit].action !== "gather")
+  )
+    return {
+      ok: false,
+      reason: "Choose mushrooms, a tree, loose stone or old masonry.",
+    };
   if (c.tool === "craft" && t.structure !== "workshop")
     return { ok: false, reason: "Select a completed workshop." };
+  if (c.tool === "explore" && !walkable(t))
+    return {
+      ok: false,
+      reason: "Scout a walkable tile at the edge of the known map.",
+    };
   if (c.tool === "haul")
     return { ok: false, reason: "Hauling is automatic: mark a stockpile." };
   s.jobs.push({
@@ -111,7 +138,17 @@ export function dispatch(s: GameState, c: Command): Result {
   return { ok: true };
 }
 export function quantities(s: GameState): Record<Resource, number> {
-  const q = { stone: 0, wood: 0, food: 0, ore: 0, bedkit: 0 };
+  const q = {
+    stone: 0,
+    wood: 0,
+    food: 0,
+    ore: 0,
+    bedkit: 0,
+    iron: 0,
+    copper: 0,
+    gold: 0,
+    gems: 0,
+  };
   for (const i of s.items) q[i.resource] += i.quantity;
   return q;
 }
@@ -363,7 +400,9 @@ function work(s: GameState, g: Goblin, j: Job): void {
         ? `Building ${j.structure}`
         : j.kind === "craft"
           ? "Carving a wooden bed kit"
-          : "Gathering mushrooms and wood";
+          : j.kind === "explore"
+            ? "Scouting the passage"
+            : "Gathering supplies";
   j.progress++;
   g.worked++;
   const required =
@@ -371,33 +410,33 @@ function work(s: GameState, g: Goblin, j: Job): void {
       ? materials[t.material].hardness
       : j.kind === "build"
         ? 35
-        : 25;
+        : j.kind === "explore"
+          ? 1
+          : 25;
   if (j.progress < required) return;
   if (j.kind === "dig") {
     t.solid = false;
+    const drop = t.deposit ? deposits[t.deposit] : null;
     addItem(
       s,
       j.target,
-      t.deposit === "ore" ? "ore" : materials[t.material].drop,
-      2,
+      drop?.resource ?? materials[t.material].drop,
+      drop?.quantity ?? 2,
     );
     t.deposit = null;
-    for (let dy = -1; dy <= 1; dy++)
-      for (let dx = -1; dx <= 1; dx++) {
-        const n = tileAt(s, position(j.target.x + dx, j.target.y + dy));
-        if (n) n.discovered = true;
-      }
+    discover(s, g.position);
   }
   if (j.kind === "build") {
     t.structure = j.structure;
     t.growth = 0;
   }
   if (j.kind === "harvest") {
+    const drop = t.deposit ? deposits[t.deposit] : null;
     addItem(
       s,
       j.target,
-      t.deposit === "wood" ? "wood" : "food",
-      t.structure === "farm" ? 8 : 5,
+      t.structure === "farm" ? "food" : (drop?.resource ?? "food"),
+      t.structure === "farm" ? 8 : (drop?.quantity ?? 5),
     );
     if (t.structure === "farm") t.growth = 0;
     else t.deposit = null;
@@ -407,7 +446,7 @@ function work(s: GameState, g: Goblin, j: Job): void {
   emit(
     s,
     "work",
-    `${g.name} finished ${j.kind === "build" ? `a ${j.structure}` : j.kind === "dig" ? "digging a tile" : j.kind === "craft" ? "a bed kit" : "gathering supplies"}.`,
+    `${g.name} finished ${j.kind === "build" ? `a ${j.structure}` : j.kind === "dig" ? "digging a tile" : j.kind === "craft" ? "a bed kit" : j.kind === "explore" ? "scouting a passage" : "gathering supplies"}.`,
     g.id,
   );
   j.status = "done";
@@ -473,6 +512,7 @@ export function step(s: GameState): void {
     if (j) work(s, g, j);
     else g.activity = "Idle: designate work or grow the grotto";
   }
+  if (s.tick % 10 === 0) for (const g of s.goblins) discover(s, g.position);
   s.items = s.items.filter((i) => i.quantity > 0);
   for (const j of s.jobs)
     if (

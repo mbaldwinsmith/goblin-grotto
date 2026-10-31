@@ -7,6 +7,7 @@ export type Tool =
   | "cancel"
   | "harvest"
   | "craft"
+  | "explore"
   | "guard"
   | "possess"
   | Structure;

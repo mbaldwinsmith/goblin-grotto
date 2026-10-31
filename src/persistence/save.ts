@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { ActorId, ItemId, JobId, EventId } from "../core/types";
+import { resourceKinds, depositKinds, featureKinds } from "../sim/content";
 import type { GameState } from "../sim/model";
 const actor = z.custom<ActorId>(
   (v) => typeof v === "string" && /^goblin-\d+$/.test(v),
@@ -19,10 +20,10 @@ const p = z.object({
   y: z.number().int().min(0).max(63),
   z: z.literal(0),
 });
-const resource = z.enum(["stone", "wood", "food", "ore", "bedkit"]);
+const resource = z.enum(resourceKinds);
 const structure = z.enum(["bed", "farm", "workshop", "door", "wall"]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(1),
+  version: z.literal(2),
   seed: z.string().max(100),
   rng: natural.min(1).max(4294967295),
   tick: natural,
@@ -43,7 +44,8 @@ const schema: z.ZodType<GameState> = z.object({
         solid: z.boolean(),
         outside: z.boolean(),
         discovered: z.boolean(),
-        deposit: resource.nullable(),
+        deposit: z.enum(depositKinds).nullable(),
+        feature: z.enum(featureKinds).nullable(),
         structure: structure.nullable(),
         stockpile: z.boolean(),
         growth: natural.max(600),
@@ -81,7 +83,7 @@ const schema: z.ZodType<GameState> = z.object({
     .array(
       z.object({
         id: jobId,
-        kind: z.enum(["dig", "haul", "build", "harvest", "craft"]),
+        kind: z.enum(["dig", "haul", "build", "harvest", "craft", "explore"]),
         target: p,
         structure: structure.nullable(),
         item: itemId.nullable(),
@@ -109,10 +111,24 @@ const schema: z.ZodType<GameState> = z.object({
 export function decodeSave(text: string): GameState {
   if (text.length > 8_000_000)
     throw new Error("Save exceeds the 8 MB prototype limit.");
-  const result = schema.safeParse(JSON.parse(text));
+  let raw: unknown = JSON.parse(text);
+  const legacy = z
+    .object({
+      version: z.literal(1),
+      tiles: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (legacy.success)
+    raw = {
+      ...legacy.data,
+      version: 2,
+      tiles: legacy.data.tiles.map((tile) => ({ ...tile, feature: null })),
+    };
+  const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Expected Goblin Grotto save version 1.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1 and 2.",
     );
   const s = result.data;
   const all = [...s.goblins, ...s.items, ...s.jobs, ...s.events];

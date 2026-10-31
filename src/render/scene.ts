@@ -1,6 +1,15 @@
+import { drawFeature } from "./features";
 import { Application, Container, Graphics, Sprite, Texture } from "pixi.js";
-import type { ActorId, Position } from "../core/types";
-import { type GameState, materials, position, tileAt } from "../sim/model";
+import { directions, type ActorId, type Position } from "../core/types";
+import {
+  type GameState,
+  materials,
+  position,
+  tileAt,
+  resources,
+  deposits,
+  walkable,
+} from "../sim/model";
 import { cameraFocus, cameraPan, cameraZoom, boundCamera } from "./camera";
 import { actorDepth, objectDepth, inspectPoint } from "./picking";
 import { type Camera, project, unproject } from "./projection";
@@ -49,6 +58,7 @@ export class Scene {
   selectedActor: ActorId | null = null;
   hoverActor: ActorId | null = null;
   reveal = false;
+  scouting = false;
   overlay = new Graphics();
 
   camera: Camera = { x: 0, y: -420, zoom: 1.2 };
@@ -137,7 +147,16 @@ export class Scene {
           g.rect(a.x - 16, a.y, 32, 24)
             .fill(t.outside ? 0x354d3e : (x + y) % 2 ? 0x343d43 : 0x374148)
             .stroke({ color: 0x263438, width: 0.5 });
-        const signature = `${t.material}:${t.solid}:${t.stockpile}:${t.deposit}:${t.structure}:${t.growth >= 600}`;
+        if (
+          this.scouting &&
+          walkable(t) &&
+          directions.some((dir) => {
+            const next = tileAt(s, position(x + dir.x, y + dir.y));
+            return next && !next.discovered;
+          })
+        )
+          o.ellipse(a.x, a.y + 12, 2, 2).fill(0x91ccb1);
+        const signature = `${t.material}:${t.solid}:${t.stockpile}:${t.deposit}:${t.feature}:${t.structure}:${t.growth >= 600}`;
         if (this.tileSignatures.get(key) === signature) continue;
         this.tileSignatures.set(key, signature);
         d.clear();
@@ -164,6 +183,13 @@ export class Scene {
             color: 0xc1a46a,
             width: 1,
           });
+        if (t.feature && !t.solid) drawFeature(d, t.feature, a);
+        if (t.deposit && t.solid) {
+          const color = resources[deposits[t.deposit].resource].color;
+          d.rect(a.x - 9, a.y - 7, 4, 3).fill(color);
+          d.rect(a.x + 2, a.y - 2, 5, 3).fill(color);
+          d.rect(a.x + 7, a.y + 14, 3, 3).fill(color);
+        }
         if (t.deposit && !t.solid) {
           if (t.deposit === "wood") {
             d.rect(a.x - 2, a.y - 14, 4, 22).fill(0x786147);
@@ -173,9 +199,34 @@ export class Scene {
             d.poly([a.x, a.y - 22, a.x - 14, a.y, a.x + 14, a.y]).fill(
               0x43664d,
             );
-          } else {
+          } else if (t.deposit === "food") {
             d.rect(a.x - 1, a.y + 2, 2, 6).fill(0xcbc3a4);
             d.ellipse(a.x, a.y + 2, 5, 3).fill(0x81bca7);
+          }
+        }
+        if (
+          t.deposit &&
+          !t.solid &&
+          t.deposit !== "wood" &&
+          t.deposit !== "food"
+        ) {
+          const color = resources[deposits[t.deposit].resource].color;
+          if (t.deposit === "masonry") {
+            d.rect(a.x - 10, a.y + 5, 10, 6).fill(color);
+            d.rect(a.x + 1, a.y + 10, 11, 5).fill(0xb0b0a0);
+          } else {
+            d.poly([
+              a.x - 10,
+              a.y + 14,
+              a.x - 6,
+              a.y + 7,
+              a.x,
+              a.y + 12,
+              a.x + 7,
+              a.y + 8,
+              a.x + 12,
+              a.y + 17,
+            ]).fill(color);
           }
         }
         if (t.structure === "bed") {
@@ -203,7 +254,9 @@ export class Scene {
             t.structure === "wall" ? 0x737c80 : 0x8c7253,
           );
       }
-    for (const item of s.items.filter((i) => !i.holder)) {
+    for (const item of s.items.filter(
+      (i) => !i.holder && tileAt(s, i.position)?.discovered,
+    )) {
       const a = project(item.position);
       let d = this.itemSprites.get(item.id);
       if (!d) {
@@ -214,13 +267,7 @@ export class Scene {
       d.clear();
       d.visible = true;
       d.zIndex = objectDepth(item.position);
-      d.rect(a.x - 3, a.y + 5, 6, 4).fill(
-        item.resource === "wood"
-          ? 0xb29260
-          : item.resource === "food"
-            ? 0xb9d593
-            : 0x95a3a5,
-      );
+      d.rect(a.x - 3, a.y + 5, 6, 4).fill(resources[item.resource].color);
     }
     for (const j of s.jobs.filter(
       (j) => j.status === "open" || j.status === "active",

@@ -1,3 +1,7 @@
+import { features, type Deposit, type FeatureKind } from "./content";
+export { resources, deposits, features } from "./content";
+export type { Resource, Deposit, FeatureKind } from "./content";
+import type { Resource } from "./content";
 import type { ActorId, ItemId, JobId, EventId, Position } from "../core/types";
 export const materials = {
   sand: {
@@ -57,13 +61,13 @@ export const materials = {
 } as const;
 export type Material = keyof typeof materials;
 export type Structure = "bed" | "farm" | "workshop" | "door" | "wall";
-export type Resource = "stone" | "wood" | "food" | "ore" | "bedkit";
 export interface Tile {
   material: Material;
   solid: boolean;
   outside: boolean;
   discovered: boolean;
-  deposit: Resource | null;
+  deposit: Deposit | null;
+  feature: FeatureKind | null;
   structure: Structure | null;
   stockpile: boolean;
   growth: number;
@@ -87,7 +91,13 @@ export interface Goblin {
   activity: string;
   worked: number;
 }
-export type JobKind = "dig" | "haul" | "build" | "harvest" | "craft";
+export type JobKind =
+  | "dig"
+  | "haul"
+  | "build"
+  | "harvest"
+  | "craft"
+  | "explore";
 export interface Job {
   id: JobId;
   kind: JobKind;
@@ -109,7 +119,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 1;
+  version: 2;
   seed: string;
   rng: number;
   tick: number;
@@ -151,3 +161,17 @@ export const costs: Record<Structure, Partial<Record<Resource, number>>> = {
   door: { wood: 2 },
   wall: { stone: 2 },
 };
+
+export function walkable(t: Tile | undefined): boolean {
+  return (
+    !!t &&
+    !t.solid &&
+    t.structure !== "wall" &&
+    (!t.feature || features[t.feature].walkable)
+  );
+}
+export function buildable(t: Tile): boolean {
+  return (
+    walkable(t) && !t.structure && (!t.feature || features[t.feature].buildable)
+  );
+}

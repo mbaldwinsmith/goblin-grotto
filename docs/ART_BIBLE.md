@@ -13,3 +13,8 @@ remain open. No external artwork, fonts, or audio was imported.
 
 Depth sorting uses logical feet with stable column ties. Wall reveal changes only
 visual opacity and inspection priority, never world solidity or navigation.
+
+Landmarks use original code-drawn markers in `src/render/features.ts`. Resource
+veins use distinct iron/copper/gold/gem colours; decorative vegetation, entrances
+and approach markers stay within the fixed JRPG projection. Fog suppresses their
+rendering until discovered. These remain temporary references, not production art.
