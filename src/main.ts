@@ -1,1 +1,1 @@
-document.querySelector('#app')!.textContent = 'Goblin Grotto';
+document.querySelector("#app")!.textContent = "Goblin Grotto";

@@ -367,7 +367,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 
 - [x] **GG-001 — Initialise repository.** Add `PLAN.md`, basic `README.md`, `.gitignore`, licence decision, `.editorconfig`, branch protection guidance and issue templates. **Done:** fresh clone shows clear setup instructions and no accidental generated files.
 - [x] **GG-002 — Scaffold Vite + strict TypeScript.** Use `vanilla-ts`, pin a lockfile and supported Node version (`.nvmrc` or `engines`). **Done:** `npm install`, `npm run dev` and `npm run build` succeed in a clean clone.
-- [ ] **GG-003 — Configure code quality.** Choose a single linter/formatter stack; add `typecheck`, `lint`, `format:check`. **Done:** CI-quality checks run locally and reject a known bad fixture.
+- [x] **GG-003 — Configure code quality.** Choose a single linter/formatter stack; add `typecheck`, `lint`, `format:check`. **Done:** CI-quality checks run locally and reject a known bad fixture.
 - [ ] **GG-004 — Add unit test harness.** Configure Vitest, headless mode and minimal test helpers. **Done:** `npm run test` runs at least one real assertion without browser APIs.
 - [ ] **GG-005 — Introduce stable identifiers and common types.** Branded or clearly distinct IDs; `Position {x,y,z}`, time/tick, directions, result/error. **Done:** no entity identity depends on array index or display name.
 - [ ] **GG-006 — Add deterministic random generator.** Seed, serialisable state, weighted choice and range helpers; separate cosmetic RNG. **Done:** same seed produces repeatable sequences and restored stream continues exactly.

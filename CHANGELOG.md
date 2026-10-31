@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Biome lint and formatting plus strict type checks (GG-003).
+
 - Vite strict TypeScript scaffold with locked dependencies and Node 24 (GG-002).
 
 - Repository conventions, ignore rules, issue template, and branch protection guidance (GG-001).
