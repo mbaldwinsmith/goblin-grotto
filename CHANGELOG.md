@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Serializable seeded RNG with range and weighted choice (GG-006).
+
 - Distinct stable IDs and grid position contracts (GG-005).
 
 - Headless Vitest harness with real core assertions (GG-004).
