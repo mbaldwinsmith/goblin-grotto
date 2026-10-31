@@ -12,6 +12,8 @@ Unreleased prerelease build; no public milestone tag or release is claimed.
 
 #### Added
 
+- Owner-private HTTPS preview through Sites, so the prototype can be opened without cloud port forwarding.
+
 - Chromium browser checks for farm construction, digging, panning and zoom, save/load, malformed imports and portable saves in a fresh profile (GG-024).
 
 - Playable PixiJS WebGL map, seeded new-world dialog, inspection and work tools, keyboard controls, speed controls and onboarding guide (GG-014,GG-017,GG-036,GG-059).

@@ -2,7 +2,7 @@
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. Checkboxes in this change represent verified
-implementation and become completed plan records on merge. No release tag exists.
+implementation and become completed plan records on merge. No release tag exists. An owner-private [hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is now deployed through Sites; this is not a public milestone release.
 
 ## What to try
 

@@ -11,7 +11,9 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 **Current build: `0.1.0-prototype.1`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
-Use Node 24:
+A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
+
+To run locally, use Node 24:
 
 ```sh
 npm ci
