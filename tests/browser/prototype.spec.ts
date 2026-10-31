@@ -61,6 +61,10 @@ test("projection comparison scenes support floor and item picking", async ({
   await expect(page.locator("#iso-result")).toContainText("Selected 2, 2");
   await page.locator("#oblique").click({ position: { x: 230, y: 180 } });
   await expect(page.locator("#oblique-result")).toContainText("Selected 2, 2");
+  await page.locator("#iso").click({ position: { x: 278, y: 176 } });
+  await expect(page.locator("#iso-result")).toContainText("Selected 3, 3");
+  await page.locator("#oblique").click({ position: { x: 280, y: 224 } });
+  await expect(page.locator("#oblique-result")).toContainText("Selected 3, 3");
   await page.screenshot({
     path: "docs/screenshots/projection-study.png",
     fullPage: true,

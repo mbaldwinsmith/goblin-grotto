@@ -6,7 +6,11 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
-### Added
+### 0.1.0-prototype.1 — playable local prototype
+
+Unreleased prerelease build; no public milestone tag or release is claimed.
+
+#### Added
 
 - Chromium browser checks for farm construction, digging, panning and zoom, save/load, malformed imports and portable saves in a fresh profile (GG-024).
 
@@ -20,7 +24,7 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 - Canonical snapshot hashes and deterministic command replay regression tests (GG-010).
 
-- Deterministic command-driven colony slice: connected seeded caves and surface, autonomous jobs, resource hauling, mushroom food cycle, workshop bed kits, dashboard totals and multi-seed endurance tests (GG-008,GG-009,GG-026,GG-027,GG-029,GG-039,GG-042,GG-043,GG-051,GG-052,GG-054,GG-055,GG-060).
+- Deterministic command-driven colony slice: connected seeded caves and surface, autonomous jobs, resource hauling, mushroom food cycle, workshop bed kits, dashboard totals and multi-seed endurance tests (GG-008,GG-009,GG-026,GG-027,GG-039,GG-042,GG-043,GG-051,GG-052,GG-055,GG-060).
 
 - Fixed step clock with pause speed and bounded catch-up (GG-007).
 
@@ -35,6 +39,11 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 - Vite strict TypeScript scaffold with locked dependencies and Node 24 (GG-002).
 
 - Repository conventions, ignore rules, issue template, and branch protection guidance (GG-001).
+
+- Partial GG-029: traversable outdoor strip with trees and forage. Partial GG-054: one workshop bed-kit recipe with a tested craft-to-build loop; broader content remains open.
+- GitHub Actions quality workflow added; GG-011 remains open until hosted CI and merge protection are verified.
+
+#### Earlier documentation
 
 - Initial development workflow and agent guidance in `AGENTS.md`, including task-tracking and changelog requirements.
 

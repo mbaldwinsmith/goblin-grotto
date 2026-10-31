@@ -186,9 +186,9 @@ el("new-form").onsubmit = (e) => {
 function update(): void {
   const q = quantities(state);
   el("resources").replaceChildren(
-    ...(["food", "wood", "stone", "ore"] as const).map((r) => {
+    ...(["food", "wood", "stone", "ore", "bedkit"] as const).map((r) => {
       const span = document.createElement("span");
-      span.innerHTML = `<i>${r === "food" ? "♧" : r === "wood" ? "▥" : r === "stone" ? "◆" : "✧"}</i><b>${q[r]}</b><small>${r}</small>`;
+      span.innerHTML = `<i>${r === "food" ? "♧" : r === "wood" ? "▥" : r === "stone" ? "◆" : "✧"}</i><b>${q[r]}</b><small>${r === "bedkit" ? "kits" : r}</small>`;
       return span;
     }),
   );

@@ -10,6 +10,17 @@
 **Repository:** New GitHub repository; this document is intended to be its planning source of truth  
 **Planning rule:** Check off a task only when its acceptance criteria are met and its commit is merged. Update this plan whenever scope or architecture changes.
 
+### Prototype implementation note — 0.1.0-prototype.1
+
+The first playable local colony slice is implemented and verified. Checkmarks in
+this change identify criteria verified on this branch and become completion
+records when merged, as required above. No milestone release gate or tag is claimed.
+See `docs/PROTOTYPE.md` for evidence and remaining gaps. M01–M04 were developed as
+a narrow vertical slice after the core; unchecked dependencies remain explicitly
+open rather than being waived. GG-029 has a traversable forest edge but lacks the
+complete undergrowth/stone/visitor presentation. GG-054 has one tested bed-kit
+recipe; the broader starter furnishing/tool set remains open.
+
 ---
 
 ## 0. North star, pillars and boundaries
@@ -407,7 +418,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-026 — Split tile data into terrain, deposit, constructed structure and visibility.** **Done:** placing a chair does not replace the underlying floor material.
 - [x] **GG-027 — Generate seeded caverns.** At least two irregular connected rooms, tunnels, rock walls, a safe starting area and an entrance. **Done:** reproducible world hashes and all starting goblins can reach food/exit.
 - [ ] **GG-028 — Place chamber archetypes and discoveries.** Fungal grove, beast den, ruins, old mine, water feature or shrine chosen by seed. **Done:** each generated site has flavour text/visible affordance and does not trap the start.
-- [x] **GG-029 — Generate compact outdoors.** Small hillside/forest strip accessible from entrance: trees, undergrowth, stones, traveller approach and boundary. **Done:** goblins can path from starting cavern to a surface forage location.
+- [ ] **GG-029 — Generate compact outdoors.** Small hillside/forest strip accessible from entrance: trees, undergrowth, stones, traveller approach and boundary. **Done:** goblins can path from starting cavern to a surface forage location.
 - [ ] **GG-030 — Add resource/deposit overlays.** Iron/copper/gold, gems, wood, edible fungi, forage and occasional ancient masonry. **Done:** deposits are inspectable without defining dozens of rock types.
 - [ ] **GG-031 — Add fog of war / discovery.** Unknown chambers, discovered features and known terrain tracked per settlement. **Done:** player does not see unrevealed relics, but known paths remain visible.
 - [ ] **GG-032 — Add material strength/support rules.** Loose materials next to excavations may create a small, telegraphed cave-in; no particle-based physics. **Done:** supports/collapses are deterministic and avoid instant unfair colony wipe.
@@ -446,7 +457,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-051 — Add forage gathering and eating.** Outdoor edible plants and underground mushrooms, carried/stored food, hunger reduction. **Done:** goblins can feed themselves when food and path exist.
 - [x] **GG-052 — Implement mushroom patch.** Assign fertile patch; growth timer, harvest, replant/maintenance. **Done:** a stable, understandable food cycle sustains four goblins.
 - [ ] **GG-053 — Build simple structures.** Blueprint, material reservation, construction progress; entrance door, bed, stockpile container and basic wall. **Done:** missing resources display clearly; refund/release on cancel.
-- [x] **GG-054 — Add starter workshop and recipes.** Convert rock/wood into a few furnishings/tools; job selection integrates with labour. **Done:** at least one full gather → craft → use loop.
+- [ ] **GG-054 — Add starter workshop and recipes.** Convert rock/wood into a few furnishings/tools; job selection integrates with labour. **Done:** at least one full gather → craft → use loop.
 - [x] **GG-055 — Add minimal resource dashboard.** Food, wood, loose stone, ore and items in storage; no invisible double counting. **Done:** quantities reflect actual stockpiles and carried/staged items.
 - [x] **GG-056 — Build save schema/version.** Serialize world, seed, RNG, goblins, tasks, resources, calendar, reservations, event IDs. **Done:** save is pure validated data, not a Pixi snapshot.
 - [x] **GG-057 — Implement save/load in IndexedDB.** Manual slots, autosave interval, save errors and migration placeholder. **Done:** reload restores running tasks and no items disappear/duplicate.
