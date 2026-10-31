@@ -395,7 +395,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [ ] **GG-021 — Add interaction state machine.** Inspect/dig/build/stockpile/guard/possess tool modes; only inspect enabled at this stage. **Done:** Escape exits modes safely and pointer state cannot stick.
 - [ ] **GG-022 — Create first PixelLab art bible.** Palette, 32×32 character footprint, orientations, origin points, frame timing, floor projection, outlines, light/shadow, icon scale and export rules. **Done:** `docs/ART_BIBLE.md` includes actual reference sprites and validation checklist.
 - [ ] **GG-023 — Import first curated art atlas.** Goblin idle/walk placeholders, six terrain visuals, entrance, mushroom, tree; no copyrighted third-party assets. **Done:** manifest resolves without missing assets and supports hot art swaps.
-- [ ] **GG-024 — Add rendering/browser smoke.** Playwright opens scene, selects tile, pans/zooms and detects no uncaught errors. **Done:** CI includes one real graphical interaction test.
+- [x] **GG-024 — Add rendering/browser smoke.** Playwright opens scene, selects tile, pans/zooms and detects no uncaught errors. **Done:** CI includes one real graphical interaction test.
 
 **Gate M01:** A coherent, beautiful-enough **single-level map viewer** with reliable pointer/keyboard controls. No simulation-to-render circular dependency.
 

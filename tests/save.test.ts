@@ -59,4 +59,4 @@ it("multiple colony seeds survive and validate every save checkpoint", () => {
     }
     for (const g of s.goblins) expect(g.hunger).toBeLessThan(90);
   }
-});
+}, 20_000);

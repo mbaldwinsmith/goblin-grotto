@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Chromium browser checks for farm construction, digging, panning and zoom, save/load, malformed imports and portable saves in a fresh profile (GG-024).
+
 - Playable PixiJS WebGL map, seeded new-world dialog, inspection and work tools, keyboard controls, speed controls and onboarding guide (GG-014,GG-017,GG-036,GG-059).
 
 - Validated versioned IndexedDB manual and autosave slots, portable JSON import/export and exact save continuation (GG-056,GG-057,GG-058).
