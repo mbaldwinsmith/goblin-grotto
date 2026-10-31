@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.1`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.2`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -86,7 +86,7 @@ bounded and focused on what goblins can experience.
 
 ## Development
 
-Strict TypeScript + Vite, PixiJS WebGL, semantic HTML/CSS, a pure 10 Hz simulation,
+Strict TypeScript + Vite, PixiJS WebGL with a fixed three-quarter JRPG view, semantic HTML/CSS, a pure 10 Hz simulation,
 seeded serializable RNG, typed commands/events, and versioned IndexedDB saves.
 Rendering never decides gameplay outcomes.
 

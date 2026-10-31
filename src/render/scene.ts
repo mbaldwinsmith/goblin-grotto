@@ -42,7 +42,7 @@ export class Scene {
   details = new Graphics();
   overlay = new Graphics();
   actors = new Container();
-  camera: Camera = { x: 0, y: -420, zoom: 1.6 };
+  camera: Camera = { x: 0, y: -420, zoom: 1.2 };
   selected: Position | null = null;
   hover: Position | null = null;
   private sprites: Sprite[] = [];
@@ -105,45 +105,26 @@ export class Scene {
             : (x + y) % 2
               ? 0x343d43
               : 0x374148;
-        const h = t.solid ? 10 : 0;
-        g.poly([
-          a.x,
-          a.y - h,
-          a.x + 16,
-          a.y + 8 - h,
-          a.x,
-          a.y + 16 - h,
-          a.x - 16,
-          a.y + 8 - h,
-        ])
-          .fill(color)
-          .stroke({ color: 0x19292e, width: 0.5 });
-        if (t.solid)
-          g.poly([
-            a.x - 16,
-            a.y + 8 - h,
-            a.x,
-            a.y + 16 - h,
-            a.x + 16,
-            a.y + 8 - h,
-            a.x + 16,
-            a.y + 8,
-            a.x,
-            a.y + 16,
-            a.x - 16,
-            a.y + 8,
-          ]).fill(0x2a343e);
+        // JRPG three-quarter view: axis-aligned floors, raised wall tops and
+        // vertical front faces. North/south movement stays vertical on screen.
+        if (t.solid) {
+          g.rect(a.x - 16, a.y - 14, 32, 24)
+            .fill(color)
+            .stroke({ color: 0x26343b, width: 0.5 });
+          g.rect(a.x - 16, a.y + 10, 32, 14).fill(0x2a343e);
+          g.moveTo(a.x - 15, a.y + 11)
+            .lineTo(a.x + 15, a.y + 11)
+            .stroke({ color: 0x56616a, width: 1 });
+        } else {
+          g.rect(a.x - 16, a.y, 32, 24)
+            .fill(color)
+            .stroke({ color: 0x263438, width: 0.5 });
+        }
         if (t.stockpile)
-          d.poly([
-            a.x - 11,
-            a.y + 8,
-            a.x,
-            a.y + 3,
-            a.x + 11,
-            a.y + 8,
-            a.x,
-            a.y + 13,
-          ]).stroke({ color: 0xc1a46a, width: 1 });
+          d.rect(a.x - 12, a.y + 4, 24, 16).stroke({
+            color: 0xc1a46a,
+            width: 1,
+          });
         if (t.deposit && !t.solid) {
           if (t.deposit === "wood") {
             d.rect(a.x - 2, a.y - 14, 4, 22).fill(0x786147);
@@ -164,16 +145,7 @@ export class Scene {
           d.rect(a.x - 1, a.y + 1, 9, 6).fill(0x648d83);
         }
         if (t.structure === "farm") {
-          d.poly([
-            a.x - 13,
-            a.y + 8,
-            a.x,
-            a.y + 2,
-            a.x + 13,
-            a.y + 8,
-            a.x,
-            a.y + 14,
-          ]).fill(0x5a5840);
+          d.rect(a.x - 13, a.y + 3, 26, 18).fill(0x5a5840);
           for (let i = 0; i < 3; i++) {
             d.rect(a.x - 7 + i * 7, a.y + 4, 2, 5).fill(0xc2c59c);
             d.ellipse(a.x - 6 + i * 7, a.y + 4, 3, 2).fill(
@@ -206,18 +178,12 @@ export class Scene {
       (j) => j.status === "open" || j.status === "active",
     )) {
       const a = project(j.target);
-      o.poly([
-        a.x - 13,
-        a.y + 8,
-        a.x,
-        a.y + 2,
-        a.x + 13,
-        a.y + 8,
-        a.x,
-        a.y + 14,
-      ]).stroke({ color: j.kind === "dig" ? 0xe1b66a : 0x7dc8be, width: 1 });
+      o.rect(a.x - 13, a.y + 3, 26, 18).stroke({
+        color: j.kind === "dig" ? 0xe1b66a : 0x7dc8be,
+        width: 1,
+      });
       if (j.progress)
-        o.rect(a.x - 8, a.y + 15, Math.min(16, j.progress / 3), 2).fill(
+        o.rect(a.x - 8, a.y + 22, Math.min(16, j.progress / 3), 2).fill(
           0xe1b66a,
         );
     }
@@ -233,31 +199,22 @@ export class Scene {
       const a = project(g.position);
       sprite.position.set(
         a.x,
-        a.y + 8 + (g.job ? Math.floor(s.tick / 3) % 2 : 0),
+        a.y + 17 + (g.job ? Math.floor(s.tick / 3) % 2 : 0),
       );
-      sprite.zIndex = g.position.x + g.position.y;
+      sprite.zIndex = g.position.y * s.width + g.position.x;
       sprite.alpha = g.activity === "Sleeping" ? 0.6 : 1;
       if (
         this.selected &&
         g.position.x === this.selected.x &&
         g.position.y === this.selected.y
       )
-        o.ellipse(a.x, a.y + 9, 12, 5).stroke({ color: 0xe9d69e, width: 1 });
+        o.ellipse(a.x, a.y + 18, 12, 5).stroke({ color: 0xe9d69e, width: 1 });
     });
     this.actors.sortableChildren = true;
     for (const p of [this.hover, this.selected])
       if (p) {
         const a = project(p);
-        o.poly([
-          a.x - 16,
-          a.y + 8,
-          a.x,
-          a.y,
-          a.x + 16,
-          a.y + 8,
-          a.x,
-          a.y + 16,
-        ]).stroke({
+        o.rect(a.x - 16, a.y, 32, 24).stroke({
           color: p === this.selected ? 0xf3d59b : 0xa5c9bb,
           width: 1.5,
         });

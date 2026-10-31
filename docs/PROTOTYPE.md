@@ -1,7 +1,7 @@
-# 0.1.0-prototype.1 — verification and handoff
+# 0.1.0-prototype.2 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
-It is not the full v0.1 release. Checkboxes in this change represent verified
+It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
 implementation and become completed plan records on merge. No release tag exists. An owner-private [hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is now deployed through Sites; this is not a public milestone release.
 
 ## What to try
@@ -16,7 +16,7 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 13 headless tests in four files. Includes 1,000 seeded starts;
+- `npm test`: 14 headless tests in four files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;

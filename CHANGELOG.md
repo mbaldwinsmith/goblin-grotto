@@ -6,6 +6,12 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.2 — three-quarter JRPG perspective
+
+#### Changed
+
+- Corrected GG-013/GG-015/GG-017 presentation to the requested three-quarter JRPG view: rectangular floor tiles, raised walls, upright sprites and row-based depth sorting. Updated picking, overlays, projection regression tests and the projection ADR. Simulation coordinates and saves retain their existing format.
+
 ### 0.1.0-prototype.1 — playable local prototype
 
 Unreleased prerelease build; no public milestone tag or release is claimed.

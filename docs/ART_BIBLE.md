@@ -1,7 +1,8 @@
 # Prototype art reference
 
-Fixed diamond floors, 2:1 width/height, square gameplay grid; no camera rotation.
-The [projection comparison](screenshots/projection-study.png) records the choice.
+Fixed three-quarter JRPG view: rectangular 32×24 floors and upright 32×32 actors,
+raised wall tops with vertical front faces, square gameplay grid; no camera rotation.
+The [projection comparison](screenshots/projection-study.png) records the historical experiment; ADR 0002 records the owner-corrected JRPG choice.
 Goblin sprites are original 32×32 pixel drawings in `src/render/scene.ts`, with
 feet at approximately (16,29), nearest-neighbour sampling, olive skin, warm coats,
 and teal mushrooms against blue-grey stone. See [in-game reference](screenshots/prototype.png).

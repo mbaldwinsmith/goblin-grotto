@@ -10,9 +10,9 @@
 **Repository:** New GitHub repository; this document is intended to be its planning source of truth  
 **Planning rule:** Check off a task only when its acceptance criteria are met and its commit is merged. Update this plan whenever scope or architecture changes.
 
-### Prototype implementation note — 0.1.0-prototype.1
+### Prototype implementation note — 0.1.0-prototype.2
 
-The first playable local colony slice is implemented and verified. Checkmarks in
+The first playable colony slice is implemented and verified. The current presentation uses the owner-requested fixed three-quarter JRPG view, with rectangular floors and raised front wall faces (GG-013/GG-015/GG-017); it supersedes the initial isometric choice. Checkmarks in
 this change identify criteria verified on this branch and become completion
 records when merged, as required above. No milestone release gate or tag is claimed.
 See `docs/PROTOTYPE.md` for evidence and remaining gaps. M01–M04 were developed as
