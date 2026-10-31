@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Vite strict TypeScript scaffold with locked dependencies and Node 24 (GG-002).
+
 - Repository conventions, ignore rules, issue template, and branch protection guidance (GG-001).
 
 - Initial development workflow and agent guidance in `AGENTS.md`, including task-tracking and changelog requirements.
