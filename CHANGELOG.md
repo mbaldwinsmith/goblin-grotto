@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Canonical snapshot hashes and deterministic command replay regression tests (GG-010).
+
 - Deterministic command-driven colony slice: connected seeded caves and surface, autonomous jobs, resource hauling, mushroom food cycle, workshop bed kits, dashboard totals and multi-seed endurance tests (GG-008,GG-009,GG-026,GG-027,GG-029,GG-039,GG-042,GG-043,GG-051,GG-052,GG-054,GG-055,GG-060).
 
 - Fixed step clock with pause speed and bounded catch-up (GG-007).

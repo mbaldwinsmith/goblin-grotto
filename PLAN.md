@@ -374,7 +374,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-007 — Implement fixed-step headless clock.** Step, pause, speed multiplier, deterministic scheduler and max catch-up policy. **Done:** 1000 headless steps produce the same state independent of render rate.
 - [x] **GG-008 — Define `GameState` and command boundary.** `createGame(seed)`, `dispatch(command)`, `step()`; typed accepted/rejected results. **Done:** simulation cannot import PixiJS, HTML or DOM globals.
 - [x] **GG-009 — Implement typed event bus and Chronicle foundations.** Strongly typed events, event IDs, game timestamps and bounded retention. **Done:** a command produces a verifiable event; malformed references are rejected.
-- [ ] **GG-010 — Add canonical snapshot hashing/replay fixture.** Record seed and commands, compare serialisable state. **Done:** same inputs = same checksum; different command produces explainable difference.
+- [x] **GG-010 — Add canonical snapshot hashing/replay fixture.** Record seed and commands, compare serialisable state. **Done:** same inputs = same checksum; different command produces explainable difference.
 - [ ] **GG-011 — Wire GitHub Actions.** Install, typecheck, lint, test and build on PR/push; cache dependencies without committing generated output. **Done:** intentional failure blocks merge.
 - [ ] **GG-012 — Record architecture decisions.** Initial ADRs for fixed-step sim, renderer separation, no framework UI and save strategy. **Done:** each ADR lists alternatives and trade-offs, not just conclusions.
 

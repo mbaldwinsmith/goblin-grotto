@@ -21,8 +21,7 @@ it("clock pauses and caps resume; render rates do not change fixed steps", () =>
     const c = new Clock();
     let n = 0;
     for (let i = 0; i < Math.round(100 / dt); i++) c.advance(dt, () => n++);
-    expect(n).toBeGreaterThanOrEqual(999);
-    expect(n).toBeLessThanOrEqual(1000);
+    expect(n).toBe(1000);
   }
   const c = new Clock();
   c.speed = 0;
