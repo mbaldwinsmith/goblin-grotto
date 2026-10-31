@@ -384,9 +384,9 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 
 **Goal:** The player can navigate and select a simple single-level grotto. **Depends on:** M00.
 
-- [ ] **GG-013 — SPIKE projection with two miniature scenes.** Compare JRPG oblique vs 64×32 isometric floor for 32×32 goblins; include walls, overlap and item click tests. **Done:** screenshots and pros/cons documented; choose one in ADR/ART_BIBLE.
+- [x] **GG-013 — SPIKE projection with two miniature scenes.** Compare JRPG oblique vs 64×32 isometric floor for 32×32 goblins; include walls, overlap and item click tests. **Done:** screenshots and pros/cons documented; choose one in ADR/ART_BIBLE.
 - [ ] **GG-014 — Integrate PixiJS WebGL.** Resize-aware canvas, nearest-neighbour pixel art, lost-context/error state. **Done:** demo renders on desktop and fails helpfully without usable WebGL.
-- [ ] **GG-015 — Build logical-to-screen projection adapter.** Project/unproject and tile hit-testing separated from world coordinates. **Done:** roundtrip tests cover edges, negative values and camera zoom.
+- [x] **GG-015 — Build logical-to-screen projection adapter.** Project/unproject and tile hit-testing separated from world coordinates. **Done:** roundtrip tests cover edges, negative values and camera zoom.
 - [ ] **GG-016 — Implement camera controls.** Pan/drag, wheel/keyboard zoom, bounds, reset and focus-on-entity. **Done:** navigation remains stable after resize and pause.
 - [ ] **GG-017 — Render a simple tile field.** Solid/floor tiles, visible grid and hover. **Done:** a 64×64 map is visible without per-tile HTML elements.
 - [ ] **GG-018 — Implement depth and occlusion.** Sort by logical feet/structure depth, fade selected foreground walls, preserve correct click targets. **Done:** a goblin behind walls remains selectable by deliberate reveal mode.
