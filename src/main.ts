@@ -1,9 +1,11 @@
 import "./style.css";
 import { Clock } from "./core/clock";
-import type { Position } from "./core/types";
+import { Interaction, type Tool } from "./app/interaction";
+import type { ActorId, Position } from "./core/types";
 import { createGame, dispatch, quantities, step } from "./sim/game";
 import {
   costs,
+  materials,
   type Command,
   type Structure,
   position,
@@ -15,26 +17,20 @@ import { decodeSave, encodeSave, loadGame, saveGame } from "./persistence/save";
 export let state = createGame("moss-and-moonlight");
 const clock = new Clock();
 const scene = new Scene();
-type Tool =
-  | "inspect"
-  | "dig"
-  | "stockpile"
-  | "cancel"
-  | "harvest"
-  | "craft"
-  | Structure;
 let tool: Tool = "inspect";
+const interaction = new Interaction();
+let selectedActor: ActorId | null = null;
 let selected: Position = position(30, 30);
 let ready = false;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.innerHTML = `
-<header><a class="brand" href="./"><span class="sigil">♧</span><span>GOBLIN GROTTO<small>A HOME IN THE ROCK</small></span></a><div id="resources"></div><div class="time"><span id="day"></span><small>EARLY PLAYABLE · 0.1.0-prototype.2</small></div></header>
-<div class="workspace"><nav aria-label="Grotto tools"><span class="eyebrow">YOUR INFLUENCE</span><div id="tools"></div><div class="nav-bottom"><button id="home">⌂ <span>Home</span></button><button id="help-button">? <span>How to play</span></button></div></nav>
+<header><a class="brand" href="./"><span class="sigil">♧</span><span>GOBLIN GROTTO<small>A HOME IN THE ROCK</small></span></a><div id="resources"></div><div class="time"><span id="day"></span><small>EARLY PLAYABLE · 0.1.0-prototype.3</small></div></header>
+<div class="workspace"><nav aria-label="Grotto tools"><span class="eyebrow">YOUR INFLUENCE</span><div id="tools"></div><div class="nav-bottom"><button id="home">⌂ <span>Home</span></button><button id="reveal" aria-pressed="false">◈ <span>Reveal walls</span></button><button id="help-button">? <span>How to play</span></button></div></nav>
 <main><div class="map-heading"><span class="eyebrow">THE HOLLOW UNDER THE HILL</span><h1>A little cave.<br>A grand beginning.</h1><p>Dig deep. Hoard shinies. Make a home.</p></div><div id="map"></div><div class="map-caption"><span class="live-dot"></span><span id="mode">Inspect your grotto</span><span class="map-hint">Scroll to zoom · Right-drag to pan</span></div><div id="notice" role="status" aria-live="polite">Welcome, Spirit. Plant two mushroom patches, build beds, then carve out a home.</div></main>
-<aside><div class="aside-title"><span class="eyebrow">THE GROTTO</span><span class="badge">4 SOULS</span></div><h2>Your little troublemakers</h2><p class="muted">A home is only as good as its goblins.</p><div id="goblins"></div><section class="inspector"><span class="eyebrow">UNDER YOUR GAZE</span><h3 id="tile-name">Cavern floor</h3><div id="inspection"></div><form id="tile-form"><label>X <input id="tile-x" type="number" min="0" max="63" value="30"></label><label>Y <input id="tile-y" type="number" min="0" max="63" value="30"></label><button>Apply tool</button></form><p class="muted">Coordinates also let you work by keyboard.</p></section><section class="goal"><span>✧</span><div><strong>A home, not just a hole</strong><p id="goals">Plant patches · Make beds · Dig a room</p></div></section></aside></div>
+<aside><div class="aside-title"><span class="eyebrow">THE GROTTO</span><span class="badge">4 SOULS</span></div><h2>Your little troublemakers</h2><p class="muted">A home is only as good as its goblins.</p><div id="goblins"></div><section class="inspector"><span class="eyebrow">UNDER YOUR GAZE</span><h3 id="tile-name">Cavern floor</h3><div id="inspection"></div><div id="actor-inspection"></div><form id="tile-form"><label>X <input id="tile-x" type="number" min="0" max="63" value="30"></label><label>Y <input id="tile-y" type="number" min="0" max="63" value="30"></label><button>Apply tool</button></form><p class="muted">Coordinates also let you work by keyboard.</p></section><section class="goal"><span>✧</span><div><strong>A home, not just a hole</strong><p id="goals">Plant patches · Make beds · Dig a room</p></div></section></aside></div>
 <footer><div class="speed" aria-label="Simulation speed"><button data-speed="0" aria-label="Pause">Ⅱ</button><button data-speed="1" aria-pressed="true">1×</button><button data-speed="2">2×</button><button data-speed="4">4×</button></div><span id="seed-label"></span><div class="saves"><button id="save">Save</button><button id="load">Load</button><button id="load-auto">Load auto</button><button id="export">Export</button><label class="file-button">Import<input id="import" type="file" accept=".json"></label><button id="new">New grotto</button></div></footer>
-<section class="chronicle"><div><span class="eyebrow">THE CHRONICLE</span><h2>Small lives. Lasting stories.</h2></div><ol id="events"></ol></section>
-<dialog id="help"><span class="eyebrow">WELCOME, SPIRIT</span><h2>Make this hollow a home.</h2><p>Your four goblins choose reachable jobs themselves. Select a tool, then click a tile or enter coordinates. Gold outlines are digging jobs; teal outlines are other work.</p><ol><li>Plant two <b>mushroom patches</b> on empty floor. They grow and harvest automatically.</li><li>Build <b>beds</b> with two stored wood each. Goblins eat and rest when they need to.</li><li><b>Dig</b> the exposed rock around your cave. Mark a <b>stockpile</b> on floor to have loose supplies hauled there.</li><li><b>Gather</b> outdoor trees and wild mushrooms. Build a <b>workshop</b>, then use <b>Craft</b> there to turn one wood into a bed kit, automatically used when building a bed.</li></ol><p>Scroll / + / − to zoom. Right-drag or arrow keys to pan. Home recentres. Space pauses. Escape selects Inspect. Browser tabs pause when hidden.</p><p>This prototype has no raids, Souls, possession, or win condition yet. Your goal: a sustainable little home. Saves stay in this browser; export a backup to keep it.</p><button id="close-help">Into the grotto →</button></dialog>
+<details class="chronicle" id="chronicle" open><summary><div><span class="eyebrow">THE CHRONICLE</span><h2>Small lives. Lasting stories.</h2></div></summary><ol id="events"></ol></details>
+<dialog id="help"><span class="eyebrow">WELCOME, SPIRIT</span><h2>Make this hollow a home.</h2><p>Your four goblins choose reachable jobs themselves. Select a tool, then click a tile or enter coordinates. Gold outlines are digging jobs; teal outlines are other work.</p><ol><li>Plant two <b>mushroom patches</b> on empty floor. They grow and harvest automatically.</li><li>Build <b>beds</b> with two stored wood each. Goblins eat and rest when they need to.</li><li><b>Dig</b> the exposed rock around your cave. Mark a <b>stockpile</b> on floor to have loose supplies hauled there.</li><li><b>Gather</b> outdoor trees and wild mushrooms. Build a <b>workshop</b>, then use <b>Craft</b> there to turn one wood into a bed kit, automatically used when building a bed.</li></ol><p>Scroll / + / − to zoom. Right-drag or arrow keys to pan. Hold the left mouse button to paint work. Reveal walls lets you inspect goblins behind foreground walls. Home recentres. Space pauses. Escape selects Inspect. Browser tabs pause when hidden.</p><p>This prototype has no raids, Souls, possession, or win condition yet. Your goal: a sustainable little home. Saves stay in this browser; export a backup to keep it.</p><button id="close-help">Into the grotto →</button></dialog>
 <dialog id="new-dialog"><h2>A fresh beginning</h2><p>Save your current grotto before replacing it.</p><form id="new-form"><label>World seed <input id="new-seed" maxlength="100" value="a-golden-spoon" required></label><button>Begin new grotto</button><button id="cancel-new" type="button">Keep this grotto</button></form></dialog>`;
 function el<T extends HTMLElement = HTMLElement>(id: string): T {
   return document.getElementById(id) as T;
@@ -45,7 +41,13 @@ function notice(text: string): void {
 function fail(e: unknown): void {
   notice(e instanceof Error ? e.message : String(e));
 }
-const buttons: { tool: Tool; label: string; icon: string; hint: string }[] = [
+const buttons: {
+  tool: Tool;
+  label: string;
+  icon: string;
+  hint: string;
+  disabled?: boolean;
+}[] = [
   { tool: "inspect", label: "Inspect", icon: "◇", hint: "Look closer" },
   { tool: "dig", label: "Dig", icon: "⚒", hint: "Expose rock faces" },
   {
@@ -62,15 +64,32 @@ const buttons: { tool: Tool; label: string; icon: string; hint: string }[] = [
   { tool: "harvest", label: "Gather", icon: "❋", hint: "Mushrooms & trees" },
   { tool: "craft", label: "Craft", icon: "✧", hint: "Use a workshop" },
   { tool: "cancel", label: "Cancel work", icon: "×", hint: "Release a job" },
+  {
+    tool: "guard",
+    label: "Guard",
+    icon: "⚑",
+    hint: "Requires combat milestone",
+    disabled: true,
+  },
+  {
+    tool: "possess",
+    label: "Possess",
+    icon: "✧",
+    hint: "Requires Spirit milestone",
+    disabled: true,
+  },
 ];
 for (const b of buttons) {
   const btn = document.createElement("button");
   btn.dataset.tool = b.tool;
+  btn.disabled = !!b.disabled;
   btn.innerHTML = `<span class="tool-icon">${b.icon}</span><span>${b.label}<small>${b.hint}</small></span>`;
   btn.onclick = () => setTool(b.tool);
   el("tools").append(btn);
 }
 function setTool(next: Tool): void {
+  if (buttons.find((b) => b.tool === next)?.disabled) return;
+  interaction.select(next);
   tool = next;
   for (const b of document.querySelectorAll<HTMLButtonElement>("[data-tool]"))
     b.setAttribute("aria-pressed", String(b.dataset.tool === tool));
@@ -82,10 +101,12 @@ function setTool(next: Tool): void {
 function choose(p: Position): void {
   if (!tileAt(state, p)) return;
   selected = p;
+  selectedActor = null;
+  scene.selectedActor = null;
   scene.selected = p;
   el<HTMLInputElement>("tile-x").value = String(p.x);
   el<HTMLInputElement>("tile-y").value = String(p.y);
-  if (tool !== "inspect") {
+  if (tool !== "inspect" && tool !== "guard" && tool !== "possess") {
     const build = tool in costs;
     const command: Command = {
       type: "designate",
@@ -120,7 +141,11 @@ function setSpeed(speed: number): void {
 }
 for (const b of document.querySelectorAll<HTMLButtonElement>("[data-speed]"))
   b.onclick = () => setSpeed(Number(b.dataset.speed));
-el("home").onclick = () => scene.focus(position(32, 30));
+el("reveal").onclick = () => {
+  scene.reveal = !scene.reveal;
+  el("reveal").setAttribute("aria-pressed", String(scene.reveal));
+};
+el("home").onclick = () => scene.reset();
 el("help-button").onclick = () => el<HTMLDialogElement>("help").showModal();
 el("close-help").onclick = () => el<HTMLDialogElement>("help").close();
 el("save").onclick = () => {
@@ -202,6 +227,8 @@ function update(): void {
       b.className = `goblin goblin-${i}`;
       b.onclick = () => {
         const current = state.goblins[i];
+        selectedActor = current.id;
+        scene.selectedActor = current.id;
         selected = { ...current.position };
         scene.selected = selected;
         scene.focus(state.goblins[i].position);
@@ -223,15 +250,33 @@ function update(): void {
     activity.textContent = g.activity;
     const bars = document.createElement("span");
     bars.className = "needs";
-    bars.innerHTML = `<meter min="0" max="100" value="${100 - g.hunger}" aria-label="${g.name} fullness"></meter><meter min="0" max="100" value="${100 - g.fatigue}" aria-label="${g.name} energy"></meter>`;
+    for (const [label, value] of [
+      ["fullness", 100 - g.hunger],
+      ["energy", 100 - g.fatigue],
+    ] as const) {
+      const meter = document.createElement("meter");
+      meter.min = 0;
+      meter.max = 100;
+      meter.value = value;
+      meter.setAttribute("aria-label", `${g.name} ${label}`);
+      bars.append(meter);
+    }
     info.append(name, activity, bars);
     b.append(face, info);
   });
+  const inspectedActor = state.goblins.find((g) => g.id === selectedActor);
+  if (inspectedActor) {
+    selected = { ...inspectedActor.position };
+    scene.selectedActor = inspectedActor.id;
+  }
+  el("actor-inspection").textContent = inspectedActor
+    ? `${inspectedActor.name} · ${inspectedActor.activity} · Fullness ${Math.round(100 - inspectedActor.hunger)}% · Energy ${Math.round(100 - inspectedActor.fatigue)}%`
+    : "";
   const t = tileAt(state, selected)!;
   el("tile-name").textContent = !t.discovered
     ? "Unexplored"
     : t.solid
-      ? `${t.material === "loose" ? "Loose rock" : t.material === "hard" ? "Hard stone" : t.material} face`
+      ? `${materials[t.material].label} face`
       : (t.structure ?? (t.outside ? "The world outside" : "Cavern floor"));
   const jobs = state.jobs.filter(
     (j) =>
@@ -239,8 +284,9 @@ function update(): void {
       j.target.y === selected.y &&
       ["active", "open"].includes(j.status),
   );
+  const terrain = materials[t.material];
   el("inspection").textContent =
-    `${selected.x}, ${selected.y} · ${t.stockpile ? "Stockpile" : t.solid ? "Needs excavation" : "Walkable"}${t.structure === "farm" ? ` · Growth ${Math.floor(t.growth / 6)}%` : ""}${jobs.map((j) => ` · ${j.kind}: ${j.reason} (${j.progress} work)`).join("")}`;
+    `${selected.x}, ${selected.y} · ${t.stockpile ? "Stockpile" : t.solid ? "Needs excavation" : "Walkable"}${t.structure === "farm" ? ` · Growth ${Math.floor(t.growth / 6)}%` : ""} · ${terrain.label}: ${t.solid ? `dig ${terrain.diggable ? `${terrain.hardness} work` : "blocked"} · support ${terrain.stability}/10` : `step ${terrain.moveTicks} ticks`}${jobs.map((j) => ` · ${j.kind}: ${j.reason} (${j.progress} work)`).join("")}`;
   const farm = state.tiles.filter((t) => t.structure === "farm").length,
     bed = state.tiles.filter((t) => t.structure === "bed").length,
     dug = state.jobs.some((j) => j.kind === "dig" && j.status === "done");
@@ -248,7 +294,7 @@ function update(): void {
     `${farm >= 2 ? "✓" : "○"} ${farm}/2 patches · ${bed >= 4 ? "✓" : "○"} ${bed}/4 beds · ${dug ? "✓ Room to grow" : "○ Dig a room"}`;
   el("events").replaceChildren(
     ...state.events
-      .slice(-5)
+      .slice(-80)
       .reverse()
       .map((e) => {
         const li = document.createElement("li");
@@ -274,21 +320,46 @@ async function start(): Promise<void> {
   }
   const canvas = scene.app.canvas;
   let drag: { x: number; y: number } | null = null;
+  canvas.tabIndex = 0;
   canvas.oncontextmenu = (e) => e.preventDefault();
   canvas.onpointerdown = (e) => {
-    if (e.button === 2 || e.button === 1) {
-      drag = { x: e.clientX, y: e.clientY };
-      canvas.setPointerCapture(e.pointerId);
-    } else choose(scene.pick(e.clientX, e.clientY));
+    if (e.button !== 0 && e.button !== 1 && e.button !== 2) return;
+    const phase = e.button === 0 ? "paint" : "pan";
+    if (!interaction.begin(e.pointerId, phase)) return;
+    canvas.focus({ preventScroll: true });
+    canvas.setPointerCapture(e.pointerId);
+    if (phase === "pan") drag = { x: e.clientX, y: e.clientY };
+    else if (tool === "inspect") {
+      const hit = scene.inspect(state, e.clientX, e.clientY);
+      choose(hit.position);
+      selectedActor = hit.actor;
+      scene.selectedActor = hit.actor;
+      update();
+    } else
+      for (const p of interaction.paint(scene.pick(e.clientX, e.clientY)))
+        choose(p);
   };
   canvas.onpointermove = (e) => {
-    if (drag) {
-      scene.camera.x += e.clientX - drag.x;
-      scene.camera.y += e.clientY - drag.y;
+    if (interaction.pointer !== null && interaction.pointer !== e.pointerId)
+      return;
+    if (interaction.phase === "pan" && drag) {
+      scene.pan(e.clientX - drag.x, e.clientY - drag.y);
       drag = { x: e.clientX, y: e.clientY };
-    } else scene.hover = scene.pick(e.clientX, e.clientY);
+    } else if (interaction.phase === "paint" && tool !== "inspect")
+      for (const p of interaction.paint(scene.pick(e.clientX, e.clientY)))
+        choose(p);
+    else {
+      const hit =
+        tool === "inspect"
+          ? scene.inspect(state, e.clientX, e.clientY)
+          : { position: scene.pick(e.clientX, e.clientY), actor: null };
+      scene.hover = hit.position;
+      scene.hoverActor = hit.actor;
+    }
   };
-  const end = () => {
+  const end = (e: PointerEvent) => {
+    if (e.pointerId !== interaction.pointer) return;
+    interaction.end(e.pointerId);
     drag = null;
   };
   canvas.onpointerup = end;
@@ -296,15 +367,17 @@ async function start(): Promise<void> {
   canvas.onlostpointercapture = end;
   canvas.onpointerleave = () => {
     scene.hover = null;
+    scene.hoverActor = null;
   };
+  window.addEventListener("blur", () => {
+    interaction.end();
+    drag = null;
+  });
   canvas.addEventListener(
     "wheel",
     (e) => {
       e.preventDefault();
-      scene.camera.zoom = Math.max(
-        0.6,
-        Math.min(4, scene.camera.zoom * (e.deltaY < 0 ? 1.1 : 0.9)),
-      );
+      scene.zoom(e.deltaY < 0 ? 1.1 : 1 / 1.1, { x: e.clientX, y: e.clientY });
     },
     { passive: false },
   );
@@ -324,6 +397,10 @@ async function start(): Promise<void> {
   }, 30000);
 }
 document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    setTool("inspect");
+    return;
+  }
   if (
     (e.target as HTMLElement).matches("input,button") ||
     document.querySelector("dialog[open]")
@@ -335,18 +412,20 @@ document.addEventListener("keydown", (e) => {
     setSpeed(clock.speed ? 0 : 1);
   }
   if (key === "Escape") setTool("inspect");
-  if (key === "Home") scene.focus(position(32, 30));
+  if (key === "Home") scene.reset();
   if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(key)) {
     e.preventDefault();
-    scene.camera.x += key === "ArrowLeft" ? 40 : key === "ArrowRight" ? -40 : 0;
-    scene.camera.y += key === "ArrowUp" ? 40 : key === "ArrowDown" ? -40 : 0;
+    scene.pan(
+      key === "ArrowLeft" ? 40 : key === "ArrowRight" ? -40 : 0,
+      key === "ArrowUp" ? 40 : key === "ArrowDown" ? -40 : 0,
+    );
   }
-  if (key === "+" || key === "=")
-    scene.camera.zoom = Math.min(4, scene.camera.zoom * 1.1);
-  if (key === "-") scene.camera.zoom = Math.max(0.6, scene.camera.zoom / 1.1);
+  if (key === "+" || key === "=") scene.zoom(1.1);
+  if (key === "-") scene.zoom(1 / 1.1);
 });
 document.addEventListener("visibilitychange", () => {
   clock.accumulator = 0;
+  interaction.end();
 });
 setTool("inspect");
 update();

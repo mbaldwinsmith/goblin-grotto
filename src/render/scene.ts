@@ -1,6 +1,8 @@
 import { Application, Container, Graphics, Sprite, Texture } from "pixi.js";
-import type { Position } from "../core/types";
+import type { ActorId, Position } from "../core/types";
 import { type GameState, materials, position, tileAt } from "../sim/model";
+import { cameraFocus, cameraPan, cameraZoom, boundCamera } from "./camera";
+import { actorDepth, objectDepth, inspectPoint } from "./picking";
 import { type Camera, project, unproject } from "./projection";
 
 /** Original 32x32 pixel sprites, drawn here so the prototype needs no remote assets. */
@@ -39,9 +41,16 @@ export class Scene {
   app = new Application();
   root = new Container();
   ground = new Graphics();
-  details = new Graphics();
+  details = new Container();
+  private tiles = new Map<number, Graphics>();
+  private tileSignatures = new Map<number, string>();
+  private itemSprites = new Map<string, Graphics>();
+  private mapSize = { width: 64, height: 64 };
+  selectedActor: ActorId | null = null;
+  hoverActor: ActorId | null = null;
+  reveal = false;
   overlay = new Graphics();
-  actors = new Container();
+
   camera: Camera = { x: 0, y: -420, zoom: 1.2 };
   selected: Position | null = null;
   hover: Position | null = null;
@@ -62,7 +71,8 @@ export class Scene {
       "Grotto map. Use the tile coordinates and tools for keyboard actions.",
     );
     this.app.stage.addChild(this.root);
-    this.root.addChild(this.ground, this.details, this.actors, this.overlay);
+    this.root.addChild(this.ground, this.details, this.overlay);
+    this.details.sortableChildren = true;
     this.textures = ["#8b614e", "#4f8580", "#ac8d50", "#79628f"].map(
       goblinTexture,
     );
@@ -89,15 +99,48 @@ export class Scene {
       this.app.screen.height / 2 + this.camera.y,
     );
     this.root.scale.set(this.camera.zoom);
+    this.mapSize = { width: s.width, height: s.height };
+    boundCamera(this.camera, this.mapSize);
     const g = this.ground.clear(),
-      d = this.details.clear(),
       o = this.overlay.clear();
+    for (const tile of this.tiles.values()) tile.visible = false;
+    for (const item of this.itemSprites.values()) item.visible = false;
+    const selectedGoblin = s.goblins.find((g) => g.id === this.selectedActor);
+    if (selectedGoblin) this.selected = { ...selectedGoblin.position };
     for (let y = 0; y < s.height; y++)
       for (let x = 0; x < s.width; x++) {
         const p = position(x, y),
           t = tileAt(s, p)!;
         const a = project(p);
         if (!t.discovered) continue;
+        const key = y * s.width + x;
+        let d = this.tiles.get(key);
+        if (!d) {
+          d = new Graphics();
+          this.tiles.set(key, d);
+          this.details.addChild(d);
+        }
+        d.visible = true;
+        const wall =
+          t.solid || t.structure === "wall" || t.structure === "door";
+        d.zIndex = objectDepth(p, wall);
+        const occludes =
+          selectedGoblin &&
+          Math.abs(selectedGoblin.position.x - x) <= 1 &&
+          y >= selectedGoblin.position.y &&
+          y <= selectedGoblin.position.y + 1;
+        d.alpha =
+          (wall || t.deposit === "wood") && (this.reveal || occludes)
+            ? 0.25
+            : 1;
+        if (!t.solid)
+          g.rect(a.x - 16, a.y, 32, 24)
+            .fill(t.outside ? 0x354d3e : (x + y) % 2 ? 0x343d43 : 0x374148)
+            .stroke({ color: 0x263438, width: 0.5 });
+        const signature = `${t.material}:${t.solid}:${t.stockpile}:${t.deposit}:${t.structure}:${t.growth >= 600}`;
+        if (this.tileSignatures.get(key) === signature) continue;
+        this.tileSignatures.set(key, signature);
+        d.clear();
         const color = t.solid
           ? materials[t.material].color
           : t.outside
@@ -108,17 +151,13 @@ export class Scene {
         // JRPG three-quarter view: axis-aligned floors, raised wall tops and
         // vertical front faces. North/south movement stays vertical on screen.
         if (t.solid) {
-          g.rect(a.x - 16, a.y - 14, 32, 24)
+          d.rect(a.x - 16, a.y - 14, 32, 24)
             .fill(color)
             .stroke({ color: 0x26343b, width: 0.5 });
-          g.rect(a.x - 16, a.y + 10, 32, 14).fill(0x2a343e);
-          g.moveTo(a.x - 15, a.y + 11)
+          d.rect(a.x - 16, a.y + 10, 32, 14).fill(0x2a343e);
+          d.moveTo(a.x - 15, a.y + 11)
             .lineTo(a.x + 15, a.y + 11)
             .stroke({ color: 0x56616a, width: 1 });
-        } else {
-          g.rect(a.x - 16, a.y, 32, 24)
-            .fill(color)
-            .stroke({ color: 0x263438, width: 0.5 });
         }
         if (t.stockpile)
           d.rect(a.x - 12, a.y + 4, 24, 16).stroke({
@@ -166,6 +205,15 @@ export class Scene {
       }
     for (const item of s.items.filter((i) => !i.holder)) {
       const a = project(item.position);
+      let d = this.itemSprites.get(item.id);
+      if (!d) {
+        d = new Graphics();
+        this.itemSprites.set(item.id, d);
+        this.details.addChild(d);
+      }
+      d.clear();
+      d.visible = true;
+      d.zIndex = objectDepth(item.position);
       d.rect(a.x - 3, a.y + 5, 6, 4).fill(
         item.resource === "wood"
           ? 0xb29260
@@ -193,7 +241,7 @@ export class Scene {
         sprite = new Sprite(this.textures[i % 4]);
         sprite.anchor.set(0.5, 0.9);
         sprite.texture.source.scaleMode = "nearest";
-        this.actors.addChild(sprite);
+        this.details.addChild(sprite);
         this.sprites[i] = sprite;
       }
       const a = project(g.position);
@@ -201,7 +249,7 @@ export class Scene {
         a.x,
         a.y + 17 + (g.job ? Math.floor(s.tick / 3) % 2 : 0),
       );
-      sprite.zIndex = g.position.y * s.width + g.position.x;
+      sprite.zIndex = actorDepth(g.position);
       sprite.alpha = g.activity === "Sleeping" ? 0.6 : 1;
       if (
         this.selected &&
@@ -210,7 +258,12 @@ export class Scene {
       )
         o.ellipse(a.x, a.y + 18, 12, 5).stroke({ color: 0xe9d69e, width: 1 });
     });
-    this.actors.sortableChildren = true;
+    for (const [id, item] of this.itemSprites)
+      if (!item.visible) {
+        item.destroy();
+        this.itemSprites.delete(id);
+      }
+    this.details.sortChildren();
     for (const p of [this.hover, this.selected])
       if (p) {
         const a = project(p);
@@ -220,9 +273,39 @@ export class Scene {
         });
       }
   }
+  reset(): void {
+    this.camera.zoom = 1.2;
+    this.focus(position(32, 30));
+  }
   focus(p: Position): void {
-    const a = project(p);
-    this.camera.x = -a.x * this.camera.zoom;
-    this.camera.y = -a.y * this.camera.zoom;
+    cameraFocus(this.camera, p, this.mapSize);
+  }
+  pan(dx: number, dy: number): void {
+    cameraPan(this.camera, dx, dy, this.mapSize);
+  }
+  zoom(factor: number, client?: { x: number; y: number }): void {
+    const rect = this.app.canvas.getBoundingClientRect();
+    cameraZoom(
+      this.camera,
+      factor,
+      this.mapSize,
+      client
+        ? {
+            x: client.x - rect.left - this.app.screen.width / 2,
+            y: client.y - rect.top - this.app.screen.height / 2,
+          }
+        : { x: 0, y: 0 },
+    );
+  }
+  inspect(s: GameState, clientX: number, clientY: number) {
+    const rect = this.app.canvas.getBoundingClientRect();
+    return inspectPoint(
+      s,
+      (clientX - rect.left - this.app.screen.width / 2 - this.camera.x) /
+        this.camera.zoom,
+      (clientY - rect.top - this.app.screen.height / 2 - this.camera.y) /
+        this.camera.zoom,
+      this.reveal,
+    );
   }
 }

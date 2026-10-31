@@ -11,8 +11,9 @@ the front and above. Camera pan/zoom never rotates the world into a diamond.
 
 This approach provides familiar JRPG room layouts and direct tile picking. It
 trades the diamond view's diagonal depth cues for clear floor/wall layering.
-Actor depth follows the logical row, with a stable column tie-break. Full
-wall/actor interleaving and reveal behavior still belong to GG-018.
+Actor depth follows the logical row, with a stable column tie-break. Walls, items and actors now interleave by their logical foot depth (GG-018).
+Selecting a goblin fades nearby foreground walls; Reveal walls deliberately
+prioritizes actor silhouettes for picking through those walls.
 
 The historical comparison at `/projection-study.html` remains an experiment,
 not a selection of the isometric option. See the current

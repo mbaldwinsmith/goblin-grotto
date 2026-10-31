@@ -10,3 +10,6 @@ and teal mushrooms against blue-grey stone. See [in-game reference](screenshots/
 These are temporary code-drawn references, not PixelLab production atlases.
 GG-022 (full animation/orientation/export standards) and GG-023 (curated atlas)
 remain open. No external artwork, fonts, or audio was imported.
+
+Depth sorting uses logical feet with stable column ties. Wall reveal changes only
+visual opacity and inspection priority, never world solidity or navigation.

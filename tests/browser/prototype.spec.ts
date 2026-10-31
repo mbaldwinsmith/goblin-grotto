@@ -44,6 +44,7 @@ test("playable colony, input, persistence, import validation, screenshot", async
   await page.getByRole("button", { name: "Into the grotto" }).click();
   await page.locator("canvas").hover();
   await page.mouse.wheel(0, -200);
+  await page.locator("canvas").focus();
   await page.keyboard.press("Home");
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await expect(page.locator("#notice")).toContainText("saved");
@@ -108,4 +109,96 @@ test("digging yields a floor and portable saves import into a fresh browser prof
   await page.mouse.up({ button: "right" });
   await page.mouse.wheel(0, -100);
   await context.close();
+});
+test("camera, entity inspection, drawer and drag tools work while paused and after resize", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#tile-x").focus();
+  await page.keyboard.press("Tab");
+  await expect(page.locator("#tile-y")).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("button", { name: "Apply tool" })).toBeFocused();
+  await page.locator(".goblin").first().click();
+  await expect(page.locator("#actor-inspection")).toContainText("Nib");
+  const canvas = page.locator("canvas");
+  const clickNib = async () => {
+    const box = (await canvas.boundingBox())!;
+    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2 - 12);
+    await expect(page.locator("#actor-inspection")).toContainText("Nib");
+  };
+  await clickNib();
+  await canvas.focus();
+  await page.keyboard.press("+");
+  await clickNib();
+  await page.setViewportSize({ width: 1280, height: 950 });
+  await page.waitForTimeout(200);
+  await clickNib();
+  await page.getByRole("button", { name: "Reveal walls" }).click();
+  await expect(page.locator("#reveal")).toHaveAttribute("aria-pressed", "true");
+  await page.locator("#chronicle summary").click();
+  await expect(page.locator("#chronicle")).not.toHaveAttribute("open", "");
+  await page.locator("#chronicle summary").click();
+  await expect(page.locator("#chronicle")).toHaveAttribute("open", "");
+  // Home anchors the camera at 32,30. Paint a three-tile stockpile on clear floor.
+  await page.getByRole("button", { name: "Home", exact: false }).click();
+  await canvas.focus();
+  await page.getByRole("button", { name: "Stockpile", exact: false }).click();
+  const box = (await canvas.boundingBox())!;
+  const cx = box.x + box.width / 2,
+    cy = box.y + box.height / 2;
+  await page.mouse.move(cx - 2 * 32 * 1.2, cy + 3 * 24 * 1.2);
+  await page.mouse.down();
+  await page.mouse.move(cx, cy + 3 * 24 * 1.2, { steps: 8 });
+  await page.mouse.up();
+  await page.mouse.move(cx - 3 * 32 * 1.2, cy + 3 * 24 * 1.2);
+  await page.mouse.down();
+  await page.keyboard.press("Escape");
+  await page.mouse.move(cx - 3 * 32 * 1.2, cy + 4 * 24 * 1.2);
+  await page.mouse.up();
+
+  await expect(page.locator("[data-tool=inspect]")).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await page.locator("#tile-x").fill("31");
+  await page.locator("#tile-y").fill("33");
+  await page.getByRole("button", { name: "Apply tool" }).click();
+  await expect(page.locator("#inspection")).toContainText("Stockpile");
+  await expect(page.locator("[data-tool=possess]")).toBeDisabled();
+  await expect(page.locator("[data-tool=guard]")).toBeDisabled();
+});
+test("reveal mode selects a goblin behind a foreground wall", async ({
+  page,
+}) => {
+  const { createGame } = await import("../../src/sim/world");
+  const { position, tileAt } = await import("../../src/sim/model");
+  const { encodeSave } = await import("../../src/persistence/save");
+  const s = createGame("wall-picking");
+  s.goblins[1].name = '"><img src=x onerror=alert(1)>';
+  s.goblins[0].position = position(30, 30);
+  for (let i = 1; i < 4; i++) s.goblins[i].position = position(34 + i, 30);
+  tileAt(s, position(30, 31))!.structure = "wall";
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "wall.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(encodeSave(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.locator(".goblin").first().click();
+  const box = (await page.locator("canvas").boundingBox())!;
+  await expect(page.locator(".goblin img")).toHaveCount(0);
+  const x = box.x + box.width / 2,
+    y = box.y + box.height / 2 + 3 * 1.2;
+  await page.mouse.click(x, y);
+  await expect(page.locator("#tile-name")).toHaveText("wall");
+  await expect(page.locator("#actor-inspection")).toBeEmpty();
+  await page.getByRole("button", { name: "Reveal walls" }).click();
+  await page.mouse.click(x, y);
+  await expect(page.locator("#actor-inspection")).toContainText("Nib");
 });

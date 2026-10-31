@@ -1,4 +1,4 @@
-# 0.1.0-prototype.2 — verification and handoff
+# 0.1.0-prototype.3 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,15 +16,16 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 14 headless tests in four files. Includes 1,000 seeded starts;
+- `npm test`: 20 headless tests in six files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: three Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: five Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
-  and imports into a fresh browser profile. Also checks both projection studies.
+  and imports into a fresh browser profile. Also checks both projection studies, wall reveal/entity picking, keyboard focus,
+  resize/paused camera use, Escape during a stroke and drag-painted stockpiles.
 - A temporary intentionally invalid TypeScript/debugger fixture was rejected by
   both type checking and linting, then removed.
 - Screenshots: [prototype](screenshots/prototype.png),
@@ -33,24 +34,23 @@ uses a stored kit before falling back to two raw wood.
 Browser validation uses installed Chromium with SwiftShader in this cloud
 workspace. The Playwright CDN is blocked by network policy; CI uses the standard
 Playwright installation path. This does not establish real GPU performance,
-Firefox/WebKit compatibility or a hosted CI result. The endurance test has a
+Firefox/WebKit compatibility or the latest hosted CI status. The endurance test has a
 20-second timeout because concurrent browser software rendering can slow it down.
 
 ## Open work and honest scope
 
-GG-011: workflow exists, but hosted required checks/branch protection are not
-verified here. M00's full gate remains open for that reason.
+GG-011: the previous hosted Quality run is green (run 41239850553), but required
+checks/branch protection are not verified here. M00's full gate remains open for that reason.
 
-GG-016/018–023: camera bounds, foreground reveal and interleaved depth, full shell
-and tool-state acceptance, production art bible/atlas and polished animation.
+GG-022/GG-023: production art bible/atlas and polished animation.
 Current original code-drawn 32×32 sprites are temporary references.
 
-GG-025/028–035: complete terrain rules, chamber discoveries, full outdoor dressing,
+GG-028–035: chamber discoveries, full outdoor dressing,
 resource variety, robust fog, cave-ins, comprehensive seed validation, weather and
 cached navigation. The prototype uses deterministic BFS and a safe connected layout.
 
-GG-037/038/040/041/044–050/053: complete kind definitions, smooth movement and
-congestion handling, richer utility/priorities, drag-painted designations,
+GG-037/038/040/044–050/053: complete kind definitions, smooth movement and
+congestion handling, richer utility/priorities,
 stockpile filters, full interruption/direct-order/animation/debug criteria,
 safety needs, explicit bed reservations and complete structures/refund acceptance.
 The current buildings, hunger/rest and work tools are usable partial slices.

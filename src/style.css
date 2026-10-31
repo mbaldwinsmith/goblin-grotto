@@ -605,3 +605,46 @@ dialog input {
     scroll-behavior: auto;
   }
 }
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+#actor-inspection {
+  font: 11px / 1.7 system-ui;
+  color: #d7d8b9;
+  margin-top: 8px;
+}
+.chronicle {
+  display: block;
+}
+.chronicle summary {
+  cursor: pointer;
+}
+.chronicle summary > div {
+  display: inline-block;
+}
+.chronicle[open] #events {
+  margin-top: 14px;
+  max-height: 180px;
+  overflow: auto;
+}
+nav {
+  overflow: auto;
+}
+#chronicle #events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px 24px;
+}
+nav {
+  overflow: hidden;
+}
+#tools {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+.nav-bottom {
+  flex-shrink: 0;
+  margin-top: 12px;
+}

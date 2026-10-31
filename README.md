@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.2`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.3`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -48,9 +48,13 @@ work to look after themselves. The sidebar tracks food and energy.
 
 ### Controls and saves
 
-- Left-click: apply the selected tool or inspect a tile. Coordinate inputs provide
+- Left-click: inspect goblins, tiles and structures, or apply the selected tool.
+  Hold and drag to paint work; each tile is affected once per stroke. Coordinate inputs provide
   a keyboard alternative. Cancel work releases reservations and refunds construction.
-- Right-drag / arrow keys: pan. Scroll / `+` / `−`: zoom. **Home**: return to the cave.
+- Right-drag / arrow keys: pan. Scroll / `+` / `−`: zoom. **Home**: reset the view. Zoom follows the pointer; the camera stays within map bounds.
+- **Reveal walls** fades foreground obstacles so hidden goblins can be selected.
+  Selecting a goblin follows their location in the inspector; the Chronicle opens
+  and closes as a keyboard-accessible drawer.
 - **Space**: pause/resume. Speed buttons: pause, 1×, 2×, 4×. **Escape**: inspect mode.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
@@ -64,8 +68,8 @@ work to look after themselves. The sidebar tracks food and energy.
 This slice demonstrates the home-building loop. It has temporary original
 code-drawn pixel sprites, modest animation and simple pathfinding. It does **not**
 yet implement Souls, Chief/Shaman politics, possession, inventory equipment,
-combat, raids, generations, weather, cave-ins or the Overlord. Foreground occlusion,
-actor congestion, camera polish and the production art pipeline still need work.
+combat, raids, generations, weather, cave-ins or the Overlord. Actor congestion, smooth movement, camera polish and the production art pipeline
+still need work.
 There is no starvation death or combat failure state yet. Workshop content is one
 small recipe; a full economy is later work.
 
@@ -85,6 +89,9 @@ continues afterwards. One playable Z-level and an abstract wider world keep v1
 bounded and focused on what goblins can experience.
 
 ## Development
+
+Mud and loose ground slow movement; the terrain inspector shows movement, digging
+and support properties. Support ratings anticipate cave-ins, which are still future work.
 
 Strict TypeScript + Vite, PixiJS WebGL with a fixed three-quarter JRPG view, semantic HTML/CSS, a pure 10 Hz simulation,
 seeded serializable RNG, typed commands/events, and versioned IndexedDB saves.

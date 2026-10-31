@@ -10,12 +10,12 @@
 **Repository:** New GitHub repository; this document is intended to be its planning source of truth  
 **Planning rule:** Check off a task only when its acceptance criteria are met and its commit is merged. Update this plan whenever scope or architecture changes.
 
-### Prototype implementation note — 0.1.0-prototype.2
+### Prototype implementation note — 0.1.0-prototype.3
 
 The first playable colony slice is implemented and verified. The current presentation uses the owner-requested fixed three-quarter JRPG view, with rectangular floors and raised front wall faces (GG-013/GG-015/GG-017); it supersedes the initial isometric choice. Checkmarks in
 this change identify criteria verified on this branch and become completion
 records when merged, as required above. No milestone release gate or tag is claimed.
-See `docs/PROTOTYPE.md` for evidence and remaining gaps. M01–M04 were developed as
+See `docs/PROTOTYPE.md` for evidence and remaining gaps. Iteration 3 verifies bounded camera controls, interleaved depth/reveal, entity selection, the semantic shell, safe tool states, drag excavation and the full terrain registry (GG-016, GG-018–021, GG-025, GG-041). Existing work tools remain enabled because this is already the playable colony stage; Guard and Possess stay disabled until their milestones. GG-011 remains open: hosted quality checks are green, but required merge protection has not been verified. M01–M04 were developed as
 a narrow vertical slice after the core; unchecked dependencies remain explicitly
 open rather than being waived. GG-029 has a traversable forest edge but lacks the
 complete undergrowth/stone/visitor presentation. GG-054 has one tested bed-kit
@@ -398,12 +398,12 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-013 — SPIKE projection with two miniature scenes.** Compare JRPG oblique vs 64×32 isometric floor for 32×32 goblins; include walls, overlap and item click tests. **Done:** screenshots and pros/cons documented; choose one in ADR/ART_BIBLE.
 - [x] **GG-014 — Integrate PixiJS WebGL.** Resize-aware canvas, nearest-neighbour pixel art, lost-context/error state. **Done:** demo renders on desktop and fails helpfully without usable WebGL.
 - [x] **GG-015 — Build logical-to-screen projection adapter.** Project/unproject and tile hit-testing separated from world coordinates. **Done:** roundtrip tests cover edges, negative values and camera zoom.
-- [ ] **GG-016 — Implement camera controls.** Pan/drag, wheel/keyboard zoom, bounds, reset and focus-on-entity. **Done:** navigation remains stable after resize and pause.
+- [x] **GG-016 — Implement camera controls.** Pan/drag, wheel/keyboard zoom, bounds, reset and focus-on-entity. **Done:** navigation remains stable after resize and pause.
 - [x] **GG-017 — Render a simple tile field.** Solid/floor tiles, visible grid and hover. **Done:** a 64×64 map is visible without per-tile HTML elements.
-- [ ] **GG-018 — Implement depth and occlusion.** Sort by logical feet/structure depth, fade selected foreground walls, preserve correct click targets. **Done:** a goblin behind walls remains selectable by deliberate reveal mode.
-- [ ] **GG-019 — Add scene/entity selection.** Click tiles, goblins and structures; consistent selected/hovered highlights. **Done:** selection is independent of sprite transparency and zoom.
-- [ ] **GG-020 — Build semantic UI shell.** Top resource/status bar, tool rail, right inspector, Chronicle drawer, help and pause controls in HTML/CSS. **Done:** keyboard tab navigation works outside canvas.
-- [ ] **GG-021 — Add interaction state machine.** Inspect/dig/build/stockpile/guard/possess tool modes; only inspect enabled at this stage. **Done:** Escape exits modes safely and pointer state cannot stick.
+- [x] **GG-018 — Implement depth and occlusion.** Sort by logical feet/structure depth, fade selected foreground walls, preserve correct click targets. **Done:** a goblin behind walls remains selectable by deliberate reveal mode.
+- [x] **GG-019 — Add scene/entity selection.** Click tiles, goblins and structures; consistent selected/hovered highlights. **Done:** selection is independent of sprite transparency and zoom.
+- [x] **GG-020 — Build semantic UI shell.** Top resource/status bar, tool rail, right inspector, Chronicle drawer, help and pause controls in HTML/CSS. **Done:** keyboard tab navigation works outside canvas.
+- [x] **GG-021 — Add interaction state machine.** Inspect/dig/build/stockpile/guard/possess tool modes; only inspect enabled at this stage. **Done:** Escape exits modes safely and pointer state cannot stick.
 - [ ] **GG-022 — Create first PixelLab art bible.** Palette, 32×32 character footprint, orientations, origin points, frame timing, floor projection, outlines, light/shadow, icon scale and export rules. **Done:** `docs/ART_BIBLE.md` includes actual reference sprites and validation checklist.
 - [ ] **GG-023 — Import first curated art atlas.** Goblin idle/walk placeholders, six terrain visuals, entrance, mushroom, tree; no copyrighted third-party assets. **Done:** manifest resolves without missing assets and supports hot art swaps.
 - [x] **GG-024 — Add rendering/browser smoke.** Playwright opens scene, selects tile, pans/zooms and detects no uncaught errors. **Done:** CI includes one real graphical interaction test.
@@ -437,7 +437,7 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [ ] **GG-038 — Implement walking and occupancy.** Path following, obstruction/replan, smooth interpolation and four-direction (or art-consistent) walk cycles. **Done:** no walking through sealed stone or stacking at the entrance indefinitely.
 - [x] **GG-039 — Define task/job data model.** Designation → open job → eligibility → reservation → progress → completion/cancellation. **Done:** tasks have status and failure reason in inspector.
 - [ ] **GG-040 — Implement task priorities and utility selection.** Proximity, suitability, urgency, needs and small seeded variation. **Done:** workers distribute rather than all pursuing one job; explain major choices.
-- [ ] **GG-041 — Implement tile excavation.** Player paints dig designations, miners approach, progress by hardness and remove tile. **Done:** hard stone is slower, impenetrable stone rejects designation.
+- [x] **GG-041 — Implement tile excavation.** Player paints dig designations, miners approach, progress by hardness and remove tile. **Done:** hard stone is slower, impenetrable stone rejects designation.
 - [x] **GG-042 — Spawn rubble/ore drops.** A tile may yield one or several resource stacks and history event. **Done:** drops have independent object IDs and no duplication across replays.
 - [x] **GG-043 — Implement resource carrying.** Pick up, move and put down one/small stack, correct ownership/holder transitions. **Done:** an interrupted haul returns item to a recoverable state.
 - [ ] **GG-044 — Implement stockpile designation.** Mark floor area, accept/filter goods, trigger hauling opportunities. **Done:** inventory of world objects and stockpile quantities match after moving.

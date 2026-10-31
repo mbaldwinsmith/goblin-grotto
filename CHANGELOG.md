@@ -10,7 +10,15 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 #### Added
 
+- GG-016: bounded pan, pointer-anchored zoom, Home reset and entity focus, verified while paused and after resize.
+- GG-018/GG-019: interleaved object/actor depth, selected foreground fading, a Reveal walls toggle and logical goblin/structure picking independent of sprite transparency.
+- GG-020/GG-021/GG-041: keyboard-friendly Chronicle drawer, goblin inspector, drag-painted work with one application per tile, and safe Escape/focus-loss/pointer-cancel behavior. Future Guard and Possess tools are visibly disabled.
 - GG-025: all six terrain materials now define readable names, hardness, support ratings, movement intervals and resource drops. Walking and mining use the registry; the inspector explains the costs. Cave-in behavior remains GG-032.
+
+#### Fixed
+
+- Cached terrain graphics prevent expensive per-frame object rebuilds. The tool list scrolls while Home, Reveal walls and Help remain accessible.
+- Imported goblin names are assigned to meter labels through DOM attributes, closing an HTML-injection path.
 
 ### 0.1.0-prototype.2 — three-quarter JRPG perspective
 
