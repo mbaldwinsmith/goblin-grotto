@@ -1,4 +1,4 @@
-# 0.1.0-prototype.4 — verification and handoff
+# 0.1.0-prototype.5 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 26 headless tests in seven files. Includes 1,000 seeded starts;
+- `npm test`: 27 headless tests in eight files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: six Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: seven Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -44,7 +44,8 @@ GG-011: the previous hosted Quality run is green (run 41239850553), but required
 checks/branch protection are not verified here. M00's full gate remains open for that reason.
 
 GG-022/GG-023: production art bible/atlas and polished animation.
-Current original code-drawn 32×32 sprites are temporary references.
+The original 29-file 32×32 PNG reference set is implemented; directional animation
+and the production atlas remain open.
 
 GG-032/GG-034/GG-035: cave-ins, calendar/weather and cached navigation. The prototype uses deterministic BFS and a safe connected layout.
 
@@ -78,3 +79,13 @@ The browser scenario scouts through the eastern passage, reads a newly revealed
 landmark and then imports the previous committed save and finishes its active farm.
 See [discovery screenshot](screenshots/discovery.png). No new generation is injected
 into an imported colony.
+
+## Native art verification
+
+Every floor, wall top, wall side, goblin and plant PNG is 32×32. Home resets the
+view to 1×, giving a 32×32 screen-pixel floor grid. Wall tops and sides are separate
+textures and render nodes; exposed sides and raised tops retain their native size.
+The browser suite verifies all 29 images decode at 32×32 and repeats selection,
+wall reveal, camera/resize, painting, scouting and save migration at the new scale.
+This renderer change does not alter simulation coordinates or save schema 2.
+See [art preview](screenshots/art-preview.png).

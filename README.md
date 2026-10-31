@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.4`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.5`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -78,7 +78,7 @@ work to look after themselves. The sidebar tracks food and energy.
 ### Prototype boundaries
 
 This slice demonstrates the home-building loop. It has temporary original
-code-drawn pixel sprites, modest animation and simple pathfinding. It does **not**
+original pixel sprites, modest animation and simple pathfinding. It does **not**
 yet implement Souls, Chief/Shaman politics, possession, inventory equipment,
 combat, raids, generations, weather, cave-ins or the Overlord. Actor congestion, smooth movement, camera polish and the production art pipeline
 still need work.
@@ -88,6 +88,18 @@ small recipe; a full economy is later work.
 The ambitious design remains in [PLAN.md](PLAN.md). Task checkboxes reflect tested
 acceptance criteria; partial implementations remain unchecked. See
 [prototype verification and remaining work](docs/PROTOTYPE.md).
+
+## Pixel-art scale
+
+The native grid is 32×32. Home restores 1× zoom: one tile occupies 32×32 screen
+pixels. Floors, wall tops, wall sides, each goblin and all plants have separate
+32×32 PNGs; walls assemble a raised top and a separate exposed front face. Zoom
+magnifies the scene with nearest-neighbour sampling.
+
+See the [individual art preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/art-preview.html).
+The original 29-file set is listed in `public/assets/prototype/manifest.json` and
+reproduced with `node tools/generate-pixel-art.mjs`. Production animation and atlas
+work remain later tasks.
 
 ## Where the game is heading
 
@@ -129,5 +141,5 @@ serves the production build. [AGENTS.md](AGENTS.md) and
 
 Source and technical documentation: [MIT](LICENSE.md), © 2026 Mark Baldwin-Smith.
 Creative assets: [separate rights notice](ASSETS-LICENSE.md). Original creative
-assets are not automatically MIT-licensed. Prototype sprites were drawn in code
+assets are not automatically MIT-licensed. Prototype sprites were generated from original integer-pixel drawings
 for this project; no third-party game graphics, fonts or audio were imported.

@@ -1,3 +1,4 @@
+import { TILE_SIZE, HALF_TILE } from "./metrics";
 import type { Position } from "../core/types";
 import { type Camera, project } from "./projection";
 export interface MapSize {
@@ -9,13 +10,13 @@ const clamp = (n: number, lo: number, hi: number) =>
 /** Keep at least half a viewport over the region, including at low zoom. */
 export function boundCamera(c: Camera, map: MapSize): void {
   c.zoom = clamp(c.zoom, 0.6, 4);
-  c.x = clamp(c.x, -map.width * 32 * c.zoom, 0);
-  c.y = clamp(c.y, -map.height * 24 * c.zoom, 0);
+  c.x = clamp(c.x, -map.width * TILE_SIZE * c.zoom, 0);
+  c.y = clamp(c.y, -map.height * TILE_SIZE * c.zoom, 0);
 }
 export function cameraFocus(c: Camera, p: Position, map: MapSize): void {
   const a = project(p);
   c.x = -a.x * c.zoom;
-  c.y = -(a.y + 12) * c.zoom;
+  c.y = -(a.y + HALF_TILE) * c.zoom;
   boundCamera(c, map);
 }
 export function cameraPan(

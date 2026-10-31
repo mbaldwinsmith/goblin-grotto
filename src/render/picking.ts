@@ -1,3 +1,4 @@
+import { TILE_SIZE, WALL_HEIGHT, ACTOR_FEET } from "./metrics";
 import type { ActorId, Position } from "../core/types";
 import { type GameState, tileAt } from "../sim/model";
 import { project, unproject } from "./projection";
@@ -6,10 +7,10 @@ export interface Selection {
   actor: ActorId | null;
 }
 export function actorDepth(p: Position): number {
-  return (p.y * 24 + 17) * 4096 + p.x;
+  return (p.y * TILE_SIZE + ACTOR_FEET) * 4096 + p.x;
 }
 export function objectDepth(p: Position, wall = false): number {
-  return (p.y * 24 + (wall ? 24 : 14)) * 4096 + p.x;
+  return (p.y * TILE_SIZE + (wall ? TILE_SIZE : ACTOR_FEET)) * 4096 + p.x;
 }
 export function inspectPoint(
   s: GameState,
@@ -25,8 +26,8 @@ export function inspectPoint(
         tileAt(s, g.position)?.discovered &&
         x >= a.x - 16 &&
         x < a.x + 16 &&
-        y >= a.y - 12 &&
-        y < a.y + 20
+        y >= a.y + ACTOR_FEET - TILE_SIZE &&
+        y < a.y + ACTOR_FEET
       );
     })
     .sort((a, b) => actorDepth(b.position) - actorDepth(a.position))[0];
@@ -44,8 +45,8 @@ export function inspectPoint(
       (t.solid || t.structure === "wall" || t.structure === "door") &&
       x >= a.x - 16 &&
       x < a.x + 16 &&
-      y >= a.y - 14 &&
-      y < a.y + 24
+      y >= a.y - WALL_HEIGHT &&
+      y < a.y + TILE_SIZE
     )
       walls.push(p);
   }

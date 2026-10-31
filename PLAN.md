@@ -10,14 +10,14 @@
 **Repository:** New GitHub repository; this document is intended to be its planning source of truth  
 **Planning rule:** Check off a task only when its acceptance criteria are met and its commit is merged. Update this plan whenever scope or architecture changes.
 
-### Prototype implementation note — 0.1.0-prototype.4
+### Prototype implementation note — 0.1.0-prototype.5
 
 The first playable colony slice is implemented and verified. The current presentation uses the owner-requested fixed three-quarter JRPG view, with rectangular floors and raised front wall faces (GG-013/GG-015/GG-017); it supersedes the initial isometric choice. Checkmarks in
 this change identify criteria verified on this branch and become completion
 records when merged, as required above. No milestone release gate or tag is claimed.
 See `docs/PROTOTYPE.md` for evidence and remaining gaps. Iteration 3 verifies bounded camera controls, interleaved depth/reveal, entity selection, the semantic shell, safe tool states, drag excavation and the full terrain registry (GG-016, GG-018–021, GG-025, GG-041). Existing work tools remain enabled because this is already the playable colony stage; Guard and Possess stay disabled until their milestones. GG-011 remains open: hosted quality checks are green, but required merge protection has not been verified. M01–M04 were developed as
 a narrow vertical slice after the core; unchecked dependencies remain explicitly
-open rather than being waived. Iteration 4 verifies chamber archetypes, outdoor dressing, resource deposits, persistent discovery with scouting, and the 1,000-seed validation gate (GG-028–031/GG-033). Save schema 2 migrates schema-1 colonies without regenerating their maps. GG-054 has one tested bed-kit
+open rather than being waived. Iteration 4 verifies chamber archetypes, outdoor dressing, resource deposits, persistent discovery with scouting, and the 1,000-seed validation gate (GG-028–031/GG-033). Save schema 2 migrates schema-1 colonies without regenerating their maps. The owner-directed native art standard is now 32×32 for floors, separate wall tops and sides, goblins and all plants. The original 29-PNG reference set and manifest are implemented; GG-022/GG-023 stay open for production standards, directional animation and atlas completion. GG-054 has one tested bed-kit
 recipe; the broader starter furnishing/tool set remains open.
 
 ---

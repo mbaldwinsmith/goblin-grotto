@@ -17,21 +17,21 @@ it("camera bounds, focus and anchor zoom keep the region reachable", () => {
   expect((-40 - camera.y) / camera.zoom).toBeCloseTo(before.y);
   cameraPan(camera, 1e9, -1e9, map);
   expect(camera.x).toBe(0);
-  expect(camera.y).toBe(-64 * 24 * 2);
+  expect(camera.y).toBe(-64 * 32 * 2);
   cameraZoom(camera, 100, map);
   expect(camera.zoom).toBe(4);
   cameraZoom(camera, 0.001, map);
   expect(camera.zoom).toBe(0.6);
   cameraFocus(camera, position(63, 63), map);
   expect(camera.x).toBeLessThan(0);
-  expect(camera.y).toBeGreaterThan(-64 * 24 * camera.zoom);
+  expect(camera.y).toBeGreaterThan(-64 * 32 * camera.zoom);
 });
 it("entity picking uses a logical silhouette, with reveal bypassing foreground walls", () => {
   const s = createGame("selection");
   s.goblins[0].position = position(30, 30);
   for (let i = 1; i < 4; i++) s.goblins[i].position = position(34 + i, 30);
   const x = 30 * 32 + 16,
-    y = 30 * 24 + 15;
+    y = 30 * 32 + 15;
   expect(inspectPoint(s, x, y, false).actor).toBe(s.goblins[0].id);
   tileAt(s, position(30, 31))!.structure = "wall";
   expect(objectDepth(position(30, 31), true)).toBeGreaterThan(

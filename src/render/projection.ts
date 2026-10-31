@@ -1,3 +1,4 @@
+import { TILE_SIZE, HALF_TILE } from "./metrics";
 import type { Position } from "../core/types";
 export interface Camera {
   x: number;
@@ -5,13 +6,13 @@ export interface Camera {
   zoom: number;
 }
 export function project(p: Position): { x: number; y: number } {
-  // Rectangular floors viewed from above, with upright front-facing sprites.
-  return { x: p.x * 32 + 16, y: p.y * 24 };
+  // Square native tiles viewed in a fixed three-quarter JRPG presentation.
+  return { x: p.x * TILE_SIZE + HALF_TILE, y: p.y * TILE_SIZE };
 }
 export function unproject(x: number, y: number): Position {
   return {
-    x: Math.floor(x / 32),
-    y: Math.floor(y / 24),
+    x: Math.floor(x / TILE_SIZE),
+    y: Math.floor(y / TILE_SIZE),
     z: 0,
   };
 }

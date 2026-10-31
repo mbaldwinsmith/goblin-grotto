@@ -1,0 +1,180 @@
+{
+  "tileSize": 32,
+  "assets": [
+    {
+      "id": "floor-sand",
+      "file": "floor-sand.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-top-sand",
+      "file": "wall-top-sand.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-side-sand",
+      "file": "wall-side-sand.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "floor-mud",
+      "file": "floor-mud.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-top-mud",
+      "file": "wall-top-mud.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-side-mud",
+      "file": "wall-side-mud.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "floor-loose",
+      "file": "floor-loose.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-top-loose",
+      "file": "wall-top-loose.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-side-loose",
+      "file": "wall-side-loose.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "floor-hard",
+      "file": "floor-hard.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-top-hard",
+      "file": "wall-top-hard.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-side-hard",
+      "file": "wall-side-hard.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "floor-bedrock",
+      "file": "floor-bedrock.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-top-bedrock",
+      "file": "wall-top-bedrock.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-side-bedrock",
+      "file": "wall-side-bedrock.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "floor-impenetrable",
+      "file": "floor-impenetrable.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-top-impenetrable",
+      "file": "wall-top-impenetrable.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "wall-side-impenetrable",
+      "file": "wall-side-impenetrable.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "floor-grass",
+      "file": "floor-grass.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "goblin-nib",
+      "file": "goblin-nib.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "goblin-moss",
+      "file": "goblin-moss.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "goblin-grub",
+      "file": "goblin-grub.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "goblin-pip",
+      "file": "goblin-pip.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "plant-tree",
+      "file": "plant-tree.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "plant-mushroom",
+      "file": "plant-mushroom.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "plant-grove",
+      "file": "plant-grove.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "plant-undergrowth",
+      "file": "plant-undergrowth.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "plant-farm-young",
+      "file": "plant-farm-young.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "plant-farm-ripe",
+      "file": "plant-farm-ripe.png",
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "provenance": "Original procedural pixel art for Goblin Grotto; see ASSETS-LICENSE.md."
+}

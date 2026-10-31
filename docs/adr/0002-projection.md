@@ -4,10 +4,12 @@
 The original implementation chose isometric after comparing two scenes. That
 choice did not match the intended art direction and is superseded here.
 
-Floors are rectangular, 32×24 screen units, on a square logical grid. East/west
-movement is horizontal and north/south movement is vertical. Wall tops are raised
-14 pixels with vertical front faces; upright 32×32 sprites show characters from
-the front and above. Camera pan/zoom never rotates the world into a diamond.
+The owner subsequently specified a 32×32 native tile standard. Floors now project
+to square 32×32 screen pixels at 1×. East/west movement is horizontal and north/south
+movement is vertical. Wall tops and wall sides are separate 32×32 PNGs and separate
+sprites: tops are raised 32 pixels, while exposed front faces occupy the wall cell.
+Upright 32×32 goblins and all plant sprites retain their untrimmed native canvases.
+Camera pan/zoom never rotates the world into a diamond.
 
 This approach provides familiar JRPG room layouts and direct tile picking. It
 trades the diamond view's diagonal depth cues for clear floor/wall layering.

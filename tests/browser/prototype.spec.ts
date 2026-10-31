@@ -149,14 +149,14 @@ test("camera, entity inspection, drawer and drag tools work while paused and aft
   const box = (await canvas.boundingBox())!;
   const cx = box.x + box.width / 2,
     cy = box.y + box.height / 2;
-  await page.mouse.move(cx - 2 * 32 * 1.2, cy + 3 * 24 * 1.2);
+  await page.mouse.move(cx - 2 * 32, cy + 3 * 32);
   await page.mouse.down();
-  await page.mouse.move(cx, cy + 3 * 24 * 1.2, { steps: 8 });
+  await page.mouse.move(cx, cy + 3 * 32, { steps: 8 });
   await page.mouse.up();
-  await page.mouse.move(cx - 3 * 32 * 1.2, cy + 3 * 24 * 1.2);
+  await page.mouse.move(cx - 3 * 32, cy + 3 * 32);
   await page.mouse.down();
   await page.keyboard.press("Escape");
-  await page.mouse.move(cx - 3 * 32 * 1.2, cy + 4 * 24 * 1.2);
+  await page.mouse.move(cx - 3 * 32, cy + 4 * 32);
   await page.mouse.up();
 
   await expect(page.locator("[data-tool=inspect]")).toHaveAttribute(
@@ -194,7 +194,7 @@ test("reveal mode selects a goblin behind a foreground wall", async ({
   const box = (await page.locator("canvas").boundingBox())!;
   await expect(page.locator(".goblin img")).toHaveCount(0);
   const x = box.x + box.width / 2,
-    y = box.y + box.height / 2 + 3 * 1.2;
+    y = box.y + box.height / 2 + 3;
   await page.mouse.click(x, y);
   await expect(page.locator("#tile-name")).toHaveText("wall");
   await expect(page.locator("#actor-inspection")).toBeEmpty();
@@ -264,5 +264,30 @@ test("scouting uncovers a landmark without leaking fog, and v1 saves still resum
   await page.getByRole("button", { name: "4×", exact: true }).click();
   await expect(page.locator("#tile-name")).toHaveText("farm", {
     timeout: 12000,
+  });
+});
+test("all separate native art files decode as 32x32 images", async ({
+  page,
+}) => {
+  await page.goto("/art-preview.html");
+  await expect(page.locator("img")).toHaveCount(29);
+  await expect
+    .poll(() =>
+      page
+        .locator("img")
+        .evaluateAll((images) =>
+          images.every(
+            (image) =>
+              image instanceof HTMLImageElement &&
+              image.complete &&
+              image.naturalWidth === 32 &&
+              image.naturalHeight === 32,
+          ),
+        ),
+    )
+    .toBe(true);
+  await page.screenshot({
+    path: "docs/screenshots/art-preview.png",
+    fullPage: true,
   });
 });

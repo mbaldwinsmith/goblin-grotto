@@ -6,6 +6,17 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.5 — separate 32×32 tiles and sprites
+
+#### Changed
+
+- Applied the owner's 32×32 native tile standard to projection, picking, depth, camera bounds and overlays (GG-013/GG-015/GG-017/GG-018). Home resets to 1×, where each floor tile occupies exactly 32×32 screen pixels.
+- Wall tops and exposed front sides now use separate 32×32 PNG textures and independent sprite layers. Goblins and every plant type use separate untrimmed 32×32 PNGs with nearest-neighbour sampling.
+
+#### Added
+
+- 29 original reproducible PNGs, an asset manifest and `/art-preview.html`, covering six floor/top/side terrain families, grass, four goblins and six plant images. Includes native dimension and browser decoding checks. GG-022/GG-023 remain open for their full production-art criteria.
+
 ### 0.1.0-prototype.4 — discoveries beyond the firelight
 
 #### Added
