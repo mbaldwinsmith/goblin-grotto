@@ -372,8 +372,8 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-005 — Introduce stable identifiers and common types.** Branded or clearly distinct IDs; `Position {x,y,z}`, time/tick, directions, result/error. **Done:** no entity identity depends on array index or display name.
 - [x] **GG-006 — Add deterministic random generator.** Seed, serialisable state, weighted choice and range helpers; separate cosmetic RNG. **Done:** same seed produces repeatable sequences and restored stream continues exactly.
 - [x] **GG-007 — Implement fixed-step headless clock.** Step, pause, speed multiplier, deterministic scheduler and max catch-up policy. **Done:** 1000 headless steps produce the same state independent of render rate.
-- [ ] **GG-008 — Define `GameState` and command boundary.** `createGame(seed)`, `dispatch(command)`, `step()`; typed accepted/rejected results. **Done:** simulation cannot import PixiJS, HTML or DOM globals.
-- [ ] **GG-009 — Implement typed event bus and Chronicle foundations.** Strongly typed events, event IDs, game timestamps and bounded retention. **Done:** a command produces a verifiable event; malformed references are rejected.
+- [x] **GG-008 — Define `GameState` and command boundary.** `createGame(seed)`, `dispatch(command)`, `step()`; typed accepted/rejected results. **Done:** simulation cannot import PixiJS, HTML or DOM globals.
+- [x] **GG-009 — Implement typed event bus and Chronicle foundations.** Strongly typed events, event IDs, game timestamps and bounded retention. **Done:** a command produces a verifiable event; malformed references are rejected.
 - [ ] **GG-010 — Add canonical snapshot hashing/replay fixture.** Record seed and commands, compare serialisable state. **Done:** same inputs = same checksum; different command produces explainable difference.
 - [ ] **GG-011 — Wire GitHub Actions.** Install, typecheck, lint, test and build on PR/push; cache dependencies without committing generated output. **Done:** intentional failure blocks merge.
 - [ ] **GG-012 — Record architecture decisions.** Initial ADRs for fixed-step sim, renderer separation, no framework UI and save strategy. **Done:** each ADR lists alternatives and trade-offs, not just conclusions.
@@ -404,10 +404,10 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 **Goal:** Generate interesting and playable goblin homes, not geological textbooks. **Depends on:** M01 + `GG-006`.
 
 - [ ] **GG-025 — Define typed terrain material registry.** Sand, mud, loose rock, hard stone, bedrock and impenetrable stone; hardness/stability/drop/movement rules. **Done:** gameplay queries use properties, never material-name string comparisons.
-- [ ] **GG-026 — Split tile data into terrain, deposit, constructed structure and visibility.** **Done:** placing a chair does not replace the underlying floor material.
-- [ ] **GG-027 — Generate seeded caverns.** At least two irregular connected rooms, tunnels, rock walls, a safe starting area and an entrance. **Done:** reproducible world hashes and all starting goblins can reach food/exit.
+- [x] **GG-026 — Split tile data into terrain, deposit, constructed structure and visibility.** **Done:** placing a chair does not replace the underlying floor material.
+- [x] **GG-027 — Generate seeded caverns.** At least two irregular connected rooms, tunnels, rock walls, a safe starting area and an entrance. **Done:** reproducible world hashes and all starting goblins can reach food/exit.
 - [ ] **GG-028 — Place chamber archetypes and discoveries.** Fungal grove, beast den, ruins, old mine, water feature or shrine chosen by seed. **Done:** each generated site has flavour text/visible affordance and does not trap the start.
-- [ ] **GG-029 — Generate compact outdoors.** Small hillside/forest strip accessible from entrance: trees, undergrowth, stones, traveller approach and boundary. **Done:** goblins can path from starting cavern to a surface forage location.
+- [x] **GG-029 — Generate compact outdoors.** Small hillside/forest strip accessible from entrance: trees, undergrowth, stones, traveller approach and boundary. **Done:** goblins can path from starting cavern to a surface forage location.
 - [ ] **GG-030 — Add resource/deposit overlays.** Iron/copper/gold, gems, wood, edible fungi, forage and occasional ancient masonry. **Done:** deposits are inspectable without defining dozens of rock types.
 - [ ] **GG-031 — Add fog of war / discovery.** Unknown chambers, discovered features and known terrain tracked per settlement. **Done:** player does not see unrevealed relics, but known paths remain visible.
 - [ ] **GG-032 — Add material strength/support rules.** Loose materials next to excavations may create a small, telegraphed cave-in; no particle-based physics. **Done:** supports/collapses are deterministic and avoid instant unfair colony wipe.
@@ -424,11 +424,11 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 
 - [ ] **GG-037 — Spawn four stable goblin entities.** Names, kinds, basic sprite directions, position and IDs. **Done:** they persist independently of selection/renderer.
 - [ ] **GG-038 — Implement walking and occupancy.** Path following, obstruction/replan, smooth interpolation and four-direction (or art-consistent) walk cycles. **Done:** no walking through sealed stone or stacking at the entrance indefinitely.
-- [ ] **GG-039 — Define task/job data model.** Designation → open job → eligibility → reservation → progress → completion/cancellation. **Done:** tasks have status and failure reason in inspector.
+- [x] **GG-039 — Define task/job data model.** Designation → open job → eligibility → reservation → progress → completion/cancellation. **Done:** tasks have status and failure reason in inspector.
 - [ ] **GG-040 — Implement task priorities and utility selection.** Proximity, suitability, urgency, needs and small seeded variation. **Done:** workers distribute rather than all pursuing one job; explain major choices.
 - [ ] **GG-041 — Implement tile excavation.** Player paints dig designations, miners approach, progress by hardness and remove tile. **Done:** hard stone is slower, impenetrable stone rejects designation.
-- [ ] **GG-042 — Spawn rubble/ore drops.** A tile may yield one or several resource stacks and history event. **Done:** drops have independent object IDs and no duplication across replays.
-- [ ] **GG-043 — Implement resource carrying.** Pick up, move and put down one/small stack, correct ownership/holder transitions. **Done:** an interrupted haul returns item to a recoverable state.
+- [x] **GG-042 — Spawn rubble/ore drops.** A tile may yield one or several resource stacks and history event. **Done:** drops have independent object IDs and no duplication across replays.
+- [x] **GG-043 — Implement resource carrying.** Pick up, move and put down one/small stack, correct ownership/holder transitions. **Done:** an interrupted haul returns item to a recoverable state.
 - [ ] **GG-044 — Implement stockpile designation.** Mark floor area, accept/filter goods, trigger hauling opportunities. **Done:** inventory of world objects and stockpile quantities match after moving.
 - [ ] **GG-045 — Make work interruptible.** Pause, direct cancel, danger, blocked path and urgent needs release reservations. **Done:** no indefinitely locked item or tile.
 - [ ] **GG-046 — Add direct non-possession order.** Select goblin and request dig/haul/go-to; acceptance visible. **Done:** it respects legality, capability and task reservation.
@@ -443,16 +443,16 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 
 - [ ] **GG-049 — Add needs (hunger, fatigue, safety).** Bounded values, recovery/decay and clear feedback; effects on decisions. **Done:** needs influence AI and are visible.
 - [ ] **GG-050 — Implement sleeping and beds.** Buildable simple beds, reservation, rest at night/when exhausted; fallback sleeping on floor. **Done:** no infinite simultaneous claims to one bed.
-- [ ] **GG-051 — Add forage gathering and eating.** Outdoor edible plants and underground mushrooms, carried/stored food, hunger reduction. **Done:** goblins can feed themselves when food and path exist.
-- [ ] **GG-052 — Implement mushroom patch.** Assign fertile patch; growth timer, harvest, replant/maintenance. **Done:** a stable, understandable food cycle sustains four goblins.
+- [x] **GG-051 — Add forage gathering and eating.** Outdoor edible plants and underground mushrooms, carried/stored food, hunger reduction. **Done:** goblins can feed themselves when food and path exist.
+- [x] **GG-052 — Implement mushroom patch.** Assign fertile patch; growth timer, harvest, replant/maintenance. **Done:** a stable, understandable food cycle sustains four goblins.
 - [ ] **GG-053 — Build simple structures.** Blueprint, material reservation, construction progress; entrance door, bed, stockpile container and basic wall. **Done:** missing resources display clearly; refund/release on cancel.
-- [ ] **GG-054 — Add starter workshop and recipes.** Convert rock/wood into a few furnishings/tools; job selection integrates with labour. **Done:** at least one full gather → craft → use loop.
-- [ ] **GG-055 — Add minimal resource dashboard.** Food, wood, loose stone, ore and items in storage; no invisible double counting. **Done:** quantities reflect actual stockpiles and carried/staged items.
+- [x] **GG-054 — Add starter workshop and recipes.** Convert rock/wood into a few furnishings/tools; job selection integrates with labour. **Done:** at least one full gather → craft → use loop.
+- [x] **GG-055 — Add minimal resource dashboard.** Food, wood, loose stone, ore and items in storage; no invisible double counting. **Done:** quantities reflect actual stockpiles and carried/staged items.
 - [ ] **GG-056 — Build save schema/version.** Serialize world, seed, RNG, goblins, tasks, resources, calendar, reservations, event IDs. **Done:** save is pure validated data, not a Pixi snapshot.
 - [ ] **GG-057 — Implement save/load in IndexedDB.** Manual slots, autosave interval, save errors and migration placeholder. **Done:** reload restores running tasks and no items disappear/duplicate.
 - [ ] **GG-058 — Export/import human-portable saves.** Version identification, validation, helpful unsupported version message. **Done:** exported save imports in a fresh browser profile.
 - [ ] **GG-059 — Add game-speed and basic onboarding.** Pause/1×/2×/4×, simple guided hints, help overlay. **Done:** player can learn to dig and eat without documentation.
-- [ ] **GG-060 — Run headless colony endurance test.** Simulate days with four goblins on several fixed seeds. **Done:** no deadlock, runaway hunger with adequate supplies, or invalid entities.
+- [x] **GG-060 — Run headless colony endurance test.** Simulate days with four goblins on several fixed seeds. **Done:** no deadlock, runaway hunger with adequate supplies, or invalid entities.
 - [ ] **GG-061 — Package and tag v0.1.0.** Update README, controls, limitations, screenshot/GIF, changelog, hosted preview. **Done:** an outsider can make a four-goblin settlement and reload it.
 
 **Gate v0.1:** **A Home in the Rock** is fun for 10–20 minutes: dig, build, feed, rest, automate hauling, save/reload. Bugs are reproducible by seed + save.
