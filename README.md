@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.5`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.6`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -92,14 +92,22 @@ acceptance criteria; partial implementations remain unchecked. See
 ## Pixel-art scale
 
 The native grid is 32×32. Home restores 1× zoom: one tile occupies 32×32 screen
-pixels. Floors, wall tops, wall sides, each goblin and all plants have separate
+pixels. Floors, wall tops, wall sides and all plants have separate
 32×32 PNGs; walls assemble a raised top and a separate exposed front face. Zoom
 magnifies the scene with nearest-neighbour sampling.
 
+The live goblins now use your supplied base: eight directional idle poses and
+walk cycles, with smooth movement and matching portraits. The body stays at native
+32-pixel scale. Padded 40×40/44×44 walk frames retain their original pixels and are
+aligned by their feet. They stop animating when stationary or paused. Existing
+saves work without migration changes.
+
+See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
+
 See the [individual art preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/art-preview.html).
-The original 29-file set is listed in `public/assets/prototype/manifest.json` and
-reproduced with `node tools/generate-pixel-art.mjs`. Production animation and atlas
-work remain later tasks.
+The legacy 29-file set is listed in `public/assets/prototype/manifest.json` and
+reproduced with `node tools/generate-pixel-art.mjs`. Import the supplied base with `python tools/import-goblin.py`. Specialised task
+animation, crowd handling and atlas work remain later tasks.
 
 ## Where the game is heading
 
@@ -141,5 +149,5 @@ serves the production build. [AGENTS.md](AGENTS.md) and
 
 Source and technical documentation: [MIT](LICENSE.md), © 2026 Mark Baldwin-Smith.
 Creative assets: [separate rights notice](ASSETS-LICENSE.md). Original creative
-assets are not automatically MIT-licensed. Prototype sprites were generated from original integer-pixel drawings
-for this project; no third-party game graphics, fonts or audio were imported.
+assets are not automatically MIT-licensed. Terrain/plant references were generated from original integer-pixel drawings;
+the live goblin base was supplied by the owner and retains its source archive; no third-party game graphics, fonts or audio were imported.

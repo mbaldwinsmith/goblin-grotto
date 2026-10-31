@@ -6,6 +6,19 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.6 — the owner's goblins come to life
+
+#### Added
+
+- Imported the owner-supplied base from commit `5473394`: eight directional idle poses and 64 canonical walk frames, copied unchanged with per-frame hashes and foot anchors. The original ZIP/GIFs and alternate west take are preserved.
+- Directional walking and idle presentation, smooth position interpolation, work-facing and matching sidebar portraits. Animation uses fixed simulation ticks (two ticks per frame), respects pause and speed, and resets presentation history on load.
+- `/goblin-preview.html` shows the supplied directional poses and walk previews. The old prototype goblin images remain available as legacy references.
+
+#### Changed
+
+- Retained the 40×40/44×44 transparent walk canvases at scale 1, aligning them to the same feet as the 32×32 idle body. No source resizing, cropping or mirroring.
+- Picking and foreground fading use the displayed, interpolated position. Save schema 2 and authoritative simulation rules are unchanged. GG-023/GG-037/GG-038/GG-047 remain open for their broader atlas, kind, occupancy and task-animation criteria.
+
 ### 0.1.0-prototype.5 — separate 32×32 tiles and sprites
 
 #### Changed

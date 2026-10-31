@@ -1,4 +1,4 @@
-# 0.1.0-prototype.5 — verification and handoff
+# 0.1.0-prototype.6 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 27 headless tests in eight files. Includes 1,000 seeded starts;
+- `npm test`: 32 headless tests in nine files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: seven Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: eight Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -82,10 +82,24 @@ into an imported colony.
 
 ## Native art verification
 
-Every floor, wall top, wall side, goblin and plant PNG is 32×32. Home resets the
+Every floor, wall top, wall side and plant PNG is 32×32. The owner-supplied
+goblin idle poses are 32×32; padded walk frames remain 40×40/44×44 at scale 1. Home resets the
 view to 1×, giving a 32×32 screen-pixel floor grid. Wall tops and sides are separate
 textures and render nodes; exposed sides and raised tops retain their native size.
 The browser suite verifies all 29 images decode at 32×32 and repeats selection,
 wall reveal, camera/resize, painting, scouting and save migration at the new scale.
 This renderer change does not alter simulation coordinates or save schema 2.
 See [art preview](screenshots/art-preview.png).
+
+## Supplied goblin integration
+
+The live game uses eight idle directions and 64 canonical walk frames from the
+owner's ZIP. Tests verify archive/frame hashes, native dimensions, padding anchors,
+eight-way direction mapping, continuous gait across tiles, frozen presentation on
+unchanged ticks, smooth positions and history reset. An additional picking test
+selects an interpolated body rather than its future authoritative tile. Browser QA
+checks actual texture IDs/dimensions, a walking→paused→walking→idle transition and
+unmodified sprite scale. It also exercises the existing save/load and wall reveal
+scenarios with the new art. The source data and all game rules remain unchanged.
+GG-023/GG-037/GG-038/GG-047 have partial progress; their remaining atlas/kind,
+occupancy and specialised task-animation acceptance criteria are not checked off.

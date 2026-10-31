@@ -17,11 +17,12 @@ export function inspectPoint(
   x: number,
   y: number,
   reveal: boolean,
+  renderPositions?: ReadonlyMap<ActorId, Position>,
 ): Selection {
   const floor = unproject(x, y);
   const actor = s.goblins
     .filter((g) => {
-      const a = project(g.position);
+      const a = project(renderPositions?.get(g.id) ?? g.position);
       return (
         tileAt(s, g.position)?.discovered &&
         x >= a.x - 16 &&
@@ -30,7 +31,11 @@ export function inspectPoint(
         y < a.y + ACTOR_FEET
       );
     })
-    .sort((a, b) => actorDepth(b.position) - actorDepth(a.position))[0];
+    .sort(
+      (a, b) =>
+        actorDepth(renderPositions?.get(b.id) ?? b.position) -
+        actorDepth(renderPositions?.get(a.id) ?? a.position),
+    )[0];
   const walls: Position[] = [];
   for (
     let row = Math.max(0, floor.y);
@@ -55,7 +60,10 @@ export function inspectPoint(
   )[0];
   if (
     actor &&
-    (reveal || !wall || actorDepth(actor.position) > objectDepth(wall, true))
+    (reveal ||
+      !wall ||
+      actorDepth(renderPositions?.get(actor.id) ?? actor.position) >
+        objectDepth(wall, true))
   )
     return { position: { ...actor.position }, actor: actor.id };
   return { position: wall ?? floor, actor: null };

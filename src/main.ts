@@ -27,7 +27,7 @@ let selected: Position = position(30, 30);
 let ready = false;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.innerHTML = `
-<header><a class="brand" href="./"><span class="sigil">♧</span><span>GOBLIN GROTTO<small>A HOME IN THE ROCK</small></span></a><div id="resources"></div><div class="time"><span id="day"></span><small>EARLY PLAYABLE · 0.1.0-prototype.5</small></div></header>
+<header><a class="brand" href="./"><span class="sigil">♧</span><span>GOBLIN GROTTO<small>A HOME IN THE ROCK</small></span></a><div id="resources"></div><div class="time"><span id="day"></span><small>EARLY PLAYABLE · 0.1.0-prototype.6</small></div></header>
 <div class="workspace"><nav aria-label="Grotto tools"><span class="eyebrow">YOUR INFLUENCE</span><div id="tools"></div><div class="nav-bottom"><button id="home">⌂ <span>Home</span></button><button id="reveal" aria-pressed="false">◈ <span>Reveal walls</span></button><button id="help-button">? <span>How to play</span></button></div></nav>
 <main><div class="map-heading"><span class="eyebrow">THE HOLLOW UNDER THE HILL</span><h1>A little cave.<br>A grand beginning.</h1><p>Dig deep. Hoard shinies. Make a home.</p></div><div id="map"></div><div class="map-caption"><span class="live-dot"></span><span id="mode">Inspect your grotto</span><span class="map-hint">Scroll to zoom · Right-drag to pan</span></div><div id="notice" role="status" aria-live="polite">Welcome, Spirit. Plant two mushroom patches, build beds, then carve out a home.</div></main>
 <aside><div class="aside-title"><span class="eyebrow">THE GROTTO</span><span class="badge">4 SOULS</span></div><h2>Your little troublemakers</h2><p class="muted">A home is only as good as its goblins.</p><div id="goblins"></div><section class="inspector"><span class="eyebrow">UNDER YOUR GAZE</span><h3 id="tile-name">Cavern floor</h3><div id="inspection"></div><div id="actor-inspection"></div><div id="discovery-inspection"></div><form id="tile-form"><label>X <input id="tile-x" type="number" min="0" max="63" value="30"></label><label>Y <input id="tile-y" type="number" min="0" max="63" value="30"></label><button>Apply tool</button></form><p class="muted">Coordinates also let you work by keyboard.</p></section><section class="goal"><span>✧</span><div><strong>A home, not just a hole</strong><p id="goals">Plant patches · Make beds · Dig a room</p></div></section></aside></div>
@@ -264,7 +264,12 @@ function update(): void {
     b.replaceChildren();
     const face = document.createElement("span");
     face.className = "face";
-    face.textContent = ["◕", "◉", "◕", "◉"][i];
+    const portrait = document.createElement("img");
+    portrait.src = `${import.meta.env.BASE_URL}assets/goblin/base/idle/south.png`;
+    portrait.width = 32;
+    portrait.height = 32;
+    portrait.alt = "";
+    face.append(portrait);
     const info = document.createElement("span");
     info.className = "goblin-info";
     const name = document.createElement("strong");
@@ -428,7 +433,7 @@ async function start(): Promise<void> {
     last = now;
     if (!document.hidden && !document.querySelector("dialog[open]"))
       clock.advance(dt, () => step(state));
-    scene.draw(state);
+    scene.draw(state, clock.accumulator / 0.1);
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);

@@ -192,7 +192,7 @@ test("reveal mode selects a goblin behind a foreground wall", async ({
   await expect(page.locator("#notice")).toContainText("restored");
   await page.locator(".goblin").first().click();
   const box = (await page.locator("canvas").boundingBox())!;
-  await expect(page.locator(".goblin img")).toHaveCount(0);
+  await expect(page.locator(".goblin img")).toHaveCount(4);
   const x = box.x + box.width / 2,
     y = box.y + box.height / 2 + 3;
   await page.mouse.click(x, y);
@@ -288,6 +288,56 @@ test("all separate native art files decode as 32x32 images", async ({
     .toBe(true);
   await page.screenshot({
     path: "docs/screenshots/art-preview.png",
+    fullPage: true,
+  });
+});
+test("the supplied padded goblin walk animates only during movement and freezes on pause", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.getByRole("button", { name: "Explore", exact: false }).click();
+  await page.locator("#tile-x").fill("38");
+  await page.locator("#tile-y").fill("31");
+  await page.getByRole("button", { name: "Apply tool" }).click();
+  const readVisual = () =>
+    page.locator("canvas").evaluate((canvas) => {
+      const scene = Reflect.get(canvas, "grottoScene");
+      const sprite = scene.goblinSprites.values().next().value;
+      return sprite
+        ? {
+            label: sprite.label,
+            width: sprite.texture.width,
+            height: sprite.texture.height,
+            x: sprite.x,
+            y: sprite.y,
+            scaleX: sprite.scale.x,
+            scaleY: sprite.scale.y,
+          }
+        : null;
+    });
+  await expect(page.locator("#notice")).toContainText("planned");
+  await page.getByRole("button", { name: "1×", exact: true }).click();
+  await expect.poll(async () => (await readVisual())?.label).toMatch(/^walk-/);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const paused = await readVisual();
+  expect([40, 44]).toContain(paused?.width);
+  expect(paused?.scaleX).toBe(1);
+  expect(paused?.scaleY).toBe(1);
+  await page.waitForTimeout(350);
+  expect(await readVisual()).toEqual(paused);
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(async () => (await readVisual())?.label, { timeout: 12000 })
+    .toMatch(/^idle-/);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  expect((await readVisual())?.width).toBe(32);
+  await page.locator(".goblin").first().click();
+  await page.locator("canvas").focus();
+  await page.keyboard.press("+");
+  await page.screenshot({
+    path: "docs/screenshots/goblin-integration.png",
     fullPage: true,
   });
 });

@@ -653,3 +653,7 @@ nav {
   color: #c8d8b9;
   margin-top: 9px;
 }
+.face img {
+  image-rendering: pixelated;
+  display: block;
+}
