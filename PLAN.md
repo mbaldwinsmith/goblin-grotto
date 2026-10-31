@@ -448,9 +448,9 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [ ] **GG-053 — Build simple structures.** Blueprint, material reservation, construction progress; entrance door, bed, stockpile container and basic wall. **Done:** missing resources display clearly; refund/release on cancel.
 - [x] **GG-054 — Add starter workshop and recipes.** Convert rock/wood into a few furnishings/tools; job selection integrates with labour. **Done:** at least one full gather → craft → use loop.
 - [x] **GG-055 — Add minimal resource dashboard.** Food, wood, loose stone, ore and items in storage; no invisible double counting. **Done:** quantities reflect actual stockpiles and carried/staged items.
-- [ ] **GG-056 — Build save schema/version.** Serialize world, seed, RNG, goblins, tasks, resources, calendar, reservations, event IDs. **Done:** save is pure validated data, not a Pixi snapshot.
-- [ ] **GG-057 — Implement save/load in IndexedDB.** Manual slots, autosave interval, save errors and migration placeholder. **Done:** reload restores running tasks and no items disappear/duplicate.
-- [ ] **GG-058 — Export/import human-portable saves.** Version identification, validation, helpful unsupported version message. **Done:** exported save imports in a fresh browser profile.
+- [x] **GG-056 — Build save schema/version.** Serialize world, seed, RNG, goblins, tasks, resources, calendar, reservations, event IDs. **Done:** save is pure validated data, not a Pixi snapshot.
+- [x] **GG-057 — Implement save/load in IndexedDB.** Manual slots, autosave interval, save errors and migration placeholder. **Done:** reload restores running tasks and no items disappear/duplicate.
+- [x] **GG-058 — Export/import human-portable saves.** Version identification, validation, helpful unsupported version message. **Done:** exported save imports in a fresh browser profile.
 - [ ] **GG-059 — Add game-speed and basic onboarding.** Pause/1×/2×/4×, simple guided hints, help overlay. **Done:** player can learn to dig and eat without documentation.
 - [x] **GG-060 — Run headless colony endurance test.** Simulate days with four goblins on several fixed seeds. **Done:** no deadlock, runaway hunger with adequate supplies, or invalid entities.
 - [ ] **GG-061 — Package and tag v0.1.0.** Update README, controls, limitations, screenshot/GIF, changelog, hosted preview. **Done:** an outsider can make a four-goblin settlement and reload it.

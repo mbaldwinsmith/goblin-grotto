@@ -8,6 +8,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ### Added
 
+- Validated versioned IndexedDB manual and autosave slots, portable JSON import/export and exact save continuation (GG-056,GG-057,GG-058).
+
 - Compared isometric and oblique scenes; selected fixed isometric projection with inverse-picking tests (GG-013,GG-015).
 
 - Architecture decisions for fixed-step simulation, DOM UI, rendering separation and versioned local saves (GG-012).
