@@ -1,19 +1,18 @@
 import { range, seedValue } from "../core/random";
-import { directions, type Position } from "../core/types";
+import { directions } from "../core/types";
 import {
   type FeatureKind,
   type GameState,
   type Material,
   position,
   tileAt,
-  same,
-  walkable,
 } from "./model";
 import { revealFrom } from "./visibility";
 import { validateWorld } from "./validation";
 export function createGame(seed: string): GameState {
   const s: GameState = {
-    version: 2,
+    version: 3,
+    weather: { kind: "clear", changedAt: 0 },
     seed,
     rng: seedValue(seed),
     tick: 0,
@@ -49,6 +48,7 @@ export function createGame(seed: string): GameState {
         structure: null,
         stockpile: false,
         growth: 0,
+        collapseAt: null,
       });
     }
   // A few seeded irregular alcoves, without compromising the guaranteed start.
@@ -171,42 +171,4 @@ export function createGame(seed: string): GameState {
   });
   return s;
 }
-/** Deterministic breadth-first paths; each step has equal cost in the prototype. */
-export function path(
-  s: GameState,
-  from: Position,
-  to: Position,
-  adjacent = false,
-  knownOnly = false,
-): Position[] | null {
-  const key = (p: Position) => p.y * s.width + p.x;
-  const seen = new Map<number, Position | null>([[key(from), null]]);
-  const queue = [from];
-  let end: Position | undefined;
-  for (let i = 0; i < queue.length; i++) {
-    const p = queue[i];
-    if (
-      (adjacent && Math.abs(p.x - to.x) + Math.abs(p.y - to.y) === 1) ||
-      (!adjacent && same(p, to))
-    ) {
-      end = p;
-      break;
-    }
-    for (const d of directions) {
-      const n = position(p.x + d.x, p.y + d.y);
-      const t = tileAt(s, n);
-      if (walkable(t) && (!knownOnly || t?.discovered) && !seen.has(key(n))) {
-        seen.set(key(n), p);
-        queue.push(n);
-      }
-    }
-  }
-  if (!end) return null;
-  const result: Position[] = [];
-  let current: Position | null = end;
-  while (current && !same(current, from)) {
-    result.push(current);
-    current = seen.get(key(current)) ?? null;
-  }
-  return result.reverse();
-}
+export { path } from "./navigation";

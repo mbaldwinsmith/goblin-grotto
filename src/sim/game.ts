@@ -1,3 +1,8 @@
+import { updateWeather } from "./climate";
+import { warnOnExcavation, updateStability } from "./stability";
+import { emit } from "./events";
+export { emit } from "./events";
+import { invalidateNavigation, movementTicks } from "./navigation";
 import type { Position, Result } from "../core/types";
 import {
   type Command,
@@ -5,7 +10,6 @@ import {
   type Goblin,
   type Job,
   type Resource,
-  type StoryEvent,
   costs,
   deposits,
   features,
@@ -31,17 +35,6 @@ function discover(s: GameState, p: Position): void {
     );
 }
 export { createGame } from "./world";
-export function emit(
-  s: GameState,
-  kind: StoryEvent["kind"],
-  text: string,
-  actor: StoryEvent["actor"] = null,
-): void {
-  if (actor && !s.goblins.some((g) => g.id === actor))
-    throw new Error("Unknown event actor");
-  s.events.push({ id: `event-${s.nextId++}`, tick: s.tick, kind, text, actor });
-  if (s.events.length > 80) s.events.shift();
-}
 export function dispatch(s: GameState, c: Command): Result {
   const p = c.position;
   if (!Number.isInteger(p.x) || !Number.isInteger(p.y) || p.z !== 0)
@@ -100,6 +93,11 @@ export function dispatch(s: GameState, c: Command): Result {
     };
   if (c.tool === "build" && (!buildable(t) || !c.structure))
     return { ok: false, reason: "Choose empty floor and a structure." };
+  if (c.tool === "build" && t.collapseAt !== null && c.structure !== "support")
+    return {
+      ok: false,
+      reason: "Shore up the loose ceiling with a support first.",
+    };
   if (
     c.tool === "harvest" &&
     (t.solid || !t.deposit || deposits[t.deposit].action !== "gather")
@@ -210,11 +208,14 @@ function release(s: GameState, g: Goblin): void {
 }
 function move(s: GameState, g: Goblin, p: Position, adjacent = false): boolean {
   const route = path(s, g.position, p, adjacent);
-  if (!route) return false;
-  if (
-    route.length &&
-    s.tick % materials[tileAt(s, route[0])!.material].moveTicks === 0
-  )
+  if (!route) {
+    const job = s.jobs.find((job) => job.id === g.job);
+    if (job) job.reason = "Route blocked; waiting for a clear path";
+    release(s, g);
+    g.activity = "Route blocked: waiting for a clear path";
+    return false;
+  }
+  if (route.length && s.tick % movementTicks(s, route[0]) === 0)
     g.position = route[0];
   return route.length === 0;
 }
@@ -373,7 +374,7 @@ function work(s: GameState, g: Goblin, j: Job): void {
   }
   const adjacent = j.kind === "dig" || j.kind === "craft";
   if (!move(s, g, j.target, adjacent)) {
-    g.activity = `Walking to ${j.kind}`;
+    if (g.job) g.activity = `Walking to ${j.kind}`;
     return;
   }
   if (j.kind === "build" && !j.paid) {
@@ -416,6 +417,7 @@ function work(s: GameState, g: Goblin, j: Job): void {
   if (j.progress < required) return;
   if (j.kind === "dig") {
     t.solid = false;
+    invalidateNavigation(s);
     const drop = t.deposit ? deposits[t.deposit] : null;
     addItem(
       s,
@@ -425,9 +427,11 @@ function work(s: GameState, g: Goblin, j: Job): void {
     );
     t.deposit = null;
     discover(s, g.position);
+    warnOnExcavation(s, j.target);
   }
   if (j.kind === "build") {
     t.structure = j.structure;
+    invalidateNavigation(s);
     t.growth = 0;
   }
   if (j.kind === "harvest") {
@@ -454,6 +458,8 @@ function work(s: GameState, g: Goblin, j: Job): void {
 }
 export function step(s: GameState): void {
   s.tick++;
+  updateWeather(s);
+  updateStability(s);
   for (const t of s.tiles)
     if (t.structure === "farm") t.growth = Math.min(600, t.growth + 1);
   s.items = s.items.filter((i) => i.quantity > 0);

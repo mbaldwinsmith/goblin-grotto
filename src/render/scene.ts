@@ -1,3 +1,4 @@
+import { movementTicks } from "../sim/navigation";
 import { GoblinAnimator, type GoblinPose } from "./goblin-animation";
 import { loadGoblinArt, goblinFrames } from "./goblin-art";
 import {
@@ -16,7 +17,6 @@ import {
   resources,
   deposits,
   walkable,
-  materials,
 } from "../sim/model";
 import { cameraFocus, cameraPan, cameraZoom, boundCamera } from "./camera";
 import { actorDepth, objectDepth, inspectPoint } from "./picking";
@@ -131,7 +131,7 @@ export class Scene {
         g.position,
         s.tick,
         alpha,
-        materials[tileAt(s, g.position)!.material].moveTicks,
+        movementTicks(s, g.position),
         lookAt,
       );
       this.poses.set(g.id, pose);
@@ -232,6 +232,31 @@ export class Scene {
           })
         )
           o.rect(a.x - 1, a.y + 15, 2, 2).fill(0x91ccb1);
+        if (t.collapseAt !== null) {
+          const urgent = t.collapseAt - s.tick < 100;
+          o.rect(a.x - 13, a.y + 3, 26, 26).stroke({
+            color: urgent ? 0xe19378 : 0xd9bd72,
+            width: 2,
+          });
+          o.moveTo(a.x - 9, a.y + 6)
+            .lineTo(a.x - 2, a.y + 14)
+            .lineTo(a.x - 7, a.y + 20)
+            .stroke({ color: 0xe5cc92, width: 1 });
+        }
+        if (t.outside && s.weather.kind !== "clear") {
+          const snow = s.weather.kind === "snow";
+          o.rect(a.x - HALF_TILE, a.y, TILE_SIZE, TILE_SIZE).fill({
+            color: snow ? 0xdbe4db : 0x779fac,
+            alpha: snow ? 0.12 : 0.05,
+          });
+          for (let i = 0; i < 2; i++)
+            o.rect(
+              a.x - 10 + i * 17,
+              a.y + ((s.tick + i * 11) % 29),
+              snow ? 2 : 1,
+              snow ? 2 : 4,
+            ).fill({ color: snow ? 0xe3e9dd : 0x91b9c7, alpha: 0.6 });
+        }
         const signature = `${t.solid}:${t.stockpile}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
         if (node.signature !== signature) {
           node.signature = signature;
@@ -358,6 +383,13 @@ export class Scene {
       d.rect(a.x - 10, a.y + 19, 3, 9).fill(0x5c4b3e);
       d.rect(a.x + 8, a.y + 19, 3, 9).fill(0x5c4b3e);
       d.rect(a.x - 4, a.y + 2, 8, 6).fill(0x667d84);
+    }
+    if (t.structure === "support") {
+      d.rect(a.x - 13, a.y + 3, 4, 28).fill(0x9d7e53);
+      d.rect(a.x + 9, a.y + 3, 4, 28).fill(0x9d7e53);
+      d.rect(a.x - 15, a.y + 2, 30, 5).fill(0xc3a16c);
+      d.rect(a.x - 12, a.y + 28, 7, 3).fill(0x5c6b6d);
+      d.rect(a.x + 6, a.y + 28, 7, 3).fill(0x5c6b6d);
     }
     if (t.structure === "door") {
       d.rect(a.x - 13, a.y, 26, 32).fill(0x8c7253);

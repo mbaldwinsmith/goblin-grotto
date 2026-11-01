@@ -60,7 +60,13 @@ export const materials = {
   },
 } as const;
 export type Material = keyof typeof materials;
-export type Structure = "bed" | "farm" | "workshop" | "door" | "wall";
+export type Structure =
+  | "bed"
+  | "farm"
+  | "workshop"
+  | "door"
+  | "wall"
+  | "support";
 export interface Tile {
   material: Material;
   solid: boolean;
@@ -71,6 +77,7 @@ export interface Tile {
   structure: Structure | null;
   stockpile: boolean;
   growth: number;
+  collapseAt: number | null;
 }
 export interface Item {
   id: ItemId;
@@ -119,7 +126,8 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 2;
+  version: 3;
+  weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;
   tick: number;
@@ -160,6 +168,7 @@ export const costs: Record<Structure, Partial<Record<Resource, number>>> = {
   workshop: { wood: 3, stone: 2 },
   door: { wood: 2 },
   wall: { stone: 2 },
+  support: { wood: 1, stone: 1 },
 };
 
 export function walkable(t: Tile | undefined): boolean {

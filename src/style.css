@@ -657,3 +657,12 @@ nav {
   image-rendering: pixelated;
   display: block;
 }
+
+#weather {
+  display: block;
+  font:
+    10px system-ui,
+    sans-serif;
+  color: #a9bca5;
+  margin-top: 5px;
+}

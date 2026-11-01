@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.6`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.7`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -58,6 +58,19 @@ Gold outlines show excavation; teal outlines show other planned work. Select a
 tile to inspect its progress or failure reason. Hungry and tired goblins interrupt
 work to look after themselves. The sidebar tracks food and energy.
 
+### Loose ceilings and the weather
+
+Excavating weak material beside a wide opening may reveal a loose ceiling. An
+amber crack and Chronicle warning give you **30 game seconds** to build a
+**Support**: one wood and one stone, protecting a two-tile Manhattan radius.
+Supports leave the passage walkable. Unsupported falls leave diggable rubble;
+this prototype avoids landing on goblins or cutting the colony off from food.
+
+The header shows the day, season and weather. Seasons last five days; seeded
+weather changes can bring rain, or snow in winter. Rain adds one movement tick
+outside and snow adds two; cave movement is unaffected. Routes account for terrain
+costs and prefer to avoid warned ceilings.
+
 ### Controls and saves
 
 - Left-click: inspect goblins, tiles and structures, or apply the selected tool.
@@ -71,16 +84,16 @@ work to look after themselves. The sidebar tracks food and energy.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
   is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1 or version-2 save before replacing the current game. Future
+- **Import** validates a version-1, version-2 or version-3 save before replacing the current game. Future
   or damaged saves show a message and leave the current grotto intact.
 - **New grotto** asks for a seed and replaces the active session; save first.
 
 ### Prototype boundaries
 
-This slice demonstrates the home-building loop. It has temporary original
-original pixel sprites, modest animation and simple pathfinding. It does **not**
-yet implement Souls, Chief/Shaman politics, possession, inventory equipment,
-combat, raids, generations, weather, cave-ins or the Overlord. Actor congestion, smooth movement, camera polish and the production art pipeline
+This slice demonstrates the home-building loop with supplied goblin sprites,
+directional walking and cached A* routes. It does **not** yet implement Souls,
+Chief/Shaman politics, possession, inventory equipment, combat, raids, generations
+or the Overlord. Actor congestion, camera polish and the production art pipeline
 still need work.
 There is no starvation death or combat failure state yet. Workshop content is one
 small recipe; a full economy is later work.
@@ -100,7 +113,7 @@ The live goblins now use your supplied base: eight directional idle poses and
 walk cycles, with smooth movement and matching portraits. The body stays at native
 32-pixel scale. Padded 40×40/44×44 walk frames retain their original pixels and are
 aligned by their feet. They stop animating when stationary or paused. Existing
-saves work without migration changes.
+schema-1 and schema-2 saves migrate without regenerating the map or adding pending falls.
 
 See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
 
@@ -123,7 +136,7 @@ bounded and focused on what goblins can experience.
 ## Development
 
 Mud and loose ground slow movement; the terrain inspector shows movement, digging
-and support properties. Support ratings anticipate cave-ins, which are still future work.
+and support properties. Weak excavations may need supports before a warned cave-in.
 
 Strict TypeScript + Vite, PixiJS WebGL with a fixed three-quarter JRPG view, semantic HTML/CSS, a pure 10 Hz simulation,
 seeded serializable RNG, typed commands/events, and versioned IndexedDB saves.

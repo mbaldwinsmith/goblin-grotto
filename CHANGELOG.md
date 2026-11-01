@@ -6,6 +6,22 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.7 — shore up the grotto
+
+#### Added
+
+- GG-032: newly excavated weak ceilings can warn for 30 game seconds before a small cave-in. Build a Support (one wood, one stone) within two tiles to prevent it. Falls avoid occupied tiles and preserve colony/food access; blocked rubble can be excavated again.
+- GG-034: five-day seasons, seeded clear/rain/snow transitions, a calendar/weather indicator and outdoor precipitation. Rain and snow modestly slow outdoor movement; caves stay sheltered.
+- GG-035: deterministic cost-aware A* routes with a bounded cache, invalidated by terrain, discovery, ceiling warnings and weather changes. Tests cover tunnels, the outdoor entrance, occupied cells and newly dug shortcuts.
+
+#### Changed
+
+- Save schema 3 persists weather and ceiling warnings. Actual schema-1/schema-2 colony fixtures migrate without losing their maps, identities or active work.
+
+#### Fixed
+
+- A newly blocked route releases its worker and any carried item with a readable reason, allowing other work to proceed (partial GG-045; its wider criteria remain open).
+
 ### 0.1.0-prototype.6 — the owner's goblins come to life
 
 #### Added

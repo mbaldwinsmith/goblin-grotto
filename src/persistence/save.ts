@@ -21,9 +21,20 @@ const p = z.object({
   z: z.literal(0),
 });
 const resource = z.enum(resourceKinds);
-const structure = z.enum(["bed", "farm", "workshop", "door", "wall"]);
+const structure = z.enum([
+  "bed",
+  "farm",
+  "workshop",
+  "door",
+  "wall",
+  "support",
+]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(2),
+  version: z.literal(3),
+  weather: z.object({
+    kind: z.enum(["clear", "rain", "snow"]),
+    changedAt: natural,
+  }),
   seed: z.string().max(100),
   rng: natural.min(1).max(4294967295),
   tick: natural,
@@ -49,6 +60,7 @@ const schema: z.ZodType<GameState> = z.object({
         structure: structure.nullable(),
         stockpile: z.boolean(),
         growth: natural.max(600),
+        collapseAt: natural.nullable(),
       }),
     )
     .length(4096),
@@ -125,12 +137,28 @@ export function decodeSave(text: string): GameState {
       version: 2,
       tiles: legacy.data.tiles.map((tile) => ({ ...tile, feature: null })),
     };
+  const previous = z
+    .object({
+      version: z.literal(2),
+      tiles: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (previous.success)
+    raw = {
+      ...previous.data,
+      version: 3,
+      weather: { kind: "clear", changedAt: 0 },
+      tiles: previous.data.tiles.map((tile) => ({ ...tile, collapseAt: null })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1 and 2.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2 and 3.",
     );
   const s = result.data;
+  if (s.weather.changedAt > s.tick)
+    throw new Error("Weather timestamp is in the future.");
   const all = [...s.goblins, ...s.items, ...s.jobs, ...s.events];
   const ids = all.map((e) => e.id);
   if (

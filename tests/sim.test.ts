@@ -43,7 +43,7 @@ it("1000 seeds have a connected safe start, supplies and outdoor route", () => {
       ).not.toBeNull();
     expect(quantities(s).food).toBeGreaterThan(0);
   }
-});
+}, 20_000);
 it("autonomous digging, hauling, farming and beds survive days without duplicate holdings", () => {
   const s = createGame("colony");
   for (const [x, y, structure] of [

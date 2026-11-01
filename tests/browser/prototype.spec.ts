@@ -341,3 +341,69 @@ test("the supplied padded goblin walk animates only during movement and freezes 
     fullPage: true,
   });
 });
+test("loose ceilings can be shored up, and weather/supports survive save-load", async ({
+  page,
+}) => {
+  const { createGame } = await import("../../src/sim/world");
+  const { position, tileAt } = await import("../../src/sim/model");
+  const { warnOnExcavation } = await import("../../src/sim/stability");
+  const { encodeSave } = await import("../../src/persistence/save");
+  const s = createGame("environment-browser");
+  s.weather = { kind: "rain", changedAt: 0 };
+  for (const t of s.tiles) if (t.outside) t.discovered = true;
+  tileAt(s, position(35, 30))!.material = "loose";
+  warnOnExcavation(s, position(35, 30));
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "environment.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(encodeSave(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  await expect(page.locator("#weather")).toContainText("Rain outside");
+  const coords = async (x: number, y: number) => {
+    await page.locator("#tile-x").fill(String(x));
+    await page.locator("#tile-y").fill(String(y));
+    await page.getByRole("button", { name: "Apply tool" }).click();
+  };
+  await coords(35, 30);
+  await expect(page.locator("#inspection")).toContainText("Loose ceiling");
+  await page.screenshot({
+    path: "docs/screenshots/ceiling-warning.png",
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "Bed", exact: false }).first().click();
+  await coords(35, 30);
+  await expect(page.locator("#notice")).toContainText("support first");
+  await page.getByRole("button", { name: "Support", exact: false }).click();
+  await coords(34, 30);
+  await expect(page.locator("#notice")).toContainText("planned");
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect(page.locator("#tile-name")).toHaveText("support", {
+    timeout: 15000,
+  });
+  await page
+    .getByRole("button", { name: "Inspect", exact: false })
+    .first()
+    .click();
+  await coords(35, 30);
+  await expect(page.locator("#inspection")).not.toContainText("Loose ceiling");
+  await expect(page.locator("#events")).toContainText("shored up");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("saved");
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await coords(34, 30);
+  await expect(page.locator("#tile-name")).toHaveText("support");
+  await expect(page.locator("#weather")).toContainText("Rain outside");
+  await coords(54, 31);
+  await page.screenshot({
+    path: "docs/screenshots/environment.png",
+    fullPage: true,
+  });
+});
