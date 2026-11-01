@@ -263,7 +263,7 @@ export class Scene {
               snow ? 2 : 4,
             ).fill({ color: snow ? 0xe3e9dd : 0x91b9c7, alpha: 0.6 });
         }
-        const signature = `${t.solid}:${t.stockpile}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
+        const signature = `${t.solid}:${t.stockpile}:${t.stockpileFilter}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
         if (node.signature !== signature) {
           node.signature = signature;
           this.drawProps(d.clear(), t, a, node.side.visible);
@@ -362,8 +362,16 @@ export class Scene {
     a: { x: number; y: number },
     sideVisible: boolean,
   ): void {
-    if (t.stockpile)
-      d.rect(a.x - 13, a.y + 3, 26, 26).stroke({ color: 0xc1a46a, width: 1 });
+    if (t.stockpile) {
+      const color = {
+        all: 0xc1a46a,
+        food: 0x81bca7,
+        building: 0xb29260,
+        valuables: 0xb6a4dc,
+        crafted: 0x86b8cc,
+      }[t.stockpileFilter];
+      d.rect(a.x - 13, a.y + 3, 26, 26).stroke({ color, width: 1 });
+    }
     if (
       t.feature &&
       !t.solid &&

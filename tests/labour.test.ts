@@ -212,11 +212,12 @@ it("migrates a real schema-6 drop wind-up and continues priorities and seeded de
       readFileSync("tests/fixtures/v6-drop-windup.json.gz"),
     ).toString(),
     s = decodeSave(text);
-  expect(s.version).toBe(7);
+  expect(s.version).toBe(8);
   expect(s.goblins.some((g) => g.drop)).toBe(true);
   expect({
     ...s,
     version: 6,
+    tiles: s.tiles.map(({ stockpileFilter, ...tile }) => tile),
     goblins: s.goblins.map(({ preferredWork, ...g }) => g),
     jobs: s.jobs.map(({ priority, ...j }) => j),
   }).toEqual(JSON.parse(text));

@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.11`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.12`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -58,6 +58,23 @@ Gold outlines show excavation; teal outlines show other planned work. Select a
 tile to inspect its progress or failure reason. Hungry and tired goblins interrupt
 work to look after themselves. The sidebar tracks food and energy.
 
+### Sort your supplies
+
+Choose **Stockpile**, select a goods filter and drag across clear floor, or use
+coordinates to mark an area. Filters cover all goods, food, building supplies
+(wood/stone), ore and valuables, and crafted goods (bed kits). Painting again
+updates the filter; **Stockpile mode → Remove** erases an area.
+
+Inspect a pile to change **Accept goods**, read its stored contents or remove it.
+Haulers use the nearest reachable matching pile. Existing valid deliveries keep
+their destination; changing or removing it reroutes them. If no suitable pile
+exists, goods stay recoverable where they are. Buildings and collapses clear
+storage beneath them. New piles can include goods already on that floor.
+
+Hover a resource total for its **stored / carried / loose** breakdown. Every
+quantity belongs to one category; painting and filtering never create or delete
+supplies. Stored goods are available for construction; loose food can still be eaten.
+
 ### Guide the work
 
 Set **New work priority** to Low, Normal or High before placing jobs. Inspect a
@@ -98,7 +115,7 @@ costs and prefer to avoid warned ceilings.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
   is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1, version-2, version-3, version-4, version-5, version-6 or version-7 save before replacing the current game. Future
+- **Import** validates a version-1, version-2, version-3, version-4, version-5, version-6, version-7 or version-8 save before replacing the current game. Future
   or damaged saves show a message and leave the current grotto intact.
 - **New grotto** asks for a seed and replaces the active session; save first.
 
@@ -129,7 +146,7 @@ The body stays at native 32-pixel scale; padded 40×40/44×44/48×48 canvases ke
 their original pixels and align by their feet. Pause freezes every clip.
 Haulers take a moment to put supplies down at a stockpile; an interrupted haul
 leaves its item recoverable. Saves retain a delivery in progress, and schema-1
-through schema-6 saves migrate without regenerating the map or adding pending falls.
+through schema-7 saves migrate without regenerating the map or adding pending falls.
 
 See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
 

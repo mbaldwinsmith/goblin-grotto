@@ -144,7 +144,7 @@ it("cancel and urgent interruption immediately free the item and show the releas
     dispatch(s, { type: "designate", tool: "cancel", position: job.target }).ok,
   ).toBe(true);
   expect(item.holder).toBeNull();
-  expect(item.stored).toBe(false);
+  expect(item.stored).toBe(true); // It is already on an accepting pile.
   expect(g.job).toBeNull();
   expect(g.drop?.store).toBe(false);
   const animator = new GoblinAnimator();
@@ -165,13 +165,14 @@ it("migrates an actual schema-5 active haul and maps diagonal facing to a cardin
   ).toString();
   const old = JSON.parse(text),
     s = decodeSave(text);
-  expect(s.version).toBe(7);
+  expect(s.version).toBe(8);
   const worker = s.goblins.find((g) => g.carrying)!;
   expect(worker.facing).toBe("north");
   expect(worker.drop).toBeNull();
   expect({
     ...s,
     version: 5,
+    tiles: s.tiles.map(({ stockpileFilter, ...tile }) => tile),
     jobs: s.jobs.map(({ priority, ...job }) => job),
     goblins: s.goblins.map(({ drop, preferredWork, ...g }) => ({
       ...g,

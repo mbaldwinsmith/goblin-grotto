@@ -149,7 +149,7 @@ test("camera, entity inspection, drawer and drag tools work while paused and aft
   // Home anchors the camera at 32,30. Paint a three-tile stockpile on clear floor.
   await page.getByRole("button", { name: "Home", exact: false }).click();
   await canvas.focus();
-  await page.getByRole("button", { name: "Stockpile", exact: false }).click();
+  await page.getByRole("button", { name: /^▧ Stockpile/ }).click();
   const box = (await canvas.boundingBox())!;
   const cx = box.x + box.width / 2,
     cy = box.y + box.height / 2;
@@ -490,6 +490,7 @@ test("four scouts pass through a narrow entrance without stacking", async ({
   s.items.forEach((i) => {
     i.position = { x: 27, y: 30, z: 0 };
   });
+  s.tiles[30 * 64 + 27].stockpile = true;
   await page.goto("/");
   await expect(page.locator("canvas")).toBeVisible();
   await page.getByRole("button", { name: "Pause", exact: true }).click();
@@ -805,4 +806,192 @@ test("work priority, worker preferences and choice reasons survive save/load", a
   await expect(page.getByLabel("Work priority", { exact: true })).toHaveValue(
     "1",
   );
+});
+
+test("filtered stockpile areas sort physical goods, survive load and reroute after editing/removal", async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  const { createGame } = await import("../../src/sim/game");
+  const s = createGame("filtered-storage");
+  for (const t of s.tiles) t.stockpile = false;
+  for (let y = 27; y <= 34; y++)
+    for (let x = 27; x <= 39; x++) {
+      const t = s.tiles[y * 64 + x];
+      t.solid = false;
+      t.material = "hard";
+      t.feature = null;
+      t.structure = null;
+    }
+  const wood = {
+    id: `item-${s.nextId++}` as const,
+    resource: "wood" as const,
+    quantity: 6,
+    position: { x: 28, y: 29, z: 0 as const },
+    holder: null,
+    stored: false,
+  };
+  const food = {
+    id: `item-${s.nextId++}` as const,
+    resource: "food" as const,
+    quantity: 8,
+    position: { x: 29, y: 29, z: 0 as const },
+    holder: null,
+    stored: false,
+  };
+  s.items = [wood, food];
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "stockpiles.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  const coords = async (x: number, y: number) => {
+    await page.locator("#tile-x").fill(String(x));
+    await page.locator("#tile-y").fill(String(y));
+    await page.getByRole("button", { name: "Apply tool" }).click();
+  };
+  const inspect = async () => {
+    await page
+      .getByRole("button", { name: "Inspect", exact: false })
+      .first()
+      .click();
+  };
+  const read = () =>
+    page.locator("canvas").evaluate(
+      (canvas, ids) => {
+        const state = Reflect.get(canvas, "grottoScene").world;
+        return {
+          items: ids.map((id) => {
+            const i = state.items.find(
+              (item: { id: string }) => item.id === id,
+            );
+            return {
+              x: i.position.x,
+              y: i.position.y,
+              stored: i.stored,
+              quantity: i.quantity,
+              holder: i.holder,
+            };
+          }),
+          unique: new Set(state.items.map((i: { id: string }) => i.id)).size,
+          zones: state.tiles.filter((t: { stockpile: boolean }) => t.stockpile)
+            .length,
+          settled: state.goblins.every((g: { drop: unknown }) => !g.drop),
+        };
+      },
+      [wood.id, food.id],
+    );
+  await page.getByRole("button", { name: /^▧ Stockpile/ }).click();
+  await page
+    .getByLabel("Goods for new stockpiles", { exact: true })
+    .selectOption("food");
+  for (const x of [34, 35, 36]) await coords(x, 29);
+  await page
+    .getByLabel("Goods for new stockpiles", { exact: true })
+    .selectOption("building");
+  await coords(35, 31);
+  expect((await read()).zones).toBe(4);
+  await inspect();
+  await coords(34, 29);
+  await expect(page.getByLabel("Accept goods", { exact: true })).toHaveValue(
+    "food",
+  );
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(
+      async () => {
+        const r = await read();
+        return r.items.every((i) => i.stored) && r.settled;
+      },
+      { timeout: 20000 },
+    )
+    .toBe(true);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const delivered = await read();
+  expect(delivered.items[0]).toMatchObject({
+    x: 35,
+    y: 31,
+    stored: true,
+    quantity: 6,
+  });
+  expect(delivered.items[1]).toMatchObject({
+    x: 34,
+    y: 29,
+    stored: true,
+    quantity: 8,
+  });
+  expect(delivered.unique).toBe(2);
+  await expect(page.locator("#stored-contents")).toContainText(
+    "8 edible mushrooms",
+  );
+  await expect(
+    page.locator("#resources > span").filter({ hasText: "wood" }),
+  ).toHaveAttribute("title", /Stored 6 · Carried 0 · Loose 0/);
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await coords(34, 29);
+  await expect(page.getByLabel("Accept goods", { exact: true })).toHaveValue(
+    "food",
+  );
+  await page
+    .getByLabel("Accept goods", { exact: true })
+    .selectOption("building");
+  await expect(page.locator("#loose-goods")).toContainText(
+    "8 edible mushrooms loose",
+  );
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(
+      async () => {
+        const r = await read();
+        return r.items[1].stored && r.items[1].x === 35 && r.settled;
+      },
+      { timeout: 20000 },
+    )
+    .toBe(true);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.getByRole("button", { name: /^▧ Stockpile/ }).click();
+  await page
+    .getByLabel("Stockpile mode", { exact: true })
+    .selectOption("remove");
+  await coords(35, 31);
+  await expect(
+    page.getByLabel("Goods for new stockpiles", { exact: true }),
+  ).toBeDisabled();
+  expect((await read()).items[0].stored).toBe(false);
+  await inspect();
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(
+      async () => {
+        const r = await read();
+        return (
+          r.items[0].stored &&
+          r.items[0].x === 34 &&
+          r.items[0].y === 29 &&
+          r.settled
+        );
+      },
+      { timeout: 20000 },
+    )
+    .toBe(true);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await coords(34, 29);
+  await expect(page.locator("#stored-contents")).toContainText("6 wood");
+  expect((await read()).unique).toBe(2);
+  await page.screenshot({
+    path: "docs/screenshots/stockpiles.png",
+    fullPage: true,
+  });
 });

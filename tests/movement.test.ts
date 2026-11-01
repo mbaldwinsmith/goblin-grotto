@@ -22,6 +22,7 @@ function corridor() {
   s.items.forEach((i) => {
     i.position = position(27, 30);
   });
+  tileAt(s, position(27, 30))!.stockpile = true;
   invalidateNavigation(s);
   return s;
 }

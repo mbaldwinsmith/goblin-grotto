@@ -6,6 +6,22 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.12 — a place for every shiny
+
+#### Added
+
+- GG-044: stockpile areas accept All goods, Food, Building supplies, Ore and valuables, or Crafted goods. Add/update painting is idempotent; Remove mode erases areas. The inspector edits filters and shows physical contents.
+- Haulers choose the nearest reachable matching pile. Filter edits, removed zones and blocked destinations reroute the same item and worker; when no destination exists, reservations are released and cargo remains recoverable. Mid-drop rerouting and save continuation are tested.
+- Resource tooltips break totals into stored, carried and loose quantities. Goods already on a newly marked matching pile count as stored without being moved or cloned.
+
+#### Changed
+
+- Save schema 8 adds All goods to legacy stockpiles and reconciles stale storage flags while preserving object IDs, quantities and delivery progress. New saves reject stored flags that disagree with physical placement.
+
+#### Fixed
+
+- Buildings, cave-ins and unsuitable filters cannot leave goods marked as spendable storage. Removed/excluded goods remain physically present for eating, excavation or rehauling.
+
 ### 0.1.0-prototype.11 — a little order in the grotto
 
 #### Added

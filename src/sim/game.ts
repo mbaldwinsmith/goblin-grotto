@@ -1,5 +1,11 @@
+import { reconcileStorage, nearestStockpile, filterLabel } from "./storage";
 import { assignWork, adjacentWork, priorityLabels, workLabels } from "./labour";
-import { beginDrop, interruptDrop, updateDrop } from "./hauling";
+import {
+  beginDrop,
+  interruptDrop,
+  updateDrop,
+  refreshHaulJobs,
+} from "./hauling";
 import { advance, makeRoom } from "./movement";
 import { facingFor } from "../core/facing";
 import { updateWeather } from "./climate";
@@ -17,6 +23,7 @@ import {
   costs,
   jobKinds,
   jobPriorities,
+  stockpileFilterKinds,
   deposits,
   features,
   buildable,
@@ -120,12 +127,29 @@ export function dispatch(s: GameState, c: Command): Result {
     return { ok: true };
   }
   if (c.tool === "stockpile") {
-    if (t.solid || t.structure)
-      return { ok: false, reason: "Stockpiles need empty floor." };
-    t.stockpile = !t.stockpile;
-    emit(s, "command", "A place for the shinies. And the less shiny things.");
+    const filter = c.stockpileFilter ?? "all",
+      mode = c.stockpileMode ?? "add";
+    if (
+      !stockpileFilterKinds.includes(filter) ||
+      !["add", "remove"].includes(mode)
+    )
+      return { ok: false, reason: "Choose a stockpile mode and goods filter." };
+    if (mode === "add" && !buildable(t))
+      return { ok: false, reason: "Stockpiles need clear, walkable floor." };
+    t.stockpile = mode === "add";
+    if (t.stockpile) t.stockpileFilter = filter;
+    reconcileStorage(s);
+    refreshHaulJobs(s);
+    emit(
+      s,
+      "command",
+      t.stockpile
+        ? `Stockpile accepts ${filterLabel(filter).toLowerCase()}.`
+        : "Stockpile removed; its goods remain here.",
+    );
     return { ok: true };
   }
+
   if (
     s.jobs.some(
       (j) => same(j.target, p) && ["open", "active"].includes(j.status),
@@ -348,7 +372,7 @@ function autoJobs(s: GameState): void {
         (j) => j.item === item.id && ["open", "active"].includes(j.status),
       )
     ) {
-      const target = cells(s, (t) => t.stockpile && !t.solid)[0];
+      const target = nearestStockpile(s, item);
       if (target)
         s.jobs.push({
           id: `job-${s.nextId++}`,
@@ -520,6 +544,8 @@ export function step(s: GameState): void {
   s.tick++;
   updateWeather(s);
   updateStability(s);
+  reconcileStorage(s);
+  refreshHaulJobs(s);
   for (const t of s.tiles)
     if (t.structure === "farm") t.growth = Math.min(600, t.growth + 1);
   s.items = s.items.filter((i) => i.quantity > 0);
@@ -566,6 +592,8 @@ export function step(s: GameState): void {
       if (worker) release(s, worker);
       j.worker = null;
     }
+  reconcileStorage(s);
+  refreshHaulJobs(s);
   // Keep active reservations and a small recent job history.
   const finished = s.jobs
     .filter((j) => ["done", "cancelled"].includes(j.status))

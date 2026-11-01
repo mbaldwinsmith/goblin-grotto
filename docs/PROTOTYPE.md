@@ -1,4 +1,4 @@
-# 0.1.0-prototype.11 — verification and handoff
+# 0.1.0-prototype.12 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 67 headless tests in fifteen files. Includes 1,000 seeded starts;
+- `npm test`: 76 headless tests in sixteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: fourteen Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: fifteen Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -49,8 +49,8 @@ and the production atlas remain open.
 
 GG-032/GG-034/GG-035 are verified on this branch: warned cave-ins/supports, seasonal weather and cached A* navigation. Completion records await merge.
 
-GG-044–050/053:
-stockpile filters, full interruption/direct-order/animation/debug criteria,
+GG-045–050/053:
+full interruption/direct-order/animation/debug criteria,
 safety needs, explicit bed reservations and complete structures/refund acceptance.
 The current buildings, hunger/rest and work tools are usable partial slices.
 
@@ -59,7 +59,7 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-New saves are schema 7; schema-1 through schema-6 saves migrate in place with their existing map,
+New saves are schema 8; schema-1 through schema-7 saves migrate in place with their existing map,
 knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
@@ -210,4 +210,29 @@ adding Normal priorities and Any work. The browser edits both controls, checks
 choice reasons/worker identity, verifies active work stays reserved, uses a select
 without panning and restores priorities/preferences after save/reload.
 See [work choices](screenshots/work-choices.png) and ADR 0006. GG-048's full debug
-view, GG-044's stockpile filters and broader labour policies remain open.
+view, Stockpile filters are verified in iteration 12; broader labour policies remain open.
+
+
+## Iteration 12 verification
+
+GG-044 adds five stockpile presets, idempotent area painting, explicit area removal,
+filter editing and per-tile contents. Destinations use known weighted routes;
+invalid destinations reroute without changing cargo IDs. A wind-up is cancelled
+before release when necessary; no matching destination frees the worker and item.
+Goods physically on accepted floor are stored, and held, excluded or buried goods
+are not. Stockpiles beneath new structures/solid terrain are cleared.
+
+Nine new simulation tests cover every preset, repeated painting, storage beneath
+existing goods, nearest reachable matching piles, mixed-resource delivery,
+filter/removal rerouting, wind-up save continuation, no-destination recovery,
+blocked stockpiles, inventory conservation and migration/corruption handling.
+A real schema-7 delivery fixture receives All goods without changing valid data.
+Legacy stale stored flags are reconciled; schema-8 imports reject mismatched flags.
+The earlier interruption test now expects cargo dropped on accepted storage to
+count as stored, while its holder is still freed immediately.
+
+The fifteenth browser scenario marks food/building areas, sorts two stacks,
+checks resource tooltips and contents, restores filters after load, then changes
+and removes destinations and verifies the same two objects arrive elsewhere.
+See [stockpiles](screenshots/stockpiles.png) and ADR 0007. Capacity, containers,
+per-item equipment and broader stockpile policies remain later work.

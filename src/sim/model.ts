@@ -2,7 +2,9 @@ import type { Facing } from "../core/facing";
 import { features, type Deposit, type FeatureKind } from "./content";
 export { resources, deposits, features } from "./content";
 export type { Resource, Deposit, FeatureKind } from "./content";
-import type { Resource } from "./content";
+import type { Resource, StockpileFilter } from "./content";
+export { stockpileFilters, stockpileFilterKinds } from "./content";
+export type { StockpileFilter } from "./content";
 import type { ActorId, ItemId, JobId, EventId, Position } from "../core/types";
 export const materials = {
   sand: {
@@ -77,6 +79,7 @@ export interface Tile {
   feature: FeatureKind | null;
   structure: Structure | null;
   stockpile: boolean;
+  stockpileFilter: StockpileFilter;
   growth: number;
   collapseAt: number | null;
 }
@@ -138,7 +141,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 7;
+  version: 8;
   weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;
@@ -159,6 +162,8 @@ export type Command =
       position: Position;
       structure?: Structure;
       priority?: JobPriority;
+      stockpileFilter?: StockpileFilter;
+      stockpileMode?: "add" | "remove";
     }
   | { type: "order"; actor: ActorId; position: Position }
   | { type: "prioritize"; position: Position; priority: JobPriority }

@@ -1,3 +1,4 @@
+import { acceptsStockpile } from "./storage";
 import { range } from "../core/random";
 import {
   type GameState,
@@ -100,7 +101,7 @@ export function evaluateWork(s: GameState, g: Goblin, j: Job): Evaluation {
     if (!item || item.quantity <= 0 || (item.holder && item.holder !== g.id))
       return { blocked: "Supplies are unavailable" };
     if (item.stored) return { blocked: "Supplies are already stored" };
-    if (!t.stockpile)
+    if (!acceptsStockpile(s, j.target, item.resource))
       return { blocked: "Stockpile destination is unavailable" };
     const pickup = travel(s, g.position, item.position),
       delivery = travel(s, item.position, j.target);

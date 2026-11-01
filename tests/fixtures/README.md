@@ -7,7 +7,7 @@ The compressed JSON keeps an actual version-1 colony with active construction,
 including all tile knowledge, task reservations, RNG state, items and identities.
 
 The migration test compares every original field after removing only the new
-fields introduced by schemas 2–7; the browser test imports it and finishes construction. Compression
+fields introduced by schemas 2–8; the browser test imports it and finishes construction. Compression
 keeps the full 64×64 fixture small without replacing it with a synthetic partial save.
 
 
@@ -37,3 +37,10 @@ nullable drop state; the resumed worker completes its delivery.
 Add three loose stone at (28,29,0), advance until a delivery starts, then four more
 ticks. Schema-7 migration adds only Normal task priorities and null work preferences;
 the snapshot comparison preserves its held item, reservation and drop timeline.
+
+
+`v7-storage-delivery.json.gz` was produced at commit
+`0dc1627e459b4b421082ec623c0e3f8547722b11` (prototype.11). Seed: `v7-storage`.
+Add three loose wood at (28,29,0), advance until a delivery starts, then four more
+ticks. Schema 8 adds All goods filters and preserves every valid legacy field,
+including the held stack, worker reservation and drop wind-up.

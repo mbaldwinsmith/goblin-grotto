@@ -1,3 +1,5 @@
+import { acceptsStockpile, reconcileStorage } from "../sim/storage";
+import { stockpileFilterKinds } from "../sim/model";
 import {
   dropElapsed,
   DROP_RELEASE_TICKS,
@@ -39,7 +41,7 @@ const structure = z.enum([
   "support",
 ]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(7),
+  version: z.literal(8),
   weather: z.object({
     kind: z.enum(["clear", "rain", "snow"]),
     changedAt: natural,
@@ -68,6 +70,7 @@ const schema: z.ZodType<GameState> = z.object({
         feature: z.enum(featureKinds).nullable(),
         structure: structure.nullable(),
         stockpile: z.boolean(),
+        stockpileFilter: z.enum(stockpileFilterKinds),
         growth: natural.max(600),
         collapseAt: natural.nullable(),
       }),
@@ -256,12 +259,26 @@ export function decodeSave(text: string): GameState {
       goblins: sixth.data.goblins.map((g) => ({ ...g, preferredWork: null })),
       jobs: sixth.data.jobs.map((j) => ({ ...j, priority: 2 })),
     };
+  const seventh = z
+    .object({
+      version: z.literal(7),
+      tiles: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (seventh.success)
+    raw = {
+      ...seventh.data,
+      version: 8,
+      tiles: seventh.data.tiles.map((t) => ({ ...t, stockpileFilter: "all" })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5, 6 and 7.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5, 6, 7 and 8.",
     );
   const s = result.data;
+  if (seventh.success) reconcileStorage(s);
   if (s.weather.changedAt > s.tick)
     throw new Error("Weather timestamp is in the future.");
   const all = [...s.goblins, ...s.items, ...s.jobs, ...s.events];
@@ -314,6 +331,9 @@ export function decodeSave(text: string): GameState {
     )
       throw new Error("Broken item holder.");
   }
+  for (const i of s.items)
+    if (i.stored !== (!i.holder && acceptsStockpile(s, i.position, i.resource)))
+      throw new Error("Stored goods do not match physical stockpile contents.");
   for (const i of s.items)
     if (
       i.holder &&
