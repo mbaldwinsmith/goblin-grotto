@@ -1,4 +1,4 @@
-# 0.1.0-prototype.9 — verification and handoff
+# 0.1.0-prototype.13 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 51 headless tests in thirteen files. Includes 1,000 seeded starts;
+- `npm test`: 84 headless tests in seventeen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: eleven Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: sixteen Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -49,8 +49,8 @@ and the production atlas remain open.
 
 GG-032/GG-034/GG-035 are verified on this branch: warned cave-ins/supports, seasonal weather and cached A* navigation. Completion records await merge.
 
-GG-040/044–050/053: richer utility/priorities,
-stockpile filters, full interruption/direct-order/animation/debug criteria,
+GG-045–046/048–050/053:
+full interruption/direct-order/debug criteria,
 safety needs, explicit bed reservations and complete structures/refund acceptance.
 The current buildings, hunger/rest and work tools are usable partial slices.
 
@@ -59,7 +59,7 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-New saves are schema 5; schema-1 through schema-4 saves migrate in place with their existing map,
+New saves are schema 9; schema-1 through schema-8 saves migrate in place with their existing map,
 knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
@@ -82,7 +82,7 @@ into an imported colony.
 ## Native art verification
 
 Every floor, wall top, wall side and plant PNG is 32×32. The owner-supplied
-goblin idle poses are 32×32; padded walk frames remain 40×40/44×44 at scale 1. Home resets the
+static goblin poses are 32×32; current animation canvases retain 40×40/44×44/48×48 at scale 1. Home resets the
 view to 1×, giving a 32×32 screen-pixel floor grid. Wall tops and sides are separate
 textures and render nodes; exposed sides and raised tops retain their native size.
 The browser suite verifies all 29 images decode at 32×32 and repeats selection,
@@ -92,7 +92,7 @@ See [art preview](screenshots/art-preview.png).
 
 ## Supplied goblin integration
 
-The live game uses eight idle directions and 64 canonical walk frames from the
+The prototype.6 integration used eight idle directions and 64 canonical walk frames from the
 owner's ZIP. Tests verify archive/frame hashes, native dimensions, padding anchors,
 eight-way direction mapping, continuous gait across tiles, frozen presentation on
 unchanged ticks, smooth positions and history reset. An additional picking test
@@ -152,7 +152,7 @@ Schema 5 stores movement cooldowns. Versions 1–4 keep IDs and work; legacy act
 sharing a tile or standing on a wall move to nearby free discovered floor, with
 held items following their holder. New invalid overlaps are rejected. This is
 local cooperation for four workers; large population performance is GG-187.
-Full task priorities, direct orders, needs and bed reservations remain open.
+At that stage task priorities were still pending; iteration 11 below implements GG-040. Direct orders, full needs and bed reservations remain open.
 
 
 Merge verification: hosted Quality run 41324610105 passed all headless/build
@@ -168,3 +168,100 @@ Owner commit `37ad2ad` updates the incoming base ZIP and adds a hauling ZIP. The
 existing imported frames retain their original provenance via the archived
 `5473394` ZIP and manifest path; the new incoming ZIPs are preserved byte for byte.
 They are not automatically substituted for the curated runtime frames.
+
+
+## Iteration 10 verification
+
+The owner-requested cardinal art standard loads four directions for five clips:
+empty idle/walk, loaded idle/walk and put-down. Four static poses per pack support
+portraits/rest; the 172-frame manifest verifies every source hash and anchor.
+The original eight-way export stays archived; unused diagonal files are legacy
+references and are not loaded by the runtime.
+
+Seven new headless tests cover breathing, carrying, pause, all nine drop frames,
+exactly-once release at frame 5, render independence, cancellation, schema-5
+migration, invalid state and exact save continuation before/after release.
+Normal delivery completes on release; its follow-through finishes before new work.
+Interruptions retain immediate recoverable drops and start at the release frame.
+
+Browser QA exercises loaded idle, bag walking, pause, wind-up save/reload, physical
+release, final idle and one surviving item identity; gallery QA decodes all twenty
+clips and selects drop frame 5. Screenshots: [hauling](screenshots/hauling.png),
+[drop](screenshots/drop.png), [cardinal gallery](screenshots/cardinal-animations.png).
+At iteration 10 mining animation was still pending; iteration 13 below completes GG-047. Raw owner ZIPs remain unchanged and imports use version-pinned copies.
+
+
+## Iteration 11 verification
+
+GG-040 introduces three player priority tiers and optional preferred work. A global
+pool of eligible free-worker/job pairs chooses by priority, then route cost,
+preference, fatigue, food/support urgency, progress already made and a bounded
+seeded tie-break. Each worker and job is claimed once; active jobs are retained.
+Stored resources, known routes and physical item availability gate eligibility.
+The goblin inspector records why a job was chosen; planned tiles explain blockers.
+
+Nine new headless tests cover High before Normal, closest-worker assignment,
+four-worker distribution, preference as encouragement, food/support urgency,
+fatigue, urgent needs, missing stored resources, unreachable work, RNG independence
+of pure inspection, reproducible variation, invalid requests, migration and exact
+continuation. A real schema-6 wind-up fixture retains its original fields while
+adding Normal priorities and Any work. The browser edits both controls, checks
+choice reasons/worker identity, verifies active work stays reserved, uses a select
+without panning and restores priorities/preferences after save/reload.
+See [work choices](screenshots/work-choices.png) and ADR 0006. GG-048's full debug
+view, Stockpile filters are verified in iteration 12; broader labour policies remain open.
+
+
+## Iteration 12 verification
+
+GG-044 adds five stockpile presets, idempotent area painting, explicit area removal,
+filter editing and per-tile contents. Destinations use known weighted routes;
+invalid destinations reroute without changing cargo IDs. A wind-up is cancelled
+before release when necessary; no matching destination frees the worker and item.
+Goods physically on accepted floor are stored, and held, excluded or buried goods
+are not. Stockpiles beneath new structures/solid terrain are cleared.
+
+Nine new simulation tests cover every preset, repeated painting, storage beneath
+existing goods, nearest reachable matching piles, mixed-resource delivery,
+filter/removal rerouting, wind-up save continuation, no-destination recovery,
+blocked stockpiles, inventory conservation and migration/corruption handling.
+A real schema-7 delivery fixture receives All goods without changing valid data.
+Legacy stale stored flags are reconciled; schema-8 imports reject mismatched flags.
+The earlier interruption test now expects cargo dropped on accepted storage to
+count as stored, while its holder is still freed immediately.
+
+The fifteenth browser scenario marks food/building areas, sorts two stacks,
+checks resource tooltips and contents, restores filters after load, then changes
+and removes destinations and verifies the same two objects arrive elsewhere.
+See [stockpiles](screenshots/stockpiles.png) and ADR 0007. Capacity, containers,
+per-item equipment and broader stockpile policies remain later work.
+
+
+## Iteration 13 verification
+
+GG-047 now covers native cardinal idle, walking, mining and hauling with action
+event timing controlled by simulation ticks. The owner’s pick and axe exports
+from 890b554/8c96e74 supply 155 new original PNGs (327 total). Tree cutters stand beside
+their target; axe approach uses its supplied walk. Pick approach uses the base
+walk because the archive contains no walk clip. East/west axe idle uses the original
+static rotations because those breathing cycles are absent. Nothing is mirrored,
+resized or cropped. The gallery shows all 40 directional clips.
+
+Mine/chop strokes last 18 ticks and apply 18 work on elapsed tick 10; the renderer
+samples each source clip in sequence around its curated contact frame. North
+chopping has nine frames while other swings have eight, with equal work speed.
+Hardness still controls required work; cancellation before contact grants none.
+Recovery prevents reassignment or pushing until the action finishes. See ADR 0008.
+
+Eight new headless tests cover cardinal contacts/native frame counts, equal mining
+cadence, rendering without job progress, adjacent wood cutting, one physical drop,
+cancellation/hunger, continuation before and after impact, malformed timelines and
+actual schema-8 migration. The browser imports two pending swings, checks actual
+Pixi sprite labels and pause stability, saves/reloads them and completes each job
+with one resource stack. Evidence: [mining/chopping](screenshots/mining-chopping.png)
+and the updated [cardinal gallery](screenshots/cardinal-animations.png).
+
+Schema 9 retains each swing’s start/impact phase. The real prototype.12 active-mine
+fixture preserves old progress and identities. GG-047’s checked implementation
+record awaits merge with GG-040/GG-044 on PR #3. GG-045/GG-046 and milestone gates
+remain open; no new equipment economy, combat or release tag is introduced.

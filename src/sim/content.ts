@@ -177,3 +177,25 @@ export const features: Record<
     landmark: false,
   },
 };
+
+export const stockpileFilters = {
+  all: { label: "All goods", resources: resourceKinds },
+  food: { label: "Food", resources: ["food"] },
+  building: { label: "Building supplies", resources: ["wood", "stone"] },
+  valuables: {
+    label: "Ore and valuables",
+    resources: ["ore", "iron", "copper", "gold", "gems"],
+  },
+  crafted: { label: "Crafted goods", resources: ["bedkit"] },
+} as const satisfies Record<
+  string,
+  { label: string; resources: readonly Resource[] }
+>;
+export type StockpileFilter = keyof typeof stockpileFilters;
+export const stockpileFilterKinds = [
+  "all",
+  "food",
+  "building",
+  "valuables",
+  "crafted",
+] as const;

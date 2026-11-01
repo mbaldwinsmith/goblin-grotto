@@ -666,3 +666,29 @@ nav {
   color: #a9bca5;
   margin-top: 5px;
 }
+
+.work-setting {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  color: #96a79c;
+  margin: 12px 0;
+}
+.work-setting select {
+  font: inherit;
+  font-size: 12px;
+  padding: 8px;
+  color: #d8ded2;
+  background: #152327;
+  border: 1px solid #4d6651;
+  border-radius: 3px;
+  max-width: 100%;
+}
+.work-setting select:focus-visible {
+  outline: 2px solid #e9d69e;
+  outline-offset: 2px;
+}
+[hidden] {
+  display: none;
+}

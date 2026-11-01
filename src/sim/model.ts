@@ -2,7 +2,9 @@ import type { Facing } from "../core/facing";
 import { features, type Deposit, type FeatureKind } from "./content";
 export { resources, deposits, features } from "./content";
 export type { Resource, Deposit, FeatureKind } from "./content";
-import type { Resource } from "./content";
+import type { Resource, StockpileFilter } from "./content";
+export { stockpileFilters, stockpileFilterKinds } from "./content";
+export type { StockpileFilter } from "./content";
 import type { ActorId, ItemId, JobId, EventId, Position } from "../core/types";
 export const materials = {
   sand: {
@@ -77,6 +79,7 @@ export interface Tile {
   feature: FeatureKind | null;
   structure: Structure | null;
   stockpile: boolean;
+  stockpileFilter: StockpileFilter;
   growth: number;
   collapseAt: number | null;
 }
@@ -95,6 +98,8 @@ export interface Goblin {
   kind: keyof typeof goblinKinds;
   facing: Facing;
   nextMoveAt: number;
+  workAction: { kind: "mine" | "chop"; startedAt: number; hit: boolean } | null;
+  drop: { item: ItemId; startedAt: number; store: boolean } | null;
   position: Position;
   hunger: number;
   fatigue: number;
@@ -102,17 +107,23 @@ export interface Goblin {
   carrying: ItemId | null;
   activity: string;
   worked: number;
+  preferredWork: JobKind | null;
 }
-export type JobKind =
-  | "dig"
-  | "haul"
-  | "build"
-  | "harvest"
-  | "craft"
-  | "explore";
+export const jobKinds = [
+  "dig",
+  "haul",
+  "build",
+  "harvest",
+  "craft",
+  "explore",
+] as const;
+export type JobKind = (typeof jobKinds)[number];
+export const jobPriorities = [1, 2, 3] as const;
+export type JobPriority = (typeof jobPriorities)[number];
 export interface Job {
   id: JobId;
   kind: JobKind;
+  priority: JobPriority;
   target: Position;
   structure: Structure | null;
   item: ItemId | null;
@@ -131,7 +142,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 5;
+  version: 9;
   weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;
@@ -151,8 +162,13 @@ export type Command =
       tool: JobKind | "stockpile" | "cancel";
       position: Position;
       structure?: Structure;
+      priority?: JobPriority;
+      stockpileFilter?: StockpileFilter;
+      stockpileMode?: "add" | "remove";
     }
-  | { type: "order"; actor: ActorId; position: Position };
+  | { type: "order"; actor: ActorId; position: Position }
+  | { type: "prioritize"; position: Position; priority: JobPriority }
+  | { type: "preference"; actor: ActorId; work: JobKind | null };
 export function tileAt(s: GameState, p: Position): Tile | undefined {
   return p.x >= 0 && p.y >= 0 && p.x < s.width && p.y < s.height
     ? s.tiles[p.y * s.width + p.x]

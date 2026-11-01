@@ -22,6 +22,7 @@ function corridor() {
   s.items.forEach((i) => {
     i.position = position(27, 30);
   });
+  tileAt(s, position(27, 30))!.stockpile = true;
   invalidateNavigation(s);
   return s;
 }
@@ -75,6 +76,7 @@ it("opposing active haulers pass a one-cell tunnel and keep carried items attach
     [0, 35],
     [1, 28],
   ]) {
+    tileAt(s, position(x, 30))!.stockpile = true;
     const g = s.goblins[idx],
       item = {
         id: `item-${s.nextId++}` as const,
@@ -89,6 +91,7 @@ it("opposing active haulers pass a one-cell tunnel and keep carried items attach
     const job = {
       id: `job-${s.nextId++}` as const,
       kind: "haul" as const,
+      priority: 2 as const,
       target: position(x, 30),
       item: item.id,
       structure: null,

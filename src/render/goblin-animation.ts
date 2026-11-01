@@ -1,3 +1,10 @@
+import { workFrame, contactFrames, type WorkTool } from "../sim/work-animation";
+import type { Goblin } from "../sim/model";
+import {
+  dropElapsed,
+  DROP_FRAME_TICKS,
+  DROP_FRAME_COUNT,
+} from "../sim/hauling";
 import manifest from "../../public/assets/goblin/base/manifest.json";
 import type { ActorId, Position } from "../core/types";
 import { facingFor, type Facing } from "../core/facing";
@@ -14,9 +21,10 @@ interface Motion {
   target: Position;
   started: number;
   duration: number;
-  cycleStarted: number;
   facing: Facing;
   lastTime: number;
+  clip: string;
+  clipStarted: number;
 }
 /** Presentation history only: fixed ticks advance gait; render alpha only interpolates position. */
 export class GoblinAnimator {
@@ -32,6 +40,13 @@ export class GoblinAnimator {
     moveTicks: number,
     lookAt?: Position,
     facing: Facing = "south",
+    action: {
+      carrying?: boolean;
+      drop?: Goblin["drop"];
+      sleeping?: boolean;
+      tool?: WorkTool | null;
+      workAction?: Goblin["workAction"];
+    } = {},
   ): GoblinPose {
     const now = tick + Math.max(0, Math.min(0.999, alpha));
     let state = this.states.get(id);
@@ -41,15 +56,15 @@ export class GoblinAnimator {
         target: { ...target },
         started: tick,
         duration: 1,
-        cycleStarted: tick,
         facing,
         lastTime: now,
+        clip: "idle",
+        clipStarted: tick,
       };
       this.states.set(id, state);
     }
     if (state.target.x !== target.x || state.target.y !== target.y) {
-      const previous = this.interpolate(state, now),
-        wasWalking = now <= state.started + state.duration + 1;
+      const previous = this.interpolate(state, now);
       state.facing = facingFor(
         target.x - state.target.x,
         target.y - state.target.y,
@@ -59,7 +74,6 @@ export class GoblinAnimator {
       state.target = { ...target };
       state.started = tick;
       state.duration = Math.max(1, moveTicks);
-      if (!wasWalking) state.cycleStarted = tick;
     }
     const walking =
       now < state.started + state.duration &&
@@ -71,20 +85,66 @@ export class GoblinAnimator {
         state.facing,
       );
     state.lastTime = now;
-    const frame = walking
-      ? Math.floor((tick - state.cycleStarted) / manifest.frameDurationTicks) %
-        8
-      : 0;
+    if (action.workAction) state.facing = facing;
+    const clip = action.drop
+      ? "drop"
+      : action.workAction
+        ? action.workAction.kind
+        : action.sleeping
+          ? "pose"
+          : action.carrying
+            ? walking
+              ? "haul-walk"
+              : "haul-idle"
+            : action.tool === "axe"
+              ? walking
+                ? "axe-walk"
+                : "axe-idle"
+              : action.tool === "pick" && !walking
+                ? "pick-idle"
+                : walking
+                  ? "walk"
+                  : "idle";
+    if (clip !== state.clip) {
+      state.clip = clip;
+      state.clipStarted = tick;
+    }
+    const count =
+      clip === "pose" ? 1 : manifest.directionFrameCounts[clip][state.facing];
+    const frame = action.workAction
+      ? workFrame(
+          tick - action.workAction.startedAt,
+          contactFrames[action.workAction.kind][state.facing],
+          count,
+        )
+      : clip === "drop"
+        ? Math.max(
+            0,
+            Math.min(
+              DROP_FRAME_COUNT - 1,
+              Math.floor(dropElapsed(tick, action.drop!) / DROP_FRAME_TICKS),
+            ),
+          )
+        : clip === "pose"
+          ? 0
+          : Math.floor(
+              (tick - state.clipStarted) / manifest.frameDurationTicks,
+            ) % count;
     return {
-      position: this.interpolate(state, now),
+      position:
+        action.drop || action.workAction
+          ? { ...target }
+          : this.interpolate(state, now),
       facing: state.facing,
-      walking,
+      walking: !action.drop && !action.workAction && walking,
       frame,
-      textureId: walking
-        ? `walk-${state.facing}-${String(frame).padStart(3, "0")}`
-        : `idle-${state.facing}`,
+      textureId:
+        clip === "pose"
+          ? `idle-${state.facing}`
+          : `${clip}-${state.facing}-${String(frame).padStart(3, "0")}`,
     };
   }
+
   private interpolate(state: Motion, now: number): Position {
     const t = Math.max(0, Math.min(1, (now - state.started) / state.duration));
     return {
