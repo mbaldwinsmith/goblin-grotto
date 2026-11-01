@@ -1,21 +1,12 @@
-export const facings = [
-  "south",
-  "south-east",
-  "east",
-  "north-east",
-  "north",
-  "north-west",
-  "west",
-  "south-west",
-] as const;
+export const facings = ["south", "east", "north", "west"] as const;
 export type Facing = (typeof facings)[number];
+/** Dominant axis; vertical wins a tie. Grid movement already uses four neighbours. */
 export function facingFor(
   dx: number,
   dy: number,
   fallback: Facing = "south",
 ): Facing {
   if (!dx && !dy) return fallback;
-  if (dy < 0) return dx < 0 ? "north-west" : dx > 0 ? "north-east" : "north";
-  if (dy > 0) return dx < 0 ? "south-west" : dx > 0 ? "south-east" : "south";
-  return dx < 0 ? "west" : "east";
+  if (Math.abs(dx) > Math.abs(dy)) return dx < 0 ? "west" : "east";
+  return dy < 0 ? "north" : "south";
 }

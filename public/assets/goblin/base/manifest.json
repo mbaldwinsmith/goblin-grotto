@@ -1,16 +1,20 @@
 {
   "bodySize": 32,
   "frameDurationTicks": 2,
+  "dropReleaseFrame": 5,
   "directions": [
     "south",
-    "south-east",
     "east",
-    "north-east",
     "north",
-    "north-west",
-    "west",
-    "south-west"
+    "west"
   ],
+  "clips": {
+    "idle": 8,
+    "walk": 8,
+    "haul-idle": 8,
+    "haul-walk": 8,
+    "drop": 9
+  },
   "frames": [
     {
       "id": "idle-south",
@@ -19,8 +23,97 @@
       "height": 32,
       "footX": 16,
       "footY": 30,
+      "archive": "base",
       "source": "Base/rotations/south.png",
       "sha256": "b0bcd5db73e1ff1067588e2959e7cc0393b108d0bb6892e38b0f47ef21769ceb"
+    },
+    {
+      "id": "idle-south-000",
+      "file": "idle/south/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_000.png",
+      "sha256": "481a95c95c51bc9319af91af7077578797d739eb716b91c715e7f5ad62a133e4"
+    },
+    {
+      "id": "idle-south-001",
+      "file": "idle/south/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_001.png",
+      "sha256": "01be95660a18207f773f6e675d87148b0f6028d9aa595c63fe589ed440c19691"
+    },
+    {
+      "id": "idle-south-002",
+      "file": "idle/south/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_002.png",
+      "sha256": "d68cd3ccef00b7e1ffd6d32561f34993132479a9bf140ac361d5b20817d6734b"
+    },
+    {
+      "id": "idle-south-003",
+      "file": "idle/south/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_003.png",
+      "sha256": "11358024d5486d914a0ee2482dfac75991408c03ac9aecb719f5ea38460d273a"
+    },
+    {
+      "id": "idle-south-004",
+      "file": "idle/south/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_004.png",
+      "sha256": "35dadb15c2c201641879eca0748e1bd69df54913fa9a1ac8d991caf59d71742a"
+    },
+    {
+      "id": "idle-south-005",
+      "file": "idle/south/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_005.png",
+      "sha256": "3d40ca4a23a039762621db83e52d05128665b30e20f4181d06a2b6305c585678"
+    },
+    {
+      "id": "idle-south-006",
+      "file": "idle/south/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_006.png",
+      "sha256": "3d40ca4a23a039762621db83e52d05128665b30e20f4181d06a2b6305c585678"
+    },
+    {
+      "id": "idle-south-007",
+      "file": "idle/south/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/south/frame_007.png",
+      "sha256": "c9752504f39e996553639a7ff343191314d26afea25ee3c89033b0ce6b1608ea"
     },
     {
       "id": "walk-south-000",
@@ -29,6 +122,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_000.png",
       "sha256": "481a95c95c51bc9319af91af7077578797d739eb716b91c715e7f5ad62a133e4"
     },
@@ -39,6 +133,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_001.png",
       "sha256": "f22bd2f8e07e55d8fb61b55684b94b8228b7659f80b3654524bc37f496737e8b"
     },
@@ -49,6 +144,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_002.png",
       "sha256": "f83b579a5834015c37837451fe0e4bdef2f1d6d7cf0701ab019feea2a0f70fa8"
     },
@@ -59,6 +155,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_003.png",
       "sha256": "10fb5afabdecdbfef3ae834e863c0048b862a9c3312a8545f4e987e4f01c0a22"
     },
@@ -69,6 +166,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_004.png",
       "sha256": "082aca40091837c02384c49add2356116f5d2514d92a3be1aff8157363a9ff40"
     },
@@ -79,6 +177,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_005.png",
       "sha256": "237107d1dae5b64df1567cfa034ce33713b085755b18147cdfe5c234413a2567"
     },
@@ -89,6 +188,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_006.png",
       "sha256": "5839f0deaf6c18737f8e7459e33b27614c7f5d8482fd006e1238ae71bd375907"
     },
@@ -99,98 +199,9 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/south/frame_007.png",
       "sha256": "5bfd857b94c37e6c9a85981498c828d4792118ba5aee686a46f19b4367b4db1b"
-    },
-    {
-      "id": "idle-south-east",
-      "file": "idle/south-east.png",
-      "width": 32,
-      "height": 32,
-      "footX": 16,
-      "footY": 30,
-      "source": "Base/rotations/south-east.png",
-      "sha256": "6ef1818c7f62e768f0a7f3fcc9d008237db3bef0cadcbf3ce191dbb0fd5cd241"
-    },
-    {
-      "id": "walk-south-east-000",
-      "file": "walk/south-east/000.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_000.png",
-      "sha256": "16a326190084d8822617084240df6a549c7c42e9f32ea873ea568dd8ad955326"
-    },
-    {
-      "id": "walk-south-east-001",
-      "file": "walk/south-east/001.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_001.png",
-      "sha256": "25f20ebda4da254a218f7a9578bd2cb7023c1d93252c450346473293227b24fc"
-    },
-    {
-      "id": "walk-south-east-002",
-      "file": "walk/south-east/002.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_002.png",
-      "sha256": "df39695eebe9f8bb86346357040b3dddd73193b5f58220f1133dca89b44d63f2"
-    },
-    {
-      "id": "walk-south-east-003",
-      "file": "walk/south-east/003.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_003.png",
-      "sha256": "a94b5820c6c89e2adc5b69a500511598685f1ee136c63ed23c690578f784982e"
-    },
-    {
-      "id": "walk-south-east-004",
-      "file": "walk/south-east/004.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_004.png",
-      "sha256": "90bc227a6081dbd51fa820ca85e58bf61e55bc2462f2b6ca30edafe3d9918319"
-    },
-    {
-      "id": "walk-south-east-005",
-      "file": "walk/south-east/005.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_005.png",
-      "sha256": "7df5550ae9c05269da0e012078f739fec8fcb7d2261a337329a0a18b7a72a1cf"
-    },
-    {
-      "id": "walk-south-east-006",
-      "file": "walk/south-east/006.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_006.png",
-      "sha256": "a00be8d74b371c24cd9b483be54c81796de1c5e08d89dd55d0d2fbc713fd8ba0"
-    },
-    {
-      "id": "walk-south-east-007",
-      "file": "walk/south-east/007.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/south-east/frame_007.png",
-      "sha256": "d369987d08432a9483a116468c0b7448f4fd981dde9645ef6d7761ee14740993"
     },
     {
       "id": "idle-east",
@@ -199,8 +210,97 @@
       "height": 32,
       "footX": 16,
       "footY": 30,
+      "archive": "base",
       "source": "Base/rotations/east.png",
       "sha256": "f5b553a2acfa94739f9d7d3294225053f8d78d63ac703709e0e14bed0d44188d"
+    },
+    {
+      "id": "idle-east-000",
+      "file": "idle/east/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_000.png",
+      "sha256": "6dd8b8a566c006bfff6dc5b5abbb73fa8a17da133d8781a0dae57bc393bb22e8"
+    },
+    {
+      "id": "idle-east-001",
+      "file": "idle/east/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_001.png",
+      "sha256": "a2d7f1d0d1cf7055ec0652ce0190bbab8a949baed2ac71d4d91bdec405f73678"
+    },
+    {
+      "id": "idle-east-002",
+      "file": "idle/east/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_002.png",
+      "sha256": "f863f58652863561eea1b2625fb6bcb5dcee500af3124fb209e45461dc836ec6"
+    },
+    {
+      "id": "idle-east-003",
+      "file": "idle/east/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_003.png",
+      "sha256": "bfa112fa6b50834e450d4987ef1d5a04956ba534442aadca81ef2ee5e4a66b13"
+    },
+    {
+      "id": "idle-east-004",
+      "file": "idle/east/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_004.png",
+      "sha256": "9c9cc899636bba168916ae1e273553e628bfea8732a136a4326c843b2be99087"
+    },
+    {
+      "id": "idle-east-005",
+      "file": "idle/east/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_005.png",
+      "sha256": "85f0c4c402c4c33e7a6f94a32bb8651bd6c6c2edd66a36d19859c4073dccd645"
+    },
+    {
+      "id": "idle-east-006",
+      "file": "idle/east/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_006.png",
+      "sha256": "d4b3513055929d5886759a8fa0899097f20af7e8b1e09b13cb21c94524205361"
+    },
+    {
+      "id": "idle-east-007",
+      "file": "idle/east/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/east/frame_007.png",
+      "sha256": "265a8a86c552cfd740652e0401acd71042ac0919fd77706b6fb8cd27317759d4"
     },
     {
       "id": "walk-east-000",
@@ -209,6 +309,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_000.png",
       "sha256": "6dd8b8a566c006bfff6dc5b5abbb73fa8a17da133d8781a0dae57bc393bb22e8"
     },
@@ -219,6 +320,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_001.png",
       "sha256": "fa9e84af099234b3d56cb075e2a6b2976c735cdfe9285389a8ca0bd15db5f74e"
     },
@@ -229,6 +331,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_002.png",
       "sha256": "ab98a52840819d4e4f2f6e81129758973149ea863fb8b3e314cf2c5dae32da2e"
     },
@@ -239,6 +342,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_003.png",
       "sha256": "b3938a23d183c2d5cea99b9539be7d2338f7b21f7043d3c2e0ebb7ae1e08a9f9"
     },
@@ -249,6 +353,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_004.png",
       "sha256": "889bd7c430d92478c16d6c699f00c85594e678958714f34c9738810767d9957f"
     },
@@ -259,6 +364,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_005.png",
       "sha256": "5ec4426d10600a8d303830f812ee62f4797e3497227f50e564379db6a8a2282f"
     },
@@ -269,6 +375,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_006.png",
       "sha256": "5746749db34b2d551049e3ca5995c4fb0a1ddcea2279963a133c42a76a6722f6"
     },
@@ -279,98 +386,9 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/east/frame_007.png",
       "sha256": "a79d3c56f038b731dca072fe8be11c2c54e18e3d02ea0c76d90f67d6a0b7f6a3"
-    },
-    {
-      "id": "idle-north-east",
-      "file": "idle/north-east.png",
-      "width": 32,
-      "height": 32,
-      "footX": 16,
-      "footY": 30,
-      "source": "Base/rotations/north-east.png",
-      "sha256": "2896e74a6328642c1c8b7dddb5e05ca81974d10178248de528bd82f2a537d1d4"
-    },
-    {
-      "id": "walk-north-east-000",
-      "file": "walk/north-east/000.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_000.png",
-      "sha256": "551875bbf8ec92087c49777cd192d3955105e940f1de8d1207392716ee4313ec"
-    },
-    {
-      "id": "walk-north-east-001",
-      "file": "walk/north-east/001.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_001.png",
-      "sha256": "5c30516f271dc3a607bfe83ce27d47e013fd96a702b14c2d129a75dfb8383aad"
-    },
-    {
-      "id": "walk-north-east-002",
-      "file": "walk/north-east/002.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_002.png",
-      "sha256": "5b618dfd1c3b07e9332d637ff7cff14553d543737c8be7fae5a7178d62f3dcc2"
-    },
-    {
-      "id": "walk-north-east-003",
-      "file": "walk/north-east/003.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_003.png",
-      "sha256": "4ac6440a6a24b0d926851d71c32ae31c9ea141f14948fb027082509ad49d56e1"
-    },
-    {
-      "id": "walk-north-east-004",
-      "file": "walk/north-east/004.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_004.png",
-      "sha256": "ee648ea18b17c1a56314aec3674f6d7598b3db838a4bed60540d8461f30b956d"
-    },
-    {
-      "id": "walk-north-east-005",
-      "file": "walk/north-east/005.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_005.png",
-      "sha256": "f40ee98b722c548f963d5d0eda9054dfac9ee6875b36130f8cc77f4365cecd18"
-    },
-    {
-      "id": "walk-north-east-006",
-      "file": "walk/north-east/006.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_006.png",
-      "sha256": "c6b6b7ed5cafcc119a0878ff96af28947a9e9f10b90710cbe2fc97fa565ca903"
-    },
-    {
-      "id": "walk-north-east-007",
-      "file": "walk/north-east/007.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-east/frame_007.png",
-      "sha256": "f8d7efcf13760d3e87de54e101bf3ee4bcdb74537bde103d865a6db9344dbf4b"
     },
     {
       "id": "idle-north",
@@ -379,8 +397,97 @@
       "height": 32,
       "footX": 16,
       "footY": 30,
+      "archive": "base",
       "source": "Base/rotations/north.png",
       "sha256": "00871ebb7b02b151af8c6beca3416021ff98add0216dcfb9a6089908171741a1"
+    },
+    {
+      "id": "idle-north-000",
+      "file": "idle/north/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_000.png",
+      "sha256": "118cd73833f258a36bdb67bffd3e905f1cd7428c31d160b50bc2e84e4e69255b"
+    },
+    {
+      "id": "idle-north-001",
+      "file": "idle/north/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_001.png",
+      "sha256": "78f128cd0f8faf0098eed4c995f6e1a7bc941e161bf1f352bffbfb661a5d961b"
+    },
+    {
+      "id": "idle-north-002",
+      "file": "idle/north/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_002.png",
+      "sha256": "78f128cd0f8faf0098eed4c995f6e1a7bc941e161bf1f352bffbfb661a5d961b"
+    },
+    {
+      "id": "idle-north-003",
+      "file": "idle/north/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_003.png",
+      "sha256": "24a248b97e4454813470a7933f453b7acdcad29e720744780af3c670fe9c625b"
+    },
+    {
+      "id": "idle-north-004",
+      "file": "idle/north/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_004.png",
+      "sha256": "a6ee4342b7e76311c0e35147b543ab73d38303294a6147df0b50ba9df6fb3062"
+    },
+    {
+      "id": "idle-north-005",
+      "file": "idle/north/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_005.png",
+      "sha256": "205e1c49bd895e76784a8e9cc04bb40e35efb17cdebb9d531049db0d657ed05a"
+    },
+    {
+      "id": "idle-north-006",
+      "file": "idle/north/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_006.png",
+      "sha256": "a1ba80af76ff5b7fad160d6c677917253817ff7bfd2d4f7cbc83a4d871fd8839"
+    },
+    {
+      "id": "idle-north-007",
+      "file": "idle/north/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Idle/north/frame_007.png",
+      "sha256": "ee8d281384d7dc698822c85d7e5d89fbf087f3303d399ff011aa3482917a32ce"
     },
     {
       "id": "walk-north-000",
@@ -389,6 +496,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_000.png",
       "sha256": "118cd73833f258a36bdb67bffd3e905f1cd7428c31d160b50bc2e84e4e69255b"
     },
@@ -399,6 +507,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_001.png",
       "sha256": "d96112128034eab97efb00af90fc03831d835a0c1c0f605c6e4f3329e6b78eef"
     },
@@ -409,6 +518,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_002.png",
       "sha256": "7ecc0644d76f7bc4e3de3b532bbe3a1cda18a6645b36a1032df4e4a7101db61f"
     },
@@ -419,6 +529,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_003.png",
       "sha256": "07f03bcb6cd7b41a4b8f3cd320f20bcfb83191389b0db7b4b10dfefc479c366f"
     },
@@ -429,6 +540,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_004.png",
       "sha256": "8bb2572956369005a40bf4cfae5cea5e7e2cdb0ffe56d6decef97448d04f8bb0"
     },
@@ -439,6 +551,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_005.png",
       "sha256": "87efb23ab3779f86a919be03c3ec99caff241e2280734c79ed1cd3444219a221"
     },
@@ -449,6 +562,7 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_006.png",
       "sha256": "69c39bd0a28770c048c14a1ae197c5083168251ffc582f91ce5e4de6162d2441"
     },
@@ -459,98 +573,9 @@
       "height": 44,
       "footX": 22,
       "footY": 36,
+      "archive": "base",
       "source": "Base/animations/Walking/north/frame_007.png",
       "sha256": "a2f27ef689171d92d8995027c3f92570dcce843cd7c24715ac808c07a83326f2"
-    },
-    {
-      "id": "idle-north-west",
-      "file": "idle/north-west.png",
-      "width": 32,
-      "height": 32,
-      "footX": 16,
-      "footY": 30,
-      "source": "Base/rotations/north-west.png",
-      "sha256": "0f4becbc1a2e718a3e47b8f5f9f9f5d0c365d357a11024cbf346f6a07b9679a4"
-    },
-    {
-      "id": "walk-north-west-000",
-      "file": "walk/north-west/000.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_000.png",
-      "sha256": "49e245bb9b999a41e727391e23f87c9ca2a419e7a807904b8044d691158e1d5f"
-    },
-    {
-      "id": "walk-north-west-001",
-      "file": "walk/north-west/001.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_001.png",
-      "sha256": "00ec4dbb533a2d5afd804aeaa76cf4db4d47acc5f98c353ecba2e606613311dd"
-    },
-    {
-      "id": "walk-north-west-002",
-      "file": "walk/north-west/002.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_002.png",
-      "sha256": "2e506ed234fc8e3c55de4939f0a309fe0366892b1780dc96baefd9eeaab29569"
-    },
-    {
-      "id": "walk-north-west-003",
-      "file": "walk/north-west/003.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_003.png",
-      "sha256": "ad0fd5a9399fa0ab8d0b1e59fec00424c09c9fde17cc6bd232c880eef8df399b"
-    },
-    {
-      "id": "walk-north-west-004",
-      "file": "walk/north-west/004.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_004.png",
-      "sha256": "17bdc06d13ad1dff36f1b570052ce3fd1a8e79718d639a1045bcfacd2204076d"
-    },
-    {
-      "id": "walk-north-west-005",
-      "file": "walk/north-west/005.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_005.png",
-      "sha256": "30d417c8627a45552ccc56d0ce925ad50ba679687b85129d2bc05815ab7c6695"
-    },
-    {
-      "id": "walk-north-west-006",
-      "file": "walk/north-west/006.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_006.png",
-      "sha256": "8db304c3fc1a86e7d6e24f4880dbc2691bf8b18c7864872a15b0d2d293618df6"
-    },
-    {
-      "id": "walk-north-west-007",
-      "file": "walk/north-west/007.png",
-      "width": 40,
-      "height": 40,
-      "footX": 20,
-      "footY": 34,
-      "source": "Base/animations/Walking/north-west/frame_007.png",
-      "sha256": "fda563b55e5ac601b403141cb01837292980aca4251ceefce89d0278e2ab7265"
     },
     {
       "id": "idle-west",
@@ -559,8 +584,97 @@
       "height": 32,
       "footX": 16,
       "footY": 30,
+      "archive": "base",
       "source": "Base/rotations/west.png",
       "sha256": "9c03ffb6e40139499359ca7d30e2dde98c93cafddf921c6463b8f1f90f007529"
+    },
+    {
+      "id": "idle-west-000",
+      "file": "idle/west/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_000.png",
+      "sha256": "f751f9428ddce8b66a171a71af5c0ce4a3de9633d4830d0c267f230f4ae5ab0c"
+    },
+    {
+      "id": "idle-west-001",
+      "file": "idle/west/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_001.png",
+      "sha256": "3a3b6031082eecbf917cd0293a11af56a46fecb825c1b1aaaccdb1d1a26123a9"
+    },
+    {
+      "id": "idle-west-002",
+      "file": "idle/west/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_002.png",
+      "sha256": "60b588ee704e0db6ff73247864f74af82feff488255a1242f2955c5195c68118"
+    },
+    {
+      "id": "idle-west-003",
+      "file": "idle/west/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_003.png",
+      "sha256": "7c17d648bb238c46662b223f222994ecef860c0bbae20be4246e132f66d4aaa0"
+    },
+    {
+      "id": "idle-west-004",
+      "file": "idle/west/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_004.png",
+      "sha256": "f800ec5aad9c97afd2c850fe4b45dfb2a8a615fc2136b821ba0ea957846a42fd"
+    },
+    {
+      "id": "idle-west-005",
+      "file": "idle/west/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_005.png",
+      "sha256": "96feaaedd9c99255c81123aa9fc72ad1b7273aeeea49851a23ba46669e06160f"
+    },
+    {
+      "id": "idle-west-006",
+      "file": "idle/west/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_006.png",
+      "sha256": "3a36e30bd091eb844689e745f4c5aaa8aac3850d73d13c6d414143f0c6cedc36"
+    },
+    {
+      "id": "idle-west-007",
+      "file": "idle/west/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Idle/west/frame_007.png",
+      "sha256": "97abf66070afe3b32b0eaea0c07482b5c2134335067ae1da094b6638b84c5428"
     },
     {
       "id": "walk-west-000",
@@ -569,6 +683,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_000.png",
       "sha256": "20390c21eba0a3a94a3c2db19fdbdd37ec2c466031ba1195f0a8e052c076d17e"
     },
@@ -579,6 +694,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_001.png",
       "sha256": "ff416896cdabf1a46971ca442d588541297c4d5b99be72a5b8a0bf97103f44d7"
     },
@@ -589,6 +705,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_002.png",
       "sha256": "b98bdec5d8d6cfae3dc2f30331a217960d5e50e2bcf7c688366f88728a1a807e"
     },
@@ -599,6 +716,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_003.png",
       "sha256": "8f2b7f6dda451b0475940dde40efa721e83d2a4006b0f7f3216ac8b868b439d3"
     },
@@ -609,6 +727,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_004.png",
       "sha256": "5712c8f3f2b7006d12130a1b07493366097daf6e3b64e92f00b0a3217860ebf2"
     },
@@ -619,6 +738,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_005.png",
       "sha256": "9902b7202a40e1d7f6b86d309c9127fd4dfc061b84ecb13b0e61aa61d2f76559"
     },
@@ -629,6 +749,7 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_006.png",
       "sha256": "c3bbcb3e094e7f64b6478467f757c6e3f7067379cd979a35e3c484a67edc88aa"
     },
@@ -639,107 +760,1171 @@
       "height": 40,
       "footX": 20,
       "footY": 34,
+      "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_007.png",
       "sha256": "70d00857a37ee126af2dee694905df21c884293dad7a14b21f168855d9e425b5"
     },
     {
-      "id": "idle-south-west",
-      "file": "idle/south-west.png",
+      "id": "haul-pose-south",
+      "file": "haul-pose/south.png",
       "width": 32,
       "height": 32,
       "footX": 16,
       "footY": 30,
-      "source": "Base/rotations/south-west.png",
-      "sha256": "05c114e1ce9315df17f77676781319382a1c4e066d5be0d5d06f3454a616ed9c"
+      "archive": "hauling",
+      "source": "Hauling/rotations/south.png",
+      "sha256": "8e8d4bc095d61bce47719031668efac9de2cdab3e1c884a545506d5a853f5ffd"
     },
     {
-      "id": "walk-south-west-000",
-      "file": "walk/south-west/000.png",
+      "id": "haul-idle-south-000",
+      "file": "haul-idle/south/000.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_000.png",
+      "sha256": "843f955f0cded099b37c9d5801809774de9b0ac5016b4250dfd48cfa9cad2bca"
+    },
+    {
+      "id": "haul-idle-south-001",
+      "file": "haul-idle/south/001.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_001.png",
+      "sha256": "ccea2ef7a2418247a443bbc7ff6887a60bd7a32122bfc920e58bb5df54c302c0"
+    },
+    {
+      "id": "haul-idle-south-002",
+      "file": "haul-idle/south/002.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_002.png",
+      "sha256": "5f0a9d3149ac11b7524cf6921993893d3542de8efee1351c295e0f7dd6643174"
+    },
+    {
+      "id": "haul-idle-south-003",
+      "file": "haul-idle/south/003.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_003.png",
+      "sha256": "a6c9beaa7b5e8606f241fbef3cfb0fa14a7c80317388d5de3d62fd8b663afe3b"
+    },
+    {
+      "id": "haul-idle-south-004",
+      "file": "haul-idle/south/004.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_004.png",
+      "sha256": "74b063c2c366f63befa6e185108ec0b589e443511f1878ae059280751c5aa120"
+    },
+    {
+      "id": "haul-idle-south-005",
+      "file": "haul-idle/south/005.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_005.png",
+      "sha256": "e427d6cdc673054db195e57a86a77f3f78e767d574bb8097b70f84272750c743"
+    },
+    {
+      "id": "haul-idle-south-006",
+      "file": "haul-idle/south/006.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_006.png",
+      "sha256": "e7c59c9d0d9a286c6c50259ea1ce2c42d30408047d00c897b83efed2d49aa83c"
+    },
+    {
+      "id": "haul-idle-south-007",
+      "file": "haul-idle/south/007.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/south/frame_007.png",
+      "sha256": "cfbb075e91094c28b2c759e2701e44f0ba8b7f7b619cdeb11d1554bf6a07f861"
+    },
+    {
+      "id": "haul-walk-south-000",
+      "file": "haul-walk/south/000.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_000.png",
+      "sha256": "843f955f0cded099b37c9d5801809774de9b0ac5016b4250dfd48cfa9cad2bca"
+    },
+    {
+      "id": "haul-walk-south-001",
+      "file": "haul-walk/south/001.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_001.png",
+      "sha256": "561d4e438ffac627664826b0d6edabc8f2ec969be2f8e41a7ecc6b4bcb254ff9"
+    },
+    {
+      "id": "haul-walk-south-002",
+      "file": "haul-walk/south/002.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_002.png",
+      "sha256": "08bd844fa309269394ba7a6f905d63c9f9fe9ea8aee11995ad9d86e33ea1042e"
+    },
+    {
+      "id": "haul-walk-south-003",
+      "file": "haul-walk/south/003.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_003.png",
+      "sha256": "a8a1427dc268801f7448cf9dc18b7bcd3a62737e4feaa7c3f33257db6fb68ed0"
+    },
+    {
+      "id": "haul-walk-south-004",
+      "file": "haul-walk/south/004.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_004.png",
+      "sha256": "318f432b4f376a7db4a5dec857238b3ec4d0cd3f734930da87435906016825e2"
+    },
+    {
+      "id": "haul-walk-south-005",
+      "file": "haul-walk/south/005.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_005.png",
+      "sha256": "73f2dc5e33e3f6f4182602b6840c1c5f714dfacfbf5329995a8c2a8e4a4b9560"
+    },
+    {
+      "id": "haul-walk-south-006",
+      "file": "haul-walk/south/006.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_006.png",
+      "sha256": "eb1e4cf46fbf47a74c731a798613f9b305eeaf748e7a09b106d1d5a5f9e0d7ee"
+    },
+    {
+      "id": "haul-walk-south-007",
+      "file": "haul-walk/south/007.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/south/frame_007.png",
+      "sha256": "c1995ae89952399570c8fd096f038c47598e3efa92b8cbf90011c9546a247d8f"
+    },
+    {
+      "id": "drop-south-000",
+      "file": "drop/south/000.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_000.png",
+      "sha256": "843f955f0cded099b37c9d5801809774de9b0ac5016b4250dfd48cfa9cad2bca"
+    },
+    {
+      "id": "drop-south-001",
+      "file": "drop/south/001.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_001.png",
+      "sha256": "8cee93fc77d056271fa4ab1955e49d93f589b5a2faf97e6aad857754810cf323"
+    },
+    {
+      "id": "drop-south-002",
+      "file": "drop/south/002.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_002.png",
+      "sha256": "b547f31e66b9c33dda7caa5bd8b5e622edd23619892e221ae47176ba430ebe3b"
+    },
+    {
+      "id": "drop-south-003",
+      "file": "drop/south/003.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_003.png",
+      "sha256": "8d14ca5b3d79d538be80e538af1218d2ed2fabbd17b6c6cf80121815e441a874"
+    },
+    {
+      "id": "drop-south-004",
+      "file": "drop/south/004.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_004.png",
+      "sha256": "ba35437217c0f352763a762c2bc10166583f7a14ccbe52a733b7e336688e39d4"
+    },
+    {
+      "id": "drop-south-005",
+      "file": "drop/south/005.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_005.png",
+      "sha256": "f2a4cc2c541cd21888a8d0828816786691e9dcad720b6504f9fdd60b6af39646"
+    },
+    {
+      "id": "drop-south-006",
+      "file": "drop/south/006.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_006.png",
+      "sha256": "b6bebf4174cf8d03d2e8be8a5d552ea4cd53dc1d1560031dd1773c62b659b4b2"
+    },
+    {
+      "id": "drop-south-007",
+      "file": "drop/south/007.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_007.png",
+      "sha256": "e4507e1da9386cffb4e38031e6f6f8dd5aea1ecc31b63e4166419cba05f3994c"
+    },
+    {
+      "id": "drop-south-008",
+      "file": "drop/south/008.png",
+      "width": 48,
+      "height": 48,
+      "footX": 24,
+      "footY": 38,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/south/frame_008.png",
+      "sha256": "a0d82a0af92271430727f892b6d9b5b8e37d6c6524b62a937797149d97014682"
+    },
+    {
+      "id": "haul-pose-east",
+      "file": "haul-pose/east.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "archive": "hauling",
+      "source": "Hauling/rotations/east.png",
+      "sha256": "2071a0bfdcdb5f7c18a189669b70421662daedc7081e787f2af381bb0473ec2a"
+    },
+    {
+      "id": "haul-idle-east-000",
+      "file": "haul-idle/east/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_000.png",
+      "sha256": "b432432cb5c5af67a835f503102e018963d3e3fd2597cbd0746d66f9869c04f7"
+    },
+    {
+      "id": "haul-idle-east-001",
+      "file": "haul-idle/east/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_001.png",
+      "sha256": "04ffbc0ff5f207d78fcfbea6b18c3702195c963cfcdb383882b0f347fd986091"
+    },
+    {
+      "id": "haul-idle-east-002",
+      "file": "haul-idle/east/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_002.png",
+      "sha256": "04ffbc0ff5f207d78fcfbea6b18c3702195c963cfcdb383882b0f347fd986091"
+    },
+    {
+      "id": "haul-idle-east-003",
+      "file": "haul-idle/east/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_003.png",
+      "sha256": "20a3abb2fa01265fcbef99d43508ac66a6fb728a6d19582e308634c11edb7a8d"
+    },
+    {
+      "id": "haul-idle-east-004",
+      "file": "haul-idle/east/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_004.png",
+      "sha256": "44c31d927e608de32a04059a38ee0e79d8504ed48b97782fae33c659a1c07823"
+    },
+    {
+      "id": "haul-idle-east-005",
+      "file": "haul-idle/east/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_005.png",
+      "sha256": "07a2e4a5614feef2fb83b7c8a0f758123cd530f7a6cee8e062324b0679aaec84"
+    },
+    {
+      "id": "haul-idle-east-006",
+      "file": "haul-idle/east/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_006.png",
+      "sha256": "26547f9b991419bb05c4baa3f4cd3bc8e1625a98271bff1879556d93b039508e"
+    },
+    {
+      "id": "haul-idle-east-007",
+      "file": "haul-idle/east/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/east/frame_007.png",
+      "sha256": "f849e74c183e19b36dd1ece4040ade5f81ae46ac2b5ff6da8214d9786a69742d"
+    },
+    {
+      "id": "haul-walk-east-000",
+      "file": "haul-walk/east/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_000.png",
+      "sha256": "b432432cb5c5af67a835f503102e018963d3e3fd2597cbd0746d66f9869c04f7"
+    },
+    {
+      "id": "haul-walk-east-001",
+      "file": "haul-walk/east/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_001.png",
+      "sha256": "63b797c1b0d721d604ab636e73f7d4fd9edb823ce0783d6ccb9c47d23bb1ae7e"
+    },
+    {
+      "id": "haul-walk-east-002",
+      "file": "haul-walk/east/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_002.png",
+      "sha256": "975f9cedbea046aad5ec291a792385429532bd279cf3639db419a4cab1914efa"
+    },
+    {
+      "id": "haul-walk-east-003",
+      "file": "haul-walk/east/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_003.png",
+      "sha256": "1c578a23379211b08c70d9083a194667f00e3adc8e900c0c0490139ab6439e3d"
+    },
+    {
+      "id": "haul-walk-east-004",
+      "file": "haul-walk/east/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_004.png",
+      "sha256": "622e4f30cb262223f0b5a4252b56a5ebe53de34312f07399a64e7ffbbbea0416"
+    },
+    {
+      "id": "haul-walk-east-005",
+      "file": "haul-walk/east/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_005.png",
+      "sha256": "1745a5a9feb3e01c941c6e05ee51fcd6f8de0fca7033d5565446811d50873caa"
+    },
+    {
+      "id": "haul-walk-east-006",
+      "file": "haul-walk/east/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_006.png",
+      "sha256": "2f9317b492c27aea5bff2ca697bec7b01f37e51f371faac0976ce30754865c03"
+    },
+    {
+      "id": "haul-walk-east-007",
+      "file": "haul-walk/east/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/east/frame_007.png",
+      "sha256": "a357ffe6780c2eb8c7006e5c7af061cd1180b48b83d243fbeed7e166edcc5fcc"
+    },
+    {
+      "id": "drop-east-000",
+      "file": "drop/east/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_000.png",
+      "sha256": "b432432cb5c5af67a835f503102e018963d3e3fd2597cbd0746d66f9869c04f7"
+    },
+    {
+      "id": "drop-east-001",
+      "file": "drop/east/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_001.png",
+      "sha256": "38f8c11520a881110a06381f396ce0869bf8d5897f822908aab8415d16f5cf00"
+    },
+    {
+      "id": "drop-east-002",
+      "file": "drop/east/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_002.png",
+      "sha256": "38f8c11520a881110a06381f396ce0869bf8d5897f822908aab8415d16f5cf00"
+    },
+    {
+      "id": "drop-east-003",
+      "file": "drop/east/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_003.png",
+      "sha256": "f4428a3584ed190017b7d0b50bd53626af8e301e5a7fdee0c5c16b74950468ff"
+    },
+    {
+      "id": "drop-east-004",
+      "file": "drop/east/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_004.png",
+      "sha256": "0b719816450655b1a88bfbdba3161d7f110ef88ae4478e818e5a88a36c46fa6c"
+    },
+    {
+      "id": "drop-east-005",
+      "file": "drop/east/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_005.png",
+      "sha256": "fa8bd54fe308dc0fddf9ee5b2c7a8634374b38dbebf785e83eb921d0fe8d1396"
+    },
+    {
+      "id": "drop-east-006",
+      "file": "drop/east/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_006.png",
+      "sha256": "0b6a510a6536c7e3737754d574ebc4669d989c1da3ff9ab694b447e655b2aaaa"
+    },
+    {
+      "id": "drop-east-007",
+      "file": "drop/east/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_007.png",
+      "sha256": "d9cae14cebdc66e06b94c009c1fd6e62780fe38fef6ae3bea6532837c110b9da"
+    },
+    {
+      "id": "drop-east-008",
+      "file": "drop/east/008.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/east/frame_008.png",
+      "sha256": "d9cae14cebdc66e06b94c009c1fd6e62780fe38fef6ae3bea6532837c110b9da"
+    },
+    {
+      "id": "haul-pose-north",
+      "file": "haul-pose/north.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "archive": "hauling",
+      "source": "Hauling/rotations/north.png",
+      "sha256": "c5026efce0999c48d38ae6a3e78f68a9646ef7faf25be78202fb6588a608d384"
+    },
+    {
+      "id": "haul-idle-north-000",
+      "file": "haul-idle/north/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_000.png",
+      "sha256": "3491dfe932d8b90d4621db5cdafccd80c8edae8576cd937d660ccc510a526cdb"
+    },
+    {
+      "id": "haul-idle-north-001",
+      "file": "haul-idle/north/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_001.png",
+      "sha256": "fc54e29533f59af7ec50882ddac8ea186d70dae5d3633058a4a66822fcfdc2b5"
+    },
+    {
+      "id": "haul-idle-north-002",
+      "file": "haul-idle/north/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_002.png",
+      "sha256": "fc54e29533f59af7ec50882ddac8ea186d70dae5d3633058a4a66822fcfdc2b5"
+    },
+    {
+      "id": "haul-idle-north-003",
+      "file": "haul-idle/north/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_003.png",
+      "sha256": "c97f0b6a01b877a21478f0844af07061645a88205c4bff549f40332b9333115d"
+    },
+    {
+      "id": "haul-idle-north-004",
+      "file": "haul-idle/north/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_004.png",
+      "sha256": "6abd744d98e532333b1958cab15959eedd96b4631db4338784c1b325f6d8f88b"
+    },
+    {
+      "id": "haul-idle-north-005",
+      "file": "haul-idle/north/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_005.png",
+      "sha256": "9ddc6401385b7f7e37b62b38d14c8fb0f52631963f3976d7127dad076b9ec506"
+    },
+    {
+      "id": "haul-idle-north-006",
+      "file": "haul-idle/north/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_006.png",
+      "sha256": "9ddc6401385b7f7e37b62b38d14c8fb0f52631963f3976d7127dad076b9ec506"
+    },
+    {
+      "id": "haul-idle-north-007",
+      "file": "haul-idle/north/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/north/frame_007.png",
+      "sha256": "678d0fda6577d53c01586afc4aebb8d3ef602b19f2eb506838136a75575622d3"
+    },
+    {
+      "id": "haul-walk-north-000",
+      "file": "haul-walk/north/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_000.png",
+      "sha256": "3491dfe932d8b90d4621db5cdafccd80c8edae8576cd937d660ccc510a526cdb"
+    },
+    {
+      "id": "haul-walk-north-001",
+      "file": "haul-walk/north/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_001.png",
+      "sha256": "8facd67a0ac26ff7ec12522df2bd52097aa4826fb35fc07e1fcf72ed3e3fff62"
+    },
+    {
+      "id": "haul-walk-north-002",
+      "file": "haul-walk/north/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_002.png",
+      "sha256": "ae7c7e97ec9167e76276ba0e2a54dbf7fbc25890eb098153630d6ab09e693a6e"
+    },
+    {
+      "id": "haul-walk-north-003",
+      "file": "haul-walk/north/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_003.png",
+      "sha256": "b302bb5f55edcc1208f4cf0311e339b45e6eae920979c1f573a8acb53e1a58fc"
+    },
+    {
+      "id": "haul-walk-north-004",
+      "file": "haul-walk/north/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_004.png",
+      "sha256": "729b035fa437674bb58bab243bbbb95cdd50d3da27f503ad13ef45a27a7b57ae"
+    },
+    {
+      "id": "haul-walk-north-005",
+      "file": "haul-walk/north/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_005.png",
+      "sha256": "1f0e1078a7031b9ad1c8fd01c91a570c0d1a5ce58ba04d88365a9bb1874250e9"
+    },
+    {
+      "id": "haul-walk-north-006",
+      "file": "haul-walk/north/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_006.png",
+      "sha256": "6938d740b34a1bd147472f527fd715c3a6954bb455a49b8d60d9666b93b448b0"
+    },
+    {
+      "id": "haul-walk-north-007",
+      "file": "haul-walk/north/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/north/frame_007.png",
+      "sha256": "77f28e2f3a84b23476af8349df9929f987731c4cdc223a40be82329784b80c43"
+    },
+    {
+      "id": "drop-north-000",
+      "file": "drop/north/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_000.png",
+      "sha256": "3491dfe932d8b90d4621db5cdafccd80c8edae8576cd937d660ccc510a526cdb"
+    },
+    {
+      "id": "drop-north-001",
+      "file": "drop/north/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_001.png",
+      "sha256": "8c68680e454d4eab3ef5cb3decab01f4c9bd9f9610b0db2dd5a684195c3af7da"
+    },
+    {
+      "id": "drop-north-002",
+      "file": "drop/north/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_002.png",
+      "sha256": "079e1f8119a0da1ad9a8324850521b6bd2437f38730742b2a86d0555e76aa046"
+    },
+    {
+      "id": "drop-north-003",
+      "file": "drop/north/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_003.png",
+      "sha256": "7e58246466e9a986fa75eebcc949c9b59d3b254f911adb9caf567761f271ca0e"
+    },
+    {
+      "id": "drop-north-004",
+      "file": "drop/north/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_004.png",
+      "sha256": "d8af5063b55fc0fb879d1462332b6226b46aed6980d1e92dace2748c1c033f0c"
+    },
+    {
+      "id": "drop-north-005",
+      "file": "drop/north/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_005.png",
+      "sha256": "db4f5a492156584200eda2c9f03f8dc846274829fadc1793176499537653e8bb"
+    },
+    {
+      "id": "drop-north-006",
+      "file": "drop/north/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_006.png",
+      "sha256": "aa2b239ea18c98f6b448d152c9ddd303b1c4b8802d0463039d90a5f110c9c162"
+    },
+    {
+      "id": "drop-north-007",
+      "file": "drop/north/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_007.png",
+      "sha256": "6213ee8deeebf1d68ee5a0ee03fe97b2427d23aa8f6e23b8138d82c602a0489d"
+    },
+    {
+      "id": "drop-north-008",
+      "file": "drop/north/008.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/north/frame_008.png",
+      "sha256": "1c0579561662beaaf40da938c5aac750930695f9067ec17d33c606d61b1a0563"
+    },
+    {
+      "id": "haul-pose-west",
+      "file": "haul-pose/west.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "archive": "hauling",
+      "source": "Hauling/rotations/west.png",
+      "sha256": "8a28df434993f7f8532cb13607a0d5056b866073a57efe0d26b5152181a1707b"
+    },
+    {
+      "id": "haul-idle-west-000",
+      "file": "haul-idle/west/000.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_000.png",
-      "sha256": "689bf5c86181b1253b0ef6eed80b5aaad6e49a78cd688f3792f648049e644711"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_000.png",
+      "sha256": "dcc1caa8d30dd52d16df88cf697ac781548e6b3e168976be3ead498d57719d58"
     },
     {
-      "id": "walk-south-west-001",
-      "file": "walk/south-west/001.png",
+      "id": "haul-idle-west-001",
+      "file": "haul-idle/west/001.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_001.png",
-      "sha256": "0e539fe9ba08944c4266ddee59a5677e5c6662af2e70574cbd56b616e547e0f9"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_001.png",
+      "sha256": "1702ece75749618f5828eb7f85e62005b9209435de0e9a7c951e04ad03827b1d"
     },
     {
-      "id": "walk-south-west-002",
-      "file": "walk/south-west/002.png",
+      "id": "haul-idle-west-002",
+      "file": "haul-idle/west/002.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_002.png",
-      "sha256": "220ae2981dbae777ec20f9415fe232246062bcd77a2ab725ca184ef859e92ed9"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_002.png",
+      "sha256": "5f49fc5c396396c1dae5e47b982142a92e5a79592fa6c51f956c441dc5d87dac"
     },
     {
-      "id": "walk-south-west-003",
-      "file": "walk/south-west/003.png",
+      "id": "haul-idle-west-003",
+      "file": "haul-idle/west/003.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_003.png",
-      "sha256": "8584eb1ba622578022b6c7b908c5165ff4fa6ee2b684ccaa762db05ff8b978b5"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_003.png",
+      "sha256": "4dbd17cfd70e72a7da38126ad5ab682d1483b1e4ef3e4330f54f2f42b96e838b"
     },
     {
-      "id": "walk-south-west-004",
-      "file": "walk/south-west/004.png",
+      "id": "haul-idle-west-004",
+      "file": "haul-idle/west/004.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_004.png",
-      "sha256": "ec74ca9883e3f5110e42ba93b224eea560c4f39dda223482240573b966063f0e"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_004.png",
+      "sha256": "5907fa506be0cd12493f12fb2fc8f66a696b3d7ac6e63d4895569f113031af63"
     },
     {
-      "id": "walk-south-west-005",
-      "file": "walk/south-west/005.png",
+      "id": "haul-idle-west-005",
+      "file": "haul-idle/west/005.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_005.png",
-      "sha256": "23f60fc902e308aa99b895c70bf35df1baf3f607ee5f5939ab789d7205430cec"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_005.png",
+      "sha256": "5907fa506be0cd12493f12fb2fc8f66a696b3d7ac6e63d4895569f113031af63"
     },
     {
-      "id": "walk-south-west-006",
-      "file": "walk/south-west/006.png",
+      "id": "haul-idle-west-006",
+      "file": "haul-idle/west/006.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_006.png",
-      "sha256": "1802699c0deec148391aa55a1a9eaaa1eaeb3d3713c9edc28d2e465472391696"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_006.png",
+      "sha256": "1702ece75749618f5828eb7f85e62005b9209435de0e9a7c951e04ad03827b1d"
     },
     {
-      "id": "walk-south-west-007",
-      "file": "walk/south-west/007.png",
+      "id": "haul-idle-west-007",
+      "file": "haul-idle/west/007.png",
       "width": 40,
       "height": 40,
       "footX": 20,
       "footY": 34,
-      "source": "Base/animations/Walking/south-west/frame_007.png",
-      "sha256": "5b3a5fd57578630a2f6ea579c01a05b77677a4a7c2ae74e188dc433a8a40c6d9"
+      "archive": "hauling",
+      "source": "Hauling/animations/idle_breathing/west/frame_007.png",
+      "sha256": "fbf54eea15740a20fbfb16365179a9bfbbb188273219f58e3af07313e036f1ab"
+    },
+    {
+      "id": "haul-walk-west-000",
+      "file": "haul-walk/west/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_000.png",
+      "sha256": "dcc1caa8d30dd52d16df88cf697ac781548e6b3e168976be3ead498d57719d58"
+    },
+    {
+      "id": "haul-walk-west-001",
+      "file": "haul-walk/west/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_001.png",
+      "sha256": "5f3fb6d1718f4523abac70695ffc3e5c993634bc027b5245446c994f2345122b"
+    },
+    {
+      "id": "haul-walk-west-002",
+      "file": "haul-walk/west/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_002.png",
+      "sha256": "4836401b4e42c1b44b005818254bd42b3bb9bd755a37b20487db40c8ee0c5ad9"
+    },
+    {
+      "id": "haul-walk-west-003",
+      "file": "haul-walk/west/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_003.png",
+      "sha256": "d2cdef59bd84ed3d78c13383d39a1762c53a9ca821dda0a415964f92b9409c5a"
+    },
+    {
+      "id": "haul-walk-west-004",
+      "file": "haul-walk/west/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_004.png",
+      "sha256": "70a85699b42b9fcaa6cdabc869b1502e1700ebab6001fa911d32681e2606359d"
+    },
+    {
+      "id": "haul-walk-west-005",
+      "file": "haul-walk/west/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_005.png",
+      "sha256": "941dcbf8747e132129b0c3145f616a18c5cadd062ff39ca0bcbbaaebe23edb64"
+    },
+    {
+      "id": "haul-walk-west-006",
+      "file": "haul-walk/west/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_006.png",
+      "sha256": "cb94a2876c61d0061d24fa44f9fd22e163806f1e33dfe011200ac1e2296ea9a2"
+    },
+    {
+      "id": "haul-walk-west-007",
+      "file": "haul-walk/west/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Walking/west/frame_007.png",
+      "sha256": "5b919c460cef7970ed16a5571d55d3b131dfbe8edfa69bfef58c43158a489e32"
+    },
+    {
+      "id": "drop-west-000",
+      "file": "drop/west/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_000.png",
+      "sha256": "dcc1caa8d30dd52d16df88cf697ac781548e6b3e168976be3ead498d57719d58"
+    },
+    {
+      "id": "drop-west-001",
+      "file": "drop/west/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_001.png",
+      "sha256": "ab1c4d3e9ee0ab15e73325dc5915f54947113eabad199e27d6352dda9236165d"
+    },
+    {
+      "id": "drop-west-002",
+      "file": "drop/west/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_002.png",
+      "sha256": "d774556112873ed617bb72e4b145e9d4ad84ccc9493ed1597b4189bb35e13a57"
+    },
+    {
+      "id": "drop-west-003",
+      "file": "drop/west/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_003.png",
+      "sha256": "ab5c723a076a1cf6d57e0ed165ec924cc5247ad151253306f40982ee0f403eb9"
+    },
+    {
+      "id": "drop-west-004",
+      "file": "drop/west/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_004.png",
+      "sha256": "e32978d11babec9c23ae56a0119016bbf2a2f0eaea0fd0750ec30e97c3833f2a"
+    },
+    {
+      "id": "drop-west-005",
+      "file": "drop/west/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_005.png",
+      "sha256": "baaa8199a214be300bd99918c33067e71dd3c0102206d303a619122bd6fcb1ea"
+    },
+    {
+      "id": "drop-west-006",
+      "file": "drop/west/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_006.png",
+      "sha256": "0b0576e72aeb43d7e6c01b04875032dd223e4887709071b492a6ab94bacc3912"
+    },
+    {
+      "id": "drop-west-007",
+      "file": "drop/west/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_007.png",
+      "sha256": "73129444353860de23290fecd8cfce3c4c65cf2abfa1f96002fb03bc3325a827"
+    },
+    {
+      "id": "drop-west-008",
+      "file": "drop/west/008.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "hauling",
+      "source": "Hauling/animations/Chucking/west/frame_008.png",
+      "sha256": "690d2c02e66b3b195265b6cd58433046fa0b4c2bd9ee868a7ede0ce7f40c08f4"
     }
   ],
   "provenance": {
-    "source": "Owner-supplied Goblin-Base.zip",
-    "archiveFile": "archive/Goblin-Base-5473394.zip",
-    "commit": "54733942f321de07ad064e1cd03688507760b39e",
-    "archiveSha256": "ab6aeaa072e6d5bfc242f0c87de19d7671c04d8914f3912d4d893001598d3d5b",
-    "view": "low top-down",
+    "source": "Owner-supplied Goblin-Base.zip and Goblin-Hauling.zip",
+    "commit": "37ad2ad93408991f2ad286e7254f9cf3c52972d3",
+    "archives": [
+      {
+        "id": "base",
+        "file": "archive/Goblin-Base-37ad2ad.zip",
+        "sha256": "fe6aa05d082d83a2c1f74537ac73f423c119e598a5159a7a92050edd7508a062"
+      },
+      {
+        "id": "hauling",
+        "file": "archive/Goblin-Hauling-37ad2ad.zip",
+        "sha256": "1d0813da6a61762471e647ccf0f9a1111a5f1b13e5164060558c388393c7636a"
+      }
+    ],
     "westVariant": "west-6b9bf452",
-    "note": "Original frames copied byte-for-byte. Alternate west take retained in the ZIP. Creative assets follow ASSETS-LICENSE.md."
+    "note": "Original PNG bytes; native padding and 32px body. Other directions, attack clips and alternate takes stay in the ZIPs. Creative assets follow ASSETS-LICENSE.md."
   }
 }

@@ -1,4 +1,4 @@
-# 0.1.0-prototype.9 — verification and handoff
+# 0.1.0-prototype.10 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 51 headless tests in thirteen files. Includes 1,000 seeded starts;
+- `npm test`: 58 headless tests in fourteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: eleven Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: thirteen Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -59,7 +59,7 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-New saves are schema 5; schema-1 through schema-4 saves migrate in place with their existing map,
+New saves are schema 6; schema-1 through schema-5 saves migrate in place with their existing map,
 knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
@@ -82,7 +82,7 @@ into an imported colony.
 ## Native art verification
 
 Every floor, wall top, wall side and plant PNG is 32×32. The owner-supplied
-goblin idle poses are 32×32; padded walk frames remain 40×40/44×44 at scale 1. Home resets the
+static goblin poses are 32×32; current animation canvases retain 40×40/44×44/48×48 at scale 1. Home resets the
 view to 1×, giving a 32×32 screen-pixel floor grid. Wall tops and sides are separate
 textures and render nodes; exposed sides and raised tops retain their native size.
 The browser suite verifies all 29 images decode at 32×32 and repeats selection,
@@ -92,7 +92,7 @@ See [art preview](screenshots/art-preview.png).
 
 ## Supplied goblin integration
 
-The live game uses eight idle directions and 64 canonical walk frames from the
+The prototype.6 integration used eight idle directions and 64 canonical walk frames from the
 owner's ZIP. Tests verify archive/frame hashes, native dimensions, padding anchors,
 eight-way direction mapping, continuous gait across tiles, frozen presentation on
 unchanged ticks, smooth positions and history reset. An additional picking test
@@ -168,3 +168,25 @@ Owner commit `37ad2ad` updates the incoming base ZIP and adds a hauling ZIP. The
 existing imported frames retain their original provenance via the archived
 `5473394` ZIP and manifest path; the new incoming ZIPs are preserved byte for byte.
 They are not automatically substituted for the curated runtime frames.
+
+
+## Iteration 10 verification
+
+The owner-requested cardinal art standard loads four directions for five clips:
+empty idle/walk, loaded idle/walk and put-down. Four static poses per pack support
+portraits/rest; the 172-frame manifest verifies every source hash and anchor.
+The original eight-way export stays archived; unused diagonal files are legacy
+references and are not loaded by the runtime.
+
+Seven new headless tests cover breathing, carrying, pause, all nine drop frames,
+exactly-once release at frame 5, render independence, cancellation, schema-5
+migration, invalid state and exact save continuation before/after release.
+Normal delivery completes on release; its follow-through finishes before new work.
+Interruptions retain immediate recoverable drops and start at the release frame.
+
+Browser QA exercises loaded idle, bag walking, pause, wind-up save/reload, physical
+release, final idle and one surviving item identity; gallery QA decodes all twenty
+clips and selects drop frame 5. Screenshots: [hauling](screenshots/hauling.png),
+[drop](screenshots/drop.png), [cardinal gallery](screenshots/cardinal-animations.png).
+Mining animation is still pending: GG-047 remains open. No attack art is repurposed
+as mining. Raw owner ZIPs remain unchanged and imports use version-pinned copies.

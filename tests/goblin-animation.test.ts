@@ -4,16 +4,16 @@ import { createHash } from "node:crypto";
 import manifest from "../public/assets/goblin/base/manifest.json";
 import { GoblinAnimator, facingFor } from "../src/render/goblin-animation";
 import { position } from "../src/sim/model";
-it("maps all eight facings and retains the last facing at rest", () => {
+it("maps cardinal facings and retains the last facing at rest", () => {
   const vectors = [
     [0, 1, "south"],
-    [1, 1, "south-east"],
+    [1, 1, "south"],
     [1, 0, "east"],
-    [1, -1, "north-east"],
+    [1, -1, "north"],
     [0, -1, "north"],
-    [-1, -1, "north-west"],
+    [-1, -1, "north"],
     [-1, 0, "west"],
-    [-1, 1, "south-west"],
+    [-1, 1, "south"],
   ] as const;
   for (const [x, y, direction] of vectors)
     expect(facingFor(x, y)).toBe(direction);
@@ -37,7 +37,7 @@ it("interpolates movement, continues the full walk cycle across tiles and freeze
   expect(frames.size).toBe(8);
   pose = animator.sample(id, position(8, 0), 28, 0, 3);
   expect(pose.walking).toBe(false);
-  expect(pose.textureId).toBe("idle-east");
+  expect(pose.textureId).toBe("idle-east-000");
   expect(pose.position).toEqual(position(8, 0));
 });
 it("uses work-facing at rest, and resets display history cleanly after load", () => {
@@ -45,7 +45,7 @@ it("uses work-facing at rest, and resets display history cleanly after load", ()
   expect(
     animator.sample("goblin-1", position(30, 30), 10, 0, 3, position(30, 29))
       .textureId,
-  ).toBe("idle-north");
+  ).toBe("idle-north-000");
   animator.sample("goblin-1", position(31, 30), 13, 0, 3);
   animator.clear();
   const restored = animator.sample("goblin-1", position(50, 50), 400, 0, 3);
@@ -53,15 +53,14 @@ it("uses work-facing at rest, and resets display history cleanly after load", ()
   expect(restored.walking).toBe(false);
 });
 it("keeps every supplied PNG unchanged and aligns padded frames to the same body feet", () => {
-  expect(manifest.frames).toHaveLength(72);
-  expect(manifest.directions).toHaveLength(8);
-  expect(
-    createHash("sha256")
-      .update(
-        readFileSync(`public/assets/goblin/${manifest.provenance.archiveFile}`),
-      )
-      .digest("hex"),
-  ).toBe(manifest.provenance.archiveSha256);
+  expect(manifest.frames).toHaveLength(172);
+  expect(manifest.directions).toHaveLength(4);
+  for (const archive of manifest.provenance.archives)
+    expect(
+      createHash("sha256")
+        .update(readFileSync(`public/assets/goblin/${archive.file}`))
+        .digest("hex"),
+    ).toBe(archive.sha256);
   for (const frame of manifest.frames) {
     const bytes = readFileSync(`public/assets/goblin/base/${frame.file}`);
     expect(createHash("sha256").update(bytes).digest("hex"), frame.id).toBe(

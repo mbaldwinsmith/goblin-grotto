@@ -75,6 +75,7 @@ it("opposing active haulers pass a one-cell tunnel and keep carried items attach
     [0, 35],
     [1, 28],
   ]) {
+    tileAt(s, position(x, 30))!.stockpile = true;
     const g = s.goblins[idx],
       item = {
         id: `item-${s.nextId++}` as const,

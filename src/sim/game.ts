@@ -1,3 +1,4 @@
+import { beginDrop, interruptDrop, updateDrop } from "./hauling";
 import { advance, makeRoom } from "./movement";
 import { facingFor } from "../core/facing";
 import { updateWeather } from "./climate";
@@ -200,15 +201,7 @@ function release(s: GameState, g: Goblin): void {
     j.worker = null;
     if (j.status === "active") j.status = "open";
   }
-  if (g.carrying) {
-    const item = s.items.find((i) => i.id === g.carrying);
-    if (item) {
-      item.holder = null;
-      item.position = { ...g.position };
-      item.stored = false;
-    }
-    g.carrying = null;
-  }
+  if (g.carrying) interruptDrop(s, g);
   g.job = null;
 }
 function move(s: GameState, g: Goblin, p: Position, adjacent = false): boolean {
@@ -243,9 +236,12 @@ function cells(
     test(t) ? [position(i % s.width, Math.floor(i / s.width))] : [],
   );
 }
-function needs(s: GameState, g: Goblin): boolean {
+function decayNeeds(g: Goblin): void {
   g.hunger = Math.min(100, g.hunger + 0.008);
   g.fatigue = Math.min(100, g.fatigue + 0.005);
+}
+function needs(s: GameState, g: Goblin): boolean {
+  decayNeeds(g);
   if (g.hunger > 65 || g.activity === "Looking for supper") {
     release(s, g);
     const food = s.items
@@ -361,20 +357,16 @@ function work(s: GameState, g: Goblin, j: Job): void {
     }
     if (!g.carrying) {
       g.activity = "Collecting loose supplies";
-      if (move(s, g, item.position)) {
+      if (move(s, g, item.position) && s.tick >= g.nextMoveAt) {
         item.holder = g.id;
         g.carrying = item.id;
       }
     } else {
       g.activity = `Hauling ${item.resource}`;
       item.position = { ...g.position };
-      if (move(s, g, j.target)) {
-        item.holder = null;
-        item.position = { ...g.position };
-        item.stored = true;
-        g.carrying = null;
-        j.status = "done";
-        release(s, g);
+      if (move(s, g, j.target) && s.tick >= g.nextMoveAt) {
+        beginDrop(s, g);
+        j.reason = "Putting down supplies";
       }
     }
     return;
@@ -495,6 +487,10 @@ export function step(s: GameState): void {
   const first = s.tick % s.goblins.length;
   const workers = [...s.goblins.slice(first), ...s.goblins.slice(0, first)];
   for (const g of workers) {
+    if (updateDrop(s, g)) {
+      decayNeeds(g);
+      continue;
+    }
     if (needs(s, g)) continue;
     let j = s.jobs.find((j) => j.id === g.job && j.status === "active");
     if (!j) {

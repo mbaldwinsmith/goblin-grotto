@@ -345,7 +345,7 @@ test("the supplied padded goblin walk animates only during movement and freezes 
     .poll(async () => (await readVisual())?.label, { timeout: 12000 })
     .toMatch(/^idle-/);
   await page.getByRole("button", { name: "Pause", exact: true }).click();
-  expect((await readVisual())?.width).toBe(32);
+  expect([40, 44]).toContain((await readVisual())?.width);
   await page.locator(".goblin").first().click();
   await page.locator("canvas").focus();
   await page.keyboard.press("+");
@@ -449,7 +449,7 @@ test("goblin identity and facing survive import, selection and reload", async ({
     ).grottoScene;
     return scene.goblinSprites.get("goblin-1")?.label;
   });
-  expect(texture).toBe("idle-west");
+  expect(texture).toBe("idle-west-000");
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await expect(page.locator("#notice")).toContainText("saved");
   await page.reload();
@@ -528,6 +528,169 @@ test("four scouts pass through a narrow entrance without stacking", async ({
     .click();
   await page.screenshot({
     path: "docs/screenshots/traffic.png",
+    fullPage: true,
+  });
+});
+
+test("loaded idle/walk and drop clips follow the held item, pause and saved release tick", async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  const { createGame } = await import("../../src/sim/game");
+  const s = createGame("cardinal-haul");
+  s.tick = 100;
+  const g = s.goblins[0];
+  g.facing = "east";
+  g.nextMoveAt = 108;
+  s.goblins.slice(1).forEach((actor, i) => {
+    actor.position = { x: 28 + i, y: 33, z: 0 };
+  });
+  for (let x = 28; x <= 35; x++) {
+    const t = s.tiles[30 * 64 + x];
+    t.solid = false;
+    t.material = "hard";
+    t.feature = null;
+  }
+  const item = {
+    id: `item-${s.nextId++}` as const,
+    resource: "stone" as const,
+    quantity: 3,
+    position: { ...g.position },
+    holder: g.id,
+    stored: false,
+  };
+  s.items.push(item);
+  g.carrying = item.id;
+  const target = { x: 35, y: 30, z: 0 } as const;
+  s.tiles[30 * 64 + 35].stockpile = true;
+  const job = {
+    id: `job-${s.nextId++}` as const,
+    kind: "haul" as const,
+    target,
+    item: item.id,
+    structure: null,
+    worker: g.id,
+    status: "active" as const,
+    progress: 0,
+    reason: "Hauling",
+    paid: false,
+    paidWithKit: false,
+  };
+  s.jobs.push(job);
+  g.job = job.id;
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "hauling.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  const read = () =>
+    page.locator("canvas").evaluate((canvas, itemId) => {
+      const scene = Reflect.get(canvas, "grottoScene"),
+        state = scene.world,
+        g = state.goblins[0],
+        item = state.items.find((i: { id: string }) => i.id === itemId),
+        sprite = scene.goblinSprites.get(g.id);
+      return {
+        label: sprite.label,
+        tick: state.tick,
+        drop: g.drop,
+        holder: item?.holder,
+        stored: item?.stored,
+        quantity: item?.quantity,
+        job: state.jobs.find((j: { item: string }) => j.item === itemId)
+          ?.status,
+        scale: sprite.scale.x,
+        duplicates: state.items.filter((i: { id: string }) => i.id === itemId)
+          .length,
+      };
+    }, item.id);
+  await expect
+    .poll(async () => (await read()).label)
+    .toBe("haul-idle-east-000");
+  await page.getByRole("button", { name: "1×", exact: true }).click();
+  await expect
+    .poll(async () => (await read()).label, { intervals: [20, 40, 60] })
+    .toMatch(/^haul-idle-east-00[1-7]$/);
+  await expect
+    .poll(async () => (await read()).label, { intervals: [20, 40, 60] })
+    .toMatch(/^haul-walk-east-/);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const frozen = await read();
+  expect(frozen.holder).toBe(g.id);
+  expect(frozen.scale).toBe(1);
+  await page.waitForTimeout(250);
+  expect(await read()).toEqual(frozen);
+  await page.screenshot({
+    path: "docs/screenshots/hauling.png",
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "1×", exact: true }).click();
+  await expect
+    .poll(async () => (await read()).label, {
+      intervals: [20, 40, 60],
+      timeout: 30000,
+    })
+    .toMatch(/^drop-east-00[0-4]$/);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const windup = await read();
+  expect(windup.holder).toBe(g.id);
+  expect(windup.stored).toBe(false);
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("saved");
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  expect((await read()).drop?.startedAt).toBe(windup.drop.startedAt);
+  await page.getByRole("button", { name: "1×", exact: true }).click();
+  await expect
+    .poll(async () => (await read()).holder, { intervals: [20, 40, 60] })
+    .toBeNull();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const released = await read();
+  expect(released.label).toMatch(/^drop-east-00[5-8]$/);
+  expect(released.stored).toBe(true);
+  expect(released.duplicates).toBe(1);
+  expect(released.quantity).toBe(3);
+  expect(released.job).toBe("done");
+  await page.screenshot({ path: "docs/screenshots/drop.png", fullPage: true });
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect.poll(async () => (await read()).label).toMatch(/^idle-east-/);
+  expect((await read()).duplicates).toBe(1);
+});
+
+test("cardinal animation gallery decodes every clip and allows frame-by-frame review", async ({
+  page,
+}) => {
+  await page.goto("/goblin-preview.html");
+  await expect(page.locator("main img")).toHaveCount(20);
+  await expect
+    .poll(() =>
+      page
+        .locator("main img")
+        .evaluateAll((images) =>
+          images.every(
+            (img) =>
+              (img as HTMLImageElement).complete &&
+              (img as HTMLImageElement).naturalWidth >= 40,
+          ),
+        ),
+    )
+    .toBe(true);
+  await page.locator("#frame").focus();
+  await page.keyboard.press("Home");
+  for (let i = 0; i < 5; i++) await page.keyboard.press("ArrowRight");
+  await expect(page.locator('img[alt="drop south"]')).toHaveAttribute(
+    "src",
+    /drop\/south\/005.png$/,
+  );
+  await expect(page.locator("#pause")).toHaveText("Play");
+  await page.screenshot({
+    path: "docs/screenshots/cardinal-animations.png",
     fullPage: true,
   });
 });

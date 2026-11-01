@@ -29,7 +29,7 @@ it("four named common goblins retain identity, kind and facing without a rendere
       undefined,
       loaded.goblins[0].facing,
     ).textureId,
-  ).toBe("idle-west");
+  ).toBe("idle-west-000");
   animator.clear();
   expect(encodeSave(loaded)).toBe(before);
   for (let i = 0; i < 100; i++) step(loaded);
@@ -54,14 +54,16 @@ it("migrates the committed schema-3 colony with original goblin fields unchanged
   ).toString();
   const old = JSON.parse(text),
     loaded = decodeSave(text);
-  expect(loaded.version).toBe(5);
+  expect(loaded.version).toBe(6);
   expect(
     loaded.goblins.every((g) => g.kind === "common" && g.facing === "south"),
   ).toBe(true);
   expect({
     ...loaded,
     version: 3,
-    goblins: loaded.goblins.map(({ kind, facing, nextMoveAt, ...g }) => g),
+    goblins: loaded.goblins.map(
+      ({ kind, facing, nextMoveAt, drop, ...g }) => g,
+    ),
   }).toEqual(old);
   const invalid = JSON.parse(encodeSave(loaded));
   invalid.goblins[0].kind = "unknown";

@@ -48,6 +48,7 @@ export function advance(
   target: Position,
   adjacent = false,
 ): MovementResult {
+  if (g.drop) return "waiting";
   const route = path(s, g.position, target, adjacent, true);
   if (!route) return "blocked";
   if (!route.length) return "arrived";
@@ -72,7 +73,7 @@ export function advance(
     relocate(s, g, next);
     return "moved";
   }
-  if (s.tick < other.nextMoveAt || other.activity === "Sleeping")
+  if (s.tick < other.nextMoveAt || other.activity === "Sleeping" || other.drop)
     return "waiting";
   // Idle workers step out of the route where a free side space exists.
   if (!other.job) {
@@ -101,7 +102,8 @@ export function makeRoom(
   avoid: Position[],
   requester: string,
 ): boolean {
-  if (g.job || g.activity === "Sleeping" || s.tick < g.nextMoveAt) return false;
+  if (g.job || g.drop || g.activity === "Sleeping" || s.tick < g.nextMoveAt)
+    return false;
   const side = directions
     .map((d) => position(g.position.x + d.x, g.position.y + d.y))
     .find(

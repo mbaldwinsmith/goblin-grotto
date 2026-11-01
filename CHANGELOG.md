@@ -6,6 +6,19 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.10 — four directions, a bag of shinies
+
+#### Added
+
+- Integrated the owner's updated base and hauling archives: four-direction idle breathing, walking, loaded breathing, loaded walking and nine-frame put-down clips. All 172 curated PNGs retain their original bytes, native padding and foot anchors; source hashes and member paths are recorded (partial GG-047; mining remains open).
+- Normal deliveries release the physical item exactly once on drop frame 5, driven by simulation ticks. Cancellation and urgent interruptions free the item immediately and show the drop follow-through. Pause freezes the clips; rendering cannot advance work or transfer items.
+- `/goblin-preview.html` now shows all 20 cardinal animation clips, with pause and frame-by-frame review.
+
+#### Changed
+
+- Applied the owner's four-cardinal-direction standard to simulation facing and rendered clips. Existing grid navigation already used four neighbours.
+- Save schema 6 preserves in-progress drops, including the held/released phase. Versions 1–5 migrate without regenerating maps or losing items; old diagonal facing maps to north/south. Includes an actual schema-5 active-haul fixture and before/after-release continuation tests.
+
 ### 0.1.0-prototype.9 — make room in the passage
 
 #### Added

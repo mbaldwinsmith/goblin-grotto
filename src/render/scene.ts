@@ -134,6 +134,11 @@ export class Scene {
         movementTicks(s, g.position),
         lookAt,
         g.facing,
+        {
+          carrying: !!g.carrying,
+          drop: g.drop,
+          sleeping: g.activity === "Sleeping",
+        },
       );
       this.poses.set(g.id, pose);
       this.renderPositions.set(g.id, pose.position);
@@ -265,7 +270,15 @@ export class Scene {
         }
       }
     for (const item of s.items.filter(
-      (i) => !i.holder && tileAt(s, i.position)?.discovered,
+      (i) =>
+        !i.holder &&
+        tileAt(s, i.position)?.discovered &&
+        !s.goblins.some(
+          (g) =>
+            g.drop?.item === i.id &&
+            g.position.x === i.position.x &&
+            g.position.y === i.position.y,
+        ),
     )) {
       const a = project(item.position);
       let d = this.itemSprites.get(item.id);
