@@ -102,7 +102,7 @@ it("the actual v1 active-colony fixture migrates without losing work or known te
     readFileSync("tests/fixtures/v1-active-colony.json.gz"),
   ).toString();
   const migrated = decodeSave(text);
-  expect(migrated.version).toBe(4);
+  expect(migrated.version).toBe(5);
   expect(migrated.jobs.some((j) => j.status === "active")).toBe(true);
   expect(migrated.tiles.every((t) => t.feature === null)).toBe(true);
   // Removing just the new fields reproduces the original snapshot exactly.
@@ -111,7 +111,7 @@ it("the actual v1 active-colony fixture migrates without losing work or known te
   const restored = {
     ...original,
     version: 1,
-    goblins: migrated.goblins.map(({ kind, facing, ...g }) => g),
+    goblins: migrated.goblins.map(({ kind, facing, nextMoveAt, ...g }) => g),
     tiles: migrated.tiles.map(({ feature, collapseAt, ...tile }) => tile),
   };
   expect(restored).toEqual(legacy);

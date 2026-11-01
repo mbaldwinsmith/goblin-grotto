@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.8`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.9`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -84,7 +84,7 @@ costs and prefer to avoid warned ceilings.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
   is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1, version-2, version-3 or version-4 save before replacing the current game. Future
+- **Import** validates a version-1, version-2, version-3, version-4 or version-5 save before replacing the current game. Future
   or damaged saves show a message and leave the current grotto intact.
 - **New grotto** asks for a seed and replaces the active session; save first.
 
@@ -93,7 +93,7 @@ costs and prefer to avoid warned ceilings.
 This slice demonstrates the home-building loop with supplied goblin sprites,
 directional walking and cached A* routes. It does **not** yet implement Souls,
 Chief/Shaman politics, possession, inventory equipment, combat, raids, generations
-or the Overlord. Actor congestion, camera polish and the production art pipeline
+or the Overlord. Large-crowd behaviour, camera polish and the production art pipeline
 still need work.
 There is no starvation death or combat failure state yet. Workshop content is one
 small recipe; a full economy is later work.
@@ -113,14 +113,16 @@ The live goblins now use your supplied base: eight directional idle poses and
 walk cycles, with smooth movement and matching portraits. The body stays at native
 32-pixel scale. Padded 40×40/44×44 walk frames retain their original pixels and are
 aligned by their feet. They stop animating when stationary or paused. Existing
-schema-1 and schema-2 saves migrate without regenerating the map or adding pending falls.
+schema-1 through schema-4 saves migrate without regenerating the map or adding pending falls.
 
 See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
 
 See the [individual art preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/art-preview.html).
 The legacy 29-file set is listed in `public/assets/prototype/manifest.json` and
 reproduced with `node tools/generate-pixel-art.mjs`. Import the supplied base with `python tools/import-goblin.py`. Specialised task
-animation, crowd handling and atlas work remain later tasks.
+animation and atlas work remain later tasks. Goblins now take free detours, make
+room for one another and pass in narrow tunnels without sharing a logical tile.
+Older stacked colonies are separated onto nearby known floor when imported.
 
 ## Where the game is heading
 

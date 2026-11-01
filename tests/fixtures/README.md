@@ -21,4 +21,4 @@ weather and collapse timers. Existing maps acquire no pending collapses.
 `v3-active-colony.json.gz` was produced at commit
 `69202550fb512cef96af2724e226e1d4b9f361a0` (prototype.7). Seed: `v3-active-colony`.
 Build a farm at (30,29,0), then advance 15 ticks. Migration strips only the new
-kind/facing fields for an exact comparison with the original schema-3 snapshot.
+kind/facing/movement fields for an exact comparison with the original schema-3 snapshot.

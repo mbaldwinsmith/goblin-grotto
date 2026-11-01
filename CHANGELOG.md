@@ -6,6 +6,18 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.9 — make room in the passage
+
+#### Added
+
+- GG-038: goblins avoid occupied cells, detour where space permits and cooperate to pass through narrow entrances. Idle goblins make room; opposing workers exchange adjacent walkable cells without sharing a logical tile. Worker evaluation rotates fairly each tick.
+- Movement cooldowns persist in save schema 5 and use terrain/weather costs. Older saves migrate stacked goblins onto nearby free discovered floor, keeping IDs, jobs and carried objects intact. New overlapping or blocked actor placements fail validation.
+
+#### Fixed
+
+- Wall builders work beside the wall and ask idle occupants to clear the site before construction, preventing a wall from enclosing its builder.
+- Carried item coordinates update with each movement or yielding step. Browser animation checks follow the actual walking goblin rather than assuming the first actor gets the job.
+
 ### 0.1.0-prototype.8 — goblins keep their bearings
 
 #### Added

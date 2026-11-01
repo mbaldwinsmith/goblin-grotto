@@ -1,4 +1,4 @@
-# 0.1.0-prototype.8 — verification and handoff
+# 0.1.0-prototype.9 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 44 headless tests in twelve files. Includes 1,000 seeded starts;
+- `npm test`: 50 headless tests in thirteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: ten Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: eleven Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -49,8 +49,7 @@ and the production atlas remain open.
 
 GG-032/GG-034/GG-035 are verified on this branch: warned cave-ins/supports, seasonal weather and cached A* navigation. Completion records await merge.
 
-GG-037/038/040/044–050/053: complete kind definitions, smooth movement and
-congestion handling, richer utility/priorities,
+GG-040/044–050/053: richer utility/priorities,
 stockpile filters, full interruption/direct-order/animation/debug criteria,
 safety needs, explicit bed reservations and complete structures/refund acceptance.
 The current buildings, hunger/rest and work tools are usable partial slices.
@@ -60,7 +59,7 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-New saves are schema 4; schema-1, schema-2 and schema-3 saves migrate in place with their existing map,
+New saves are schema 5; schema-1 through schema-4 saves migrate in place with their existing map,
 knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
@@ -101,8 +100,8 @@ selects an interpolated body rather than its future authoritative tile. Browser 
 checks actual texture IDs/dimensions, a walking→paused→walking→idle transition and
 unmodified sprite scale. It also exercises the existing save/load and wall reveal
 scenarios with the new art. The source data and all game rules remain unchanged.
-GG-023/GG-037/GG-038/GG-047 have partial progress; their remaining atlas/kind,
-occupancy and specialised task-animation acceptance criteria are not checked off.
+At that stage GG-023/GG-037/GG-038/GG-047 were partial. Iterations 8 and 9 below
+verify GG-037/GG-038; atlas and specialised task-animation criteria remain open.
 
 
 ## Iteration 7 verification
@@ -132,3 +131,25 @@ mutating actors, verify work-facing and migrate the real schema-3 fixture. Brows
 QA imports a west-facing Nib, selects him, checks the actual idle-west sprite and
 restores the same kind/facing after save/reload. New goblins are common goblins;
 boggart/hobgoblin definitions remain GG-155. Schema 4 supports versions 1–3.
+
+
+## Iteration 9 verification
+
+GG-038 adds deterministic occupied-cell detours, idle yielding and cooperative
+adjacent swaps in one-cell tunnels. A persistent next-move tick limits each actor
+to one movement per terrain/weather interval, including being asked to yield.
+Worker evaluation rotates each tick. Wall building uses an adjacent working tile
+and clears idle actors from its site before completion.
+
+Tests assert distinct walkable positions after each tick, moving holder/item
+coordinates, opposing hauls through a tunnel, four deliveries to one pile,
+blocked paths, cooldowns, safe wall construction and exact save continuation.
+The browser sends four scouts down one narrow entrance, verifies all four finish
+and checks distinct positions: [traffic screenshot](screenshots/traffic.png).
+Existing animation/picking and save/import scenarios run with occupancy enabled.
+
+Schema 5 stores movement cooldowns. Versions 1–4 keep IDs and work; legacy actors
+sharing a tile or standing on a wall move to nearby free discovered floor, with
+held items following their holder. New invalid overlaps are rejected. This is
+local cooperation for four workers; large population performance is GG-187.
+Full task priorities, direct orders, needs and bed reservations remain open.

@@ -301,12 +301,19 @@ test("the supplied padded goblin walk animates only during movement and freezes 
   await page.locator("#tile-x").fill("38");
   await page.locator("#tile-y").fill("31");
   await page.getByRole("button", { name: "Apply tool" }).click();
-  const readVisual = () =>
-    page.locator("canvas").evaluate((canvas) => {
+  let movingActor: string | null = null;
+  const readVisual = async () => {
+    const visual = await page.locator("canvas").evaluate((canvas, actor) => {
       const scene = Reflect.get(canvas, "grottoScene");
-      const sprite = scene.goblinSprites.values().next().value;
+      const entry = actor
+        ? [actor, scene.goblinSprites.get(actor)]
+        : [...scene.goblinSprites.entries()].find(([, sprite]) =>
+            sprite.label.startsWith("walk-"),
+          );
+      const sprite = entry?.[1];
       return sprite
         ? {
+            id: entry[0],
             label: sprite.label,
             width: sprite.texture.width,
             height: sprite.texture.height,
@@ -316,7 +323,10 @@ test("the supplied padded goblin walk animates only during movement and freezes 
             scaleY: sprite.scale.y,
           }
         : null;
-    });
+    }, movingActor);
+    if (visual) movingActor = visual.id;
+    return visual;
+  };
   await expect(page.locator("#notice")).toContainText("planned");
   await page.getByRole("button", { name: "1×", exact: true }).click();
   await expect.poll(async () => (await readVisual())?.label).toMatch(/^walk-/);
@@ -447,4 +457,74 @@ test("goblin identity and facing survive import, selection and reload", async ({
   await expect(page.locator("#actor-inspection")).toContainText(
     "Common goblin · Facing west",
   );
+});
+
+test("four scouts pass through a narrow entrance without stacking", async ({
+  page,
+}) => {
+  const { createGame } = await import("../../src/sim/game");
+  const s = createGame("entrance-traffic");
+  for (const t of s.tiles) {
+    t.solid = true;
+    t.discovered = true;
+    t.feature = null;
+    t.structure = null;
+    t.stockpile = false;
+  }
+  for (let x = 27; x <= 38; x++) {
+    const t = s.tiles[30 * 64 + x];
+    t.solid = false;
+    t.material = "hard";
+  }
+  s.items.forEach((i) => {
+    i.position = { x: 27, y: 30, z: 0 };
+  });
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "traffic.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "Explore", exact: false }).click();
+  for (const x of [34, 35, 36, 37]) {
+    await page.locator("#tile-x").fill(String(x));
+    await page.locator("#tile-y").fill("30");
+    await page.getByRole("button", { name: "Apply tool" }).click();
+    await expect(page.locator("#notice")).toContainText("planned");
+  }
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(
+      () =>
+        page.locator("canvas").evaluate((canvas) => {
+          const scene = Reflect.get(canvas, "grottoScene"),
+            state = scene.world;
+          const occupied = new Set(
+            state.goblins.map(
+              (g: { position: { x: number; y: number } }) =>
+                `${g.position.x},${g.position.y}`,
+            ),
+          );
+          if (occupied.size !== 4) throw new Error("Goblins overlapped");
+          return state.jobs.filter(
+            (j: { kind: string; status: string }) =>
+              j.kind === "explore" && j.status === "done",
+          ).length;
+        }),
+      { timeout: 15000 },
+    )
+    .toBe(4);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("saved");
+  await page
+    .getByRole("button", { name: "Reveal walls", exact: false })
+    .click();
+  await page.screenshot({
+    path: "docs/screenshots/traffic.png",
+    fullPage: true,
+  });
 });

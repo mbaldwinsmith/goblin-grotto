@@ -24,7 +24,7 @@ it("rejects malformed data, dangling references, ID collisions and future saves"
   const s = createGame("bad");
   for (const mutate of [
     (s: ReturnType<typeof createGame>) => {
-      s.version = 999 as 4;
+      s.version = 999 as 5;
     },
     (s: ReturnType<typeof createGame>) => {
       s.goblins[0].carrying = "item-999";

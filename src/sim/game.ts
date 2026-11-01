@@ -1,9 +1,10 @@
+import { advance, makeRoom } from "./movement";
 import { facingFor } from "../core/facing";
 import { updateWeather } from "./climate";
 import { warnOnExcavation, updateStability } from "./stability";
 import { emit } from "./events";
 export { emit } from "./events";
-import { invalidateNavigation, movementTicks } from "./navigation";
+import { invalidateNavigation } from "./navigation";
 import type { Position, Result } from "../core/types";
 import {
   type Command,
@@ -48,16 +49,12 @@ export function dispatch(s: GameState, c: Command): Result {
     if (!g) return { ok: false, reason: "Unknown goblin." };
     const route = path(s, g.position, p);
     if (!route) return { ok: false, reason: "No walkable route." };
+    if (route.length && s.tick < g.nextMoveAt)
+      return { ok: false, reason: "Goblin is still taking a step." };
     release(s, g);
-    if (route.length) {
-      g.facing = facingFor(
-        route[0].x - g.position.x,
-        route[0].y - g.position.y,
-        g.facing,
-      );
-      g.position = route[0];
-    }
-    g.activity = "Following your guidance";
+    const result = advance(s, g, p);
+    g.activity =
+      result === "waiting" ? "Waiting for passage" : "Following your guidance";
     return { ok: true };
   }
   if (c.tool === "cancel") {
@@ -215,24 +212,20 @@ function release(s: GameState, g: Goblin): void {
   g.job = null;
 }
 function move(s: GameState, g: Goblin, p: Position, adjacent = false): boolean {
-  const route = path(s, g.position, p, adjacent);
-  if (!route) {
+  const result = advance(s, g, p, adjacent);
+  if (result === "blocked") {
     const job = s.jobs.find((job) => job.id === g.job);
     if (job) job.reason = "Route blocked; waiting for a clear path";
     release(s, g);
     g.activity = "Route blocked: waiting for a clear path";
-    return false;
+  } else if (result === "waiting") {
+    g.activity = "Waiting for passage";
+  } else if (result === "moved" && g.activity === "Waiting for passage") {
+    g.activity = "Walking to work";
   }
-  if (route.length && s.tick % movementTicks(s, route[0]) === 0) {
-    g.facing = facingFor(
-      route[0].x - g.position.x,
-      route[0].y - g.position.y,
-      g.facing,
-    );
-    g.position = route[0];
-  }
-  return route.length === 0;
+  return result === "arrived";
 }
+
 function nearest(
   s: GameState,
   g: Goblin,
@@ -386,10 +379,26 @@ function work(s: GameState, g: Goblin, j: Job): void {
     }
     return;
   }
-  const adjacent = j.kind === "dig" || j.kind === "craft";
+  const adjacent =
+    j.kind === "dig" ||
+    j.kind === "craft" ||
+    (j.kind === "build" && j.structure === "wall");
   if (!move(s, g, j.target, adjacent)) {
-    if (g.job) g.activity = `Walking to ${j.kind}`;
+    if (g.job && g.activity !== "Waiting for passage")
+      g.activity = `Walking to ${j.kind}`;
     return;
+  }
+  if (
+    j.kind === "build" &&
+    j.structure === "wall" &&
+    s.goblins.some((o) => same(o.position, j.target))
+  ) {
+    const occupant = s.goblins.find((o) => same(o.position, j.target))!;
+    if (!makeRoom(s, occupant, [j.target], g.name)) {
+      j.reason = "Waiting for the wall site to be clear";
+      g.activity = "Waiting for the wall site to be clear";
+      return;
+    }
   }
   if (j.kind === "build" && !j.paid) {
     j.paidWithKit = j.structure === "bed" && consume(s, { bedkit: 1 });
@@ -483,7 +492,9 @@ export function step(s: GameState): void {
     if (t.structure === "farm") t.growth = Math.min(600, t.growth + 1);
   s.items = s.items.filter((i) => i.quantity > 0);
   if (s.tick % 10 === 0) autoJobs(s);
-  for (const g of s.goblins) {
+  const first = s.tick % s.goblins.length;
+  const workers = [...s.goblins.slice(first), ...s.goblins.slice(0, first)];
+  for (const g of workers) {
     if (needs(s, g)) continue;
     let j = s.jobs.find((j) => j.id === g.job && j.status === "active");
     if (!j) {
@@ -521,7 +532,9 @@ export function step(s: GameState): void {
             s,
             g.position,
             target,
-            candidate.kind === "dig" || candidate.kind === "craft",
+            candidate.kind === "dig" ||
+              candidate.kind === "craft" ||
+              (candidate.kind === "build" && candidate.structure === "wall"),
           ) !== null;
         candidate.reason = reachable
           ? "Nearest available work"

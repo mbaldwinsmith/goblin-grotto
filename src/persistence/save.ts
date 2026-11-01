@@ -1,3 +1,5 @@
+import { separateLegacyGoblins } from "./occupancy-migration";
+import { walkable, tileAt } from "../sim/model";
 import { facings } from "../core/facing";
 import { z } from "zod";
 import type { ActorId, ItemId, JobId, EventId } from "../core/types";
@@ -31,7 +33,7 @@ const structure = z.enum([
   "support",
 ]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(4),
+  version: z.literal(5),
   weather: z.object({
     kind: z.enum(["clear", "rain", "snow"]),
     changedAt: natural,
@@ -72,6 +74,7 @@ const schema: z.ZodType<GameState> = z.object({
         name: z.string().max(40),
         kind: z.literal("common"),
         facing: z.enum(facings),
+        nextMoveAt: natural,
         position: p,
         hunger: z.number().min(0).max(100),
         fatigue: z.number().min(0).max(100),
@@ -127,6 +130,9 @@ export function decodeSave(text: string): GameState {
   if (text.length > 8_000_000)
     throw new Error("Save exceeds the 8 MB prototype limit.");
   let raw: unknown = JSON.parse(text);
+  const migrateOccupancy = z
+    .object({ version: z.number().int().min(1).max(4) })
+    .safeParse(raw).success;
   const legacy = z
     .object({
       version: z.literal(1),
@@ -171,10 +177,23 @@ export function decodeSave(text: string): GameState {
         facing: "south",
       })),
     };
+  const fourth = z
+    .object({
+      version: z.literal(4),
+      goblins: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (fourth.success)
+    raw = {
+      ...fourth.data,
+      version: 5,
+      goblins: fourth.data.goblins.map((g) => ({ ...g, nextMoveAt: 0 })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3 and 4.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4 and 5.",
     );
   const s = result.data;
   if (s.weather.changedAt > s.tick)
@@ -186,7 +205,21 @@ export function decodeSave(text: string): GameState {
     all.some((e) => Number(e.id.split("-")[1]) >= s.nextId)
   )
     throw new Error("Save contains conflicting IDs.");
+  if (migrateOccupancy) {
+    if (s.goblins.some((g) => tileAt(s, g.position)?.solid))
+      throw new Error("Goblin inside stone.");
+    separateLegacyGoblins(s);
+  }
+  const occupied = new Set<number>();
   for (const g of s.goblins) {
+    const cell = g.position.y * s.width + g.position.x;
+    if (occupied.has(cell))
+      throw new Error("Two goblins occupy the same tile.");
+    occupied.add(cell);
+    if (!walkable(tileAt(s, g.position)))
+      throw new Error("Goblin inside blocked terrain.");
+    if (g.nextMoveAt > s.tick + 8)
+      throw new Error("Goblin movement timestamp is too far in the future.");
     if (s.tiles[g.position.y * 64 + g.position.x].solid)
       throw new Error("Goblin inside stone.");
     if (

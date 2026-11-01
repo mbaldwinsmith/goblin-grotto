@@ -88,11 +88,12 @@ export function path(
   to: Position,
   adjacent = false,
   knownOnly = false,
+  occupied?: ReadonlySet<number>,
 ): Position[] | null {
   if (!tileAt(s, from) || !tileAt(s, to)) return null;
   const c = cache(s),
     key = `${from.x},${from.y}:${to.x},${to.y}:${adjacent}:${knownOnly}`;
-  if (c.paths.has(key)) {
+  if (!occupied && c.paths.has(key)) {
     c.hits++;
     return copy(c.paths.get(key) ?? null);
   }
@@ -131,7 +132,12 @@ export function path(
       const n = position(p.x + d.x, p.y + d.y),
         t = tileAt(s, n),
         i = index(n);
-      if (!walkable(t) || (knownOnly && !t?.discovered) || closed.has(i))
+      if (
+        !walkable(t) ||
+        (knownOnly && !t?.discovered) ||
+        occupied?.has(i) ||
+        closed.has(i)
+      )
         continue;
       const next =
         node.cost + movementTicks(s, n) + (t?.collapseAt !== null ? 12 : 0);
@@ -151,7 +157,9 @@ export function path(
     }
     route.reverse();
   }
-  if (c.paths.size >= 256) c.paths.delete(c.paths.keys().next().value!);
-  c.paths.set(key, copy(route));
+  if (!occupied) {
+    if (c.paths.size >= 256) c.paths.delete(c.paths.keys().next().value!);
+    c.paths.set(key, copy(route));
+  }
   return copy(route);
 }

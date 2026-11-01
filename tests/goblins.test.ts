@@ -54,14 +54,14 @@ it("migrates the committed schema-3 colony with original goblin fields unchanged
   ).toString();
   const old = JSON.parse(text),
     loaded = decodeSave(text);
-  expect(loaded.version).toBe(4);
+  expect(loaded.version).toBe(5);
   expect(
     loaded.goblins.every((g) => g.kind === "common" && g.facing === "south"),
   ).toBe(true);
   expect({
     ...loaded,
     version: 3,
-    goblins: loaded.goblins.map(({ kind, facing, ...g }) => g),
+    goblins: loaded.goblins.map(({ kind, facing, nextMoveAt, ...g }) => g),
   }).toEqual(old);
   const invalid = JSON.parse(encodeSave(loaded));
   invalid.goblins[0].kind = "unknown";

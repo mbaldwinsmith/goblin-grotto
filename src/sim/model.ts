@@ -94,6 +94,7 @@ export interface Goblin {
   name: string;
   kind: keyof typeof goblinKinds;
   facing: Facing;
+  nextMoveAt: number;
   position: Position;
   hunger: number;
   fatigue: number;
@@ -130,7 +131,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 4;
+  version: 5;
   weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;

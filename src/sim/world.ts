@@ -11,7 +11,7 @@ import { revealFrom } from "./visibility";
 import { validateWorld } from "./validation";
 export function createGame(seed: string): GameState {
   const s: GameState = {
-    version: 4,
+    version: 5,
     weather: { kind: "clear", changedAt: 0 },
     seed,
     rng: seedValue(seed),
@@ -88,6 +88,7 @@ export function createGame(seed: string): GameState {
       name,
       kind: "common",
       facing: "south",
+      nextMoveAt: 0,
       position: position(28 + i, 30),
       hunger: 10 + i * 4,
       fatigue: i * 8,
