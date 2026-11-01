@@ -60,3 +60,12 @@ it("paint strokes fill fast drags once per tile and cancel on mode change or poi
   expect(input.phase).toBe("idle");
   expect(input.pointer).toBeNull();
 });
+it("picks the visible interpolated goblin rather than its future tile", () => {
+  const s = createGame("interpolated-pick");
+  s.goblins[0].position = position(31, 30);
+  for (let i = 1; i < 4; i++) s.goblins[i].position = position(35 + i, 30);
+  const rendered = new Map([[s.goblins[0].id, position(30, 30)]]);
+  const hit = inspectPoint(s, 30 * 32 + 16, 30 * 32 + 12, true, rendered);
+  expect(hit.actor).toBe(s.goblins[0].id);
+  expect(hit.position).toEqual(position(31, 30));
+});

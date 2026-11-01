@@ -1,3 +1,4 @@
+import type { Facing } from "../core/facing";
 import { features, type Deposit, type FeatureKind } from "./content";
 export { resources, deposits, features } from "./content";
 export type { Resource, Deposit, FeatureKind } from "./content";
@@ -60,7 +61,13 @@ export const materials = {
   },
 } as const;
 export type Material = keyof typeof materials;
-export type Structure = "bed" | "farm" | "workshop" | "door" | "wall";
+export type Structure =
+  | "bed"
+  | "farm"
+  | "workshop"
+  | "door"
+  | "wall"
+  | "support";
 export interface Tile {
   material: Material;
   solid: boolean;
@@ -71,6 +78,7 @@ export interface Tile {
   structure: Structure | null;
   stockpile: boolean;
   growth: number;
+  collapseAt: number | null;
 }
 export interface Item {
   id: ItemId;
@@ -80,9 +88,13 @@ export interface Item {
   holder: ActorId | null;
   stored: boolean;
 }
+export const goblinKinds = { common: { label: "Common goblin" } } as const;
 export interface Goblin {
   id: ActorId;
   name: string;
+  kind: keyof typeof goblinKinds;
+  facing: Facing;
+  nextMoveAt: number;
   position: Position;
   hunger: number;
   fatigue: number;
@@ -119,7 +131,8 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 2;
+  version: 5;
+  weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;
   tick: number;
@@ -160,6 +173,7 @@ export const costs: Record<Structure, Partial<Record<Resource, number>>> = {
   workshop: { wood: 3, stone: 2 },
   door: { wood: 2 },
   wall: { stone: 2 },
+  support: { wood: 1, stone: 1 },
 };
 
 export function walkable(t: Tile | undefined): boolean {

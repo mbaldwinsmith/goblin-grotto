@@ -192,7 +192,7 @@ test("reveal mode selects a goblin behind a foreground wall", async ({
   await expect(page.locator("#notice")).toContainText("restored");
   await page.locator(".goblin").first().click();
   const box = (await page.locator("canvas").boundingBox())!;
-  await expect(page.locator(".goblin img")).toHaveCount(0);
+  await expect(page.locator(".goblin img")).toHaveCount(4);
   const x = box.x + box.width / 2,
     y = box.y + box.height / 2 + 3;
   await page.mouse.click(x, y);
@@ -205,6 +205,9 @@ test("reveal mode selects a goblin behind a foreground wall", async ({
 test("scouting uncovers a landmark without leaking fog, and v1 saves still resume work", async ({
   page,
 }) => {
+  // This scenario runs several real-time trips; software WebGL in hosted CI can
+  // render slowly enough that the fixed-step clock deliberately drops catch-up.
+  test.setTimeout(120_000);
   await page.goto("/");
   await expect(page.locator("canvas")).toBeVisible();
   await page.getByRole("button", { name: "Pause", exact: true }).click();
@@ -234,7 +237,7 @@ test("scouting uncovers a landmark without leaking fog, and v1 saves still resum
     await expect(page.locator("#notice")).toContainText("planned");
     await page.getByRole("button", { name: "4×", exact: true }).click();
     await expect(page.locator("#inspection")).not.toContainText("explore:", {
-      timeout: 12000,
+      timeout: 30000,
     });
   }
   await page.getByRole("button", { name: "Pause", exact: true }).click();
@@ -263,7 +266,7 @@ test("scouting uncovers a landmark without leaking fog, and v1 saves still resum
   await coords(30, 29);
   await page.getByRole("button", { name: "4×", exact: true }).click();
   await expect(page.locator("#tile-name")).toHaveText("farm", {
-    timeout: 12000,
+    timeout: 30000,
   });
 });
 test("all separate native art files decode as 32x32 images", async ({
@@ -288,6 +291,243 @@ test("all separate native art files decode as 32x32 images", async ({
     .toBe(true);
   await page.screenshot({
     path: "docs/screenshots/art-preview.png",
+    fullPage: true,
+  });
+});
+test("the supplied padded goblin walk animates only during movement and freezes on pause", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.getByRole("button", { name: "Explore", exact: false }).click();
+  await page.locator("#tile-x").fill("38");
+  await page.locator("#tile-y").fill("31");
+  await page.getByRole("button", { name: "Apply tool" }).click();
+  let movingActor: string | null = null;
+  const readVisual = async () => {
+    const visual = await page.locator("canvas").evaluate((canvas, actor) => {
+      const scene = Reflect.get(canvas, "grottoScene");
+      const entry = actor
+        ? [actor, scene.goblinSprites.get(actor)]
+        : [...scene.goblinSprites.entries()].find(([, sprite]) =>
+            sprite.label.startsWith("walk-"),
+          );
+      const sprite = entry?.[1];
+      return sprite
+        ? {
+            id: entry[0],
+            label: sprite.label,
+            width: sprite.texture.width,
+            height: sprite.texture.height,
+            x: sprite.x,
+            y: sprite.y,
+            scaleX: sprite.scale.x,
+            scaleY: sprite.scale.y,
+          }
+        : null;
+    }, movingActor);
+    if (visual) movingActor = visual.id;
+    return visual;
+  };
+  await expect(page.locator("#notice")).toContainText("planned");
+  await page.getByRole("button", { name: "1×", exact: true }).click();
+  await expect.poll(async () => (await readVisual())?.label).toMatch(/^walk-/);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const paused = await readVisual();
+  expect([40, 44]).toContain(paused?.width);
+  expect(paused?.scaleX).toBe(1);
+  expect(paused?.scaleY).toBe(1);
+  await page.waitForTimeout(350);
+  expect(await readVisual()).toEqual(paused);
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(async () => (await readVisual())?.label, { timeout: 12000 })
+    .toMatch(/^idle-/);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  expect((await readVisual())?.width).toBe(32);
+  await page.locator(".goblin").first().click();
+  await page.locator("canvas").focus();
+  await page.keyboard.press("+");
+  await page.screenshot({
+    path: "docs/screenshots/goblin-integration.png",
+    fullPage: true,
+  });
+});
+test("loose ceilings can be shored up, and weather/supports survive save-load", async ({
+  page,
+}) => {
+  const { createGame } = await import("../../src/sim/world");
+  const { position, tileAt } = await import("../../src/sim/model");
+  const { warnOnExcavation } = await import("../../src/sim/stability");
+  const { encodeSave } = await import("../../src/persistence/save");
+  const s = createGame("environment-browser");
+  s.weather = { kind: "rain", changedAt: 0 };
+  for (const t of s.tiles) if (t.outside) t.discovered = true;
+  tileAt(s, position(35, 30))!.material = "loose";
+  warnOnExcavation(s, position(35, 30));
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "environment.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(encodeSave(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  await expect(page.locator("#weather")).toContainText("Rain outside");
+  const coords = async (x: number, y: number) => {
+    await page.locator("#tile-x").fill(String(x));
+    await page.locator("#tile-y").fill(String(y));
+    await page.getByRole("button", { name: "Apply tool" }).click();
+  };
+  await coords(35, 30);
+  await expect(page.locator("#inspection")).toContainText("Loose ceiling");
+  await page.screenshot({
+    path: "docs/screenshots/ceiling-warning.png",
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "Bed", exact: false }).first().click();
+  await coords(35, 30);
+  await expect(page.locator("#notice")).toContainText("support first");
+  await page.getByRole("button", { name: "Support", exact: false }).click();
+  await coords(34, 30);
+  await expect(page.locator("#notice")).toContainText("planned");
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect(page.locator("#tile-name")).toHaveText("support", {
+    timeout: 15000,
+  });
+  await page
+    .getByRole("button", { name: "Inspect", exact: false })
+    .first()
+    .click();
+  await coords(35, 30);
+  await expect(page.locator("#inspection")).not.toContainText("Loose ceiling");
+  await expect(page.locator("#events")).toContainText("shored up");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("saved");
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await coords(34, 30);
+  await expect(page.locator("#tile-name")).toHaveText("support");
+  await expect(page.locator("#weather")).toContainText("Rain outside");
+  await coords(54, 31);
+  await page.screenshot({
+    path: "docs/screenshots/environment.png",
+    fullPage: true,
+  });
+});
+
+test("goblin identity and facing survive import, selection and reload", async ({
+  page,
+}) => {
+  const { createGame } = await import("../../src/sim/game");
+  const s = createGame("goblin-identities");
+  s.goblins[0].facing = "west";
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "identities.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await page.locator("#goblins > button").first().click();
+  await expect(page.locator("#actor-inspection")).toContainText(
+    "Common goblin · Facing west",
+  );
+  const texture = await page.locator("canvas").evaluate((canvas) => {
+    const scene = (
+      canvas as HTMLCanvasElement & {
+        grottoScene: {
+          goblinSprites: Map<string, { label: string }>;
+        };
+      }
+    ).grottoScene;
+    return scene.goblinSprites.get("goblin-1")?.label;
+  });
+  expect(texture).toBe("idle-west");
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("saved");
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#goblins > button").first().click();
+  await expect(page.locator("#actor-inspection")).toContainText(
+    "Common goblin · Facing west",
+  );
+});
+
+test("four scouts pass through a narrow entrance without stacking", async ({
+  page,
+}) => {
+  const { createGame } = await import("../../src/sim/game");
+  const s = createGame("entrance-traffic");
+  for (const t of s.tiles) {
+    t.solid = true;
+    t.discovered = true;
+    t.feature = null;
+    t.structure = null;
+    t.stockpile = false;
+  }
+  for (let x = 27; x <= 38; x++) {
+    const t = s.tiles[30 * 64 + x];
+    t.solid = false;
+    t.material = "hard";
+  }
+  s.items.forEach((i) => {
+    i.position = { x: 27, y: 30, z: 0 };
+  });
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "traffic.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "Explore", exact: false }).click();
+  for (const x of [34, 35, 36, 37]) {
+    await page.locator("#tile-x").fill(String(x));
+    await page.locator("#tile-y").fill("30");
+    await page.getByRole("button", { name: "Apply tool" }).click();
+    await expect(page.locator("#notice")).toContainText("planned");
+  }
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(
+      () =>
+        page.locator("canvas").evaluate((canvas) => {
+          const scene = Reflect.get(canvas, "grottoScene"),
+            state = scene.world;
+          const occupied = new Set(
+            state.goblins.map(
+              (g: { position: { x: number; y: number } }) =>
+                `${g.position.x},${g.position.y}`,
+            ),
+          );
+          if (occupied.size !== 4) throw new Error("Goblins overlapped");
+          return state.jobs.filter(
+            (j: { kind: string; status: string }) =>
+              j.kind === "explore" && j.status === "done",
+          ).length;
+        }),
+      { timeout: 15000 },
+    )
+    .toBe(4);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("saved");
+  await page
+    .getByRole("button", { name: "Reveal walls", exact: false })
+    .click();
+  await page.screenshot({
+    path: "docs/screenshots/traffic.png",
     fullPage: true,
   });
 });
