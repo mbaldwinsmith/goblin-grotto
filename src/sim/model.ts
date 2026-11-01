@@ -98,6 +98,7 @@ export interface Goblin {
   kind: keyof typeof goblinKinds;
   facing: Facing;
   nextMoveAt: number;
+  workAction: { kind: "mine" | "chop"; startedAt: number; hit: boolean } | null;
   drop: { item: ItemId; startedAt: number; store: boolean } | null;
   position: Position;
   hunger: number;
@@ -141,7 +142,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 8;
+  version: 9;
   weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;

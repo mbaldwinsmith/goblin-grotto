@@ -6,6 +6,18 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.13 — picks in the rock, axes in the wood
+
+#### Added
+
+- GG-047: the owner's native four-direction pick and axe sprites now animate digging and tree chopping. Work lands at the visible strike, with a saved wind-up and follow-through; rendering cannot advance jobs. Cutters stand beside trees and face them. Idle, walking, mining and hauling acceptance is verified together.
+- 162 unchanged tool PNGs join the existing 172-frame set, with pinned source ZIPs, hashes, original padding, per-direction frame counts and contact frames. The gallery now displays 40 directional clips. Axe approach uses its walking clip; missing west idle uses the supplied static west pose, and miners use the base walk because the pick pack has no walking clip.
+- Tests cover cardinal contact timing, cancellation, hunger interruptions, resource identity, pause and exact save continuation. A real schema-8 active mine fixture verifies migration.
+
+#### Changed
+
+- Save schema 9 preserves tool swings and rejects invalid timelines. Versions 1–8 migrate with existing progress, maps and identities intact. Tool strokes apply 18 work per strike in an 18-tick cycle; hardness still determines required work, with completion quantized to strikes.
+
 ### 0.1.0-prototype.12 — a place for every shiny
 
 #### Added

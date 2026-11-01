@@ -1,3 +1,4 @@
+import { WORK_CYCLE_TICKS, WORK_IMPACT_TICKS } from "../sim/work-animation";
 import { acceptsStockpile, reconcileStorage } from "../sim/storage";
 import { stockpileFilterKinds } from "../sim/model";
 import {
@@ -41,7 +42,7 @@ const structure = z.enum([
   "support",
 ]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(8),
+  version: z.literal(9),
   weather: z.object({
     kind: z.enum(["clear", "rain", "snow"]),
     changedAt: natural,
@@ -84,6 +85,13 @@ const schema: z.ZodType<GameState> = z.object({
         kind: z.literal("common"),
         facing: z.enum(facings),
         nextMoveAt: natural,
+        workAction: z
+          .object({
+            kind: z.enum(["mine", "chop"]),
+            startedAt: natural,
+            hit: z.boolean(),
+          })
+          .nullable(),
         drop: z
           .object({ item: itemId, startedAt: natural, store: z.boolean() })
           .nullable(),
@@ -272,10 +280,23 @@ export function decodeSave(text: string): GameState {
       version: 8,
       tiles: seventh.data.tiles.map((t) => ({ ...t, stockpileFilter: "all" })),
     };
+  const eighth = z
+    .object({
+      version: z.literal(8),
+      goblins: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (eighth.success)
+    raw = {
+      ...eighth.data,
+      version: 9,
+      goblins: eighth.data.goblins.map((g) => ({ ...g, workAction: null })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5, 6, 7 and 8.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5, 6, 7, 8 and 9.",
     );
   const s = result.data;
   if (seventh.success) reconcileStorage(s);
@@ -301,6 +322,28 @@ export function decodeSave(text: string): GameState {
     occupied.add(cell);
     if (!walkable(tileAt(s, g.position)))
       throw new Error("Goblin inside blocked terrain.");
+    if (g.workAction) {
+      const elapsed = s.tick - g.workAction.startedAt;
+      if (
+        g.drop ||
+        elapsed < 0 ||
+        elapsed >= WORK_CYCLE_TICKS ||
+        g.workAction.hit !== elapsed >= WORK_IMPACT_TICKS
+      )
+        throw new Error("Invalid tool-swing timeline.");
+      if (
+        !g.workAction.hit &&
+        !s.jobs.some(
+          (j) =>
+            j.id === g.job &&
+            j.status === "active" &&
+            (g.workAction!.kind === "mine"
+              ? j.kind === "dig"
+              : j.kind === "harvest"),
+        )
+      )
+        throw new Error("Tool swing is missing its active job.");
+    }
     if (g.drop) {
       const elapsed = dropElapsed(s.tick, g.drop);
       if (g.drop.startedAt > s.tick || elapsed >= DROP_DURATION_TICKS)

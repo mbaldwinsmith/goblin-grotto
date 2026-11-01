@@ -1,3 +1,9 @@
+import {
+  toolForJob,
+  beginWorkSwing,
+  updateWorkSwing,
+  WORK_PER_STRIKE,
+} from "./work-animation";
 import { reconcileStorage, nearestStockpile, filterLabel } from "./storage";
 import { assignWork, adjacentWork, priorityLabels, workLabels } from "./labour";
 import {
@@ -260,7 +266,8 @@ function consume(
   s.items = s.items.filter((i) => i.quantity > 0);
   return true;
 }
-function release(s: GameState, g: Goblin): void {
+function release(s: GameState, g: Goblin, followThrough = false): void {
+  if (!followThrough) g.workAction = null;
   const j = s.jobs.find((j) => j.id === g.job);
   if (j) {
     j.worker = null;
@@ -414,7 +421,6 @@ function autoJobs(s: GameState): void {
       });
 }
 function work(s: GameState, g: Goblin, j: Job): void {
-  const t = tileAt(s, j.target)!;
   if (j.kind === "haul") {
     const item = s.items.find((i) => i.id === j.item);
     if (!item) {
@@ -438,7 +444,7 @@ function work(s: GameState, g: Goblin, j: Job): void {
     }
     return;
   }
-  const adjacent = adjacentWork(j);
+  const adjacent = adjacentWork(j, s);
   if (!move(s, g, j.target, adjacent)) {
     if (g.job && g.activity !== "Waiting for passage")
       g.activity = `Walking to ${j.kind}`;
@@ -488,8 +494,18 @@ function work(s: GameState, g: Goblin, j: Job): void {
     j.target.y - g.position.y,
     g.facing,
   );
-  j.progress++;
-  g.worked++;
+  const tool = toolForJob(s, j);
+  if (tool) {
+    g.activity = tool === "pick" ? "Digging rock" : "Chopping wood";
+    if (s.tick >= g.nextMoveAt) beginWorkSwing(s, g, tool);
+    return;
+  }
+  applyWork(s, g, j, 1);
+}
+function applyWork(s: GameState, g: Goblin, j: Job, amount: number): void {
+  const t = tileAt(s, j.target)!;
+  j.progress += amount;
+  g.worked += amount;
   const required =
     j.kind === "dig"
       ? materials[t.material].hardness
@@ -538,7 +554,7 @@ function work(s: GameState, g: Goblin, j: Job): void {
     g.id,
   );
   j.status = "done";
-  release(s, g);
+  release(s, g, true);
 }
 export function step(s: GameState): void {
   s.tick++;
@@ -563,12 +579,25 @@ export function step(s: GameState): void {
       busy.add(g.id);
       continue;
     }
+    if (g.workAction) {
+      const ongoing = updateWorkSwing(s, g, () => {
+        const job = s.jobs.find((j) => j.id === g.job && j.status === "active");
+        if (job && toolForJob(s, job)) applyWork(s, g, job, WORK_PER_STRIKE);
+        else release(s, g);
+      });
+      if (ongoing) {
+        busy.add(g.id);
+        continue;
+      }
+    }
     if (!s.jobs.some((j) => j.id === g.job && j.status === "active"))
       g.job = null;
   }
   assignWork(
     s,
-    s.goblins.filter((g) => !busy.has(g.id) && !g.job && !g.drop),
+    s.goblins.filter(
+      (g) => !busy.has(g.id) && !g.job && !g.drop && !g.workAction,
+    ),
   );
   for (const g of workers) {
     if (busy.has(g.id) || g.drop) continue;

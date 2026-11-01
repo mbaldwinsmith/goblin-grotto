@@ -29,11 +29,12 @@ export const workLabels: Record<JobKind, string> = {
   craft: "Crafting",
   explore: "Exploring",
 };
-export function adjacentWork(j: Job): boolean {
+export function adjacentWork(j: Job, s?: GameState): boolean {
   return (
     j.kind === "dig" ||
     j.kind === "craft" ||
-    (j.kind === "build" && j.structure === "wall")
+    (j.kind === "build" && j.structure === "wall") ||
+    (j.kind === "harvest" && !!s && tileAt(s, j.target)?.deposit === "wood")
   );
 }
 function stored(s: GameState, r: Resource): number {
@@ -64,6 +65,7 @@ export function evaluateWork(s: GameState, g: Goblin, j: Job): Evaluation {
   const t = tileAt(s, j.target);
   if (!t?.discovered) return { blocked: "Working tile is not discovered" };
   if (g.drop) return { blocked: "Finishing a delivery" };
+  if (g.workAction) return { blocked: "Finishing a tool swing" };
   if (g.carrying && j.item !== g.carrying)
     return { blocked: "Already carrying supplies" };
   if (j.kind === "dig" && (!t.solid || !materials[t.material].diggable))
@@ -106,7 +108,7 @@ export function evaluateWork(s: GameState, g: Goblin, j: Job): Evaluation {
     const pickup = travel(s, g.position, item.position),
       delivery = travel(s, item.position, j.target);
     trip = pickup === null || delivery === null ? null : pickup + delivery;
-  } else trip = travel(s, g.position, j.target, adjacentWork(j));
+  } else trip = travel(s, g.position, j.target, adjacentWork(j, s));
   if (trip === null) return { blocked: "No reachable working tile" };
   let score = -trip * 3;
   const reasons = [`${priorityLabels[j.priority]} priority`];
@@ -205,7 +207,8 @@ export function assignWork(s: GameState, available: Goblin[]): void {
       a.worker.id.localeCompare(b.worker.id),
   );
   for (const { worker, job, reason } of candidates) {
-    if (worker.job || worker.drop || job.status !== "open") continue;
+    if (worker.job || worker.drop || worker.workAction || job.status !== "open")
+      continue;
     worker.job = job.id;
     job.worker = worker.id;
     job.status = "active";

@@ -1,3 +1,4 @@
+import { adjacentWork } from "./labour";
 import { directions, type Position } from "../core/types";
 import { facingFor } from "../core/facing";
 import {
@@ -29,17 +30,7 @@ function workRoute(s: GameState, g: Goblin): Position[] | null {
     j.kind === "haul" && !g.carrying
       ? s.items.find((i) => i.id === j.item)?.position
       : j.target;
-  return target
-    ? path(
-        s,
-        g.position,
-        target,
-        j.kind === "dig" ||
-          j.kind === "craft" ||
-          (j.kind === "build" && j.structure === "wall"),
-        true,
-      )
-    : null;
+  return target ? path(s, g.position, target, adjacentWork(j, s), true) : null;
 }
 /** A tick-driven step. Detours avoid occupants; narrow passages allow cooperative passing. */
 export function advance(
@@ -48,7 +39,7 @@ export function advance(
   target: Position,
   adjacent = false,
 ): MovementResult {
-  if (g.drop) return "waiting";
+  if (g.drop || g.workAction) return "waiting";
   const route = path(s, g.position, target, adjacent, true);
   if (!route) return "blocked";
   if (!route.length) return "arrived";
@@ -73,7 +64,12 @@ export function advance(
     relocate(s, g, next);
     return "moved";
   }
-  if (s.tick < other.nextMoveAt || other.activity === "Sleeping" || other.drop)
+  if (
+    s.tick < other.nextMoveAt ||
+    other.activity === "Sleeping" ||
+    other.drop ||
+    other.workAction
+  )
     return "waiting";
   // Idle workers step out of the route where a free side space exists.
   if (!other.job) {
@@ -102,7 +98,13 @@ export function makeRoom(
   avoid: Position[],
   requester: string,
 ): boolean {
-  if (g.job || g.drop || g.activity === "Sleeping" || s.tick < g.nextMoveAt)
+  if (
+    g.job ||
+    g.drop ||
+    g.workAction ||
+    g.activity === "Sleeping" ||
+    s.tick < g.nextMoveAt
+  )
     return false;
   const side = directions
     .map((d) => position(g.position.x + d.x, g.position.y + d.y))

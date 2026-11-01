@@ -1,3 +1,4 @@
+import { workFrame, contactFrames, type WorkTool } from "../sim/work-animation";
 import type { Goblin } from "../sim/model";
 import {
   dropElapsed,
@@ -43,6 +44,8 @@ export class GoblinAnimator {
       carrying?: boolean;
       drop?: Goblin["drop"];
       sleeping?: boolean;
+      tool?: WorkTool | null;
+      workAction?: Goblin["workAction"];
     } = {},
   ): GoblinPose {
     const now = tick + Math.max(0, Math.min(0.999, alpha));
@@ -82,23 +85,39 @@ export class GoblinAnimator {
         state.facing,
       );
     state.lastTime = now;
+    if (action.workAction) state.facing = facing;
     const clip = action.drop
       ? "drop"
-      : action.sleeping
-        ? "pose"
-        : walking
-          ? action.carrying
-            ? "haul-walk"
-            : "walk"
+      : action.workAction
+        ? action.workAction.kind
+        : action.sleeping
+          ? "pose"
           : action.carrying
-            ? "haul-idle"
-            : "idle";
+            ? walking
+              ? "haul-walk"
+              : "haul-idle"
+            : action.tool === "axe"
+              ? walking
+                ? "axe-walk"
+                : "axe-idle"
+              : action.tool === "pick" && !walking
+                ? "pick-idle"
+                : walking
+                  ? "walk"
+                  : "idle";
     if (clip !== state.clip) {
       state.clip = clip;
       state.clipStarted = tick;
     }
-    const frame =
-      clip === "drop"
+    const count =
+      clip === "pose" ? 1 : manifest.directionFrameCounts[clip][state.facing];
+    const frame = action.workAction
+      ? workFrame(
+          tick - action.workAction.startedAt,
+          contactFrames[action.workAction.kind][state.facing],
+          count,
+        )
+      : clip === "drop"
         ? Math.max(
             0,
             Math.min(
@@ -110,11 +129,14 @@ export class GoblinAnimator {
           ? 0
           : Math.floor(
               (tick - state.clipStarted) / manifest.frameDurationTicks,
-            ) % manifest.clips[clip];
+            ) % count;
     return {
-      position: action.drop ? { ...target } : this.interpolate(state, now),
+      position:
+        action.drop || action.workAction
+          ? { ...target }
+          : this.interpolate(state, now),
       facing: state.facing,
-      walking: !action.drop && walking,
+      walking: !action.drop && !action.workAction && walking,
       frame,
       textureId:
         clip === "pose"

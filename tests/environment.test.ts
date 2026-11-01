@@ -137,7 +137,7 @@ it("migrates an actual v2 colony without adding hazards or losing work, then pre
       readFileSync("tests/fixtures/v2-active-colony.json.gz"),
     ).toString(),
     s = decodeSave(text);
-  expect(s.version).toBe(8);
+  expect(s.version).toBe(9);
   expect(s.weather).toEqual({ kind: "clear", changedAt: 0 });
   expect(s.tiles.every((t) => t.collapseAt === null)).toBe(true);
   expect(s.jobs.some((j) => j.status === "active")).toBe(true);
@@ -147,7 +147,8 @@ it("migrates an actual v2 colony without adding hazards or losing work, then pre
     version: 2,
     jobs: s.jobs.map(({ priority, ...job }) => job),
     goblins: s.goblins.map(
-      ({ kind, facing, nextMoveAt, drop, preferredWork, ...g }) => g,
+      ({ kind, facing, nextMoveAt, drop, preferredWork, workAction, ...g }) =>
+        g,
     ),
     tiles: s.tiles.map(({ collapseAt, stockpileFilter, ...t }) => t),
   }).toEqual(JSON.parse(text));

@@ -1,3 +1,4 @@
+import { toolForJob } from "../sim/work-animation";
 import { movementTicks } from "../sim/navigation";
 import { GoblinAnimator, type GoblinPose } from "./goblin-animation";
 import { loadGoblinArt, goblinFrames } from "./goblin-art";
@@ -136,6 +137,8 @@ export class Scene {
         g.facing,
         {
           carrying: !!g.carrying,
+          tool: toolForJob(s, job),
+          workAction: g.workAction,
           drop: g.drop,
           sleeping: g.activity === "Sleeping",
         },

@@ -56,26 +56,31 @@ Grid navigation already uses four neighbours. Work-facing chooses the dominant
 axis; vertical wins a tie. Diagonal poses remain legacy references and are not
 loaded. Do not mirror a cardinal clip to invent another direction.
 
-Updated base/hauling ZIPs arrived in owner commit `37ad2ad`. The importer reads
-version-pinned copies in `public/assets/goblin/archive/`, preserving incoming ZIPs.
-It copies 172 original PNGs: four static poses per pack, four eight-frame clips per
-direction (empty idle/walk and loaded idle/walk), and a nine-frame put-down clip.
-The manifest records archive/member hashes, dimensions and foot anchors. Base
-west walking uses `west-6b9bf452`; other takes and attack clips stay archived.
+Base/hauling ZIPs are pinned to owner commit `37ad2ad`; pick/axe ZIPs to `890b554`.
+The importer reads unchanged copies in `public/assets/goblin/archive/` and copies
+334 original PNGs. The manifest records archive/member hashes, dimensions, foot
+anchors, per-direction frame counts and curated contact frames. Base west walking
+uses `west-6b9bf452`; other takes stay archived.
 
-Frames last two 10 Hz simulation ticks. Idle breathing runs while stationary;
-sleeping uses a static pose. Carrying state selects the loaded sprites. Pause,
-dialogs and hidden tabs freeze animation. Normal deliveries put down their item on
-frame 5 (zero based) and finish the follow-through on tick 18; interruption drops
-release immediately and show the last four frames. These events are simulation
-rules, never triggered by rendering. See ADR 0005 for save and item semantics.
+Idle and walking frames last two 10 Hz simulation ticks. Sleeping uses a static
+pose; carrying selects loaded sprites. Normal delivery releases on frame 5 and
+finishes on tick 18; interrupted delivery frees cargo immediately (ADR 0005).
+Pick Mining and Axe Attack are curated for mining and tree chopping, per the
+owner's instruction; this adds no combat. Tool frames remain in source order but
+are sampled across an 18-tick cycle so their directional contact aligns with tick
+10. The north chop has nine frames; other swings have eight. Each impact applies
+18 work once, independent of renderer calls (ADR 0008). A missing west axe idle
+uses its supplied static west pose; pick approach uses the base walk because no
+pick walking clip exists. Neither fallback invents or mirrors art.
+
+Pause, dialogs and hidden tabs freeze every clip. Swing/drop timelines live in
+simulation saves; renderer interpolation changes only displayed position.
 
 The padded canvases are margins, not larger goblins. Never shrink a 48×48 frame
 into 32×32, trim its canvas, move its foot anchor independently or stretch it.
 Feet use (width/2, (height−32)/2+30), with nearest sampling at scale 1. Sprite
-selection and depth use displayed positions. Mining animation remains GG-047;
-attack art is not silently repurposed as mining.
+selection and depth use displayed positions.
 
-`/goblin-preview.html` shows all 20 clips at 3× with pause and frame controls.
+`/goblin-preview.html` shows all 40 directional clips at 3× with pause and frame controls.
 See [cardinal gallery](screenshots/cardinal-animations.png),
-[hauling](screenshots/hauling.png) and [drop](screenshots/drop.png).
+[mining/chopping](screenshots/mining-chopping.png), [hauling](screenshots/hauling.png) and [drop](screenshots/drop.png).

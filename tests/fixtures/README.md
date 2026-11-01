@@ -7,7 +7,7 @@ The compressed JSON keeps an actual version-1 colony with active construction,
 including all tile knowledge, task reservations, RNG state, items and identities.
 
 The migration test compares every original field after removing only the new
-fields introduced by schemas 2–8; the browser test imports it and finishes construction. Compression
+fields introduced by schemas 2–9; the browser test imports it and finishes construction. Compression
 keeps the full 64×64 fixture small without replacing it with a synthetic partial save.
 
 
@@ -44,3 +44,10 @@ the snapshot comparison preserves its held item, reservation and drop timeline.
 Add three loose wood at (28,29,0), advance until a delivery starts, then four more
 ticks. Schema 8 adds All goods filters and preserves every valid legacy field,
 including the held stack, worker reservation and drop wind-up.
+
+
+`v8-active-mining.json.gz` was produced at commit
+`26d36ae810475a415c3465c2736deba6914bee44` (prototype.12), before tool swings.
+Seed: `v8-mining`. Set (32,29,0) to solid bedrock; designate Dig there, then advance
+10 ticks. Schema 9 adds null work actions without changing job progress, items or
+identities; the active mine resumes under the new simulation strike cadence.

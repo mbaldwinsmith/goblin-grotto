@@ -165,7 +165,7 @@ it("migrates an actual schema-5 active haul and maps diagonal facing to a cardin
   ).toString();
   const old = JSON.parse(text),
     s = decodeSave(text);
-  expect(s.version).toBe(8);
+  expect(s.version).toBe(9);
   const worker = s.goblins.find((g) => g.carrying)!;
   expect(worker.facing).toBe("north");
   expect(worker.drop).toBeNull();
@@ -174,7 +174,7 @@ it("migrates an actual schema-5 active haul and maps diagonal facing to a cardin
     version: 5,
     tiles: s.tiles.map(({ stockpileFilter, ...tile }) => tile),
     jobs: s.jobs.map(({ priority, ...job }) => job),
-    goblins: s.goblins.map(({ drop, preferredWork, ...g }) => ({
+    goblins: s.goblins.map(({ drop, preferredWork, workAction, ...g }) => ({
       ...g,
       facing: old.goblins.find((o: { id: string }) => o.id === g.id).facing,
     })),

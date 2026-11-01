@@ -681,7 +681,7 @@ test("cardinal animation gallery decodes every clip and allows frame-by-frame re
   page,
 }) => {
   await page.goto("/goblin-preview.html");
-  await expect(page.locator("main img")).toHaveCount(20);
+  await expect(page.locator("main img")).toHaveCount(40);
   await expect
     .poll(() =>
       page
@@ -690,7 +690,7 @@ test("cardinal animation gallery decodes every clip and allows frame-by-frame re
           images.every(
             (img) =>
               (img as HTMLImageElement).complete &&
-              (img as HTMLImageElement).naturalWidth >= 40,
+              (img as HTMLImageElement).naturalWidth >= 32,
           ),
         ),
     )
@@ -994,4 +994,104 @@ test("filtered stockpile areas sort physical goods, survive load and reroute aft
     path: "docs/screenshots/stockpiles.png",
     fullPage: true,
   });
+});
+
+test("native pick and axe swings freeze while paused and resume their work once after load", async ({
+  page,
+}) => {
+  const { createGame, dispatch, step } = await import("../../src/sim/game");
+  const { position, tileAt } = await import("../../src/sim/model");
+  const s = createGame("tool-browser");
+  for (const t of s.tiles) {
+    t.solid = false;
+    t.discovered = true;
+    t.material = "hard";
+    t.deposit = null;
+    t.feature = null;
+    t.structure = null;
+    t.stockpile = false;
+    t.collapseAt = null;
+  }
+  s.items = [];
+  s.jobs = [];
+  s.goblins.forEach((g, i) => {
+    g.position = position(i < 2 ? 30 + i * 4 : 10 + i, i < 2 ? 30 : 10);
+  });
+  tileAt(s, position(31, 30))!.solid = true;
+  tileAt(s, position(31, 30))!.material = "sand";
+  tileAt(s, position(34, 29))!.deposit = "wood";
+  dispatch(s, { type: "designate", tool: "dig", position: position(31, 30) });
+  dispatch(s, {
+    type: "designate",
+    tool: "harvest",
+    position: position(34, 29),
+  });
+  for (let n = 0; n < 5; n++) step(s);
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "tool-windup.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  const read = () =>
+    page.locator("canvas").evaluate((canvas) => {
+      const scene = Reflect.get(canvas, "grottoScene"),
+        state = scene.world;
+      return {
+        tick: state.tick,
+        labels: ["goblin-1", "goblin-2"].map(
+          (id) => scene.goblinSprites.get(id)?.label,
+        ),
+        progress: state.jobs
+          .filter(
+            (j: { kind: string }) => j.kind === "dig" || j.kind === "harvest",
+          )
+          .map((j: { progress: number }) => j.progress),
+        done: state.jobs.filter((j: { status: string }) => j.status === "done")
+          .length,
+        items: state.items.map(
+          (i: { id: string; resource: string; quantity: number }) => ({
+            id: i.id,
+            resource: i.resource,
+            quantity: i.quantity,
+          }),
+        ),
+      };
+    });
+  await expect
+    .poll(async () => (await read()).labels)
+    .toEqual(["mine-east-001", "chop-north-001"]);
+  const before = await read();
+  await page.waitForTimeout(250);
+  expect(await read()).toEqual(before);
+  expect(before.progress).toEqual([0, 0]);
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
+  await page.screenshot({
+    path: "docs/screenshots/mining-chopping.png",
+    fullPage: true,
+  });
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(async () => (await read()).done, { timeout: 15000 })
+    .toBe(2);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const result = await read();
+  expect(result.items).toHaveLength(2);
+  expect(new Set(result.items.map((i: { id: string }) => i.id)).size).toBe(2);
+  expect(result.items).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ resource: "stone", quantity: 2 }),
+      expect.objectContaining({ resource: "wood", quantity: 5 }),
+    ]),
+  );
 });

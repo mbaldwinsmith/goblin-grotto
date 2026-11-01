@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.12`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.13`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -115,7 +115,7 @@ costs and prefer to avoid warned ceilings.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
   is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1, version-2, version-3, version-4, version-5, version-6, version-7 or version-8 save before replacing the current game. Future
+- **Import** validates a version-1, version-2, version-3, version-4, version-5, version-6, version-7, version-8 or version-9 save before replacing the current game. Future
   or damaged saves show a message and leave the current grotto intact.
 - **New grotto** asks for a seed and replaces the active session; save first.
 
@@ -140,13 +140,19 @@ pixels. Floors, wall tops, wall sides and all plants have separate
 32×32 PNGs; walls assemble a raised top and a separate exposed front face. Zoom
 magnifies the scene with nearest-neighbour sampling.
 
-The live goblins use your supplied base and hauling packs in four cardinal
-directions: breathing at rest, walking, carrying a bag and putting it down.
+The live goblins use your supplied base, hauling, pick and axe packs in four cardinal
+directions: breathing at rest, walking, mining, chopping trees, carrying a bag and putting it down.
 The body stays at native 32-pixel scale; padded 40×40/44×44/48×48 canvases keep
 their original pixels and align by their feet. Pause freezes every clip.
 Haulers take a moment to put supplies down at a stockpile; an interrupted haul
 leaves its item recoverable. Saves retain a delivery in progress, and schema-1
-through schema-7 saves migrate without regenerating the map or adding pending falls.
+through schema-8 saves migrate without regenerating the map or adding pending falls.
+
+Use **Dig** on exposed rock or **Gather** on trees: workers choose the tool automatically,
+face the target and apply work when the strike lands. Tree cutters stand beside the tree.
+Harder rock takes more strikes. Cancelling a wind-up grants no work; save/load preserves
+the swing. The pack has no pick walk, so miners approach with the base walk. The missing
+west axe idle uses its supplied static pose.
 
 See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
 

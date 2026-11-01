@@ -53,7 +53,7 @@ it("uses work-facing at rest, and resets display history cleanly after load", ()
   expect(restored.walking).toBe(false);
 });
 it("keeps every supplied PNG unchanged and aligns padded frames to the same body feet", () => {
-  expect(manifest.frames).toHaveLength(172);
+  expect(manifest.frames).toHaveLength(334);
   expect(manifest.directions).toHaveLength(4);
   for (const archive of manifest.provenance.archives)
     expect(

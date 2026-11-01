@@ -54,7 +54,7 @@ it("migrates the committed schema-3 colony with original goblin fields unchanged
   ).toString();
   const old = JSON.parse(text),
     loaded = decodeSave(text);
-  expect(loaded.version).toBe(8);
+  expect(loaded.version).toBe(9);
   expect(
     loaded.goblins.every((g) => g.kind === "common" && g.facing === "south"),
   ).toBe(true);
@@ -64,7 +64,8 @@ it("migrates the committed schema-3 colony with original goblin fields unchanged
     tiles: loaded.tiles.map(({ stockpileFilter, ...tile }) => tile),
     jobs: loaded.jobs.map(({ priority, ...job }) => job),
     goblins: loaded.goblins.map(
-      ({ kind, facing, nextMoveAt, drop, preferredWork, ...g }) => g,
+      ({ kind, facing, nextMoveAt, drop, preferredWork, workAction, ...g }) =>
+        g,
     ),
   }).toEqual(old);
   const invalid = JSON.parse(encodeSave(loaded));
