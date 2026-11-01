@@ -92,3 +92,10 @@ mapping deliberately. Goblin animation imports remain in `tools/import-goblin.py
 
 These creative assets follow [ASSETS-LICENSE.md](../../ASSETS-LICENSE.md) at the
 repository root; source code's MIT licence does not relicense the artwork.
+
+
+The reviewed 16-sprite mud batch is pinned at
+`walls/mud/archive/pixellab-16-objects-81b42da.zip`. A later incoming eight-image
+mud ZIP remains untouched in `walls/mud/`; it is awaiting a separate curation pass.
+The runtime catalog and extractor use the pinned batch, keeping the reviewed
+185-sprite set reproducible when the incoming export is replaced.

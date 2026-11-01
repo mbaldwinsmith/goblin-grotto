@@ -47,7 +47,11 @@ def collect():
     outputs, archives, sprites = {}, [], []
     for family, stem in sorted(FAMILIES.items()):
         folder = ROOT / family
-        sources = sorted(folder.glob('*.zip'))
+        # The reviewed mud batch stays pinned when a newer incoming export replaces it.
+        if family == 'walls/mud':
+            sources = [folder / 'archive/pixellab-16-objects-81b42da.zip']
+        else:
+            sources = sorted(folder.glob('*.zip'))
         if len(sources) != 1:
             raise ValueError(f'{family}: expected one source ZIP, found {len(sources)}')
         archive = sources[0]

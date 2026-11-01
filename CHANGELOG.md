@@ -17,6 +17,7 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 #### Fixed
 
+- Pin the reviewed mud source archive after a replacement ZIP arrives on main, preserving reproducible extraction and the new incoming export.
 - Browser drop checks pause on the observed animation phase, avoiding a race between release and a delayed Pause click on software-rendered CI. Multi-action scenario setup has its own bounded timeout.
 
 #### Changed

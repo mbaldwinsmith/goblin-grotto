@@ -124,7 +124,7 @@
       "metadataSha256": "1020c4187682b4ae29942605b97f3238fac373dbae100d626d20faabcd02c264"
     },
     {
-      "file": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "file": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sha256": "5c339599a847b6f7cff75d31d7ab731542c7db9edd90de5ece57161db5a9a42e",
       "sourceCommit": "81b42da802f4d23674759469086e607b1c25bad8",
       "metadataFile": "walls/mud/source-metadata.json",
@@ -1709,7 +1709,7 @@
       "width": 32,
       "height": 32,
       "sha256": "47cdde6548027e772aca30ead593ae10c1eda6eb50766a6a1fae383ce89fd881",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323/rotations/A_solid_perfectly_square_323.png",
       "sourceObjectId": "ecdfef4f-2c85-41a0-be55-989dbf4e5784"
     },
@@ -1721,7 +1721,7 @@
       "width": 32,
       "height": 32,
       "sha256": "99af32753867b2556d1fc99f276ebaa1361fa61130249f2450786d80680e649c",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_2/rotations/A_solid_perfectly_square_323_2.png",
       "sourceObjectId": "ea68b004-b8ac-471b-ae34-410d0bd1fcfc"
     },
@@ -1733,7 +1733,7 @@
       "width": 32,
       "height": 32,
       "sha256": "a928b47812bacc5291c1f6859254b0c2735d8b04290a26dacc31d25248e5dc73",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_3/rotations/A_solid_perfectly_square_323_3.png",
       "sourceObjectId": "e098e505-2d19-4ca6-b989-d7c03c4a5381"
     },
@@ -1745,7 +1745,7 @@
       "width": 32,
       "height": 32,
       "sha256": "2cdd812800d74ddab7da11c0cd374d6dc6167df5684d5c3cc5482bc44699bc6a",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_4/rotations/A_solid_perfectly_square_323_4.png",
       "sourceObjectId": "c63fbf41-bd4e-423d-a750-795b22102f0b"
     },
@@ -1757,7 +1757,7 @@
       "width": 32,
       "height": 32,
       "sha256": "a7338720bde25ac22815ff6f865d91279569f1d7c626a508626a028d9bd3247c",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_5/rotations/A_solid_perfectly_square_323_5.png",
       "sourceObjectId": "b67987f4-52a4-4554-841f-003a595135d5"
     },
@@ -1769,7 +1769,7 @@
       "width": 32,
       "height": 32,
       "sha256": "96df07c77cde093d5f99908342c348950870e47d0fc338faed7fc23e53e30bf9",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_6/rotations/A_solid_perfectly_square_323_6.png",
       "sourceObjectId": "81fcb167-2d33-4081-b6d1-2786615cf1f3"
     },
@@ -1781,7 +1781,7 @@
       "width": 32,
       "height": 32,
       "sha256": "d1a1e572759ac8decae0c092506a792435f41a2d3a17036960282be4d44a68e5",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_7/rotations/A_solid_perfectly_square_323_7.png",
       "sourceObjectId": "6e7332ef-048a-4614-a1a1-deb341e1008e"
     },
@@ -1793,7 +1793,7 @@
       "width": 32,
       "height": 32,
       "sha256": "f5ba7502be97b378c2e29c496bd30d7361bee37d793b38077d4ebfa386ffc87b",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_8/rotations/A_solid_perfectly_square_323_8.png",
       "sourceObjectId": "682f0f10-2efe-4bb8-b821-cc1b0af8067a"
     },
@@ -1805,7 +1805,7 @@
       "width": 32,
       "height": 32,
       "sha256": "70f830937d383baed05d4837af7a104a79dbef5b4c7799707fe4be93c071a344",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_9/rotations/A_solid_perfectly_square_323_9.png",
       "sourceObjectId": "647f18e6-64f5-4292-aa81-9119025eb840"
     },
@@ -1817,7 +1817,7 @@
       "width": 32,
       "height": 32,
       "sha256": "82848284c4b624b8e26e728bd4e3ce969def85672efa112abec34b00ecc6cd2d",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_10/rotations/A_solid_perfectly_square_323_10.png",
       "sourceObjectId": "639a0515-ec31-40e8-bc63-a82c4e0b8dd2"
     },
@@ -1829,7 +1829,7 @@
       "width": 32,
       "height": 32,
       "sha256": "10dcc8cdc12857526c9a50904c306232c9f268ca56fc9959135b7e67f11f662d",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_11/rotations/A_solid_perfectly_square_323_11.png",
       "sourceObjectId": "3eb36214-fcba-4e21-80a8-74a1b1fd11a4"
     },
@@ -1841,7 +1841,7 @@
       "width": 32,
       "height": 32,
       "sha256": "68f489563301d727d7ab70225aeb108949458179f28ec0c054a377bb01694f47",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_12/rotations/A_solid_perfectly_square_323_12.png",
       "sourceObjectId": "3a768586-1f34-47d1-95f3-58dd2dffcd45"
     },
@@ -1853,7 +1853,7 @@
       "width": 32,
       "height": 32,
       "sha256": "c601214fa1cab4696830912972ab17482a4e19424e59c7e103c4aee4376d1807",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_13/rotations/A_solid_perfectly_square_323_13.png",
       "sourceObjectId": "1f097279-8d01-4e30-a946-b177045d2de8"
     },
@@ -1865,7 +1865,7 @@
       "width": 32,
       "height": 32,
       "sha256": "e62334b62da7db1d17609db906b20415078e641c8422b9f85528603fff861cc0",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_14/rotations/A_solid_perfectly_square_323_14.png",
       "sourceObjectId": "15c4e399-41f6-4367-b5ca-e857a6b9150e"
     },
@@ -1877,7 +1877,7 @@
       "width": 32,
       "height": 32,
       "sha256": "944833775f72d4572bb066f7f4562a7494c3a89c1b33de994cf503c1a90cdd5b",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_15/rotations/A_solid_perfectly_square_323_15.png",
       "sourceObjectId": "13b12bf6-32ed-44bf-9be8-7c0b81e39a23"
     },
@@ -1889,7 +1889,7 @@
       "width": 32,
       "height": 32,
       "sha256": "2000a0e55dc452965415daf18f3731715e95c15d91d1408d2b594f5e5216ba3b",
-      "sourceArchive": "walls/mud/pixellab-16-objects-2026-11-01.zip",
+      "sourceArchive": "walls/mud/archive/pixellab-16-objects-81b42da.zip",
       "sourceMember": "objects/A_solid_perfectly_square_323_16/rotations/A_solid_perfectly_square_323_16.png",
       "sourceObjectId": "0b81921a-2c56-4945-ab0a-f2dbe5b4f300"
     },
