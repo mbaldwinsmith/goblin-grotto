@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "d40f9bda-d79e-4e5c-9d90-381229bce782",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "ba8723ba-2a7f-4a91-9df7-7a5e0353e252",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "8559274c-b920-4e99-8240-c83af2382d12",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "82c988d7-89c6-4ce3-bfe6-6758c4adac11",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "66fc6335-29df-45b4-ade8-4478e91af18c",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "5b2f0d00-3f48-446b-9527-fda9c67f476b",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "34634f1c-54ed-40c9-b7df-5e904688da44",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "24536613-9ed7-42b5-ab32-55804ce78da6",
+      "name": "base",
+      "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_pile_of_ga_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "d3a07c61-85b4-4254-9148-0aac47a8d6eb",
+      "folder": "objects/A_compact_stockpile_pile_of_ga",
+      "objects": [
+        {
+          "id": "d40f9bda-d79e-4e5c-9d90-381229bce782",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "5ab5e488-231d-45cd-bac8-c181dafc4104",
+      "folder": "objects/A_compact_stockpile_pile_of_ga_2",
+      "objects": [
+        {
+          "id": "ba8723ba-2a7f-4a91-9df7-7a5e0353e252",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "3c30dde2-e918-4478-acfd-f40101166600",
+      "folder": "objects/A_compact_stockpile_pile_of_ga_3",
+      "objects": [
+        {
+          "id": "8559274c-b920-4e99-8240-c83af2382d12",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "c430a92e-4437-4c0c-bc31-66d1fb9ba85b",
+      "folder": "objects/A_compact_stockpile_pile_of_ga_4",
+      "objects": [
+        {
+          "id": "82c988d7-89c6-4ce3-bfe6-6758c4adac11",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "fff053af-8638-49bf-994f-5c35e21ad9d7",
+      "folder": "objects/A_compact_stockpile_pile_of_ga_5",
+      "objects": [
+        {
+          "id": "66fc6335-29df-45b4-ade8-4478e91af18c",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "c9e6536b-7ff4-419e-95fa-32ee53506d05",
+      "folder": "objects/A_compact_stockpile_pile_of_ga_6",
+      "objects": [
+        {
+          "id": "5b2f0d00-3f48-446b-9527-fda9c67f476b",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "1f27d5b9-4f47-475d-87fe-f3964f48d5d1",
+      "folder": "objects/A_compact_stockpile_pile_of_ga_7",
+      "objects": [
+        {
+          "id": "34634f1c-54ed-40c9-b7df-5e904688da44",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "7365f25b-70b0-42d5-b809-cc287fa4d46e",
+      "folder": "objects/A_compact_stockpile_pile_of_ga_8",
+      "objects": [
+        {
+          "id": "24536613-9ed7-42b5-ab32-55804ce78da6",
+          "name": "base",
+          "prompt": "A compact stockpile pile of gathered stones for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Mixed chunks of rough stone in small to medium sizes, with angular and rounded shapes, stacked into a practical resource pile. Colours in cool greys, muted blue-grey, dusty brown-grey, and pale stone highlights, with subtle variation between pieces. A few stones show chipped edges and fractured surfaces. Designed as a stored building material for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_pile_of_ga_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T18:54:39.542146"
+}

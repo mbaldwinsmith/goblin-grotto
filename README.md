@@ -205,3 +205,12 @@ Source and technical documentation: [MIT](LICENSE.md), © 2026 Mark Baldwin-Smit
 Creative assets: [separate rights notice](ASSETS-LICENSE.md). Original creative
 assets are not automatically MIT-licensed. Terrain/plant references were generated from original integer-pixel drawings;
 the live goblin base was supplied by the owner and retains its source archive; no third-party game graphics, fonts or audio were imported.
+
+
+## Source sprite library
+
+The owner-supplied terrain, item and foliage exports are extracted into their
+existing `public/assets/` family folders. See the
+[inventory and naming convention](public/assets/README.md) for all 185 PNGs,
+source metadata and reproduction/check commands. These files are prepared source
+art; the running game still uses its existing terrain/item/plant visuals.

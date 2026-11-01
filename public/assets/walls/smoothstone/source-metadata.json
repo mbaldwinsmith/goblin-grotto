@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "a1e5da4f-96c9-420d-9b8f-cf142ca6b0f8",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "a14af15e-4824-41d1-a994-8a238accd288",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "6608b363-c3bb-447e-ba5e-d02cbbcbf9e5",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "32f0afaa-7b68-4c58-b820-51b6e5c11180",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "31344121-694d-4376-b1a6-ccf55436d082",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "2d1a45c0-f7b8-4a88-9b44-8498fd388d06",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "1c1cf410-cdc0-4213-9064-65b31946a9b2",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "061f90ef-68fc-4cd2-8542-5f7ca5782f78",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "00bce5ec-c2a4-4ab8-a824-22d0f6717a82",
+      "folder": "objects/A_solid_perfectly_square_323",
+      "objects": [
+        {
+          "id": "a1e5da4f-96c9-420d-9b8f-cf142ca6b0f8",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "cfa5449d-e173-49ed-8d88-261445a96814",
+      "folder": "objects/A_solid_perfectly_square_323_2",
+      "objects": [
+        {
+          "id": "a14af15e-4824-41d1-a994-8a238accd288",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "6a7b3b09-c264-45f1-9bf9-5cc10affcbff",
+      "folder": "objects/A_solid_perfectly_square_323_3",
+      "objects": [
+        {
+          "id": "6608b363-c3bb-447e-ba5e-d02cbbcbf9e5",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "016d5002-511b-40ee-be3c-6696cf139405",
+      "folder": "objects/A_solid_perfectly_square_323_4",
+      "objects": [
+        {
+          "id": "32f0afaa-7b68-4c58-b820-51b6e5c11180",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "87f54add-20e7-4a05-8c64-0da245e288f6",
+      "folder": "objects/A_solid_perfectly_square_323_5",
+      "objects": [
+        {
+          "id": "31344121-694d-4376-b1a6-ccf55436d082",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "846eda34-1c87-49a3-9dee-27d374658ded",
+      "folder": "objects/A_solid_perfectly_square_323_6",
+      "objects": [
+        {
+          "id": "2d1a45c0-f7b8-4a88-9b44-8498fd388d06",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "62143cf5-e405-404a-a911-fe87b3aef26e",
+      "folder": "objects/A_solid_perfectly_square_323_7",
+      "objects": [
+        {
+          "id": "1c1cf410-cdc0-4213-9064-65b31946a9b2",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "f779d60e-5e79-4091-ae9a-e1960f57da43",
+      "folder": "objects/A_solid_perfectly_square_323_8",
+      "objects": [
+        {
+          "id": "061f90ef-68fc-4cd2-8542-5f7ca5782f78",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel hard stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dense, durable stone in deep slate-grey, cool blue-grey, charcoal and muted steel-grey tones. Large tightly packed angular rock formations, thick fractured planes, narrow dark crevices and heavy mineral density create the appearance of a tough, difficult-to-mine stone wall. The texture is more compact, solid and imposing than ordinary stone, with fewer crumbly gaps and a more weighty, stubborn feel. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone masses and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge hard stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T20:04:38.042859"
+}

@@ -1,0 +1,584 @@
+{
+  "objects": [
+    {
+      "id": "fb1f0fe2-679c-4e2f-9f57-75c52d19dda0",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "f16d4712-9fa5-4f9d-b794-ade8998999ad",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "df108faf-e188-4198-95a6-f79ba7fbca66",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "b93e430b-99f6-4a8b-90d0-72190d7d5247",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "b5526c1e-d8ab-434f-bd5d-2984c8d76f95",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "b282f28c-5402-41fd-8f91-af3e01fb8b3b",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "a7ba2218-2087-4afe-97a3-c5de2b8369ab",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "a6ef9f6e-bf48-44e1-94b7-4b9ca1366f92",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "8aabcc3b-2c93-48a1-8079-fcf931501962",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_9.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "86681093-8fec-4098-85a5-863e5eb34bab",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_10.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "7bd29dc3-9da7-4d6d-925e-1a7830141fa0",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_11.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "7b2c6f84-6a15-4ce3-a25c-9228e58e8e4f",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_12.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "7024bda8-b6cf-4f2d-b8f9-ae618c269b35",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_13.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "67829f62-9c16-45e5-b547-9c66338c0211",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_14.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "63a1da55-c6ef-4b5d-8dea-2c27741da587",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_15.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "39abefca-8562-4100-8c1f-74872365c842",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_16.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "9a05769f-fcf7-43cb-9177-ea0fb2049fde",
+      "folder": "objects/A_solid_perfectly_square_323",
+      "objects": [
+        {
+          "id": "fb1f0fe2-679c-4e2f-9f57-75c52d19dda0",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "8d8e8800-a6d9-455c-8827-28ffd78f8514",
+      "folder": "objects/A_solid_perfectly_square_323_2",
+      "objects": [
+        {
+          "id": "f16d4712-9fa5-4f9d-b794-ade8998999ad",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "1141e064-8bbd-45ab-a30f-4feddd370e63",
+      "folder": "objects/A_solid_perfectly_square_323_3",
+      "objects": [
+        {
+          "id": "df108faf-e188-4198-95a6-f79ba7fbca66",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "676df4b8-1fbc-4bc4-a41c-cfb6960f826a",
+      "folder": "objects/A_solid_perfectly_square_323_4",
+      "objects": [
+        {
+          "id": "b93e430b-99f6-4a8b-90d0-72190d7d5247",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "ca11a368-536a-4220-ae31-7abac9b405dd",
+      "folder": "objects/A_solid_perfectly_square_323_5",
+      "objects": [
+        {
+          "id": "b5526c1e-d8ab-434f-bd5d-2984c8d76f95",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "ad20349f-5d7b-471c-a9cd-dd69fc5c5ecb",
+      "folder": "objects/A_solid_perfectly_square_323_6",
+      "objects": [
+        {
+          "id": "b282f28c-5402-41fd-8f91-af3e01fb8b3b",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "5836f538-b7d7-4b3b-98b6-63785a8d264c",
+      "folder": "objects/A_solid_perfectly_square_323_7",
+      "objects": [
+        {
+          "id": "a7ba2218-2087-4afe-97a3-c5de2b8369ab",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "a4c30aab-08f5-443b-a636-620c31139ffd",
+      "folder": "objects/A_solid_perfectly_square_323_8",
+      "objects": [
+        {
+          "id": "a6ef9f6e-bf48-44e1-94b7-4b9ca1366f92",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "6312cc4e-a8bf-48c9-8bc6-9cdd17a31fdf",
+      "folder": "objects/A_solid_perfectly_square_323_9",
+      "objects": [
+        {
+          "id": "8aabcc3b-2c93-48a1-8079-fcf931501962",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_9.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "cba116be-5169-4854-922f-f852bc83011f",
+      "folder": "objects/A_solid_perfectly_square_323_10",
+      "objects": [
+        {
+          "id": "86681093-8fec-4098-85a5-863e5eb34bab",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_10.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "ec3805c1-ff3d-42c0-b25d-035cb518d280",
+      "folder": "objects/A_solid_perfectly_square_323_11",
+      "objects": [
+        {
+          "id": "7bd29dc3-9da7-4d6d-925e-1a7830141fa0",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_11.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "c2770ee0-5ef1-4914-873a-2c0b7231c409",
+      "folder": "objects/A_solid_perfectly_square_323_12",
+      "objects": [
+        {
+          "id": "7b2c6f84-6a15-4ce3-a25c-9228e58e8e4f",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_12.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "4c659a88-96ca-4538-8f8d-a5e533654d6e",
+      "folder": "objects/A_solid_perfectly_square_323_13",
+      "objects": [
+        {
+          "id": "7024bda8-b6cf-4f2d-b8f9-ae618c269b35",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_13.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "8149a8c7-c67c-481a-bfaa-f82164f696a1",
+      "folder": "objects/A_solid_perfectly_square_323_14",
+      "objects": [
+        {
+          "id": "67829f62-9c16-45e5-b547-9c66338c0211",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_14.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "625bee39-7e4f-4ab8-97ca-a3d4d796e526",
+      "folder": "objects/A_solid_perfectly_square_323_15",
+      "objects": [
+        {
+          "id": "63a1da55-c6ef-4b5d-8dea-2c27741da587",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_15.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "5dca73d7-23a5-40cd-ab47-eca1a08dd1d2",
+      "folder": "objects/A_solid_perfectly_square_323_16",
+      "objects": [
+        {
+          "id": "39abefca-8562-4100-8c1f-74872365c842",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural stone wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with rough, unworked cavern rock in cool slate-grey, muted blue-grey, charcoal and soft grey highlights. Irregular angular stone formations, natural cracks, chipped surfaces and subtle mineral flecks create the appearance of a solid, dense rock wall. Chunky, slightly uneven rock shapes with dark crevices between them, giving the wall a rugged subterranean appearance. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, thick clean black outlines around major rock formations and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge stone wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_16.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T19:48:18.342562"
+}

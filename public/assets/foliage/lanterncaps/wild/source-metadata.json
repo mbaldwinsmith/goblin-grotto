@@ -1,0 +1,368 @@
+{
+  "objects": [
+    {
+      "id": "e8a6f0e3-8b1b-484f-87db-dc2970887177",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "e6ad65be-2782-4a41-9a16-986c3b6c293a",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "bc682b3b-feb3-4551-a12f-9bdf50e0b99e",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "bc2080b0-abdd-4e1f-aaaf-29a75c5cb926",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "a8c4ed8d-d97a-4d98-a8aa-e7471a7d66d8",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "8a42a4fe-bee7-4a29-8ddb-14d97aa85392",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "7fea8b9e-9f30-434d-90be-0ba39edf3563",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "644a3c2b-cf22-466b-8d57-ade591670126",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_8.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "4846fb1d-011a-4526-a69f-5159569a604e",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_9.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "3a5183b7-2e63-48d4-9511-ca7608b1a74e",
+      "name": "base",
+      "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_cluster_of_wild_cav_10.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "9f4339f7-b95e-4e06-bc5b-de46f53089f5",
+      "folder": "objects/A_charming_cluster_of_wild_cav",
+      "objects": [
+        {
+          "id": "e8a6f0e3-8b1b-484f-87db-dc2970887177",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "13522532-3bac-4c32-a8c5-214f6f123c5c",
+      "folder": "objects/A_charming_cluster_of_wild_cav_2",
+      "objects": [
+        {
+          "id": "e6ad65be-2782-4a41-9a16-986c3b6c293a",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "cbcaf6b5-a382-486f-8bd8-f647a73795d5",
+      "folder": "objects/A_charming_cluster_of_wild_cav_3",
+      "objects": [
+        {
+          "id": "bc682b3b-feb3-4551-a12f-9bdf50e0b99e",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "4c1a488f-072a-4d07-96c7-1140208b5458",
+      "folder": "objects/A_charming_cluster_of_wild_cav_4",
+      "objects": [
+        {
+          "id": "bc2080b0-abdd-4e1f-aaaf-29a75c5cb926",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "afa07a2d-552b-4850-98ba-7ae02a1ce64f",
+      "folder": "objects/A_charming_cluster_of_wild_cav_5",
+      "objects": [
+        {
+          "id": "a8c4ed8d-d97a-4d98-a8aa-e7471a7d66d8",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "3b5fcbc9-070e-479e-be4e-8eeadf81d009",
+      "folder": "objects/A_charming_cluster_of_wild_cav_6",
+      "objects": [
+        {
+          "id": "8a42a4fe-bee7-4a29-8ddb-14d97aa85392",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "1a41baad-8e69-4f47-bc9b-b9c48637aeec",
+      "folder": "objects/A_charming_cluster_of_wild_cav_7",
+      "objects": [
+        {
+          "id": "7fea8b9e-9f30-434d-90be-0ba39edf3563",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "d34035b5-3b7b-4d2d-bf7c-7fcc1a70e995",
+      "folder": "objects/A_charming_cluster_of_wild_cav_8",
+      "objects": [
+        {
+          "id": "644a3c2b-cf22-466b-8d57-ade591670126",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "529c5754-e6c1-4413-b6e6-508a07a1ab3a",
+      "folder": "objects/A_charming_cluster_of_wild_cav_9",
+      "objects": [
+        {
+          "id": "4846fb1d-011a-4526-a69f-5159569a604e",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_9.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "4008d4e6-2f4b-4dd2-ba6d-3101a7f509e8",
+      "folder": "objects/A_charming_cluster_of_wild_cav_10",
+      "objects": [
+        {
+          "id": "3a5183b7-2e63-48d4-9511-ca7608b1a74e",
+          "name": "base",
+          "prompt": "A charming cluster of wild cavern mushrooms growing from a small patch of dark, damp earth. Three to five mushrooms of varying heights, with plump rounded caps in muted violet, dusky blue and earthy brown, pale cream stems, and tiny softly glowing turquoise spots. Slightly crooked, organic shapes with a whimsical dark fairy-tale appearance. Cute, cosy fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette. Designed as a harvestable underground food resource for Goblin Grotto. Isolated object, transparent background, no text or scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_cluster_of_wild_cav_10.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T18:22:54.172215"
+}

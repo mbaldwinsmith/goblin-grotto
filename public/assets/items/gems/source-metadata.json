@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "d49398d1-e6ab-41e3-9622-9097a7671819",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "b47be395-9a27-4ed7-b22d-57a295bd37d9",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "9d8201c6-6d3d-40b7-868b-5df6a6c91ae4",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "5f3eed63-ff1d-4394-b797-246d36ba78b7",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "2a9cfb53-1289-4d2e-91eb-795c57ebd8ba",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "25ca2c03-645b-4373-a48b-5c72411aa1e1",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "0cd6a3a1-4e23-4207-9603-558309f060df",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "0a81eca9-baa8-4066-bb6f-64bb797c00ff",
+      "name": "base",
+      "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_glittering_pile_of_pr_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "2e945ab2-58bf-4522-b640-c98ed7aa8bf7",
+      "folder": "objects/A_small_glittering_pile_of_pr",
+      "objects": [
+        {
+          "id": "d49398d1-e6ab-41e3-9622-9097a7671819",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "19c9166b-2b29-4449-8b8d-251ef83c53cd",
+      "folder": "objects/A_small_glittering_pile_of_pr_2",
+      "objects": [
+        {
+          "id": "b47be395-9a27-4ed7-b22d-57a295bd37d9",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "117c4a5e-7281-42c9-870e-4acc865cd4d5",
+      "folder": "objects/A_small_glittering_pile_of_pr_3",
+      "objects": [
+        {
+          "id": "9d8201c6-6d3d-40b7-868b-5df6a6c91ae4",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "df328bcb-3c7e-4fde-8506-ffda890b9280",
+      "folder": "objects/A_small_glittering_pile_of_pr_4",
+      "objects": [
+        {
+          "id": "5f3eed63-ff1d-4394-b797-246d36ba78b7",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "00da8233-8b88-4347-ae6d-00b8ed808639",
+      "folder": "objects/A_small_glittering_pile_of_pr_5",
+      "objects": [
+        {
+          "id": "2a9cfb53-1289-4d2e-91eb-795c57ebd8ba",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "04fe9ba2-8c28-4fbd-afc1-c46635341065",
+      "folder": "objects/A_small_glittering_pile_of_pr_6",
+      "objects": [
+        {
+          "id": "25ca2c03-645b-4373-a48b-5c72411aa1e1",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "db882ff1-1646-45a2-b668-782dfef78fb9",
+      "folder": "objects/A_small_glittering_pile_of_pr_7",
+      "objects": [
+        {
+          "id": "0cd6a3a1-4e23-4207-9603-558309f060df",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "d378979a-2e78-4c25-b4f5-490a1446673d",
+      "folder": "objects/A_small_glittering_pile_of_pr_8",
+      "objects": [
+        {
+          "id": "0a81eca9-baa8-4066-bb6f-64bb797c00ff",
+          "name": "base",
+          "prompt": "A small, glittering pile of precious gemstones for a whimsical fantasy goblin colony game. A charming assortment of rough-cut and naturally faceted gems in different shapes and sizes, loosely heaped together like a goblin's treasured collection of shinies. Rich ruby reds, deep sapphire blues, emerald greens, amethyst purples and warm golden topaz, with crisp bright highlights and subtle translucent facets. A few smaller gems scattered around the base of the pile. Sparkling and irresistibly valuable, but not excessively luminous. Cute fantasy pixel art, fixed three-quarter JRPG perspective, approximately 32\u00d732 pixels, crisp pixel placement, thick clean black outlines around individual gemstones and the overall silhouette, limited harmonious colour palette, carefully placed highlights, subtle shading, clear readable shapes. Designed as a collectible treasure or stockpile resource for a cosy dark fairy-tale colony simulator. Isolated object, transparent background, no floor tile, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_glittering_pile_of_pr_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T19:23:59.576385"
+}

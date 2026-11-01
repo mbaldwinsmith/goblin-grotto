@@ -10,6 +10,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 #### Added
 
+- GG-022/GG-023 preparation: extract 185 original terrain, item and foliage PNGs from the owner’s 21 exports into their family folders. Add consistent variant names, unchanged source metadata, a hashed source catalog and a reproducible extraction/check command. Native 32×32 sprites and 96×96 tree canvases are preserved; runtime curation remains open.
+
 - GG-047: the owner's native four-direction pick and axe sprites now animate digging and tree chopping. Work lands at the visible strike, with a saved wind-up and follow-through; rendering cannot advance jobs. Cutters stand beside trees and face them. Idle, walking, mining and hauling acceptance is verified together.
 - 155 unchanged tool PNGs join the existing 172-frame set, with pinned source ZIPs, hashes, original padding, per-direction frame counts and contact frames. The gallery now displays 40 directional clips. Axe approach uses its walking clip; missing east/west idle uses the supplied static east/west poses, and miners use the base walk because the pick pack has no walking clip.
 - Tests cover cardinal contact timing, cancellation, hunger interruptions, resource identity, pause and exact save continuation. A real schema-8 active mine fixture verifies migration.

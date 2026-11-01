@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "e0ef14c0-2529-4fd9-a108-bd11af32282b",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "dd367618-4dd0-4828-9b4f-bf462672e3c3",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "b4023b9b-23b1-4801-8805-2d3515e35901",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "8b7fe0f3-7af7-482e-aa6b-e448f6edc917",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "85685842-3e91-4217-b234-2a4afbdc43f9",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "61a079a9-4c01-4237-8264-ab539647bb9b",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "427ba613-57e9-4958-8efe-3869b608d196",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "1ab7c0ba-8a8b-4295-9a93-6be065164fb3",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "33f7ec7d-4ff3-4315-afcc-8288268b635d",
+      "folder": "objects/A_solid_perfectly_square_323",
+      "objects": [
+        {
+          "id": "e0ef14c0-2529-4fd9-a108-bd11af32282b",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "e395a4c3-d625-48de-b470-6d4b52c9e155",
+      "folder": "objects/A_solid_perfectly_square_323_2",
+      "objects": [
+        {
+          "id": "dd367618-4dd0-4828-9b4f-bf462672e3c3",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "268c8c5d-2c60-4ec0-a806-cc0e87bc592e",
+      "folder": "objects/A_solid_perfectly_square_323_3",
+      "objects": [
+        {
+          "id": "b4023b9b-23b1-4801-8805-2d3515e35901",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "68185dc0-220c-4ae2-8419-aad53860c1e7",
+      "folder": "objects/A_solid_perfectly_square_323_4",
+      "objects": [
+        {
+          "id": "8b7fe0f3-7af7-482e-aa6b-e448f6edc917",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "fb5d7e9b-c88a-4f53-bd66-f164aff4ea6c",
+      "folder": "objects/A_solid_perfectly_square_323_5",
+      "objects": [
+        {
+          "id": "85685842-3e91-4217-b234-2a4afbdc43f9",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "8211b0a4-d306-428e-b380-9f5999458065",
+      "folder": "objects/A_solid_perfectly_square_323_6",
+      "objects": [
+        {
+          "id": "61a079a9-4c01-4237-8264-ab539647bb9b",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "19de784e-a288-4cfa-8eff-80f4f593c8d3",
+      "folder": "objects/A_solid_perfectly_square_323_7",
+      "objects": [
+        {
+          "id": "427ba613-57e9-4958-8efe-3869b608d196",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "d2f49b19-3505-4528-ab84-75b0a6524363",
+      "folder": "objects/A_solid_perfectly_square_323_8",
+      "objects": [
+        {
+          "id": "1ab7c0ba-8a8b-4295-9a93-6be065164fb3",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel bedrock wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with ancient, immensely dense bedrock in deep charcoal, dark graphite, muted slate-blue and cool iron-grey tones. Broad, heavy rock masses with compressed stone surfaces, sparse narrow fractures, subtle mineral streaks and an imposing, almost immovable appearance. The texture is darker, older and more monolithic than hard stone, with fewer cracks and a sense of immense age and pressure. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, strong dark outlines around major stone planes and fractures, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge bedrock wall texture. No transparency, no empty corners, no isolated boulders, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T20:03:59.070141"
+}

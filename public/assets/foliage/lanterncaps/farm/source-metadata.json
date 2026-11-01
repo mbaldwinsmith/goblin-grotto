@@ -1,0 +1,224 @@
+{
+  "objects": [
+    {
+      "id": "ef36a72b-930f-4f2a-a723-7523c6311bd7",
+      "name": "base",
+      "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_set_of_underground_mushroom.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "8e3df899-25b0-41ef-8d45-0fc57e533353",
+      "name": "base",
+      "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_set_of_underground_mushroom_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "5bca152c-40e2-49b7-9c09-014d8a926ada",
+      "name": "base",
+      "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_set_of_underground_mushroom_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "5b1e9413-6223-4c46-a451-a7f72d3a3688",
+      "name": "base",
+      "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_set_of_underground_mushroom_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "2a46caa8-f061-46e5-91b2-f632dc71ca98",
+      "name": "base",
+      "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_set_of_underground_mushroom_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "0c2f0691-3417-43ba-8ff6-10fd24edb050",
+      "name": "base",
+      "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_set_of_underground_mushroom_6.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "e6af3e3b-6e48-4877-8525-9cecbd0ae9b1",
+      "folder": "objects/A_set_of_underground_mushroom",
+      "objects": [
+        {
+          "id": "ef36a72b-930f-4f2a-a723-7523c6311bd7",
+          "name": "base",
+          "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_set_of_underground_mushroom.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "56e2212d-c93b-4692-9675-b8aeba8e22f2",
+      "folder": "objects/A_set_of_underground_mushroom_2",
+      "objects": [
+        {
+          "id": "8e3df899-25b0-41ef-8d45-0fc57e533353",
+          "name": "base",
+          "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_set_of_underground_mushroom_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "3dc257f6-aa4d-4e2e-8732-96c89a6c4cea",
+      "folder": "objects/A_set_of_underground_mushroom_3",
+      "objects": [
+        {
+          "id": "5bca152c-40e2-49b7-9c09-014d8a926ada",
+          "name": "base",
+          "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_set_of_underground_mushroom_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "267b8fb4-cd05-460a-9acb-8bbde54f4750",
+      "folder": "objects/A_set_of_underground_mushroom_4",
+      "objects": [
+        {
+          "id": "5b1e9413-6223-4c46-a451-a7f72d3a3688",
+          "name": "base",
+          "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_set_of_underground_mushroom_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "07c05b97-fa0d-4ee9-93b9-a0ffdee29007",
+      "folder": "objects/A_set_of_underground_mushroom_5",
+      "objects": [
+        {
+          "id": "2a46caa8-f061-46e5-91b2-f632dc71ca98",
+          "name": "base",
+          "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_set_of_underground_mushroom_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "3d560bbd-bb31-45fc-9538-090175c2d287",
+      "folder": "objects/A_set_of_underground_mushroom_6",
+      "objects": [
+        {
+          "id": "0c2f0691-3417-43ba-8ff6-10fd24edb050",
+          "name": "base",
+          "prompt": "A set of underground mushroom farm ground tiles for a cute fantasy goblin colony game. Small cultivated patches of dark, rich soil arranged as tidy farm tiles, with clusters of growing cavern mushrooms at different growth stages. Rounded mushroom caps in muted violet, dusky blue, earthy brown, and soft mauve, with pale stems and occasional faint turquoise bioluminescent speckles. Some tiles show sprouts, some half-grown mushrooms, and some fully mature clusters. Whimsical dark fairy-tale style, cosy subterranean atmosphere, cute fantasy pixel art, fixed three-quarter JRPG perspective, designed for tile-based use, 32x32 pixel tile aesthetic, crisp pixel placement, thick clean black outlines, clear readable silhouettes, limited harmonious colour palette, subtle shading, transparent background, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_set_of_underground_mushroom_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T18:31:41.981632"
+}

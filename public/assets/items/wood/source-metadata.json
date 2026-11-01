@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "f63349aa-1a6e-40ee-81d9-fdf158568961",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "d5fed3ba-8e9f-4c79-82a7-4426a2570b89",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "d4ab4e6d-c407-4b77-8f4b-928a0827a99d",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "453c1da9-7e7c-408d-9060-1fdfb46484cb",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "3647a0a5-a0b3-4bd3-8cf0-d3c9c83fc290",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "299616ff-313a-46fd-b47d-66b498051e76",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "145dfdfd-b5a8-4ffc-bb82-45c8218f5aeb",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "11768fe7-8db4-4e3e-b4da-3b989fd8bbef",
+      "name": "base",
+      "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_neat_stockpile_stack_of_cut_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "5ae95895-6271-4124-8188-c9ae88fd7c17",
+      "folder": "objects/A_neat_stockpile_stack_of_cut",
+      "objects": [
+        {
+          "id": "f63349aa-1a6e-40ee-81d9-fdf158568961",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "ccca8a95-ada4-41a1-8ae5-b55ffc03af03",
+      "folder": "objects/A_neat_stockpile_stack_of_cut_2",
+      "objects": [
+        {
+          "id": "d5fed3ba-8e9f-4c79-82a7-4426a2570b89",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "8fa0514c-d1b8-449e-8da0-31f7221d9981",
+      "folder": "objects/A_neat_stockpile_stack_of_cut_3",
+      "objects": [
+        {
+          "id": "d4ab4e6d-c407-4b77-8f4b-928a0827a99d",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "e36ef9a2-fe5b-4f08-ba3f-4349115e5278",
+      "folder": "objects/A_neat_stockpile_stack_of_cut_4",
+      "objects": [
+        {
+          "id": "453c1da9-7e7c-408d-9060-1fdfb46484cb",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "415f75e1-c6d9-46a1-96fb-cb83fbf00736",
+      "folder": "objects/A_neat_stockpile_stack_of_cut_5",
+      "objects": [
+        {
+          "id": "3647a0a5-a0b3-4bd3-8cf0-d3c9c83fc290",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "ab6787a7-1212-42b2-8a34-f9f85b3a0b6b",
+      "folder": "objects/A_neat_stockpile_stack_of_cut_6",
+      "objects": [
+        {
+          "id": "299616ff-313a-46fd-b47d-66b498051e76",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "ac6b189a-97fe-4132-a2e2-9d36c503b9a6",
+      "folder": "objects/A_neat_stockpile_stack_of_cut_7",
+      "objects": [
+        {
+          "id": "145dfdfd-b5a8-4ffc-bb82-45c8218f5aeb",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "aeff191f-02be-44ab-bdd9-abb37cf3b4c3",
+      "folder": "objects/A_neat_stockpile_stack_of_cut_8",
+      "objects": [
+        {
+          "id": "11768fe7-8db4-4e3e-b4da-3b989fd8bbef",
+          "name": "base",
+          "prompt": "A neat stockpile stack of cut wooden logs for a fantasy goblin settlement, arranged in a compact piled bundle. Short to medium-sized logs with visible cut ends, rough bark, and natural variations in shape and thickness. Warm earthy browns with slightly darker bark and lighter sawn ends, a few small twigs or bark details, and an organised but slightly rustic look. Designed as a stored resource for a cute underground colony sim. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 sprite style, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_neat_stockpile_stack_of_cut_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T18:55:05.111381"
+}

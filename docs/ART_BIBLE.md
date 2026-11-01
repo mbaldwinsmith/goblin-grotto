@@ -84,3 +84,31 @@ selection and depth use displayed positions.
 `/goblin-preview.html` shows all 40 directional clips at 3× with pause and frame controls.
 See [cardinal gallery](screenshots/cardinal-animations.png),
 [mining/chopping](screenshots/mining-chopping.png), [hauling](screenshots/hauling.png) and [drop](screenshots/drop.png).
+
+
+## Prepared terrain, item and foliage source sprites
+
+The owner’s 21 exports from commit `81b42da` are extracted alongside their ZIPs
+under `public/assets/floors/`, `walls/`, `items/` and `foliage/`. This prepares
+185 source PNGs with documented names and provenance; runtime curation remains
+GG-022/GG-023. See the [inventory and naming convention](../public/assets/README.md)
+and [source catalog](../public/assets/sprite-catalog.json).
+
+Use lowercase kebab-case filenames with a two-digit, one-based variant suffix:
+`floor-bedrock-01.png`, `wall-rough-stone-01.png`, `item-wood-01.png`,
+`lanterncap-farm-01.png`, `tree-silver-birch-01.png`. Keep the owner's existing
+family directories. Numbers represent source alternatives, not animation frames,
+rotation, growth or quantity. Wall surface exports have not yet been assigned
+separate top/side roles.
+
+All 176 non-tree images retain 32×32 canvases; all nine tree source images retain
+96×96 canvases. This is a source-art exception to the current 32×32 runtime plant
+reference, not a change to the tile grid. Future tree placement/foot anchors need
+curation before integration. Preserve all original PNG bytes, alpha and padding;
+never automatically resize or crop these sources to fit the prototype renderer.
+
+Reproduce with `python tools/extract-scenery.py`; validate with `--check`.
+The catalog records exact original member paths, IDs, dimensions and SHA-256s.
+Every family includes unchanged `source-metadata.json`; embedded original paths
+refer to its ZIP, while the catalog provides the extracted file paths. Original
+ZIPs remain in place. Creative rights follow ASSETS-LICENSE.md.

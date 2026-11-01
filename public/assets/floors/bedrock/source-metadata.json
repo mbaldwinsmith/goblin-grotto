@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "f128c1d5-76bf-4d49-9a93-ecc659673d07",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "dd0ae804-f712-4b59-a8bf-4e18d9783c2e",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "c1535e16-1f4b-44de-b3d8-d62b5743b319",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "ba81bedf-cc67-4b7b-8c8b-1a62d26de0fa",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "779c1c5e-f24c-428b-8992-f31f9fe1224a",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "6d452098-e8e9-43d8-8bc0-03b80038aedd",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "3d4fbb55-573b-46e5-9535-e5a819e52e8d",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "19cccbc1-e608-4fed-bd8c-4b4807f783dc",
+      "name": "base",
+      "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_seamless_natural_bedrock_flo_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "f0a22f5e-f1b2-4346-bac0-379fb890b950",
+      "folder": "objects/A_seamless_natural_bedrock_flo",
+      "objects": [
+        {
+          "id": "f128c1d5-76bf-4d49-9a93-ecc659673d07",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "4df9fd25-a968-471f-8b24-a1b9842994dc",
+      "folder": "objects/A_seamless_natural_bedrock_flo_2",
+      "objects": [
+        {
+          "id": "dd0ae804-f712-4b59-a8bf-4e18d9783c2e",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "a266db01-7768-4d00-8fe4-fcdb6e947e3a",
+      "folder": "objects/A_seamless_natural_bedrock_flo_3",
+      "objects": [
+        {
+          "id": "c1535e16-1f4b-44de-b3d8-d62b5743b319",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "740275dd-40ee-400f-b0b9-a50407ebe316",
+      "folder": "objects/A_seamless_natural_bedrock_flo_4",
+      "objects": [
+        {
+          "id": "ba81bedf-cc67-4b7b-8c8b-1a62d26de0fa",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "283642bc-f1e3-49a7-8674-d3ef680e4188",
+      "folder": "objects/A_seamless_natural_bedrock_flo_5",
+      "objects": [
+        {
+          "id": "779c1c5e-f24c-428b-8992-f31f9fe1224a",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "199510a9-f8e4-474f-93cf-1fcc3f0bd228",
+      "folder": "objects/A_seamless_natural_bedrock_flo_6",
+      "objects": [
+        {
+          "id": "6d452098-e8e9-43d8-8bc0-03b80038aedd",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "78288a70-64e6-4fa7-bb5c-e0af32dba5f9",
+      "folder": "objects/A_seamless_natural_bedrock_flo_7",
+      "objects": [
+        {
+          "id": "3d4fbb55-573b-46e5-9535-e5a819e52e8d",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "15d9fb7e-8d26-4b34-88fd-c99facbe2a86",
+      "folder": "objects/A_seamless_natural_bedrock_flo_8",
+      "objects": [
+        {
+          "id": "19cccbc1-e608-4fed-bd8c-4b4807f783dc",
+          "name": "base",
+          "prompt": "A seamless natural bedrock floor tile for a whimsical dark fairy-tale goblin colony simulator. Ancient, extremely dense stone with broad irregular surfaces in deep charcoal grey, dark slate blue, muted graphite and subtle cool grey highlights. Heavy, solid-looking rock with shallow natural fractures, faint compressed stone patterns and occasional tiny mineral flecks. Relatively smooth but rugged and unworked, with a sense of great age and immense durability. Darker and more imposing than ordinary cavern stone, but still readable beneath characters and objects. Cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel square tile, crisp pixel placement, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Dark outlines around natural cracks and major surface details, but no black border around the tile. Flat horizontal walkable surface, seamlessly repeating on all four edges. No raised edges, no walls, no vegetation, no objects, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_seamless_natural_bedrock_flo_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T19:43:46.810366"
+}
