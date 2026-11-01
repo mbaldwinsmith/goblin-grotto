@@ -16,7 +16,7 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 50 headless tests in thirteen files. Includes 1,000 seeded starts;
+- `npm test`: 51 headless tests in thirteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
@@ -153,3 +153,13 @@ sharing a tile or standing on a wall move to nearby free discovered floor, with
 held items following their holder. New invalid overlaps are rejected. This is
 local cooperation for four workers; large population performance is GG-187.
 Full task priorities, direct orders, needs and bed reservations remain open.
+
+
+Merge verification: hosted Quality run 41324610105 passed all headless/build
+checks and ten browser scenarios, but scouting timed out. A longer local wait
+reproduced a mixed-terrain detour oscillation. A regression test fails on the
+previous movement code: a goblin repeatedly turns back from a muddy detour toward
+a cheap occupied corridor. Movement now checks occupants along the full remaining
+route, so the goblin completes the detour. The scouting scenario also has a
+120-second overall budget and 30-second per-trip waits for software rendering,
+retaining all discovery, fog and legacy-save assertions.

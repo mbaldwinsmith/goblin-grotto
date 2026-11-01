@@ -205,6 +205,9 @@ test("reveal mode selects a goblin behind a foreground wall", async ({
 test("scouting uncovers a landmark without leaking fog, and v1 saves still resume work", async ({
   page,
 }) => {
+  // This scenario runs several real-time trips; software WebGL in hosted CI can
+  // render slowly enough that the fixed-step clock deliberately drops catch-up.
+  test.setTimeout(120_000);
   await page.goto("/");
   await expect(page.locator("canvas")).toBeVisible();
   await page.getByRole("button", { name: "Pause", exact: true }).click();
@@ -234,7 +237,7 @@ test("scouting uncovers a landmark without leaking fog, and v1 saves still resum
     await expect(page.locator("#notice")).toContainText("planned");
     await page.getByRole("button", { name: "4×", exact: true }).click();
     await expect(page.locator("#inspection")).not.toContainText("explore:", {
-      timeout: 12000,
+      timeout: 30000,
     });
   }
   await page.getByRole("button", { name: "Pause", exact: true }).click();
@@ -263,7 +266,7 @@ test("scouting uncovers a landmark without leaking fog, and v1 saves still resum
   await coords(30, 29);
   await page.getByRole("button", { name: "4×", exact: true }).click();
   await expect(page.locator("#tile-name")).toHaveText("farm", {
-    timeout: 12000,
+    timeout: 30000,
   });
 });
 test("all separate native art files decode as 32x32 images", async ({

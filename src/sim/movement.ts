@@ -52,20 +52,24 @@ export function advance(
   if (!route) return "blocked";
   if (!route.length) return "arrived";
   if (s.tick < g.nextMoveAt) return "cooldown";
-  const next = route[0],
-    other = s.goblins.find((o) => o.id !== g.id && same(o.position, next));
-  if (!other) {
-    relocate(s, g, next);
-    return "moved";
-  }
   const occupied = new Set(
     s.goblins
       .filter((o) => o.id !== g.id)
       .map((o) => o.position.y * s.width + o.position.x),
   );
-  const detour = path(s, g.position, target, adjacent, true, occupied);
-  if (detour?.length) {
-    relocate(s, g, detour[0]);
+  // Consider the full remaining route. Checking only its first cell can make an
+  // actor turn back toward a cheaper occupied corridor halfway through a detour.
+  if (route.some((p) => occupied.has(p.y * s.width + p.x))) {
+    const detour = path(s, g.position, target, adjacent, true, occupied);
+    if (detour?.length) {
+      relocate(s, g, detour[0]);
+      return "moved";
+    }
+  }
+  const next = route[0],
+    other = s.goblins.find((o) => o.id !== g.id && same(o.position, next));
+  if (!other) {
+    relocate(s, g, next);
     return "moved";
   }
   if (s.tick < other.nextMoveAt || other.activity === "Sleeping")

@@ -6,7 +6,7 @@ Each initial goblin has a stable ID, name, common kind, tile position and facing
 simulation data. The eight-direction facing calculation is shared with rendering;
 render history is cosmetic. Other kinds and their aptitudes remain GG-155.
 
-Terrain A* treats other goblins as transient occupants. Before moving into an
+Terrain A* treats other goblins as transient occupants. When the remaining route intersects an
 occupied cell, the movement system searches a fresh route excluding other actors;
 these detours do not enter the terrain cache. If no route exists, an idle neighbour
 can step into a free side cell. In a one-cell passage, an idle blocker or opposing

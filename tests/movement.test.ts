@@ -172,3 +172,23 @@ it("migrates overlapping legacy actors to nearby free known floor and rejects ne
   expect(a.goblins.map((g) => g.id)).toEqual(s.goblins.map((g) => g.id));
   expect(() => decodeSave(encodeSave(s))).toThrow("same tile");
 });
+
+it("finishes a muddy detour instead of turning back to the cheaper occupied corridor", () => {
+  const s = corridor(),
+    g = s.goblins[0];
+  s.goblins[1].activity = "Sleeping";
+  s.goblins[2].position = position(35, 30);
+  s.goblins[3].position = position(36, 30);
+  for (let x = 27; x <= 30; x++) {
+    const t = tileAt(s, position(x, 29))!;
+    t.solid = false;
+    t.material = "mud";
+  }
+  invalidateNavigation(s);
+  for (let tick = 1; tick <= 80; tick++) {
+    s.tick = tick;
+    advance(s, g, position(30, 30));
+    assertOccupancy(s);
+  }
+  expect(g.position).toEqual(position(30, 30));
+});

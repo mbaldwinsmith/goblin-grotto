@@ -15,6 +15,8 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 #### Fixed
 
+- Prevented mixed-terrain detours from oscillating back toward an occupied corridor; movement checks occupants along the full remaining route. Includes a regression that failed before the fix.
+- Allowed the multi-leg scouting browser scenario enough time for hosted CI software rendering, where the simulation deliberately bounds catch-up. Gameplay assertions remain unchanged.
 - Wall builders work beside the wall and ask idle occupants to clear the site before construction, preventing a wall from enclosing its builder.
 - Carried item coordinates update with each movement or yielding step. Browser animation checks follow the actual walking goblin rather than assuming the first actor gets the job.
 
