@@ -407,3 +407,44 @@ test("loose ceilings can be shored up, and weather/supports survive save-load", 
     fullPage: true,
   });
 });
+
+test("goblin identity and facing survive import, selection and reload", async ({
+  page,
+}) => {
+  const { createGame } = await import("../../src/sim/game");
+  const s = createGame("goblin-identities");
+  s.goblins[0].facing = "west";
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "identities.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await page.locator("#goblins > button").first().click();
+  await expect(page.locator("#actor-inspection")).toContainText(
+    "Common goblin · Facing west",
+  );
+  const texture = await page.locator("canvas").evaluate((canvas) => {
+    const scene = (
+      canvas as HTMLCanvasElement & {
+        grottoScene: {
+          goblinSprites: Map<string, { label: string }>;
+        };
+      }
+    ).grottoScene;
+    return scene.goblinSprites.get("goblin-1")?.label;
+  });
+  expect(texture).toBe("idle-west");
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("saved");
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#goblins > button").first().click();
+  await expect(page.locator("#actor-inspection")).toContainText(
+    "Common goblin · Facing west",
+  );
+});

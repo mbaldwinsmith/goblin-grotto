@@ -1,26 +1,7 @@
 import manifest from "../../public/assets/goblin/base/manifest.json";
 import type { ActorId, Position } from "../core/types";
-export const facings = [
-  "south",
-  "south-east",
-  "east",
-  "north-east",
-  "north",
-  "north-west",
-  "west",
-  "south-west",
-] as const;
-export type Facing = (typeof facings)[number];
-export function facingFor(
-  dx: number,
-  dy: number,
-  fallback: Facing = "south",
-): Facing {
-  if (!dx && !dy) return fallback;
-  if (dy < 0) return dx < 0 ? "north-west" : dx > 0 ? "north-east" : "north";
-  if (dy > 0) return dx < 0 ? "south-west" : dx > 0 ? "south-east" : "south";
-  return dx < 0 ? "west" : "east";
-}
+import { facingFor, type Facing } from "../core/facing";
+export { facings, facingFor, type Facing } from "../core/facing";
 export interface GoblinPose {
   position: Position;
   facing: Facing;
@@ -50,6 +31,7 @@ export class GoblinAnimator {
     alpha: number,
     moveTicks: number,
     lookAt?: Position,
+    facing: Facing = "south",
   ): GoblinPose {
     const now = tick + Math.max(0, Math.min(0.999, alpha));
     let state = this.states.get(id);
@@ -60,7 +42,7 @@ export class GoblinAnimator {
         started: tick,
         duration: 1,
         cycleStarted: tick,
-        facing: "south",
+        facing,
         lastTime: now,
       };
       this.states.set(id, state);

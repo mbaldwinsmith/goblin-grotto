@@ -1,3 +1,4 @@
+import { facings } from "../core/facing";
 import { z } from "zod";
 import type { ActorId, ItemId, JobId, EventId } from "../core/types";
 import { resourceKinds, depositKinds, featureKinds } from "../sim/content";
@@ -30,7 +31,7 @@ const structure = z.enum([
   "support",
 ]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(3),
+  version: z.literal(4),
   weather: z.object({
     kind: z.enum(["clear", "rain", "snow"]),
     changedAt: natural,
@@ -69,6 +70,8 @@ const schema: z.ZodType<GameState> = z.object({
       z.object({
         id: actor,
         name: z.string().max(40),
+        kind: z.literal("common"),
+        facing: z.enum(facings),
         position: p,
         hunger: z.number().min(0).max(100),
         fatigue: z.number().min(0).max(100),
@@ -151,10 +154,27 @@ export function decodeSave(text: string): GameState {
       weather: { kind: "clear", changedAt: 0 },
       tiles: previous.data.tiles.map((tile) => ({ ...tile, collapseAt: null })),
     };
+  const third = z
+    .object({
+      version: z.literal(3),
+      goblins: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (third.success)
+    raw = {
+      ...third.data,
+      version: 4,
+      goblins: third.data.goblins.map((g) => ({
+        ...g,
+        kind: "common",
+        facing: "south",
+      })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2 and 3.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3 and 4.",
     );
   const s = result.data;
   if (s.weather.changedAt > s.tick)

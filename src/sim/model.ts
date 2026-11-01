@@ -1,3 +1,4 @@
+import type { Facing } from "../core/facing";
 import { features, type Deposit, type FeatureKind } from "./content";
 export { resources, deposits, features } from "./content";
 export type { Resource, Deposit, FeatureKind } from "./content";
@@ -87,9 +88,12 @@ export interface Item {
   holder: ActorId | null;
   stored: boolean;
 }
+export const goblinKinds = { common: { label: "Common goblin" } } as const;
 export interface Goblin {
   id: ActorId;
   name: string;
+  kind: keyof typeof goblinKinds;
+  facing: Facing;
   position: Position;
   hunger: number;
   fatigue: number;
@@ -126,7 +130,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 3;
+  version: 4;
   weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;

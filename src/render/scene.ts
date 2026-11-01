@@ -133,6 +133,7 @@ export class Scene {
         alpha,
         movementTicks(s, g.position),
         lookAt,
+        g.facing,
       );
       this.poses.set(g.id, pose);
       this.renderPositions.set(g.id, pose.position);

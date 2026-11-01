@@ -6,6 +6,13 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.8 — goblins keep their bearings
+
+#### Added
+
+- GG-037: four stable named goblins now carry an explicit common-goblin kind and simulation-owned facing. Selection and renderer resets preserve their identities; restored idle sprites face the saved direction.
+- Save schema 4 migrates versions 1–3 with the common kind and south-facing default, preserving all previous fields and active work. A real schema-3 fixture verifies compatibility.
+
 ### 0.1.0-prototype.7 — shore up the grotto
 
 #### Added

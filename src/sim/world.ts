@@ -11,7 +11,7 @@ import { revealFrom } from "./visibility";
 import { validateWorld } from "./validation";
 export function createGame(seed: string): GameState {
   const s: GameState = {
-    version: 3,
+    version: 4,
     weather: { kind: "clear", changedAt: 0 },
     seed,
     rng: seedValue(seed),
@@ -86,6 +86,8 @@ export function createGame(seed: string): GameState {
     s.goblins.push({
       id: `goblin-${s.nextId++}`,
       name,
+      kind: "common",
+      facing: "south",
       position: position(28 + i, 30),
       hunger: 10 + i * 4,
       fatigue: i * 8,

@@ -1,3 +1,4 @@
+import { facingFor } from "../core/facing";
 import { updateWeather } from "./climate";
 import { warnOnExcavation, updateStability } from "./stability";
 import { emit } from "./events";
@@ -48,7 +49,14 @@ export function dispatch(s: GameState, c: Command): Result {
     const route = path(s, g.position, p);
     if (!route) return { ok: false, reason: "No walkable route." };
     release(s, g);
-    if (route.length) g.position = route[0];
+    if (route.length) {
+      g.facing = facingFor(
+        route[0].x - g.position.x,
+        route[0].y - g.position.y,
+        g.facing,
+      );
+      g.position = route[0];
+    }
     g.activity = "Following your guidance";
     return { ok: true };
   }
@@ -215,8 +223,14 @@ function move(s: GameState, g: Goblin, p: Position, adjacent = false): boolean {
     g.activity = "Route blocked: waiting for a clear path";
     return false;
   }
-  if (route.length && s.tick % movementTicks(s, route[0]) === 0)
+  if (route.length && s.tick % movementTicks(s, route[0]) === 0) {
+    g.facing = facingFor(
+      route[0].x - g.position.x,
+      route[0].y - g.position.y,
+      g.facing,
+    );
     g.position = route[0];
+  }
   return route.length === 0;
 }
 function nearest(
@@ -404,6 +418,11 @@ function work(s: GameState, g: Goblin, j: Job): void {
           : j.kind === "explore"
             ? "Scouting the passage"
             : "Gathering supplies";
+  g.facing = facingFor(
+    j.target.x - g.position.x,
+    j.target.y - g.position.y,
+    g.facing,
+  );
   j.progress++;
   g.worked++;
   const required =

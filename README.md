@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.7`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.8`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -25,7 +25,7 @@ with WebGL enabled is required. The game uses no backend or remote art services.
 
 ![The first playable grotto](docs/screenshots/prototype.png)
 
-Four named goblins—Nib, Moss, Grub and Pip—autonomously dig, haul, build,
+Four named common goblins—Nib, Moss, Grub and Pip—keep their identity and facing through saves and autonomously dig, haul, build,
 gather, eat and sleep. The seeded 64×64 world has connected chambers, an entrance,
 a small outdoor strip, hidden chambers, mushrooms, trees and distinct ore veins. Designate work and let them do it.
 
@@ -84,7 +84,7 @@ costs and prefer to avoid warned ceilings.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
   is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1, version-2 or version-3 save before replacing the current game. Future
+- **Import** validates a version-1, version-2, version-3 or version-4 save before replacing the current game. Future
   or damaged saves show a message and leave the current grotto intact.
 - **New grotto** asks for a seed and replaces the active session; save first.
 

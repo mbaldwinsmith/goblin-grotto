@@ -1,4 +1,4 @@
-# 0.1.0-prototype.7 — verification and handoff
+# 0.1.0-prototype.8 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 41 headless tests in eleven files. Includes 1,000 seeded starts;
+- `npm test`: 44 headless tests in twelve files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: nine Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: ten Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -60,7 +60,7 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-New saves are schema 3; schema-1 and schema-2 saves migrate in place with their existing map,
+New saves are schema 4; schema-1, schema-2 and schema-3 saves migrate in place with their existing map,
 knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
@@ -122,3 +122,13 @@ Screenshots: [ceiling warning](screenshots/ceiling-warning.png) and
 [outside rain](screenshots/environment.png). See ADR 0003 for the modest safety
 rules and cache invalidation contract. Damage, injuries and starvation are still
 outside this prototype; GG-045's broader interruption criteria remain open.
+
+
+## Iteration 8 verification
+
+GG-037: goblin kind, facing, name, position and ID live in the simulation and
+validated save data. Headless tests render and clear presentation history without
+mutating actors, verify work-facing and migrate the real schema-3 fixture. Browser
+QA imports a west-facing Nib, selects him, checks the actual idle-west sprite and
+restores the same kind/facing after save/reload. New goblins are common goblins;
+boggart/hobgoblin definitions remain GG-155. Schema 4 supports versions 1–3.
