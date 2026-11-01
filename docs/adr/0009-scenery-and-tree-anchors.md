@@ -38,3 +38,18 @@ Supplied terrain PNGs have transparent gaps, especially the sparse sand overlays
 Native reference tiles provide solid backing beneath ground, tops and faces,
 preserving source alpha and a continuous surface. Wall reveal hides these
 backings while fading the supplied face/top.
+
+
+The owner subsequently requests perspective lighting. Apply two shared 32-step gradient textures in the renderer: a slight upper-face highlight fading into foot shade,
+and dark roof texture fading to black away from the exposed front edge. Interior
+top tiles merge into black. Keep shading in the existing cached props Graphics;
+include reveal/fade state in its cache signature. Fading a wall removes lighting
+and backing so the roof cannot mask revealed actors. Excavation clears the props.
+
+The wall lighting reuses two 32-step nearest-sampled gradient textures; each
+exposed wall adds two simple rectangles to its cached props, avoiding per-row
+geometry or per-wall gradient allocation.
+
+Scenery updates/rendering are limited to the camera region, retaining a margin
+for tree roots whose 96px canopies extend into view. A regression checks all
+intersecting canopies at map edges and multiple zoom levels.

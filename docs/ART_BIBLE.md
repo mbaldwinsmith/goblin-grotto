@@ -207,3 +207,22 @@ Supplied terrain PNGs have transparent gaps, especially the sparse sand overlays
 Native reference tiles provide solid backing beneath ground, tops and faces,
 preserving source alpha and a continuous surface. Wall reveal hides these
 backings while fading the supplied face/top.
+
+
+## Wall perspective lighting
+
+Renderer-only native-resolution gradients add a restrained upper-face highlight, tapering to
+shade at the foot. Exposed wall tops retain a dark textured front lip and fade to
+pure black towards the back/north edge. Interior top tiles join the black roof.
+The lighting uses each wall's same 32px geometry, never repaints or rescales source
+PNGs, and is cached with the tile's props. Reveal/selected-actor fade removes the
+lighting and solid backings while leaving supplied textures translucent, so the
+black roof cannot keep hiding the goblin. Excavation clears the cached wall props.
+
+The wall lighting reuses two 32-step nearest-sampled gradient textures; each
+exposed wall adds two simple rectangles to its cached props, avoiding per-row
+geometry or per-wall gradient allocation.
+
+Scenery updates/rendering are limited to the camera region, retaining a margin
+for tree roots whose 96px canopies extend into view. A regression checks all
+intersecting canopies at map edges and multiple zoom levels.

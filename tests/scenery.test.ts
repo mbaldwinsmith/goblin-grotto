@@ -13,6 +13,7 @@ import {
   treeOverlapsActor,
   farmArt,
   farmStages,
+  sceneryViewport,
 } from "../src/render/scenery";
 import { inspectPoint, objectDepth, actorDepth } from "../src/render/picking";
 import legacy from "../public/assets/prototype/manifest.json";
@@ -183,4 +184,38 @@ it("retains cosmetic variants after save/load and keeps ground food distinct fro
   expect(itemArt("bedkit", "item-123")).toBeNull();
   for (const resource of ["iron", "copper", "gold"] as const)
     expect(itemArt(resource, "item-123")).toMatch(/^item-ore-/);
+});
+
+it("culls distant scenery but retains every tree whose canopy reaches the camera", () => {
+  const screen = { width: 320, height: 192 },
+    map = { width: 64, height: 64 };
+  for (const zoom of [0.6, 1, 4])
+    for (const centre of [position(0, 0), position(32, 30), position(63, 63)]) {
+      const camera = {
+        x: -(centre.x * 32 + 16) * zoom,
+        y: -(centre.y * 32 + 16) * zoom,
+        zoom,
+      };
+      const v = sceneryViewport(camera, screen, map),
+        left = (-screen.width / 2 - camera.x) / zoom,
+        right = (screen.width / 2 - camera.x) / zoom,
+        top = (-screen.height / 2 - camera.y) / zoom,
+        bottom = (screen.height / 2 - camera.y) / zoom;
+      for (let y = 0; y < 64; y++)
+        for (let x = 0; x < 64; x++) {
+          const b = treeBounds(position(x, y));
+          if (
+            b.x < right &&
+            b.x + b.width > left &&
+            b.y < bottom &&
+            b.y + b.height > top
+          ) {
+            expect(x).toBeGreaterThanOrEqual(v.minX);
+            expect(x).toBeLessThanOrEqual(v.maxX);
+            expect(y).toBeGreaterThanOrEqual(v.minY);
+            expect(y).toBeLessThanOrEqual(v.maxY);
+          }
+        }
+      expect((v.maxX - v.minX + 1) * (v.maxY - v.minY + 1)).toBeLessThan(4096);
+    }
 });

@@ -16,7 +16,7 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 90 headless tests in eighteen files. Includes 1,000 seeded starts;
+- `npm test`: 91 headless tests in eighteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
@@ -285,7 +285,7 @@ The owner's farm-stage clarification is mapped explicitly: young 01/04 at 0–19
 growing 03/05 at 200–599, mature 02/06 at 600. A plot keeps the same alternative
 through its stages; the mature image coincides with harvest readiness.
 
-Six new headless tests verify every source alternative/role, unchanged simulation
+Seven new headless tests verify every source alternative/role, unchanged simulation
 snapshots, growth pairs/thresholds, root geometry, full canopy bounds, foreground
 depth and reveal, hidden/removed roots, and saved visual consistency. The browser
 imports a controlled scene with trees, farms and physical resources, checks actual
@@ -304,3 +304,16 @@ Supplied terrain PNGs have transparent gaps, especially the sparse sand overlays
 Native reference tiles provide solid backing beneath ground, tops and faces,
 preserving source alpha and a continuous surface. Wall reveal hides these
 backings while fading the supplied face/top.
+
+
+The owner-requested lighting adds a light face gradient and a dark top-to-black
+roof fade using two shared native-resolution gradient textures. Reveal and selected-actor fades remove the
+lighting/backing, while mining clears the wall props. Original PNGs remain unchanged.
+
+The wall lighting reuses two 32-step nearest-sampled gradient textures; each
+exposed wall adds two simple rectangles to its cached props, avoiding per-row
+geometry or per-wall gradient allocation.
+
+Scenery updates/rendering are limited to the camera region, retaining a margin
+for tree roots whose 96px canopies extend into view. A regression checks all
+intersecting canopies at map edges and multiple zoom levels.

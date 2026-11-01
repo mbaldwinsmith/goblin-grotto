@@ -2,7 +2,7 @@ import catalog from "../../public/assets/sprite-catalog.json";
 import type { Position } from "../core/types";
 import { seedValue } from "../core/random";
 import { tileAt, type GameState, type Tile, type Resource } from "../sim/model";
-import { project } from "./projection";
+import { type Camera, project } from "./projection";
 import { TILE_SIZE, HALF_TILE, ACTOR_FEET } from "./metrics";
 export const sceneryFrames = new Map(catalog.sprites.map((s) => [s.id, s]));
 const families = new Map<string, typeof catalog.sprites>();
@@ -137,4 +137,30 @@ export function treeAtPoint(
         trees.push(p);
     }
   return trees.sort((a, b) => b.y - a.y || b.x - a.x)[0] ?? null;
+}
+
+/** Conservative root range: retain canopies reaching in from outside the viewport. */
+export function sceneryViewport(
+  camera: Camera,
+  screen: { width: number; height: number },
+  map: { width: number; height: number },
+) {
+  return {
+    minX: Math.max(
+      0,
+      Math.floor((-screen.width / 2 - camera.x) / camera.zoom / TILE_SIZE) - 1,
+    ),
+    maxX: Math.min(
+      map.width - 1,
+      Math.ceil((screen.width / 2 - camera.x) / camera.zoom / TILE_SIZE) + 1,
+    ),
+    minY: Math.max(
+      0,
+      Math.floor((-screen.height / 2 - camera.y) / camera.zoom / TILE_SIZE) - 1,
+    ),
+    maxY: Math.min(
+      map.height - 1,
+      Math.ceil((screen.height / 2 - camera.y) / camera.zoom / TILE_SIZE) + 2,
+    ),
+  };
 }

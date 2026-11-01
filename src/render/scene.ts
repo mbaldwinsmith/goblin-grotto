@@ -1,7 +1,9 @@
+import { drawWallShading } from "./wall-shading";
 import { seedValue } from "../core/random";
 import {
   tileScenery,
   sceneryFrames,
+  sceneryViewport,
   itemArt,
   treeBounds,
   treeOverlapsActor,
@@ -201,8 +203,9 @@ export class Scene {
     const selectedFeet = selectedGoblin
       ? this.renderPositions.get(selectedGoblin.id)
       : undefined;
-    for (let y = 0; y < s.height; y++)
-      for (let x = 0; x < s.width; x++) {
+    const view = sceneryViewport(this.camera, this.app.screen, this.mapSize);
+    for (let y = view.minY; y <= view.maxY; y++)
+      for (let x = view.minX; x <= view.maxX; x++) {
         const p = position(x, y),
           t = tileAt(s, p)!;
         if (!t.discovered) continue;
@@ -270,7 +273,7 @@ export class Scene {
         }
         const bounds = tree ? treeBounds(p) : { x: a.x - HALF_TILE, y: a.y };
         node.plant.position.set(bounds.x, bounds.y);
-        node.plant.zIndex = objectDepth(p);
+        node.plant.zIndex = objectDepth(p) - 0.1;
         node.plant.alpha =
           tree &&
           (this.reveal ||
@@ -331,10 +334,17 @@ export class Scene {
               snow ? 2 : 4,
             ).fill({ color: snow ? 0xe3e9dd : 0x91b9c7, alpha: 0.6 });
         }
-        const signature = `${t.solid}:${t.stockpile}:${t.stockpileFilter}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
+        const signature = `${t.solid}:${t.stockpile}:${t.stockpileFilter}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}:${opacity === 1}`;
         if (node.signature !== signature) {
           node.signature = signature;
-          this.drawProps(d.clear(), t, a, node.side.visible, pile !== null);
+          this.drawProps(
+            d.clear(),
+            t,
+            a,
+            node.side.visible,
+            pile !== null,
+            opacity === 1,
+          );
         }
       }
     for (const item of s.items.filter(
@@ -438,7 +448,10 @@ export class Scene {
     a: { x: number; y: number },
     sideVisible: boolean,
     hasPile: boolean,
+    shade: boolean,
   ): void {
+    if (shade && (t.solid || t.structure === "wall"))
+      drawWallShading(d, a, sideVisible);
     if (t.stockpile) {
       const color = {
         all: 0xc1a46a,

@@ -17,6 +17,7 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 #### Changed
 
+- Wall faces gain a subtle upper highlight and darker foot; exposed tops fade from a dark front lip to black at the back. Interior roof tiles are black, with lighting removed during reveal/selected-actor fade so visibility remains clear. Original sprite PNGs are unchanged. Shared gradient textures and viewport culling keep lighting work bounded, with margins for tree canopies.
 - Cosmetic choices derive from the existing seed, tile and item identity. Saves keep schema 9; simulation RNG, growth timers, item identities and job rules retain their current behavior.
 
 ### 0.1.0-prototype.13 — picks in the rock, axes in the wood
