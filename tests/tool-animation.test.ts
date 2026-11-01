@@ -39,7 +39,7 @@ function setup(kind: "dig" | "harvest" = "dig", dx = 1, dy = 0) {
   dispatch(s, { type: "designate", tool: kind, position: at });
   return { s, g, target, at };
 }
-it("uses original cardinal contacts, the nine-frame north chop and the supplied static west idle", () => {
+it("uses original cardinal contacts, the nine-frame north chop and the supplied static east/west idle", () => {
   expect(manifest.contactFrames).toEqual(contactFrames);
   for (const kind of ["mine", "chop"] as const)
     for (const facing of facings) {
@@ -58,6 +58,7 @@ it("uses original cardinal contacts, the nine-frame north chop and the supplied 
     }
   expect(manifest.directionFrameCounts.chop.north).toBe(9);
   expect(manifest.directionFrameCounts["axe-idle"].west).toBe(1);
+  expect(manifest.directionFrameCounts["axe-idle"].east).toBe(1);
   expect(
     manifest.frames.find((f) => f.id === "axe-idle-west-000")?.source,
   ).toContain("rotations/west.png");

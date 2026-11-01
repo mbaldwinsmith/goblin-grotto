@@ -65,7 +65,7 @@
     },
     "axe-idle": {
       "south": 8,
-      "east": 8,
+      "east": 1,
       "north": 8,
       "west": 1
     },
@@ -3026,90 +3026,13 @@
     {
       "id": "axe-idle-east-000",
       "file": "axe-idle/east/000.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
       "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_000.png",
-      "sha256": "69530bbd96cfd518d287b75c1364fcd373d7463aa0c703d5ee84c6d3917030ce"
-    },
-    {
-      "id": "axe-idle-east-001",
-      "file": "axe-idle/east/001.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
-      "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_001.png",
-      "sha256": "78086122fb1c507e4dd6cbcc17c36c0293ae097d8a41161e5249e00210240432"
-    },
-    {
-      "id": "axe-idle-east-002",
-      "file": "axe-idle/east/002.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
-      "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_002.png",
-      "sha256": "3e2e269f3e5678550098e054e36b95a6e3aca3b29ada96dc2f806072c81cba7e"
-    },
-    {
-      "id": "axe-idle-east-003",
-      "file": "axe-idle/east/003.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
-      "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_003.png",
-      "sha256": "09e39623311d3cb57bcd4aa0f0ddbba2857be49446d37cb129e4c160a62e3b34"
-    },
-    {
-      "id": "axe-idle-east-004",
-      "file": "axe-idle/east/004.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
-      "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_004.png",
-      "sha256": "09e39623311d3cb57bcd4aa0f0ddbba2857be49446d37cb129e4c160a62e3b34"
-    },
-    {
-      "id": "axe-idle-east-005",
-      "file": "axe-idle/east/005.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
-      "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_005.png",
-      "sha256": "0a313340e62e7405df0a821b25c00efe7ac03af9ec86c526d6077d6b0a3b676c"
-    },
-    {
-      "id": "axe-idle-east-006",
-      "file": "axe-idle/east/006.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
-      "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_006.png",
-      "sha256": "0a313340e62e7405df0a821b25c00efe7ac03af9ec86c526d6077d6b0a3b676c"
-    },
-    {
-      "id": "axe-idle-east-007",
-      "file": "axe-idle/east/007.png",
-      "width": 48,
-      "height": 48,
-      "footX": 24,
-      "footY": 38,
-      "archive": "axe",
-      "source": "Axe/animations/Idle/east/frame_007.png",
-      "sha256": "ff230cf3d00018ed9e7c92e369a3c74ef4320e6ffd652b0d52c0ab2246b64f2a"
+      "source": "Axe/rotations/east.png",
+      "sha256": "ba13c59b3f910e119046f15806126a6712576184bfe25671e4e8d3348cae451b"
     },
     {
       "id": "axe-walk-east-000",
@@ -3796,12 +3719,12 @@
       },
       {
         "id": "axe",
-        "file": "archive/Goblin-Axe-890b554.zip",
-        "sha256": "7c6ba0acc50d40163a0c7f5135017a1d179dd39faa430e8f96aaf660dbd32abe",
-        "commit": "890b554136289a5e3888bec3677d5b500976655d"
+        "file": "archive/Goblin-Axe-8c96e74.zip",
+        "sha256": "d79ae9c4e3f8e2e71779aaac1b11515b4a38608eb3e54ee064722e739d7cab3c",
+        "commit": "8c96e7409ce2b0f927a97ad8ad0d5763934485dc"
       }
     ],
     "westVariant": "west-6b9bf452",
-    "note": "Original PNG bytes; native padding and 32px body. Other directions and alternate takes stay in the ZIPs. Axe Attack is curated as tree chopping; no combat is added. West axe idle uses its unmodified static pose. Creative assets follow ASSETS-LICENSE.md."
+    "note": "Original PNG bytes; native padding and 32px body. Other directions and alternate takes stay in the ZIPs. Axe Attack is curated as tree chopping; no combat is added. East/west axe idle uses unmodified static poses. Creative assets follow ASSETS-LICENSE.md."
   }
 }

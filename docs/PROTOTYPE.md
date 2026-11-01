@@ -241,10 +241,10 @@ per-item equipment and broader stockpile policies remain later work.
 
 GG-047 now covers native cardinal idle, walking, mining and hauling with action
 event timing controlled by simulation ticks. The owner’s pick and axe exports
-from 890b554 supply 162 new original PNGs (334 total). Tree cutters stand beside
+from 890b554/8c96e74 supply 155 new original PNGs (327 total). Tree cutters stand beside
 their target; axe approach uses its supplied walk. Pick approach uses the base
-walk because the archive contains no walk clip. West axe idle uses the original
-static west rotation because its breathing cycle is absent. Nothing is mirrored,
+walk because the archive contains no walk clip. East/west axe idle uses the original
+static rotations because those breathing cycles are absent. Nothing is mirrored,
 resized or cropped. The gallery shows all 40 directional clips.
 
 Mine/chop strokes last 18 ticks and apply 18 work on elapsed tick 10; the renderer

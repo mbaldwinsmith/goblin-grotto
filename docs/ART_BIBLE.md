@@ -56,9 +56,9 @@ Grid navigation already uses four neighbours. Work-facing chooses the dominant
 axis; vertical wins a tie. Diagonal poses remain legacy references and are not
 loaded. Do not mirror a cardinal clip to invent another direction.
 
-Base/hauling ZIPs are pinned to owner commit `37ad2ad`; pick/axe ZIPs to `890b554`.
+Base/hauling ZIPs are pinned to owner commit `37ad2ad`; pick ZIP to `890b554` and latest axe ZIP to `8c96e74`.
 The importer reads unchanged copies in `public/assets/goblin/archive/` and copies
-334 original PNGs. The manifest records archive/member hashes, dimensions, foot
+327 original PNGs. The manifest records archive/member hashes, dimensions, foot
 anchors, per-direction frame counts and curated contact frames. Base west walking
 uses `west-6b9bf452`; other takes stay archived.
 
@@ -69,8 +69,8 @@ Pick Mining and Axe Attack are curated for mining and tree chopping, per the
 owner's instruction; this adds no combat. Tool frames remain in source order but
 are sampled across an 18-tick cycle so their directional contact aligns with tick
 10. The north chop has nine frames; other swings have eight. Each impact applies
-18 work once, independent of renderer calls (ADR 0008). A missing west axe idle
-uses its supplied static west pose; pick approach uses the base walk because no
+18 work once, independent of renderer calls (ADR 0008). Missing east/west axe idle cycles
+use the supplied static poses; pick approach uses the base walk because no
 pick walking clip exists. Neither fallback invents or mirrors art.
 
 Pause, dialogs and hidden tabs freeze every clip. Swing/drop timelines live in

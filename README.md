@@ -152,7 +152,7 @@ Use **Dig** on exposed rock or **Gather** on trees: workers choose the tool auto
 face the target and apply work when the strike lands. Tree cutters stand beside the tree.
 Harder rock takes more strikes. Cancelling a wind-up grants no work; save/load preserves
 the swing. The pack has no pick walk, so miners approach with the base walk. The missing
-west axe idle uses its supplied static pose.
+east and west axe idle cycles use the supplied static poses.
 
 See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
 

@@ -3,11 +3,11 @@
 Status: accepted for prototype.13, pending merge.
 
 The owner supplied pick/axe archives in commit 890b554 and directed their use for
-mining/chopping. Import original cardinal PNGs and padding without mirroring,
+mining/chopping. The subsequent axe update in 8c96e74 removes east idle; both
+east and west idle therefore use original static rotations. Import original cardinal PNGs and padding without mirroring,
 resizing or cropping. The Axe/Attack clip represents tree chopping, adding no
-combat. Its north clip has nine frames; all other tool swings have eight. Missing
-west axe idle uses the supplied static rotation; missing pick walking uses the
-existing empty walk. The manifest records directional lengths and contact frames.
+combat. Its north clip has nine frames; all other tool swings have eight. Pick
+approach uses the existing empty walk because its pack has no walking clip. The manifest records directional lengths and contact frames.
 
 A goblin stores a small work action: mine/chop, start tick and whether impact has
 happened. After arrival has settled, an 18-tick swing starts. At elapsed tick 10,
