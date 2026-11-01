@@ -6,6 +6,61 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.13 — picks in the rock, axes in the wood
+
+#### Added
+
+- GG-047: the owner's native four-direction pick and axe sprites now animate digging and tree chopping. Work lands at the visible strike, with a saved wind-up and follow-through; rendering cannot advance jobs. Cutters stand beside trees and face them. Idle, walking, mining and hauling acceptance is verified together.
+- 155 unchanged tool PNGs join the existing 172-frame set, with pinned source ZIPs, hashes, original padding, per-direction frame counts and contact frames. The gallery now displays 40 directional clips. Axe approach uses its walking clip; missing east/west idle uses the supplied static east/west poses, and miners use the base walk because the pick pack has no walking clip.
+- Tests cover cardinal contact timing, cancellation, hunger interruptions, resource identity, pause and exact save continuation. A real schema-8 active mine fixture verifies migration.
+
+#### Changed
+
+- Save schema 9 preserves tool swings and rejects invalid timelines. Versions 1–8 migrate with existing progress, maps and identities intact. Tool strokes apply 18 work per strike in an 18-tick cycle; hardness still determines required work, with completion quantized to strikes.
+
+### 0.1.0-prototype.12 — a place for every shiny
+
+#### Added
+
+- GG-044: stockpile areas accept All goods, Food, Building supplies, Ore and valuables, or Crafted goods. Add/update painting is idempotent; Remove mode erases areas. The inspector edits filters and shows physical contents.
+- Haulers choose the nearest reachable matching pile. Filter edits, removed zones and blocked destinations reroute the same item and worker; when no destination exists, reservations are released and cargo remains recoverable. Mid-drop rerouting and save continuation are tested.
+- Resource tooltips break totals into stored, carried and loose quantities. Goods already on a newly marked matching pile count as stored without being moved or cloned.
+
+#### Changed
+
+- Save schema 8 adds All goods to legacy stockpiles and reconciles stale storage flags while preserving object IDs, quantities and delivery progress. New saves reject stored flags that disagree with physical placement.
+
+#### Fixed
+
+- Buildings, cave-ins and unsuitable filters cannot leave goods marked as spendable storage. Removed/excluded goods remain physically present for eating, excavation or rehauling.
+
+### 0.1.0-prototype.11 — a little order in the grotto
+
+#### Added
+
+- GG-040: Low/Normal/High work priorities, optional per-goblin preferred work, and global matching of free workers to eligible jobs. Decisions consider route cost, preference, tiredness, food shortages, ceiling supports, work already started and a small seeded tie-break.
+- New work priority controls beside the tools, editable priority on planned tiles, and a Preferred work selector with choice reasons in the goblin inspector. One/two/three designation dots show priority. Active jobs continue until completion or an existing interruption; preferences guide the next choice.
+- Save schema 7 preserves priorities/preferences. Versions 1–6 migrate to Normal priority and Any work, retaining existing work and in-progress drops; includes a real schema-6 wind-up fixture.
+
+#### Fixed
+
+- Construction eligibility checks stored, unheld resources and bed kits, so unavailable high-priority builds do not consume workers who can haul or do other useful work. Missing supplies and blocked routes retain readable reasons.
+- Settings report “updated” separately from a completed manual save; browser checks wait for the completed IndexedDB save before reloading.
+- Keyboard shortcuts leave select controls alone, so changing priorities/preferences does not pan the camera or change game speed.
+
+### 0.1.0-prototype.10 — four directions, a bag of shinies
+
+#### Added
+
+- Integrated the owner's updated base and hauling archives: four-direction idle breathing, walking, loaded breathing, loaded walking and nine-frame put-down clips. All 172 curated PNGs retain their original bytes, native padding and foot anchors; source hashes and member paths are recorded (partial GG-047; mining remains open).
+- Normal deliveries release the physical item exactly once on drop frame 5, driven by simulation ticks. Cancellation and urgent interruptions free the item immediately and show the drop follow-through. Pause freezes the clips; rendering cannot advance work or transfer items.
+- `/goblin-preview.html` now shows all 20 cardinal animation clips, with pause and frame-by-frame review.
+
+#### Changed
+
+- Applied the owner's four-cardinal-direction standard to simulation facing and rendered clips. Existing grid navigation already used four neighbours.
+- Save schema 6 preserves in-progress drops, including the held/released phase. Versions 1–5 migrate without regenerating maps or losing items; old diagonal facing maps to north/south. Includes an actual schema-5 active-haul fixture and before/after-release continuation tests.
+
 ### 0.1.0-prototype.9 — make room in the passage
 
 #### Added

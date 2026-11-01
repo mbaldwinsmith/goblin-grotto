@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.9`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.13`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -58,6 +58,37 @@ Gold outlines show excavation; teal outlines show other planned work. Select a
 tile to inspect its progress or failure reason. Hungry and tired goblins interrupt
 work to look after themselves. The sidebar tracks food and energy.
 
+### Sort your supplies
+
+Choose **Stockpile**, select a goods filter and drag across clear floor, or use
+coordinates to mark an area. Filters cover all goods, food, building supplies
+(wood/stone), ore and valuables, and crafted goods (bed kits). Painting again
+updates the filter; **Stockpile mode → Remove** erases an area.
+
+Inspect a pile to change **Accept goods**, read its stored contents or remove it.
+Haulers use the nearest reachable matching pile. Existing valid deliveries keep
+their destination; changing or removing it reroutes them. If no suitable pile
+exists, goods stay recoverable where they are. Buildings and collapses clear
+storage beneath them. New piles can include goods already on that floor.
+
+Hover a resource total for its **stored / carried / loose** breakdown. Every
+quantity belongs to one category; painting and filtering never create or delete
+supplies. Stored goods are available for construction; loose food can still be eaten.
+
+### Guide the work
+
+Set **New work priority** to Low, Normal or High before placing jobs. Inspect a
+planned tile to change its **Work priority**. One, two or three dots mark the
+priority on the map. Free workers take eligible High work before Normal and Low;
+a missing-resource or unreachable job does not block other work.
+
+Select a goblin and choose **Preferred work** to encourage a particular job type.
+They can still do other work. The inspector explains their last choice: preference,
+trip length, food shortages, ceiling supports or work already started. Tiredness
+favours lighter tasks; urgent eating and rest still interrupt work. Current jobs
+finish before a new priority or preference guides the next choice. Priorities and
+preferences are included in saves.
+
 ### Loose ceilings and the weather
 
 Excavating weak material beside a wide opening may reveal a loose ceiling. An
@@ -84,7 +115,7 @@ costs and prefer to avoid warned ceilings.
 - **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
 - **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
   is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1, version-2, version-3, version-4 or version-5 save before replacing the current game. Future
+- **Import** validates a version-1, version-2, version-3, version-4, version-5, version-6, version-7, version-8 or version-9 save before replacing the current game. Future
   or damaged saves show a message and leave the current grotto intact.
 - **New grotto** asks for a seed and replaces the active session; save first.
 
@@ -109,18 +140,25 @@ pixels. Floors, wall tops, wall sides and all plants have separate
 32×32 PNGs; walls assemble a raised top and a separate exposed front face. Zoom
 magnifies the scene with nearest-neighbour sampling.
 
-The live goblins now use your supplied base: eight directional idle poses and
-walk cycles, with smooth movement and matching portraits. The body stays at native
-32-pixel scale. Padded 40×40/44×44 walk frames retain their original pixels and are
-aligned by their feet. They stop animating when stationary or paused. Existing
-schema-1 through schema-4 saves migrate without regenerating the map or adding pending falls.
+The live goblins use your supplied base, hauling, pick and axe packs in four cardinal
+directions: breathing at rest, walking, mining, chopping trees, carrying a bag and putting it down.
+The body stays at native 32-pixel scale; padded 40×40/44×44/48×48 canvases keep
+their original pixels and align by their feet. Pause freezes every clip.
+Haulers take a moment to put supplies down at a stockpile; an interrupted haul
+leaves its item recoverable. Saves retain a delivery in progress, and schema-1
+through schema-8 saves migrate without regenerating the map or adding pending falls.
+
+Use **Dig** on exposed rock or **Gather** on trees: workers choose the tool automatically,
+face the target and apply work when the strike lands. Tree cutters stand beside the tree.
+Harder rock takes more strikes. Cancelling a wind-up grants no work; save/load preserves
+the swing. The pack has no pick walk, so miners approach with the base walk. The missing
+east and west axe idle cycles use the supplied static poses.
 
 See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
 
 See the [individual art preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/art-preview.html).
 The legacy 29-file set is listed in `public/assets/prototype/manifest.json` and
-reproduced with `node tools/generate-pixel-art.mjs`. Import the supplied base with `python tools/import-goblin.py`. Specialised task
-animation and atlas work remain later tasks. Goblins now take free detours, make
+reproduced with `node tools/generate-pixel-art.mjs`. Import the supplied base with `python tools/import-goblin.py`. Mining animation and atlas work remain later tasks. Goblins now take free detours, make
 room for one another and pass in narrow tunnels without sharing a logical tile.
 Older stacked colonies are separated onto nearby known floor when imported.
 

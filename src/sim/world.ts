@@ -11,7 +11,7 @@ import { revealFrom } from "./visibility";
 import { validateWorld } from "./validation";
 export function createGame(seed: string): GameState {
   const s: GameState = {
-    version: 5,
+    version: 9,
     weather: { kind: "clear", changedAt: 0 },
     seed,
     rng: seedValue(seed),
@@ -47,6 +47,7 @@ export function createGame(seed: string): GameState {
         feature: null,
         structure: null,
         stockpile: false,
+        stockpileFilter: "all",
         growth: 0,
         collapseAt: null,
       });
@@ -89,6 +90,8 @@ export function createGame(seed: string): GameState {
       kind: "common",
       facing: "south",
       nextMoveAt: 0,
+      workAction: null,
+      drop: null,
       position: position(28 + i, 30),
       hunger: 10 + i * 4,
       fatigue: i * 8,
@@ -96,6 +99,7 @@ export function createGame(seed: string): GameState {
       carrying: null,
       activity: "Taking in the new home",
       worked: 0,
+      preferredWork: null,
     });
   for (const [resource, quantity, x, y] of [
     ["food", 28, 29, 32],

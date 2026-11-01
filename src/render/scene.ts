@@ -1,3 +1,4 @@
+import { toolForJob } from "../sim/work-animation";
 import { movementTicks } from "../sim/navigation";
 import { GoblinAnimator, type GoblinPose } from "./goblin-animation";
 import { loadGoblinArt, goblinFrames } from "./goblin-art";
@@ -134,6 +135,13 @@ export class Scene {
         movementTicks(s, g.position),
         lookAt,
         g.facing,
+        {
+          carrying: !!g.carrying,
+          tool: toolForJob(s, job),
+          workAction: g.workAction,
+          drop: g.drop,
+          sleeping: g.activity === "Sleeping",
+        },
       );
       this.poses.set(g.id, pose);
       this.renderPositions.set(g.id, pose.position);
@@ -258,14 +266,22 @@ export class Scene {
               snow ? 2 : 4,
             ).fill({ color: snow ? 0xe3e9dd : 0x91b9c7, alpha: 0.6 });
         }
-        const signature = `${t.solid}:${t.stockpile}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
+        const signature = `${t.solid}:${t.stockpile}:${t.stockpileFilter}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
         if (node.signature !== signature) {
           node.signature = signature;
           this.drawProps(d.clear(), t, a, node.side.visible);
         }
       }
     for (const item of s.items.filter(
-      (i) => !i.holder && tileAt(s, i.position)?.discovered,
+      (i) =>
+        !i.holder &&
+        tileAt(s, i.position)?.discovered &&
+        !s.goblins.some(
+          (g) =>
+            g.drop?.item === i.id &&
+            g.position.x === i.position.x &&
+            g.position.y === i.position.y,
+        ),
     )) {
       const a = project(item.position);
       let d = this.itemSprites.get(item.id);
@@ -284,9 +300,18 @@ export class Scene {
     )) {
       const a = project(j.target);
       o.rect(a.x - 14, a.y + 2, 28, 28).stroke({
-        color: j.kind === "dig" ? 0xe1b66a : 0x7dc8be,
+        color:
+          j.priority === 3
+            ? 0xf1c36b
+            : j.priority === 1
+              ? 0x899caa
+              : j.kind === "dig"
+                ? 0xe1b66a
+                : 0x7dc8be,
         width: 1,
       });
+      for (let dot = 0; dot < j.priority; dot++)
+        o.circle(a.x - 9 + dot * 4, a.y + 6, 1).fill(0xe9d69e);
       if (j.progress)
         o.rect(a.x - 10, a.y + 29, Math.min(20, j.progress / 3), 2).fill(
           0xe1b66a,
@@ -340,8 +365,16 @@ export class Scene {
     a: { x: number; y: number },
     sideVisible: boolean,
   ): void {
-    if (t.stockpile)
-      d.rect(a.x - 13, a.y + 3, 26, 26).stroke({ color: 0xc1a46a, width: 1 });
+    if (t.stockpile) {
+      const color = {
+        all: 0xc1a46a,
+        food: 0x81bca7,
+        building: 0xb29260,
+        valuables: 0xb6a4dc,
+        crafted: 0x86b8cc,
+      }[t.stockpileFilter];
+      d.rect(a.x - 13, a.y + 3, 26, 26).stroke({ color, width: 1 });
+    }
     if (
       t.feature &&
       !t.solid &&

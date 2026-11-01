@@ -1,20 +1,26 @@
-# Owner-supplied base goblin
+# Owner-supplied cardinal goblin animations
 
-Source: `../Goblin-Base.zip`, added in repository commit
-`54733942f321de07ad064e1cd03688507760b39e` by the project owner, who requested
-integration. Original ZIP, metadata and GIF previews remain intact.
+Base/hauling source: owner commit `37ad2ad93408991f2ad286e7254f9cf3c52972d3`.
+Pick source: owner commit `890b554136289a5e3888bec3677d5b500976655d`.
+Axe source: owner commit `8c96e74` (latest update; east/west idle cycles absent).
+Version-pinned copies of all four ZIPs live in `../archive/`; incoming top-level
+ZIPs remain unchanged. The original `5473394` base is archived too.
 
-`manifest.json` records the archive hash, exact member path and SHA-256 of every
-imported PNG. `python tools/import-goblin.py` copies the 8 idle rotations and 64
-canonical walking frames byte-for-byte. The west take `west-6b9bf452` matches the
-supplied west GIF; the alternate take stays in the ZIP.
+`manifest.json` records each archive hash/commit, exact member paths and every
+PNG SHA-256. `python tools/import-goblin.py` copies 327 frames unchanged: the
+previous 172 base/haul frames, 68 pick frames and 87 axe frames. This includes
+static poses, empty/loaded idle and walk, put-down, pick idle/mining and axe
+idle/walk/chopping. Axe/Attack is used for tree chopping at the owner's request,
+not combat. Base west walk uses `west-6b9bf452`. East/west axe idle cycles are absent
+from the source: their original static rotations provide one-frame fallbacks.
+No pick walking clip exists: gameplay uses the base walk while approaching.
+Other takes and legacy diagonal files are retained but not loaded.
 
-The archive describes a 32×32 low-top-down character with eight directions.
-Idle frames are 32×32. Walk frames use 40×40 or 44×44 padded canvases. They are not
-resized, trimmed or cropped. Feet are anchored at (width/2, padding+30), where
-padding=(height-32)/2, so the body remains at native scale. Two simulation ticks
-per frame match the previews' 200 ms at the 10 Hz game clock.
+Bodies stay at native 32px scale. Original 32/40/44/48px PNG canvases are never
+resized, trimmed, cropped or mirrored. Feet use (width/2, (height−32)/2+30).
+Idle/walk/drop frames last two ticks; drop releases on frame 5. Tool playback
+samples source frames in order across 18 ticks, aligning direction-specific
+contact frames with tick 10. Work is applied by the simulation, never the renderer.
+The nine-frame north chop has the same strike rate as the eight-frame directions.
 
-These creative assets follow the project's ASSETS-LICENSE.md; their inclusion
-here does not relicense them under the source-code MIT licence. The metadata does
-not establish additional third-party licensing terms or authorship claims.
+Creative assets follow ASSETS-LICENSE.md and are not relicensed under MIT.

@@ -53,7 +53,11 @@ it("mining duration and rubble drops use terrain properties", () => {
     target.material = material;
     target.deposit = null;
     dispatch(s, { type: "designate", tool: "dig", position: position(31, 30) });
-    for (let i = 0; i < materials[material].hardness; i++) step(s);
+    const hits = Math.ceil(materials[material].hardness / 18);
+    const completionTick = 11 + (hits - 1) * 18;
+    for (let i = 0; i < completionTick - 1; i++) step(s);
+    expect(target.solid).toBe(true);
+    step(s);
     expect(target.solid).toBe(false);
     expect(
       s.items.some(

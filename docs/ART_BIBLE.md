@@ -2,7 +2,7 @@
 
 The owner's required presentation is a fixed three-quarter JRPG view. Every floor,
 wall top, wall side and plant uses a **separate 32×32 RGBA PNG**. The owner-supplied
-goblin has a 32×32 native body with 32×32 idle and padded 40×40/44×44 walk canvases. The square
+goblin has a 32×32 native body, 32×32 static poses and padded 40×40/44×44/48×48 animation canvases. The square
 gameplay grid projects to 32×32 screen pixels at the default 1× view. Camera zoom
 scales the whole scene uniformly; the tile/body scale remains 32 pixels.
 
@@ -14,7 +14,7 @@ scales the whole scene uniformly; the tile/body scale remains 32 pixels.
   where a discovered open cell lies to the south; adjacent solid tiles join at
   their tops. Tops and sides use independent sprites, opacity and textures.
 - Goblins: original owner-supplied PNGs, never resized or trimmed. Idle foot anchor
-  is (16,30). Walking foot anchor is (width/2, (height−32)/2+30). Both are placed
+  is (16,30). Every animation foot anchor is (width/2, (height−32)/2+30). Both are placed
   at the cell centre and logical foot offset 28, retaining the same body scale.
 - Plants: untrimmed 32×32 transparent canvases at the cell origin. Separate tree,
   edible mushroom, grove, undergrowth and young/ripe mushroom-patch images.
@@ -49,28 +49,38 @@ This is an original prototype reference set. GG-022/GG-023 remain open for the f
 production art bible, directional idle/walk animation standards and curated atlas.
 Landmark props still use original code-drawn markers in `src/render/features.ts`.
 
-## Owner-supplied goblin base
+## Owner-supplied cardinal goblins
 
-The original ZIP and GIFs were supplied in owner commit `5473394`. The imported
-base is pinned to `public/assets/goblin/archive/Goblin-Base-5473394.zip`; the
-manifest records this path and hash. Newer incoming base/hauling ZIPs at the top
-level remain unchanged until their animations are curated.
-`python tools/import-goblin.py` copies eight idle poses and eight frames per facing
-into `base/`, recording provenance, source member names, hashes and anchors in its
-manifest. It selects `west-6b9bf452`, which matches the west GIF; the alternate take
-remains in the original ZIP. No source image was altered.
+The owner now requests **four cardinal directions**: south, east, north and west.
+Grid navigation already uses four neighbours. Work-facing chooses the dominant
+axis; vertical wins a tie. Diagonal poses remain legacy references and are not
+loaded. Do not mirror a cardinal clip to invent another direction.
 
-Eight facings are supported. Existing grid navigation remains cardinal; idle/work
-facing can use diagonal poses. Frames last two 10 Hz simulation ticks (200 ms at
-1×). Walking runs only while visually traversing between simulation positions;
-stationary goblins use the matching idle direction. Pause and dialogs freeze the
-animation. Rendering never advances work or changes authoritative state.
+Base/hauling ZIPs are pinned to owner commit `37ad2ad`; pick ZIP to `890b554` and latest axe ZIP to `8c96e74`.
+The importer reads unchanged copies in `public/assets/goblin/archive/` and copies
+327 original PNGs. The manifest records archive/member hashes, dimensions, foot
+anchors, per-direction frame counts and curated contact frames. Base west walking
+uses `west-6b9bf452`; other takes stay archived.
 
-The padded canvases are presentation margins, not larger goblins. Do not shrink a
-44×44 walk frame to a 32×32 box or recompute a different foot anchor per frame.
-Use nearest-neighbour sampling at scale 1 and retain the supplied pixels. The
-renderer resets cosmetic history after world replacement and picks the displayed
-body during interpolation. Specialised mining/hauling poses remain future work.
+Idle and walking frames last two 10 Hz simulation ticks. Sleeping uses a static
+pose; carrying selects loaded sprites. Normal delivery releases on frame 5 and
+finishes on tick 18; interrupted delivery frees cargo immediately (ADR 0005).
+Pick Mining and Axe Attack are curated for mining and tree chopping, per the
+owner's instruction; this adds no combat. Tool frames remain in source order but
+are sampled across an 18-tick cycle so their directional contact aligns with tick
+10. The north chop has nine frames; other swings have eight. Each impact applies
+18 work once, independent of renderer calls (ADR 0008). Missing east/west axe idle cycles
+use the supplied static poses; pick approach uses the base walk because no
+pick walking clip exists. Neither fallback invents or mirrors art.
 
-See `/goblin-preview.html`, [integration screenshot](screenshots/goblin-integration.png)
-and `public/assets/goblin/base/PROVENANCE.md`.
+Pause, dialogs and hidden tabs freeze every clip. Swing/drop timelines live in
+simulation saves; renderer interpolation changes only displayed position.
+
+The padded canvases are margins, not larger goblins. Never shrink a 48×48 frame
+into 32×32, trim its canvas, move its foot anchor independently or stretch it.
+Feet use (width/2, (height−32)/2+30), with nearest sampling at scale 1. Sprite
+selection and depth use displayed positions.
+
+`/goblin-preview.html` shows all 40 directional clips at 3× with pause and frame controls.
+See [cardinal gallery](screenshots/cardinal-animations.png),
+[mining/chopping](screenshots/mining-chopping.png), [hauling](screenshots/hauling.png) and [drop](screenshots/drop.png).
