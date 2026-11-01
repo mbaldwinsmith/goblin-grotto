@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "a1b8855a-269a-4885-987a-e63f87aecaa4",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "95370c36-ea3a-490f-a279-737368742559",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "8c45d18d-12d3-4314-a85f-54e872cd4b46",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "8a67c124-036d-4ef9-815f-74b6dea4f99c",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "59178320-b1fa-428e-92ae-6b617498130b",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "580289d4-7b08-47ab-8830-fb94c0da458f",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "452c38d9-f634-41e3-9143-424664224154",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "300bd962-eac2-4bc6-b6b4-80afed6ec788",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "5a5eb299-5c03-41fc-bea8-d0faa1e676e0",
+      "folder": "objects/A_solid_perfectly_square_323",
+      "objects": [
+        {
+          "id": "a1b8855a-269a-4885-987a-e63f87aecaa4",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "94383d67-f8ef-4832-a166-4b97d8d09123",
+      "folder": "objects/A_solid_perfectly_square_323_2",
+      "objects": [
+        {
+          "id": "95370c36-ea3a-490f-a279-737368742559",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "f6a98497-a7f4-4f5d-9357-d4ca907a46f8",
+      "folder": "objects/A_solid_perfectly_square_323_3",
+      "objects": [
+        {
+          "id": "8c45d18d-12d3-4314-a85f-54e872cd4b46",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "98491bfd-9dc6-4fa2-8a48-97fac8a7c5ab",
+      "folder": "objects/A_solid_perfectly_square_323_4",
+      "objects": [
+        {
+          "id": "8a67c124-036d-4ef9-815f-74b6dea4f99c",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "9de9041d-7340-44bc-8c26-69243bcecbc5",
+      "folder": "objects/A_solid_perfectly_square_323_5",
+      "objects": [
+        {
+          "id": "59178320-b1fa-428e-92ae-6b617498130b",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "e7b3c5ea-f398-4591-8472-1d655cd577c7",
+      "folder": "objects/A_solid_perfectly_square_323_6",
+      "objects": [
+        {
+          "id": "580289d4-7b08-47ab-8830-fb94c0da458f",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "d36f4819-5f90-4902-8a3b-5b47ec7f6e1c",
+      "folder": "objects/A_solid_perfectly_square_323_7",
+      "objects": [
+        {
+          "id": "452c38d9-f634-41e3-9143-424664224154",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "6ad81d85-93af-4e21-b9c8-82bc8701ba3d",
+      "folder": "objects/A_solid_perfectly_square_323_8",
+      "objects": [
+        {
+          "id": "300bd962-eac2-4bc6-b6b4-80afed6ec788",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural dirt wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with dry, compacted earth in warm medium brown, muted reddish-brown, dusty umber and soft ochre tones. Irregular clumps of packed dirt, small crumbly fragments, tiny embedded grey pebbles, faint horizontal earth layers and occasional shallow cracks create a natural excavatable underground wall texture. Slightly rough and granular, with subtle variations in colour and density. Softer and more easily excavated than stone, but firmer and drier than wet soil or mud. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, clean dark outlines around major earth clumps and cracks, limited harmonious colour palette, subtle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge dirt wall texture. No transparency, no empty corners, no isolated dirt mounds, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T21:06:18.860255"
+}

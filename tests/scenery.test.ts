@@ -17,7 +17,7 @@ import {
 } from "../src/render/scenery";
 import { inspectPoint, objectDepth, actorDepth } from "../src/render/picking";
 import legacy from "../public/assets/prototype/manifest.json";
-it("resolves every terrain role and all 185 source alternatives without consuming simulation randomness", () => {
+it("resolves every terrain role and all 153 source alternatives without consuming simulation randomness", () => {
   const s = createGame("scenery-contract"),
     before = snapshotHash(s);
   const available = new Set([
@@ -34,8 +34,7 @@ it("resolves every terrain role and all 185 source alternatives without consumin
     const p = position(n % 64, Math.floor(n / 64)),
       seed = seedValue(s.seed);
     for (const material of [
-      "sand",
-      "mud",
+      "dirt",
       "loose",
       "hard",
       "bedrock",

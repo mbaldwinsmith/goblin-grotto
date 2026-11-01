@@ -7,21 +7,12 @@ export { stockpileFilters, stockpileFilterKinds } from "./content";
 export type { StockpileFilter } from "./content";
 import type { ActorId, ItemId, JobId, EventId, Position } from "../core/types";
 export const materials = {
-  sand: {
-    label: "Sand",
-    hardness: 12,
-    stability: 1,
-    moveTicks: 4,
-    color: 0x796e54,
-    drop: "stone",
-    diggable: true,
-  },
-  mud: {
-    label: "Mud",
+  dirt: {
+    label: "Dirt",
     hardness: 18,
     stability: 2,
     moveTicks: 6,
-    color: 0x4d5444,
+    color: 0x6f5740,
     drop: "stone",
     diggable: true,
   },
@@ -98,7 +89,11 @@ export interface Goblin {
   kind: keyof typeof goblinKinds;
   facing: Facing;
   nextMoveAt: number;
-  workAction: { kind: "mine" | "chop"; startedAt: number; hit: boolean } | null;
+  workAction: {
+    kind: "mine" | "chop" | "gather";
+    startedAt: number;
+    hit: boolean;
+  } | null;
   drop: { item: ItemId; startedAt: number; store: boolean } | null;
   position: Position;
   hunger: number;
@@ -142,7 +137,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 9;
+  version: 10;
   weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;

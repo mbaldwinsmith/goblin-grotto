@@ -185,7 +185,7 @@ it("finishes a muddy detour instead of turning back to the cheaper occupied corr
   for (let x = 27; x <= 30; x++) {
     const t = tileAt(s, position(x, 29))!;
     t.solid = false;
-    t.material = "mud";
+    t.material = "dirt";
   }
   invalidateNavigation(s);
   for (let tick = 1; tick <= 80; tick++) {

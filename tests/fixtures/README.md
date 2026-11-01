@@ -7,7 +7,7 @@ The compressed JSON keeps an actual version-1 colony with active construction,
 including all tile knowledge, task reservations, RNG state, items and identities.
 
 The migration test compares every original field after removing only the new
-fields introduced by schemas 2–9; the browser test imports it and finishes construction. Compression
+fields introduced by schemas 2–10 and normalizing legacy sand/mud to dirt; the browser test imports it and finishes construction. Compression
 keeps the full 64×64 fixture small without replacing it with a synthetic partial save.
 
 
@@ -51,3 +51,12 @@ including the held stack, worker reservation and drop wind-up.
 Seed: `v8-mining`. Set (32,29,0) to solid bedrock; designate Dig there, then advance
 10 ticks. Schema 9 adds null work actions without changing job progress, items or
 identities; the active mine resumes under the new simulation strike cadence.
+
+
+`v9-soft-earth.json.gz` was captured at commit
+`9b1dda482fbd23bfba7cd27636e95014e17e4836` (prototype.14). Seed: `v9-soft-earth`.
+Move the first goblin to (31,29), set that floor to mud and (32,29) to solid sand
+with collapseAt 1000, designate Dig and advance five ticks. Schema 10 changes
+only legacy sand/mud materials to dirt and the version, preserving the active
+mine, tool wind-up, hazards, discovery, IDs, items and RNG. Old fixture bytes
+remain unchanged; expected snapshots normalize only the documented terrain change.

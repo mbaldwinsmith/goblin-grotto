@@ -34,7 +34,11 @@ export function adjacentWork(j: Job, s?: GameState): boolean {
     j.kind === "dig" ||
     j.kind === "craft" ||
     (j.kind === "build" && j.structure === "wall") ||
-    (j.kind === "harvest" && !!s && tileAt(s, j.target)?.deposit === "wood")
+    (j.kind === "harvest" &&
+      !!s &&
+      (tileAt(s, j.target)?.deposit === "wood" ||
+        tileAt(s, j.target)?.deposit === "food" ||
+        tileAt(s, j.target)?.structure === "farm"))
   );
 }
 function stored(s: GameState, r: Resource): number {

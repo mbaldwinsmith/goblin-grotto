@@ -5,14 +5,7 @@ it("every floor, wall component, goblin and plant is an independent 32x32 PNG", 
   const ids = new Set(manifest.assets.map((asset) => asset.id));
   expect(ids.size).toBe(manifest.assets.length);
   expect(manifest.tileSize).toBe(32);
-  for (const material of [
-    "sand",
-    "mud",
-    "loose",
-    "hard",
-    "bedrock",
-    "impenetrable",
-  ])
+  for (const material of ["dirt", "loose", "hard", "bedrock", "impenetrable"])
     for (const part of ["floor", "wall-top", "wall-side"])
       expect(ids.has(`${part}-${material}`)).toBe(true);
   for (const name of ["nib", "moss", "grub", "pip"])

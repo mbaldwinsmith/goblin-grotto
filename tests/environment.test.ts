@@ -1,3 +1,4 @@
+import { legacyTerrain } from "./legacy-terrain";
 import { expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
@@ -137,7 +138,7 @@ it("migrates an actual v2 colony without adding hazards or losing work, then pre
       readFileSync("tests/fixtures/v2-active-colony.json.gz"),
     ).toString(),
     s = decodeSave(text);
-  expect(s.version).toBe(9);
+  expect(s.version).toBe(10);
   expect(s.weather).toEqual({ kind: "clear", changedAt: 0 });
   expect(s.tiles.every((t) => t.collapseAt === null)).toBe(true);
   expect(s.jobs.some((j) => j.status === "active")).toBe(true);
@@ -151,7 +152,7 @@ it("migrates an actual v2 colony without adding hazards or losing work, then pre
         g,
     ),
     tiles: s.tiles.map(({ collapseAt, stockpileFilter, ...t }) => t),
-  }).toEqual(JSON.parse(text));
+  }).toEqual(legacyTerrain(JSON.parse(text)));
   s.weather = { kind: "rain", changedAt: 0 };
   const p = weakCeiling(s);
   warnOnExcavation(s, p);

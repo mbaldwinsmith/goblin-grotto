@@ -23,14 +23,12 @@ function variant(family: string, key: number): string {
   return frames[key % frames.length].id;
 }
 const floorFamilies: Partial<Record<Tile["material"], string>> = {
-  sand: "sandOverlay",
   loose: "roughstone",
   hard: "smoothstone",
   bedrock: "bedrock",
 } as const;
 const wallFamilies: Partial<Record<Tile["material"], string>> = {
-  sand: "sand",
-  mud: "mud",
+  dirt: "dirt",
   loose: "roughstone",
   hard: "smoothstone",
   bedrock: "bedrock",
@@ -65,7 +63,7 @@ export function tileScenery(seed: number, t: Tile, p: Position) {
     ? variant(`walls/${sideFamily}`, key)
     : `wall-side-${material}`;
   const top =
-    material === "mud" || material === "impenetrable"
+    material === "dirt" || material === "impenetrable"
       ? `wall-top-${material}`
       : t.structure === "wall"
         ? variant("floors/dwarvenstone", key)

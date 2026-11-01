@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.14`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.15`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -145,15 +145,17 @@ top and a separate exposed front face. Zoom
 magnifies the scene with nearest-neighbour sampling.
 
 The live goblins use your supplied base, hauling, pick and axe packs in four cardinal
-directions: breathing at rest, walking, mining, chopping trees, carrying a bag and putting it down.
+directions: breathing at rest, walking, mining, chopping trees, picking mushrooms, carrying a bag and putting it down.
 The body stays at native 32-pixel scale; padded 40×40/44×44/48×48 canvases keep
 their original pixels and align by their feet. Pause freezes every clip.
 Haulers take a moment to put supplies down at a stockpile; an interrupted haul
 leaves its item recoverable. Saves retain a delivery in progress, and schema-1
-through schema-8 saves migrate without regenerating the map or adding pending falls.
+through schema-9 saves migrate without regenerating the map or adding pending falls.
 
-Use **Dig** on exposed rock or **Gather** on trees: workers choose the tool automatically,
-face the target and apply work when the strike lands. Tree cutters stand beside the tree.
+Use **Dig** on exposed rock or **Gather** on trees and wild mushrooms: workers choose the tool automatically,
+face the target and apply work when the strike lands. Gatherers stand beside their target.
+Wild mushrooms and automatically harvested farm plots use the base attack motion
+as a picking animation; each completed harvest creates one food stack.
 Harder rock takes more strikes. Cancelling a wind-up grants no work; save/load preserves
 the swing. The pack has no pick walk, so miners approach with the base walk. The missing
 east and west axe idle cycles use the supplied static poses.
@@ -161,8 +163,8 @@ east and west axe idle cycles use the supplied static poses.
 See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
 
 See the [individual art preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/art-preview.html).
-The legacy 29-file set is listed in `public/assets/prototype/manifest.json` and
-reproduced with `node tools/generate-pixel-art.mjs`. Import the supplied base with `python tools/import-goblin.py`. Mining animation and atlas work remain later tasks. Goblins now take free detours, make
+The 26-file reference set is listed in `public/assets/prototype/manifest.json` and
+reproduced with `node tools/generate-pixel-art.mjs`. Import the supplied base with `python tools/import-goblin.py`. The packed atlas remains open. Goblins now take free detours, make
 room for one another and pass in narrow tunnels without sharing a logical tile.
 Older stacked colonies are separated onto nearby known floor when imported.
 
@@ -179,7 +181,7 @@ bounded and focused on what goblins can experience.
 
 ## Development
 
-Mud and loose ground slow movement; the terrain inspector shows movement, digging
+Dirt and loose ground slow movement; the terrain inspector shows movement, digging
 and support properties. Weak excavations may need supports before a warned cave-in.
 
 Strict TypeScript + Vite, PixiJS WebGL with a fixed three-quarter JRPG view, semantic HTML/CSS, a pure 10 Hz simulation,
@@ -214,7 +216,7 @@ the live goblin base was supplied by the owner and retains its source archive; n
 
 The owner-supplied terrain, item and foliage exports are extracted into their
 existing `public/assets/` family folders. See the
-[inventory and naming convention](public/assets/README.md) for all 185 PNGs,
+[inventory and naming convention](public/assets/README.md) for all 153 PNGs,
 source metadata and reproduction/check commands. The game now selects these
 textures for terrain, resource piles, mushrooms, undergrowth and trees. Variants
 stay consistent across redraws and save/load without consuming simulation RNG.
@@ -222,5 +224,10 @@ Lanterncap farm plots use two variants per growth stage: young 01/04 (0–199),
 growing 03/05 (200–599), and mature 02/06 (600, ready to harvest).
 
 See the [scenery gallery](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/scenery-preview.html)
-for every original PNG and the tree anchor square. Grass, mud floors, the blocked
+for every original PNG and the tree anchor square. Grass, dirt floors/tops, the blocked
 map boundary and bed-kit markers keep their existing reference art.
+
+Sand has been removed. The five terrain materials are dirt, loose rock, hard stone,
+bedrock and impenetrable stone. Eight new native dirt-wall sprites replace the
+previous walls. New saves use schema 10; versions 1–9 migrate legacy sand and mud
+to dirt while keeping the existing map, objects, RNG, hazards and work progress.

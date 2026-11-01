@@ -27,8 +27,8 @@ sampling; no per-sprite stretching, smoothing, atlas trimming or automatic cropp
 
 ## Files and reproduction
 
-`public/assets/prototype/manifest.json` lists 29 individual sprites and their native
-dimensions. Six terrain families each have a floor, wall-top and wall-side image;
+`public/assets/prototype/manifest.json` lists 26 individual sprites and their native
+dimensions. Five terrain families each have a floor, wall-top and wall-side image;
 grass, four legacy placeholder goblins and six plant images complete the set. The
 live game loads the supplied base instead of those four placeholder textures.
 
@@ -60,15 +60,17 @@ loaded. Do not mirror a cardinal clip to invent another direction.
 
 Base/hauling ZIPs are pinned to owner commit `37ad2ad`; pick ZIP to `890b554` and latest axe ZIP to `8c96e74`.
 The importer reads unchanged copies in `public/assets/goblin/archive/` and copies
-327 original PNGs. The manifest records archive/member hashes, dimensions, foot
+359 original PNGs. The manifest records archive/member hashes, dimensions, foot
 anchors, per-direction frame counts and curated contact frames. Base west walking
 uses `west-6b9bf452`; other takes stay archived.
 
 Idle and walking frames last two 10 Hz simulation ticks. Sleeping uses a static
 pose; carrying selects loaded sprites. Normal delivery releases on frame 5 and
 finishes on tick 18; interrupted delivery frees cargo immediately (ADR 0005).
-Pick Mining and Axe Attack are curated for mining and tree chopping, per the
-owner's instruction; this adds no combat. Tool frames remain in source order but
+Pick Mining, Axe Attack and Base Attack are curated for mining, tree chopping
+and mushroom gathering, per the owner’s instruction; this adds no combat.
+Gathering uses eight frames per direction, with contact on source frame 4.
+Wild and automatically harvested farm mushrooms share the saved action timeline. Tool frames remain in source order but
 are sampled across an 18-tick cycle so their directional contact aligns with tick
 10. The north chop has nine frames; other swings have eight. Each impact applies
 18 work once, independent of renderer calls (ADR 0008). Missing east/west axe idle cycles
@@ -83,16 +85,17 @@ into 32×32, trim its canvas, move its foot anchor independently or stretch it.
 Feet use (width/2, (height−32)/2+30), with nearest sampling at scale 1. Sprite
 selection and depth use displayed positions.
 
-`/goblin-preview.html` shows all 40 directional clips at 3× with pause and frame controls.
+`/goblin-preview.html` shows all 44 directional clips at 3× with pause and frame controls.
 See [cardinal gallery](screenshots/cardinal-animations.png),
 [mining/chopping](screenshots/mining-chopping.png), [hauling](screenshots/hauling.png) and [drop](screenshots/drop.png).
 
 
 ## Prepared terrain, item and foliage source sprites
 
-The owner’s 21 exports from commit `81b42da` are extracted alongside their ZIPs
+The active 19 owner exports from `81b42da` and the replacement dirt batch from
+`04ed6d9` are extracted alongside their ZIPs
 under `public/assets/floors/`, `walls/`, `items/` and `foliage/`. This prepares
-185 source PNGs with documented names and provenance, now used by the runtime. See the [inventory and naming convention](../public/assets/README.md)
+153 source PNGs with documented names and provenance, now used by the runtime. See the [inventory and naming convention](../public/assets/README.md)
 and [source catalog](../public/assets/sprite-catalog.json).
 
 Use lowercase kebab-case filenames with a two-digit, one-based variant suffix:
@@ -101,7 +104,7 @@ Use lowercase kebab-case filenames with a two-digit, one-based variant suffix:
 family directories. Numbers represent source alternatives, not animation frames,
 rotation, growth or quantity. Runtime stage/role mappings are explicit below.
 
-All 176 non-tree images retain 32×32 canvases; all nine tree source images retain
+All 144 non-tree images retain 32×32 canvases; all nine tree source images retain
 96×96 canvases. The larger tree canvases preserve the 32px tile grid and body scale. Their
 bottom-middle 32×32 square is the logical root tile. Preserve all original PNG bytes, alpha and padding;
 never automatically resize or crop these sources to fit the prototype renderer.
@@ -113,6 +116,17 @@ refer to its ZIP, while the catalog provides the extracted file paths. Original
 ZIPs remain in place. Creative rights follow ASSETS-LICENSE.md.
 
 
+## PixelLab MCP workflow
+
+Use the official [MCP documentation](https://api.pixellab.ai/mcp/docs) when generating
+new art. Load the configured MCP server before generation. Jobs return IDs; queue
+related animation jobs and inspect their status before importing completed art.
+Use explicit native dimensions and low top-down references for this JRPG view.
+Character APIs differ: request four directions on a supported path; v3 needs a
+south-facing reference to respect that count. Check returned directions, padding
+and anchors before accepting an export. Map objects support transparent canvases;
+32px terrain and 96px trees must still satisfy our local anchor rules.
+
 ## Runtime roles and references
 
 The fixed three-quarter JRPG view keeps horizontal surfaces square. Exposed wall
@@ -122,15 +136,15 @@ pixel clusters. Avoid adding a black border around repeating floor tiles.
 
 | Logical material / role | Floor or top | Exposed face |
 | --- | --- | --- |
-| Sand | `floors/sandOverlay/floor-sand-overlay-*` | `walls/sand/wall-sand-*` |
+| Dirt | Reference `floor-dirt` / `wall-top-dirt` | `walls/dirt/wall-dirt-*` (eight new variants) |
 | Loose rock | `floors/roughstone/floor-rough-stone-*` | `walls/roughstone/wall-rough-stone-*` |
 | Hard stone | `floors/smoothstone/floor-smooth-stone-*` | `walls/smoothstone/wall-smooth-stone-*` |
 | Bedrock | `floors/bedrock/floor-bedrock-*` | `walls/bedrock/wall-bedrock-*` |
 | Ruin / built wall top | `floors/dwarvenstone/floor-dwarven-stone-*` | Built walls use smooth-stone faces |
-| Mud / grass / impenetrable boundary | Existing prototype references where no corresponding export exists | Mud uses supplied mud faces; boundary keeps its reference |
+| Grass / impenetrable boundary | Existing prototype references where no corresponding export exists | Boundary keeps its reference |
 
 The runtime resolves role IDs from `src/render/scenery.ts`; all originals remain
-separate textures. The 185-entry catalog resolves files and native dimensions.
+separate textures. The 153-entry catalog resolves files and native dimensions.
 Replacing a curated asset keeps its semantic role/ID stable and requires updating
 its source catalog/hash intentionally. A packed atlas is still GG-023.
 
@@ -192,7 +206,7 @@ or represented by a goblin's put-down animation, avoiding duplicate cargo art.
   interpolation of pixels, smoothing or per-sprite stretching.
 - Goblin directions are south/east/north/west. Idle/walk/drop timing and curated
   tool contacts are simulation-tick driven as documented in ADRs 0005 and 0008.
-- Run `python tools/extract-scenery.py --check` to verify all 185 originals and
+- Run `python tools/extract-scenery.py --check` to verify all 153 originals and
   catalog entries; the goblin hash tests verify animation sources separately.
 - Run `npm test` for role resolution, every source alternative, stage pairs,
   deterministic selection, root alignment, depth/picking and save continuation.
@@ -203,7 +217,7 @@ or represented by a goblin's put-down animation, avoiding duplicate cargo art.
   silently substitute a different material or consume simulation randomness.
 
 
-Supplied terrain PNGs have transparent gaps, especially the sparse sand overlays.
+Supplied terrain PNGs have transparent gaps.
 Native reference tiles provide solid backing beneath ground, tops and faces,
 preserving source alpha and a continuous surface. Wall reveal hides these
 backings while fading the supplied face/top.
