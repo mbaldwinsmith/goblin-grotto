@@ -56,7 +56,8 @@ gems have their own total. Distant, unseen landmarks do not appear in the inspec
 
 Gold outlines show excavation; teal outlines show other planned work. Select a
 tile to inspect its progress or failure reason. Hungry and tired goblins interrupt
-work to look after themselves. The sidebar tracks food and energy.
+work to look after themselves. The sidebar tracks food and energy. The **Crafts** resource counter currently
+tracks stored bed kits.
 
 ### Sort your supplies
 
