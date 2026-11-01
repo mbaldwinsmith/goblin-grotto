@@ -1,3 +1,6 @@
+import { movementTicks } from "../sim/navigation";
+import { GoblinAnimator, type GoblinPose } from "./goblin-animation";
+import { loadGoblinArt, goblinFrames } from "./goblin-art";
 import {
   Application,
   Container,
@@ -45,7 +48,11 @@ export class Scene {
   private itemSprites = new Map<string, Graphics>();
   private mapSize = { width: 64, height: 64 };
   private art: Record<string, Texture> = {};
-  private sprites: Sprite[] = [];
+  readonly goblinSprites = new Map<ActorId, Sprite>();
+  private animator = new GoblinAnimator();
+  private poses = new Map<ActorId, GoblinPose>();
+  private renderPositions = new Map<ActorId, Position>();
+  private world: GameState | null = null;
   selectedActor: ActorId | null = null;
   hoverActor: ActorId | null = null;
   reveal = false;
@@ -67,8 +74,11 @@ export class Scene {
       resolution: devicePixelRatio || 1,
       autoDensity: true,
     });
-    this.art = await loadArt();
+    const [terrain, goblins] = await Promise.all([loadArt(), loadGoblinArt()]);
+    this.art = { ...terrain, ...goblins };
     host.append(this.app.canvas);
+    // Dev-only scene inspection avoids re-importing and re-running the app in browser tests.
+    if (import.meta.env.DEV) Reflect.set(this.app.canvas, "grottoScene", this);
     this.app.canvas.setAttribute(
       "aria-label",
       "Grotto map. Use the tile coordinates and tools for keyboard actions.",
@@ -103,7 +113,31 @@ export class Scene {
     this.details.addChild(side, top, plant, props);
     return { floor, top, side, plant, props, signature: "" };
   }
-  draw(s: GameState): void {
+  draw(s: GameState, alpha = 0): void {
+    if (this.world !== s) {
+      this.world = s;
+      this.animator.clear();
+      this.poses.clear();
+      this.renderPositions.clear();
+    }
+    for (const g of s.goblins) {
+      const job = s.jobs.find((job) => job.id === g.job),
+        lookAt =
+          job?.kind === "haul" && !g.carrying
+            ? s.items.find((item) => item.id === job.item)?.position
+            : job?.target;
+      const pose = this.animator.sample(
+        g.id,
+        g.position,
+        s.tick,
+        alpha,
+        movementTicks(s, g.position),
+        lookAt,
+        g.facing,
+      );
+      this.poses.set(g.id, pose);
+      this.renderPositions.set(g.id, pose.position);
+    }
     this.mapSize = { width: s.width, height: s.height };
     boundCamera(this.camera, this.mapSize);
     this.root.position.set(
@@ -124,6 +158,9 @@ export class Scene {
     for (const item of this.itemSprites.values()) item.visible = false;
     const selectedGoblin = s.goblins.find((g) => g.id === this.selectedActor);
     if (selectedGoblin) this.selected = { ...selectedGoblin.position };
+    const selectedFeet = selectedGoblin
+      ? this.renderPositions.get(selectedGoblin.id)
+      : undefined;
     for (let y = 0; y < s.height; y++)
       for (let x = 0; x < s.width; x++) {
         const p = position(x, y),
@@ -139,10 +176,10 @@ export class Scene {
         const wall = t.solid || t.structure === "wall",
           door = t.structure === "door";
         const occludes =
-          selectedGoblin &&
-          Math.abs(selectedGoblin.position.x - x) <= 1 &&
-          y >= selectedGoblin.position.y &&
-          y <= selectedGoblin.position.y + 1;
+          selectedFeet &&
+          Math.abs(selectedFeet.x - x) <= 1 &&
+          y >= selectedFeet.y &&
+          y <= selectedFeet.y + 1;
         const opacity = (wall || door) && (this.reveal || occludes) ? 0.25 : 1;
         node.floor.visible = true;
         node.floor.texture = this.texture(
@@ -196,6 +233,31 @@ export class Scene {
           })
         )
           o.rect(a.x - 1, a.y + 15, 2, 2).fill(0x91ccb1);
+        if (t.collapseAt !== null) {
+          const urgent = t.collapseAt - s.tick < 100;
+          o.rect(a.x - 13, a.y + 3, 26, 26).stroke({
+            color: urgent ? 0xe19378 : 0xd9bd72,
+            width: 2,
+          });
+          o.moveTo(a.x - 9, a.y + 6)
+            .lineTo(a.x - 2, a.y + 14)
+            .lineTo(a.x - 7, a.y + 20)
+            .stroke({ color: 0xe5cc92, width: 1 });
+        }
+        if (t.outside && s.weather.kind !== "clear") {
+          const snow = s.weather.kind === "snow";
+          o.rect(a.x - HALF_TILE, a.y, TILE_SIZE, TILE_SIZE).fill({
+            color: snow ? 0xdbe4db : 0x779fac,
+            alpha: snow ? 0.12 : 0.05,
+          });
+          for (let i = 0; i < 2; i++)
+            o.rect(
+              a.x - 10 + i * 17,
+              a.y + ((s.tick + i * 11) % 29),
+              snow ? 2 : 1,
+              snow ? 2 : 4,
+            ).fill({ color: snow ? 0xe3e9dd : 0x91b9c7, alpha: 0.6 });
+        }
         const signature = `${t.solid}:${t.stockpile}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
         if (node.signature !== signature) {
           node.signature = signature;
@@ -230,35 +292,33 @@ export class Scene {
           0xe1b66a,
         );
     }
-    s.goblins.forEach((g, i) => {
-      let sprite = this.sprites[i];
+    for (const g of s.goblins) {
+      const pose = this.poses.get(g.id)!,
+        frame = goblinFrames.get(pose.textureId)!;
+      let sprite = this.goblinSprites.get(g.id);
       if (!sprite) {
-        sprite = new Sprite(
-          this.texture(
-            ["goblin-nib", "goblin-moss", "goblin-grub", "goblin-pip"][i % 4],
-          ),
-        );
-        sprite.anchor.set(0.5, 1);
+        sprite = new Sprite();
         this.details.addChild(sprite);
-        this.sprites[i] = sprite;
+        this.goblinSprites.set(g.id, sprite);
       }
-      const a = project(g.position);
-      sprite.position.set(
-        a.x,
-        a.y + ACTOR_FEET + (g.job ? Math.floor(s.tick / 3) % 2 : 0),
-      );
-      sprite.zIndex = actorDepth(g.position);
+      sprite.texture = this.texture(`base-${pose.textureId}`);
+      sprite.label = pose.textureId;
+      sprite.anchor.set(0, 0);
+      const a = project(pose.position);
+      sprite.position.set(a.x - frame.footX, a.y + ACTOR_FEET - frame.footY);
+      sprite.zIndex = actorDepth(pose.position);
       sprite.alpha = g.activity === "Sleeping" ? 0.6 : 1;
-      if (
-        this.selected &&
-        g.position.x === this.selected.x &&
-        g.position.y === this.selected.y
-      )
+      if (this.selectedActor === g.id)
         o.ellipse(a.x, a.y + ACTOR_FEET, 12, 4).stroke({
           color: 0xe9d69e,
           width: 1,
         });
-    });
+    }
+    for (const [id, sprite] of this.goblinSprites)
+      if (!s.goblins.some((g) => g.id === id)) {
+        sprite.destroy();
+        this.goblinSprites.delete(id);
+      }
     for (const [id, item] of this.itemSprites)
       if (!item.visible) {
         item.destroy();
@@ -325,6 +385,13 @@ export class Scene {
       d.rect(a.x + 8, a.y + 19, 3, 9).fill(0x5c4b3e);
       d.rect(a.x - 4, a.y + 2, 8, 6).fill(0x667d84);
     }
+    if (t.structure === "support") {
+      d.rect(a.x - 13, a.y + 3, 4, 28).fill(0x9d7e53);
+      d.rect(a.x + 9, a.y + 3, 4, 28).fill(0x9d7e53);
+      d.rect(a.x - 15, a.y + 2, 30, 5).fill(0xc3a16c);
+      d.rect(a.x - 12, a.y + 28, 7, 3).fill(0x5c6b6d);
+      d.rect(a.x + 6, a.y + 28, 7, 3).fill(0x5c6b6d);
+    }
     if (t.structure === "door") {
       d.rect(a.x - 13, a.y, 26, 32).fill(0x8c7253);
       d.rect(a.x - 10, a.y + 2, 20, 28).fill(0x69543d);
@@ -364,6 +431,7 @@ export class Scene {
       (clientY - r.top - this.app.screen.height / 2 - this.camera.y) /
         this.camera.zoom,
       this.reveal,
+      this.renderPositions,
     );
   }
 }

@@ -1,3 +1,6 @@
+import { separateLegacyGoblins } from "./occupancy-migration";
+import { walkable, tileAt } from "../sim/model";
+import { facings } from "../core/facing";
 import { z } from "zod";
 import type { ActorId, ItemId, JobId, EventId } from "../core/types";
 import { resourceKinds, depositKinds, featureKinds } from "../sim/content";
@@ -21,9 +24,20 @@ const p = z.object({
   z: z.literal(0),
 });
 const resource = z.enum(resourceKinds);
-const structure = z.enum(["bed", "farm", "workshop", "door", "wall"]);
+const structure = z.enum([
+  "bed",
+  "farm",
+  "workshop",
+  "door",
+  "wall",
+  "support",
+]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(2),
+  version: z.literal(5),
+  weather: z.object({
+    kind: z.enum(["clear", "rain", "snow"]),
+    changedAt: natural,
+  }),
   seed: z.string().max(100),
   rng: natural.min(1).max(4294967295),
   tick: natural,
@@ -49,6 +63,7 @@ const schema: z.ZodType<GameState> = z.object({
         structure: structure.nullable(),
         stockpile: z.boolean(),
         growth: natural.max(600),
+        collapseAt: natural.nullable(),
       }),
     )
     .length(4096),
@@ -57,6 +72,9 @@ const schema: z.ZodType<GameState> = z.object({
       z.object({
         id: actor,
         name: z.string().max(40),
+        kind: z.literal("common"),
+        facing: z.enum(facings),
+        nextMoveAt: natural,
         position: p,
         hunger: z.number().min(0).max(100),
         fatigue: z.number().min(0).max(100),
@@ -112,6 +130,9 @@ export function decodeSave(text: string): GameState {
   if (text.length > 8_000_000)
     throw new Error("Save exceeds the 8 MB prototype limit.");
   let raw: unknown = JSON.parse(text);
+  const migrateOccupancy = z
+    .object({ version: z.number().int().min(1).max(4) })
+    .safeParse(raw).success;
   const legacy = z
     .object({
       version: z.literal(1),
@@ -125,12 +146,58 @@ export function decodeSave(text: string): GameState {
       version: 2,
       tiles: legacy.data.tiles.map((tile) => ({ ...tile, feature: null })),
     };
+  const previous = z
+    .object({
+      version: z.literal(2),
+      tiles: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (previous.success)
+    raw = {
+      ...previous.data,
+      version: 3,
+      weather: { kind: "clear", changedAt: 0 },
+      tiles: previous.data.tiles.map((tile) => ({ ...tile, collapseAt: null })),
+    };
+  const third = z
+    .object({
+      version: z.literal(3),
+      goblins: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (third.success)
+    raw = {
+      ...third.data,
+      version: 4,
+      goblins: third.data.goblins.map((g) => ({
+        ...g,
+        kind: "common",
+        facing: "south",
+      })),
+    };
+  const fourth = z
+    .object({
+      version: z.literal(4),
+      goblins: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (fourth.success)
+    raw = {
+      ...fourth.data,
+      version: 5,
+      goblins: fourth.data.goblins.map((g) => ({ ...g, nextMoveAt: 0 })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1 and 2.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4 and 5.",
     );
   const s = result.data;
+  if (s.weather.changedAt > s.tick)
+    throw new Error("Weather timestamp is in the future.");
   const all = [...s.goblins, ...s.items, ...s.jobs, ...s.events];
   const ids = all.map((e) => e.id);
   if (
@@ -138,7 +205,21 @@ export function decodeSave(text: string): GameState {
     all.some((e) => Number(e.id.split("-")[1]) >= s.nextId)
   )
     throw new Error("Save contains conflicting IDs.");
+  if (migrateOccupancy) {
+    if (s.goblins.some((g) => tileAt(s, g.position)?.solid))
+      throw new Error("Goblin inside stone.");
+    separateLegacyGoblins(s);
+  }
+  const occupied = new Set<number>();
   for (const g of s.goblins) {
+    const cell = g.position.y * s.width + g.position.x;
+    if (occupied.has(cell))
+      throw new Error("Two goblins occupy the same tile.");
+    occupied.add(cell);
+    if (!walkable(tileAt(s, g.position)))
+      throw new Error("Goblin inside blocked terrain.");
+    if (g.nextMoveAt > s.tick + 8)
+      throw new Error("Goblin movement timestamp is too far in the future.");
     if (s.tiles[g.position.y * 64 + g.position.x].solid)
       throw new Error("Goblin inside stone.");
     if (

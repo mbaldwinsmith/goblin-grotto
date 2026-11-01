@@ -1,0 +1,745 @@
+{
+  "bodySize": 32,
+  "frameDurationTicks": 2,
+  "directions": [
+    "south",
+    "south-east",
+    "east",
+    "north-east",
+    "north",
+    "north-west",
+    "west",
+    "south-west"
+  ],
+  "frames": [
+    {
+      "id": "idle-south",
+      "file": "idle/south.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/south.png",
+      "sha256": "b0bcd5db73e1ff1067588e2959e7cc0393b108d0bb6892e38b0f47ef21769ceb"
+    },
+    {
+      "id": "walk-south-000",
+      "file": "walk/south/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_000.png",
+      "sha256": "481a95c95c51bc9319af91af7077578797d739eb716b91c715e7f5ad62a133e4"
+    },
+    {
+      "id": "walk-south-001",
+      "file": "walk/south/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_001.png",
+      "sha256": "f22bd2f8e07e55d8fb61b55684b94b8228b7659f80b3654524bc37f496737e8b"
+    },
+    {
+      "id": "walk-south-002",
+      "file": "walk/south/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_002.png",
+      "sha256": "f83b579a5834015c37837451fe0e4bdef2f1d6d7cf0701ab019feea2a0f70fa8"
+    },
+    {
+      "id": "walk-south-003",
+      "file": "walk/south/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_003.png",
+      "sha256": "10fb5afabdecdbfef3ae834e863c0048b862a9c3312a8545f4e987e4f01c0a22"
+    },
+    {
+      "id": "walk-south-004",
+      "file": "walk/south/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_004.png",
+      "sha256": "082aca40091837c02384c49add2356116f5d2514d92a3be1aff8157363a9ff40"
+    },
+    {
+      "id": "walk-south-005",
+      "file": "walk/south/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_005.png",
+      "sha256": "237107d1dae5b64df1567cfa034ce33713b085755b18147cdfe5c234413a2567"
+    },
+    {
+      "id": "walk-south-006",
+      "file": "walk/south/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_006.png",
+      "sha256": "5839f0deaf6c18737f8e7459e33b27614c7f5d8482fd006e1238ae71bd375907"
+    },
+    {
+      "id": "walk-south-007",
+      "file": "walk/south/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/south/frame_007.png",
+      "sha256": "5bfd857b94c37e6c9a85981498c828d4792118ba5aee686a46f19b4367b4db1b"
+    },
+    {
+      "id": "idle-south-east",
+      "file": "idle/south-east.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/south-east.png",
+      "sha256": "6ef1818c7f62e768f0a7f3fcc9d008237db3bef0cadcbf3ce191dbb0fd5cd241"
+    },
+    {
+      "id": "walk-south-east-000",
+      "file": "walk/south-east/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_000.png",
+      "sha256": "16a326190084d8822617084240df6a549c7c42e9f32ea873ea568dd8ad955326"
+    },
+    {
+      "id": "walk-south-east-001",
+      "file": "walk/south-east/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_001.png",
+      "sha256": "25f20ebda4da254a218f7a9578bd2cb7023c1d93252c450346473293227b24fc"
+    },
+    {
+      "id": "walk-south-east-002",
+      "file": "walk/south-east/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_002.png",
+      "sha256": "df39695eebe9f8bb86346357040b3dddd73193b5f58220f1133dca89b44d63f2"
+    },
+    {
+      "id": "walk-south-east-003",
+      "file": "walk/south-east/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_003.png",
+      "sha256": "a94b5820c6c89e2adc5b69a500511598685f1ee136c63ed23c690578f784982e"
+    },
+    {
+      "id": "walk-south-east-004",
+      "file": "walk/south-east/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_004.png",
+      "sha256": "90bc227a6081dbd51fa820ca85e58bf61e55bc2462f2b6ca30edafe3d9918319"
+    },
+    {
+      "id": "walk-south-east-005",
+      "file": "walk/south-east/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_005.png",
+      "sha256": "7df5550ae9c05269da0e012078f739fec8fcb7d2261a337329a0a18b7a72a1cf"
+    },
+    {
+      "id": "walk-south-east-006",
+      "file": "walk/south-east/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_006.png",
+      "sha256": "a00be8d74b371c24cd9b483be54c81796de1c5e08d89dd55d0d2fbc713fd8ba0"
+    },
+    {
+      "id": "walk-south-east-007",
+      "file": "walk/south-east/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-east/frame_007.png",
+      "sha256": "d369987d08432a9483a116468c0b7448f4fd981dde9645ef6d7761ee14740993"
+    },
+    {
+      "id": "idle-east",
+      "file": "idle/east.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/east.png",
+      "sha256": "f5b553a2acfa94739f9d7d3294225053f8d78d63ac703709e0e14bed0d44188d"
+    },
+    {
+      "id": "walk-east-000",
+      "file": "walk/east/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_000.png",
+      "sha256": "6dd8b8a566c006bfff6dc5b5abbb73fa8a17da133d8781a0dae57bc393bb22e8"
+    },
+    {
+      "id": "walk-east-001",
+      "file": "walk/east/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_001.png",
+      "sha256": "fa9e84af099234b3d56cb075e2a6b2976c735cdfe9285389a8ca0bd15db5f74e"
+    },
+    {
+      "id": "walk-east-002",
+      "file": "walk/east/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_002.png",
+      "sha256": "ab98a52840819d4e4f2f6e81129758973149ea863fb8b3e314cf2c5dae32da2e"
+    },
+    {
+      "id": "walk-east-003",
+      "file": "walk/east/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_003.png",
+      "sha256": "b3938a23d183c2d5cea99b9539be7d2338f7b21f7043d3c2e0ebb7ae1e08a9f9"
+    },
+    {
+      "id": "walk-east-004",
+      "file": "walk/east/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_004.png",
+      "sha256": "889bd7c430d92478c16d6c699f00c85594e678958714f34c9738810767d9957f"
+    },
+    {
+      "id": "walk-east-005",
+      "file": "walk/east/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_005.png",
+      "sha256": "5ec4426d10600a8d303830f812ee62f4797e3497227f50e564379db6a8a2282f"
+    },
+    {
+      "id": "walk-east-006",
+      "file": "walk/east/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_006.png",
+      "sha256": "5746749db34b2d551049e3ca5995c4fb0a1ddcea2279963a133c42a76a6722f6"
+    },
+    {
+      "id": "walk-east-007",
+      "file": "walk/east/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/east/frame_007.png",
+      "sha256": "a79d3c56f038b731dca072fe8be11c2c54e18e3d02ea0c76d90f67d6a0b7f6a3"
+    },
+    {
+      "id": "idle-north-east",
+      "file": "idle/north-east.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/north-east.png",
+      "sha256": "2896e74a6328642c1c8b7dddb5e05ca81974d10178248de528bd82f2a537d1d4"
+    },
+    {
+      "id": "walk-north-east-000",
+      "file": "walk/north-east/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_000.png",
+      "sha256": "551875bbf8ec92087c49777cd192d3955105e940f1de8d1207392716ee4313ec"
+    },
+    {
+      "id": "walk-north-east-001",
+      "file": "walk/north-east/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_001.png",
+      "sha256": "5c30516f271dc3a607bfe83ce27d47e013fd96a702b14c2d129a75dfb8383aad"
+    },
+    {
+      "id": "walk-north-east-002",
+      "file": "walk/north-east/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_002.png",
+      "sha256": "5b618dfd1c3b07e9332d637ff7cff14553d543737c8be7fae5a7178d62f3dcc2"
+    },
+    {
+      "id": "walk-north-east-003",
+      "file": "walk/north-east/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_003.png",
+      "sha256": "4ac6440a6a24b0d926851d71c32ae31c9ea141f14948fb027082509ad49d56e1"
+    },
+    {
+      "id": "walk-north-east-004",
+      "file": "walk/north-east/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_004.png",
+      "sha256": "ee648ea18b17c1a56314aec3674f6d7598b3db838a4bed60540d8461f30b956d"
+    },
+    {
+      "id": "walk-north-east-005",
+      "file": "walk/north-east/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_005.png",
+      "sha256": "f40ee98b722c548f963d5d0eda9054dfac9ee6875b36130f8cc77f4365cecd18"
+    },
+    {
+      "id": "walk-north-east-006",
+      "file": "walk/north-east/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_006.png",
+      "sha256": "c6b6b7ed5cafcc119a0878ff96af28947a9e9f10b90710cbe2fc97fa565ca903"
+    },
+    {
+      "id": "walk-north-east-007",
+      "file": "walk/north-east/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-east/frame_007.png",
+      "sha256": "f8d7efcf13760d3e87de54e101bf3ee4bcdb74537bde103d865a6db9344dbf4b"
+    },
+    {
+      "id": "idle-north",
+      "file": "idle/north.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/north.png",
+      "sha256": "00871ebb7b02b151af8c6beca3416021ff98add0216dcfb9a6089908171741a1"
+    },
+    {
+      "id": "walk-north-000",
+      "file": "walk/north/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_000.png",
+      "sha256": "118cd73833f258a36bdb67bffd3e905f1cd7428c31d160b50bc2e84e4e69255b"
+    },
+    {
+      "id": "walk-north-001",
+      "file": "walk/north/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_001.png",
+      "sha256": "d96112128034eab97efb00af90fc03831d835a0c1c0f605c6e4f3329e6b78eef"
+    },
+    {
+      "id": "walk-north-002",
+      "file": "walk/north/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_002.png",
+      "sha256": "7ecc0644d76f7bc4e3de3b532bbe3a1cda18a6645b36a1032df4e4a7101db61f"
+    },
+    {
+      "id": "walk-north-003",
+      "file": "walk/north/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_003.png",
+      "sha256": "07f03bcb6cd7b41a4b8f3cd320f20bcfb83191389b0db7b4b10dfefc479c366f"
+    },
+    {
+      "id": "walk-north-004",
+      "file": "walk/north/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_004.png",
+      "sha256": "8bb2572956369005a40bf4cfae5cea5e7e2cdb0ffe56d6decef97448d04f8bb0"
+    },
+    {
+      "id": "walk-north-005",
+      "file": "walk/north/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_005.png",
+      "sha256": "87efb23ab3779f86a919be03c3ec99caff241e2280734c79ed1cd3444219a221"
+    },
+    {
+      "id": "walk-north-006",
+      "file": "walk/north/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_006.png",
+      "sha256": "69c39bd0a28770c048c14a1ae197c5083168251ffc582f91ce5e4de6162d2441"
+    },
+    {
+      "id": "walk-north-007",
+      "file": "walk/north/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "source": "Base/animations/Walking/north/frame_007.png",
+      "sha256": "a2f27ef689171d92d8995027c3f92570dcce843cd7c24715ac808c07a83326f2"
+    },
+    {
+      "id": "idle-north-west",
+      "file": "idle/north-west.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/north-west.png",
+      "sha256": "0f4becbc1a2e718a3e47b8f5f9f9f5d0c365d357a11024cbf346f6a07b9679a4"
+    },
+    {
+      "id": "walk-north-west-000",
+      "file": "walk/north-west/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_000.png",
+      "sha256": "49e245bb9b999a41e727391e23f87c9ca2a419e7a807904b8044d691158e1d5f"
+    },
+    {
+      "id": "walk-north-west-001",
+      "file": "walk/north-west/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_001.png",
+      "sha256": "00ec4dbb533a2d5afd804aeaa76cf4db4d47acc5f98c353ecba2e606613311dd"
+    },
+    {
+      "id": "walk-north-west-002",
+      "file": "walk/north-west/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_002.png",
+      "sha256": "2e506ed234fc8e3c55de4939f0a309fe0366892b1780dc96baefd9eeaab29569"
+    },
+    {
+      "id": "walk-north-west-003",
+      "file": "walk/north-west/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_003.png",
+      "sha256": "ad0fd5a9399fa0ab8d0b1e59fec00424c09c9fde17cc6bd232c880eef8df399b"
+    },
+    {
+      "id": "walk-north-west-004",
+      "file": "walk/north-west/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_004.png",
+      "sha256": "17bdc06d13ad1dff36f1b570052ce3fd1a8e79718d639a1045bcfacd2204076d"
+    },
+    {
+      "id": "walk-north-west-005",
+      "file": "walk/north-west/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_005.png",
+      "sha256": "30d417c8627a45552ccc56d0ce925ad50ba679687b85129d2bc05815ab7c6695"
+    },
+    {
+      "id": "walk-north-west-006",
+      "file": "walk/north-west/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_006.png",
+      "sha256": "8db304c3fc1a86e7d6e24f4880dbc2691bf8b18c7864872a15b0d2d293618df6"
+    },
+    {
+      "id": "walk-north-west-007",
+      "file": "walk/north-west/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/north-west/frame_007.png",
+      "sha256": "fda563b55e5ac601b403141cb01837292980aca4251ceefce89d0278e2ab7265"
+    },
+    {
+      "id": "idle-west",
+      "file": "idle/west.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/west.png",
+      "sha256": "9c03ffb6e40139499359ca7d30e2dde98c93cafddf921c6463b8f1f90f007529"
+    },
+    {
+      "id": "walk-west-000",
+      "file": "walk/west/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_000.png",
+      "sha256": "20390c21eba0a3a94a3c2db19fdbdd37ec2c466031ba1195f0a8e052c076d17e"
+    },
+    {
+      "id": "walk-west-001",
+      "file": "walk/west/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_001.png",
+      "sha256": "ff416896cdabf1a46971ca442d588541297c4d5b99be72a5b8a0bf97103f44d7"
+    },
+    {
+      "id": "walk-west-002",
+      "file": "walk/west/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_002.png",
+      "sha256": "b98bdec5d8d6cfae3dc2f30331a217960d5e50e2bcf7c688366f88728a1a807e"
+    },
+    {
+      "id": "walk-west-003",
+      "file": "walk/west/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_003.png",
+      "sha256": "8f2b7f6dda451b0475940dde40efa721e83d2a4006b0f7f3216ac8b868b439d3"
+    },
+    {
+      "id": "walk-west-004",
+      "file": "walk/west/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_004.png",
+      "sha256": "5712c8f3f2b7006d12130a1b07493366097daf6e3b64e92f00b0a3217860ebf2"
+    },
+    {
+      "id": "walk-west-005",
+      "file": "walk/west/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_005.png",
+      "sha256": "9902b7202a40e1d7f6b86d309c9127fd4dfc061b84ecb13b0e61aa61d2f76559"
+    },
+    {
+      "id": "walk-west-006",
+      "file": "walk/west/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_006.png",
+      "sha256": "c3bbcb3e094e7f64b6478467f757c6e3f7067379cd979a35e3c484a67edc88aa"
+    },
+    {
+      "id": "walk-west-007",
+      "file": "walk/west/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/west-6b9bf452/frame_007.png",
+      "sha256": "70d00857a37ee126af2dee694905df21c884293dad7a14b21f168855d9e425b5"
+    },
+    {
+      "id": "idle-south-west",
+      "file": "idle/south-west.png",
+      "width": 32,
+      "height": 32,
+      "footX": 16,
+      "footY": 30,
+      "source": "Base/rotations/south-west.png",
+      "sha256": "05c114e1ce9315df17f77676781319382a1c4e066d5be0d5d06f3454a616ed9c"
+    },
+    {
+      "id": "walk-south-west-000",
+      "file": "walk/south-west/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_000.png",
+      "sha256": "689bf5c86181b1253b0ef6eed80b5aaad6e49a78cd688f3792f648049e644711"
+    },
+    {
+      "id": "walk-south-west-001",
+      "file": "walk/south-west/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_001.png",
+      "sha256": "0e539fe9ba08944c4266ddee59a5677e5c6662af2e70574cbd56b616e547e0f9"
+    },
+    {
+      "id": "walk-south-west-002",
+      "file": "walk/south-west/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_002.png",
+      "sha256": "220ae2981dbae777ec20f9415fe232246062bcd77a2ab725ca184ef859e92ed9"
+    },
+    {
+      "id": "walk-south-west-003",
+      "file": "walk/south-west/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_003.png",
+      "sha256": "8584eb1ba622578022b6c7b908c5165ff4fa6ee2b684ccaa762db05ff8b978b5"
+    },
+    {
+      "id": "walk-south-west-004",
+      "file": "walk/south-west/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_004.png",
+      "sha256": "ec74ca9883e3f5110e42ba93b224eea560c4f39dda223482240573b966063f0e"
+    },
+    {
+      "id": "walk-south-west-005",
+      "file": "walk/south-west/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_005.png",
+      "sha256": "23f60fc902e308aa99b895c70bf35df1baf3f607ee5f5939ab789d7205430cec"
+    },
+    {
+      "id": "walk-south-west-006",
+      "file": "walk/south-west/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_006.png",
+      "sha256": "1802699c0deec148391aa55a1a9eaaa1eaeb3d3713c9edc28d2e465472391696"
+    },
+    {
+      "id": "walk-south-west-007",
+      "file": "walk/south-west/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "source": "Base/animations/Walking/south-west/frame_007.png",
+      "sha256": "5b3a5fd57578630a2f6ea579c01a05b77677a4a7c2ae74e188dc433a8a40c6d9"
+    }
+  ],
+  "provenance": {
+    "source": "Owner-supplied Goblin-Base.zip",
+    "archiveFile": "archive/Goblin-Base-5473394.zip",
+    "commit": "54733942f321de07ad064e1cd03688507760b39e",
+    "archiveSha256": "ab6aeaa072e6d5bfc242f0c87de19d7671c04d8914f3912d4d893001598d3d5b",
+    "view": "low top-down",
+    "westVariant": "west-6b9bf452",
+    "note": "Original frames copied byte-for-byte. Alternate west take retained in the ZIP. Creative assets follow ASSETS-LICENSE.md."
+  }
+}

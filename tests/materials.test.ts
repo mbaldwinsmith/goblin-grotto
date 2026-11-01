@@ -22,15 +22,24 @@ it("autonomous workers take longer to cross mud than hard stone", () => {
     const s = createGame("movement");
     s.goblins = s.goblins.slice(0, 1);
     s.goblins[0].position = position(30, 30);
-    tileAt(s, position(31, 30))!.material = material;
-    const target = tileAt(s, position(33, 30))!;
-    target.solid = true;
-    target.discovered = true;
+    for (const t of s.tiles) {
+      t.solid = true;
+      t.feature = null;
+      t.structure = null;
+      t.discovered = true;
+    }
+    for (let x = 30; x <= 32; x++) {
+      const t = tileAt(s, position(x, 30))!;
+      t.solid = false;
+      t.material = material;
+    }
     dispatch(s, { type: "designate", tool: "dig", position: position(33, 30) });
-    for (let i = 0; i < ticks - 1; i++) step(s);
-    expect(s.goblins[0].position).toEqual(position(30, 30));
     step(s);
     expect(s.goblins[0].position).toEqual(position(31, 30));
+    for (let i = 0; i < ticks - 1; i++) step(s);
+    expect(s.goblins[0].position).toEqual(position(31, 30));
+    step(s);
+    expect(s.goblins[0].position).toEqual(position(32, 30));
   }
 });
 it("mining duration and rubble drops use terrain properties", () => {

@@ -1,3 +1,10 @@
+import { advance, makeRoom } from "./movement";
+import { facingFor } from "../core/facing";
+import { updateWeather } from "./climate";
+import { warnOnExcavation, updateStability } from "./stability";
+import { emit } from "./events";
+export { emit } from "./events";
+import { invalidateNavigation } from "./navigation";
 import type { Position, Result } from "../core/types";
 import {
   type Command,
@@ -5,7 +12,6 @@ import {
   type Goblin,
   type Job,
   type Resource,
-  type StoryEvent,
   costs,
   deposits,
   features,
@@ -31,17 +37,6 @@ function discover(s: GameState, p: Position): void {
     );
 }
 export { createGame } from "./world";
-export function emit(
-  s: GameState,
-  kind: StoryEvent["kind"],
-  text: string,
-  actor: StoryEvent["actor"] = null,
-): void {
-  if (actor && !s.goblins.some((g) => g.id === actor))
-    throw new Error("Unknown event actor");
-  s.events.push({ id: `event-${s.nextId++}`, tick: s.tick, kind, text, actor });
-  if (s.events.length > 80) s.events.shift();
-}
 export function dispatch(s: GameState, c: Command): Result {
   const p = c.position;
   if (!Number.isInteger(p.x) || !Number.isInteger(p.y) || p.z !== 0)
@@ -54,9 +49,12 @@ export function dispatch(s: GameState, c: Command): Result {
     if (!g) return { ok: false, reason: "Unknown goblin." };
     const route = path(s, g.position, p);
     if (!route) return { ok: false, reason: "No walkable route." };
+    if (route.length && s.tick < g.nextMoveAt)
+      return { ok: false, reason: "Goblin is still taking a step." };
     release(s, g);
-    if (route.length) g.position = route[0];
-    g.activity = "Following your guidance";
+    const result = advance(s, g, p);
+    g.activity =
+      result === "waiting" ? "Waiting for passage" : "Following your guidance";
     return { ok: true };
   }
   if (c.tool === "cancel") {
@@ -100,6 +98,11 @@ export function dispatch(s: GameState, c: Command): Result {
     };
   if (c.tool === "build" && (!buildable(t) || !c.structure))
     return { ok: false, reason: "Choose empty floor and a structure." };
+  if (c.tool === "build" && t.collapseAt !== null && c.structure !== "support")
+    return {
+      ok: false,
+      reason: "Shore up the loose ceiling with a support first.",
+    };
   if (
     c.tool === "harvest" &&
     (t.solid || !t.deposit || deposits[t.deposit].action !== "gather")
@@ -209,15 +212,20 @@ function release(s: GameState, g: Goblin): void {
   g.job = null;
 }
 function move(s: GameState, g: Goblin, p: Position, adjacent = false): boolean {
-  const route = path(s, g.position, p, adjacent);
-  if (!route) return false;
-  if (
-    route.length &&
-    s.tick % materials[tileAt(s, route[0])!.material].moveTicks === 0
-  )
-    g.position = route[0];
-  return route.length === 0;
+  const result = advance(s, g, p, adjacent);
+  if (result === "blocked") {
+    const job = s.jobs.find((job) => job.id === g.job);
+    if (job) job.reason = "Route blocked; waiting for a clear path";
+    release(s, g);
+    g.activity = "Route blocked: waiting for a clear path";
+  } else if (result === "waiting") {
+    g.activity = "Waiting for passage";
+  } else if (result === "moved" && g.activity === "Waiting for passage") {
+    g.activity = "Walking to work";
+  }
+  return result === "arrived";
 }
+
 function nearest(
   s: GameState,
   g: Goblin,
@@ -371,10 +379,26 @@ function work(s: GameState, g: Goblin, j: Job): void {
     }
     return;
   }
-  const adjacent = j.kind === "dig" || j.kind === "craft";
+  const adjacent =
+    j.kind === "dig" ||
+    j.kind === "craft" ||
+    (j.kind === "build" && j.structure === "wall");
   if (!move(s, g, j.target, adjacent)) {
-    g.activity = `Walking to ${j.kind}`;
+    if (g.job && g.activity !== "Waiting for passage")
+      g.activity = `Walking to ${j.kind}`;
     return;
+  }
+  if (
+    j.kind === "build" &&
+    j.structure === "wall" &&
+    s.goblins.some((o) => same(o.position, j.target))
+  ) {
+    const occupant = s.goblins.find((o) => same(o.position, j.target))!;
+    if (!makeRoom(s, occupant, [j.target], g.name)) {
+      j.reason = "Waiting for the wall site to be clear";
+      g.activity = "Waiting for the wall site to be clear";
+      return;
+    }
   }
   if (j.kind === "build" && !j.paid) {
     j.paidWithKit = j.structure === "bed" && consume(s, { bedkit: 1 });
@@ -403,6 +427,11 @@ function work(s: GameState, g: Goblin, j: Job): void {
           : j.kind === "explore"
             ? "Scouting the passage"
             : "Gathering supplies";
+  g.facing = facingFor(
+    j.target.x - g.position.x,
+    j.target.y - g.position.y,
+    g.facing,
+  );
   j.progress++;
   g.worked++;
   const required =
@@ -416,6 +445,7 @@ function work(s: GameState, g: Goblin, j: Job): void {
   if (j.progress < required) return;
   if (j.kind === "dig") {
     t.solid = false;
+    invalidateNavigation(s);
     const drop = t.deposit ? deposits[t.deposit] : null;
     addItem(
       s,
@@ -425,9 +455,11 @@ function work(s: GameState, g: Goblin, j: Job): void {
     );
     t.deposit = null;
     discover(s, g.position);
+    warnOnExcavation(s, j.target);
   }
   if (j.kind === "build") {
     t.structure = j.structure;
+    invalidateNavigation(s);
     t.growth = 0;
   }
   if (j.kind === "harvest") {
@@ -454,11 +486,15 @@ function work(s: GameState, g: Goblin, j: Job): void {
 }
 export function step(s: GameState): void {
   s.tick++;
+  updateWeather(s);
+  updateStability(s);
   for (const t of s.tiles)
     if (t.structure === "farm") t.growth = Math.min(600, t.growth + 1);
   s.items = s.items.filter((i) => i.quantity > 0);
   if (s.tick % 10 === 0) autoJobs(s);
-  for (const g of s.goblins) {
+  const first = s.tick % s.goblins.length;
+  const workers = [...s.goblins.slice(first), ...s.goblins.slice(0, first)];
+  for (const g of workers) {
     if (needs(s, g)) continue;
     let j = s.jobs.find((j) => j.id === g.job && j.status === "active");
     if (!j) {
@@ -496,7 +532,9 @@ export function step(s: GameState): void {
             s,
             g.position,
             target,
-            candidate.kind === "dig" || candidate.kind === "craft",
+            candidate.kind === "dig" ||
+              candidate.kind === "craft" ||
+              (candidate.kind === "build" && candidate.structure === "wall"),
           ) !== null;
         candidate.reason = reachable
           ? "Nearest available work"

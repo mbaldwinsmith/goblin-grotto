@@ -1,3 +1,4 @@
+import { invalidateNavigation } from "./navigation";
 import type { Position } from "../core/types";
 import {
   features,
@@ -40,6 +41,7 @@ export function revealFrom(
   radius = 4,
 ): FeatureKind[] {
   const found: FeatureKind[] = [];
+  let changed = false;
   for (
     let y = Math.max(0, from.y - radius);
     y <= Math.min(s.height - 1, from.y + radius);
@@ -59,7 +61,9 @@ export function revealFrom(
       )
         continue;
       t.discovered = true;
+      changed = true;
       if (t.feature && features[t.feature].landmark) found.push(t.feature);
     }
+  if (changed) invalidateNavigation(s);
   return found;
 }

@@ -10,14 +10,14 @@
 **Repository:** New GitHub repository; this document is intended to be its planning source of truth  
 **Planning rule:** Check off a task only when its acceptance criteria are met and its commit is merged. Update this plan whenever scope or architecture changes.
 
-### Prototype implementation note — 0.1.0-prototype.5
+### Prototype implementation note — 0.1.0-prototype.9
 
 The first playable colony slice is implemented and verified. The current presentation uses the owner-requested fixed three-quarter JRPG view, with rectangular floors and raised front wall faces (GG-013/GG-015/GG-017); it supersedes the initial isometric choice. Checkmarks in
 this change identify criteria verified on this branch and become completion
 records when merged, as required above. No milestone release gate or tag is claimed.
 See `docs/PROTOTYPE.md` for evidence and remaining gaps. Iteration 3 verifies bounded camera controls, interleaved depth/reveal, entity selection, the semantic shell, safe tool states, drag excavation and the full terrain registry (GG-016, GG-018–021, GG-025, GG-041). Existing work tools remain enabled because this is already the playable colony stage; Guard and Possess stay disabled until their milestones. GG-011 remains open: hosted quality checks are green, but required merge protection has not been verified. M01–M04 were developed as
 a narrow vertical slice after the core; unchecked dependencies remain explicitly
-open rather than being waived. Iteration 4 verifies chamber archetypes, outdoor dressing, resource deposits, persistent discovery with scouting, and the 1,000-seed validation gate (GG-028–031/GG-033). Save schema 2 migrates schema-1 colonies without regenerating their maps. The owner-directed native art standard is now 32×32 for floors, separate wall tops and sides, goblins and all plants. The original 29-PNG reference set and manifest are implemented; GG-022/GG-023 stay open for production standards, directional animation and atlas completion. GG-054 has one tested bed-kit
+open rather than being waived. Iteration 4 verifies chamber archetypes, outdoor dressing, resource deposits, persistent discovery with scouting, and the 1,000-seed validation gate (GG-028–031/GG-033). Save schema 2 migrates schema-1 colonies without regenerating their maps. The owner-directed native art standard is now 32×32 for floors, separate wall tops and sides, goblins and all plants. The owner-supplied base in commit `5473394` is now integrated with eight directional poses, 64 native walk frames, tick-driven gait, foot-aligned padding and render interpolation. That integration was partial progress on GG-023/GG-037/GG-038/GG-047; iterations 8 and 9 below verify persistent actors and occupancy. The atlas and specialised mining/hauling animations remain open. The original 29-PNG reference set and manifest are implemented; GG-022/GG-023 stay open for production standards, directional animation and atlas completion. Iteration 7 adds warned excavation cave-ins and buildable supports, a visible seasonal calendar with outside-only weather effects, and cached cost-aware A* routes (GG-032/GG-034/GG-035). Save schema 3 migrates versions 1 and 2 without changing existing terrain or introducing pending collapses. Iteration 8 verifies persistent common-goblin kinds, simulation-owned facing and renderer-independent identity (GG-037); additional kinds remain GG-155. Iteration 9 verifies occupied-cell detours, cooperative passing and adjacent wall building (GG-038), including a regression for completing muddy detours around occupied cheaper routes. Save schema 5 preserves movement cooldowns and safely separates overlapping actors from older builds. Art work remains with the owner; GG-022/GG-023/GG-047 stay open. GG-054 has one tested bed-kit
 recipe; the broader starter furnishing/tool set remains open.
 
 ---
@@ -420,10 +420,10 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 - [x] **GG-029 — Generate compact outdoors.** Small hillside/forest strip accessible from entrance: trees, undergrowth, stones, traveller approach and boundary. **Done:** goblins can path from starting cavern to a surface forage location.
 - [x] **GG-030 — Add resource/deposit overlays.** Iron/copper/gold, gems, wood, edible fungi, forage and occasional ancient masonry. **Done:** deposits are inspectable without defining dozens of rock types.
 - [x] **GG-031 — Add fog of war / discovery.** Unknown chambers, discovered features and known terrain tracked per settlement. **Done:** player does not see unrevealed relics, but known paths remain visible.
-- [ ] **GG-032 — Add material strength/support rules.** Loose materials next to excavations may create a small, telegraphed cave-in; no particle-based physics. **Done:** supports/collapses are deterministic and avoid instant unfair colony wipe.
+- [x] **GG-032 — Add material strength/support rules.** Loose materials next to excavations may create a small, telegraphed cave-in; no particle-based physics. **Done:** supports/collapses are deterministic and avoid instant unfair colony wipe.
 - [x] **GG-033 — Build reachability and validation pass.** Connected spawn, legal buildable floor, food access, entrances, meaningful resource placement. **Done:** automated batch of 1,000 seeds meets invariants, reports failing seed.
-- [ ] **GG-034 — Add simple calendar/weather state.** Seasons and clear/rain/snow probabilities with outside-only modest effects. **Done:** repeatable weather transitions and visible indicator; no detailed atmosphere grid.
-- [ ] **GG-035 — Implement region-level pathfinding service.** A* or suitable grid search, obstacles, occupied-cell tolerance and cached paths on terrain changes. **Done:** navigation tests cover cave tunnel, exterior entrance and newly dug shortcut.
+- [x] **GG-034 — Add simple calendar/weather state.** Seasons and clear/rain/snow probabilities with outside-only modest effects. **Done:** repeatable weather transitions and visible indicator; no detailed atmosphere grid.
+- [x] **GG-035 — Implement region-level pathfinding service.** A* or suitable grid search, obstacles, occupied-cell tolerance and cached paths on terrain changes. **Done:** navigation tests cover cave tunnel, exterior entrance and newly dug shortcut.
 - [x] **GG-036 — Add new-world seed/config UI.** Choose seed, generate, restart and display seed for bug reporting. **Done:** same seed/config reproduces layout across reload.
 
 **Gate M02:** Multiple seeds give distinctive, accessible, believable caves and a modest outside world; no modern geological classifications appear in goblin-facing UI.
@@ -432,8 +432,8 @@ Adjust folder depth only when a real feature warrants it. Avoid empty placeholde
 
 **Goal:** Four individual goblins can be given useful work. **Depends on:** M02.
 
-- [ ] **GG-037 — Spawn four stable goblin entities.** Names, kinds, basic sprite directions, position and IDs. **Done:** they persist independently of selection/renderer.
-- [ ] **GG-038 — Implement walking and occupancy.** Path following, obstruction/replan, smooth interpolation and four-direction (or art-consistent) walk cycles. **Done:** no walking through sealed stone or stacking at the entrance indefinitely.
+- [x] **GG-037 — Spawn four stable goblin entities.** Names, kinds, basic sprite directions, position and IDs. **Done:** they persist independently of selection/renderer.
+- [x] **GG-038 — Implement walking and occupancy.** Path following, obstruction/replan, smooth interpolation and four-direction (or art-consistent) walk cycles. **Done:** no walking through sealed stone or stacking at the entrance indefinitely.
 - [x] **GG-039 — Define task/job data model.** Designation → open job → eligibility → reservation → progress → completion/cancellation. **Done:** tasks have status and failure reason in inspector.
 - [ ] **GG-040 — Implement task priorities and utility selection.** Proximity, suitability, urgency, needs and small seeded variation. **Done:** workers distribute rather than all pursuing one job; explain major choices.
 - [x] **GG-041 — Implement tile excavation.** Player paints dig designations, miners approach, progress by hardness and remove tile. **Done:** hard stone is slower, impenetrable stone rejects designation.

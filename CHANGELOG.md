@@ -6,6 +6,57 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.9 — make room in the passage
+
+#### Added
+
+- GG-038: goblins avoid occupied cells, detour where space permits and cooperate to pass through narrow entrances. Idle goblins make room; opposing workers exchange adjacent walkable cells without sharing a logical tile. Worker evaluation rotates fairly each tick.
+- Movement cooldowns persist in save schema 5 and use terrain/weather costs. Older saves migrate stacked goblins onto nearby free discovered floor, keeping IDs, jobs and carried objects intact. New overlapping or blocked actor placements fail validation.
+
+#### Fixed
+
+- Pinned imported-art provenance to the original `5473394` archive, preserving reproducibility when the owner updates the incoming base/hauling ZIPs. New source ZIPs are retained unchanged.
+- Prevented mixed-terrain detours from oscillating back toward an occupied corridor; movement checks occupants along the full remaining route. Includes a regression that failed before the fix.
+- Allowed the multi-leg scouting browser scenario enough time for hosted CI software rendering, where the simulation deliberately bounds catch-up. Gameplay assertions remain unchanged.
+- Wall builders work beside the wall and ask idle occupants to clear the site before construction, preventing a wall from enclosing its builder.
+- Carried item coordinates update with each movement or yielding step. Browser animation checks follow the actual walking goblin rather than assuming the first actor gets the job.
+
+### 0.1.0-prototype.8 — goblins keep their bearings
+
+#### Added
+
+- GG-037: four stable named goblins now carry an explicit common-goblin kind and simulation-owned facing. Selection and renderer resets preserve their identities; restored idle sprites face the saved direction.
+- Save schema 4 migrates versions 1–3 with the common kind and south-facing default, preserving all previous fields and active work. A real schema-3 fixture verifies compatibility.
+
+### 0.1.0-prototype.7 — shore up the grotto
+
+#### Added
+
+- GG-032: newly excavated weak ceilings can warn for 30 game seconds before a small cave-in. Build a Support (one wood, one stone) within two tiles to prevent it. Falls avoid occupied tiles and preserve colony/food access; blocked rubble can be excavated again.
+- GG-034: five-day seasons, seeded clear/rain/snow transitions, a calendar/weather indicator and outdoor precipitation. Rain and snow modestly slow outdoor movement; caves stay sheltered.
+- GG-035: deterministic cost-aware A* routes with a bounded cache, invalidated by terrain, discovery, ceiling warnings and weather changes. Tests cover tunnels, the outdoor entrance, occupied cells and newly dug shortcuts.
+
+#### Changed
+
+- Save schema 3 persists weather and ceiling warnings. Actual schema-1/schema-2 colony fixtures migrate without losing their maps, identities or active work.
+
+#### Fixed
+
+- A newly blocked route releases its worker and any carried item with a readable reason, allowing other work to proceed (partial GG-045; its wider criteria remain open).
+
+### 0.1.0-prototype.6 — the owner's goblins come to life
+
+#### Added
+
+- Imported the owner-supplied base from commit `5473394`: eight directional idle poses and 64 canonical walk frames, copied unchanged with per-frame hashes and foot anchors. The original ZIP/GIFs and alternate west take are preserved.
+- Directional walking and idle presentation, smooth position interpolation, work-facing and matching sidebar portraits. Animation uses fixed simulation ticks (two ticks per frame), respects pause and speed, and resets presentation history on load.
+- `/goblin-preview.html` shows the supplied directional poses and walk previews. The old prototype goblin images remain available as legacy references.
+
+#### Changed
+
+- Retained the 40×40/44×44 transparent walk canvases at scale 1, aligning them to the same feet as the 32×32 idle body. No source resizing, cropping or mirroring.
+- Picking and foreground fading use the displayed, interpolated position. Save schema 2 and authoritative simulation rules are unchanged. GG-023/GG-037/GG-038/GG-047 remain open for their broader atlas, kind, occupancy and task-animation criteria.
+
 ### 0.1.0-prototype.5 — separate 32×32 tiles and sprites
 
 #### Changed
