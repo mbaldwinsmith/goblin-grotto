@@ -90,6 +90,7 @@ it("opposing active haulers pass a one-cell tunnel and keep carried items attach
     const job = {
       id: `job-${s.nextId++}` as const,
       kind: "haul" as const,
+      priority: 2 as const,
       target: position(x, 30),
       item: item.id,
       structure: null,

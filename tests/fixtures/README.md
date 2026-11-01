@@ -7,7 +7,7 @@ The compressed JSON keeps an actual version-1 colony with active construction,
 including all tile knowledge, task reservations, RNG state, items and identities.
 
 The migration test compares every original field after removing only the new
-fields introduced by schemas 2–6; the browser test imports it and finishes construction. Compression
+fields introduced by schemas 2–7; the browser test imports it and finishes construction. Compression
 keeps the full 64×64 fixture small without replacing it with a synthetic partial save.
 
 
@@ -21,7 +21,7 @@ by later schemas. Existing maps acquire no pending collapses.
 `v3-active-colony.json.gz` was produced at commit
 `69202550fb512cef96af2724e226e1d4b9f361a0` (prototype.7). Seed: `v3-active-colony`.
 Build a farm at (30,29,0), then advance 15 ticks. Migration strips only the new
-kind/facing/movement/drop fields for an exact comparison with the original schema-3 snapshot.
+kind/facing/movement/drop/preference fields for an exact comparison with the original schema-3 snapshot.
 
 
 `v5-active-haul.json.gz` was produced at commit
@@ -30,3 +30,10 @@ Add a loose stack of three stone at (28,29,0), then advance until its first pick
 Set the carrying worker's valid legacy facing to north-east. Schema-6 migration
 preserves all fields except the documented cardinal facing conversion and new
 nullable drop state; the resumed worker completes its delivery.
+
+
+`v6-drop-windup.json.gz` was produced at commit
+`e31105bd5f0a59b3c151bf8ad7e329932f3d5462` (prototype.10). Seed: `v6-windup`.
+Add three loose stone at (28,29,0), advance until a delivery starts, then four more
+ticks. Schema-7 migration adds only Normal task priorities and null work preferences;
+the snapshot comparison preserves its held item, reservation and drop timeline.

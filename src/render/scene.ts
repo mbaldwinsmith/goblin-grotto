@@ -297,9 +297,18 @@ export class Scene {
     )) {
       const a = project(j.target);
       o.rect(a.x - 14, a.y + 2, 28, 28).stroke({
-        color: j.kind === "dig" ? 0xe1b66a : 0x7dc8be,
+        color:
+          j.priority === 3
+            ? 0xf1c36b
+            : j.priority === 1
+              ? 0x899caa
+              : j.kind === "dig"
+                ? 0xe1b66a
+                : 0x7dc8be,
         width: 1,
       });
+      for (let dot = 0; dot < j.priority; dot++)
+        o.circle(a.x - 9 + dot * 4, a.y + 6, 1).fill(0xe9d69e);
       if (j.progress)
         o.rect(a.x - 10, a.y + 29, Math.min(20, j.progress / 3), 2).fill(
           0xe1b66a,

@@ -103,17 +103,23 @@ export interface Goblin {
   carrying: ItemId | null;
   activity: string;
   worked: number;
+  preferredWork: JobKind | null;
 }
-export type JobKind =
-  | "dig"
-  | "haul"
-  | "build"
-  | "harvest"
-  | "craft"
-  | "explore";
+export const jobKinds = [
+  "dig",
+  "haul",
+  "build",
+  "harvest",
+  "craft",
+  "explore",
+] as const;
+export type JobKind = (typeof jobKinds)[number];
+export const jobPriorities = [1, 2, 3] as const;
+export type JobPriority = (typeof jobPriorities)[number];
 export interface Job {
   id: JobId;
   kind: JobKind;
+  priority: JobPriority;
   target: Position;
   structure: Structure | null;
   item: ItemId | null;
@@ -132,7 +138,7 @@ export interface StoryEvent {
   actor: ActorId | null;
 }
 export interface GameState {
-  version: 6;
+  version: 7;
   weather: { kind: "clear" | "rain" | "snow"; changedAt: number };
   seed: string;
   rng: number;
@@ -152,8 +158,11 @@ export type Command =
       tool: JobKind | "stockpile" | "cancel";
       position: Position;
       structure?: Structure;
+      priority?: JobPriority;
     }
-  | { type: "order"; actor: ActorId; position: Position };
+  | { type: "order"; actor: ActorId; position: Position }
+  | { type: "prioritize"; position: Position; priority: JobPriority }
+  | { type: "preference"; actor: ActorId; work: JobKind | null };
 export function tileAt(s: GameState, p: Position): Tile | undefined {
   return p.x >= 0 && p.y >= 0 && p.x < s.width && p.y < s.height
     ? s.tiles[p.y * s.width + p.x]

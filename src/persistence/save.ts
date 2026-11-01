@@ -9,6 +9,7 @@ import { facings } from "../core/facing";
 import { z } from "zod";
 import type { ActorId, ItemId, JobId, EventId } from "../core/types";
 import { resourceKinds, depositKinds, featureKinds } from "../sim/content";
+import { jobKinds } from "../sim/model";
 import type { GameState } from "../sim/model";
 const actor = z.custom<ActorId>(
   (v) => typeof v === "string" && /^goblin-\d+$/.test(v),
@@ -38,7 +39,7 @@ const structure = z.enum([
   "support",
 ]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(6),
+  version: z.literal(7),
   weather: z.object({
     kind: z.enum(["clear", "rain", "snow"]),
     changedAt: natural,
@@ -90,6 +91,7 @@ const schema: z.ZodType<GameState> = z.object({
         carrying: itemId.nullable(),
         activity: z.string().max(200),
         worked: natural,
+        preferredWork: z.enum(jobKinds).nullable(),
       }),
     )
     .length(4),
@@ -114,6 +116,7 @@ const schema: z.ZodType<GameState> = z.object({
         structure: structure.nullable(),
         item: itemId.nullable(),
         worker: actor.nullable(),
+        priority: z.union([z.literal(1), z.literal(2), z.literal(3)]),
         progress: natural,
         status: z.enum(["open", "active", "done", "cancelled"]),
         reason: z.string().max(200),
@@ -238,10 +241,25 @@ export function decodeSave(text: string): GameState {
         };
       }),
     };
+  const sixth = z
+    .object({
+      version: z.literal(6),
+      goblins: z.array(z.record(z.string(), z.unknown())),
+      jobs: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (sixth.success)
+    raw = {
+      ...sixth.data,
+      version: 7,
+      goblins: sixth.data.goblins.map((g) => ({ ...g, preferredWork: null })),
+      jobs: sixth.data.jobs.map((j) => ({ ...j, priority: 2 })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5 and 6.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5, 6 and 7.",
     );
   const s = result.data;
   if (s.weather.changedAt > s.tick)

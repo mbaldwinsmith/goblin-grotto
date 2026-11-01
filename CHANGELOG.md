@@ -6,6 +6,20 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.11 — a little order in the grotto
+
+#### Added
+
+- GG-040: Low/Normal/High work priorities, optional per-goblin preferred work, and global matching of free workers to eligible jobs. Decisions consider route cost, preference, tiredness, food shortages, ceiling supports, work already started and a small seeded tie-break.
+- New work priority controls beside the tools, editable priority on planned tiles, and a Preferred work selector with choice reasons in the goblin inspector. One/two/three designation dots show priority. Active jobs continue until completion or an existing interruption; preferences guide the next choice.
+- Save schema 7 preserves priorities/preferences. Versions 1–6 migrate to Normal priority and Any work, retaining existing work and in-progress drops; includes a real schema-6 wind-up fixture.
+
+#### Fixed
+
+- Construction eligibility checks stored, unheld resources and bed kits, so unavailable high-priority builds do not consume workers who can haul or do other useful work. Missing supplies and blocked routes retain readable reasons.
+- Settings report “updated” separately from a completed manual save; browser checks wait for the completed IndexedDB save before reloading.
+- Keyboard shortcuts leave select controls alone, so changing priorities/preferences does not pan the camera or change game speed.
+
 ### 0.1.0-prototype.10 — four directions, a bag of shinies
 
 #### Added

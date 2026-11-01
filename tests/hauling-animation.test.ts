@@ -33,6 +33,7 @@ function carrying() {
   const job = {
     id: `job-${s.nextId++}` as const,
     kind: "haul" as const,
+    priority: 2 as const,
     target: { ...g.position },
     item: item.id,
     structure: null,
@@ -164,14 +165,15 @@ it("migrates an actual schema-5 active haul and maps diagonal facing to a cardin
   ).toString();
   const old = JSON.parse(text),
     s = decodeSave(text);
-  expect(s.version).toBe(6);
+  expect(s.version).toBe(7);
   const worker = s.goblins.find((g) => g.carrying)!;
   expect(worker.facing).toBe("north");
   expect(worker.drop).toBeNull();
   expect({
     ...s,
     version: 5,
-    goblins: s.goblins.map(({ drop, ...g }) => ({
+    jobs: s.jobs.map(({ priority, ...job }) => job),
+    goblins: s.goblins.map(({ drop, preferredWork, ...g }) => ({
       ...g,
       facing: old.goblins.find((o: { id: string }) => o.id === g.id).facing,
     })),

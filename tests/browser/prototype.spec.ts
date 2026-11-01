@@ -18,7 +18,9 @@ test("playable colony, input, persistence, import validation, screenshot", async
   });
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.locator("#notice")).toContainText("saved");
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
   await page.reload();
   await expect(page.locator("canvas")).toBeVisible();
   await page.getByRole("button", { name: "Load", exact: true }).click();
@@ -47,7 +49,9 @@ test("playable colony, input, persistence, import validation, screenshot", async
   await page.locator("canvas").focus();
   await page.keyboard.press("Home");
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.locator("#notice")).toContainText("saved");
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
   await page.screenshot({
     path: "docs/screenshots/prototype.png",
     fullPage: true,
@@ -406,7 +410,9 @@ test("loose ceilings can be shored up, and weather/supports survive save-load", 
   await expect(page.locator("#events")).toContainText("shored up");
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.locator("#notice")).toContainText("saved");
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
   await page.reload();
   await expect(page.locator("canvas")).toBeVisible();
   await page.getByRole("button", { name: "Load", exact: true }).click();
@@ -451,7 +457,9 @@ test("goblin identity and facing survive import, selection and reload", async ({
   });
   expect(texture).toBe("idle-west-000");
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.locator("#notice")).toContainText("saved");
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
   await page.reload();
   await expect(page.locator("canvas")).toBeVisible();
   await page.getByRole("button", { name: "Load", exact: true }).click();
@@ -522,7 +530,9 @@ test("four scouts pass through a narrow entrance without stacking", async ({
     .toBe(4);
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.locator("#notice")).toContainText("saved");
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
   await page
     .getByRole("button", { name: "Reveal walls", exact: false })
     .click();
@@ -566,6 +576,7 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
   const job = {
     id: `job-${s.nextId++}` as const,
     kind: "haul" as const,
+    priority: 2 as const,
     target,
     item: item.id,
     structure: null,
@@ -639,7 +650,9 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
   expect(windup.holder).toBe(g.id);
   expect(windup.stored).toBe(false);
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.locator("#notice")).toContainText("saved");
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
   await page.reload();
   await expect(page.locator("canvas")).toBeVisible();
   await page.getByRole("button", { name: "Load", exact: true }).click();
@@ -693,4 +706,103 @@ test("cardinal animation gallery decodes every clip and allows frame-by-frame re
     path: "docs/screenshots/cardinal-animations.png",
     fullPage: true,
   });
+});
+
+test("work priority, worker preferences and choice reasons survive save/load", async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  const { createGame } = await import("../../src/sim/game");
+  const s = createGame("work-choices");
+  for (let y = 27; y <= 33; y++)
+    for (let x = 27; x <= 38; x++) {
+      const t = s.tiles[y * 64 + x];
+      t.solid = false;
+      t.feature = null;
+      t.material = "hard";
+    }
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "work.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await page.locator(".goblin").first().click();
+  await page
+    .getByLabel("Preferred work", { exact: true })
+    .selectOption("build");
+  await expect(page.locator("#notice")).toContainText("Preference updated");
+  const camera = () =>
+    page
+      .locator("canvas")
+      .evaluate((canvas) => ({ ...Reflect.get(canvas, "grottoScene").camera }));
+  const before = await camera();
+  await page.getByLabel("New work priority", { exact: true }).focus();
+  await page.keyboard.press("ArrowDown");
+  expect(await camera()).toEqual(before);
+  await page.getByLabel("New work priority", { exact: true }).selectOption("3");
+  await page.getByRole("button", { name: "Bed", exact: false }).click();
+  const coords = async (x: number, y: number) => {
+    await page.locator("#tile-x").fill(String(x));
+    await page.locator("#tile-y").fill(String(y));
+    await page.getByRole("button", { name: "Apply tool" }).click();
+  };
+  await coords(35, 29);
+  await expect(page.getByLabel("Work priority", { exact: true })).toHaveValue(
+    "3",
+  );
+  await page.getByLabel("New work priority", { exact: true }).selectOption("2");
+  await coords(36, 29);
+  await page
+    .getByRole("button", { name: "Inspect", exact: false })
+    .first()
+    .click();
+  await page.locator(".goblin").first().click();
+  await page.getByRole("button", { name: "1×", exact: true }).click();
+  await expect(page.locator("#choice-reason")).toContainText("High priority");
+  await expect(page.locator("#choice-reason")).toContainText("preferred work");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const read = () =>
+    page.locator("canvas").evaluate((canvas) => {
+      const state = Reflect.get(canvas, "grottoScene").world;
+      return {
+        worker: state.jobs.find(
+          (j: { target: { x: number } }) => j.target.x === 35,
+        )?.worker,
+        goblin: state.goblins[0].id,
+        job: state.goblins[0].job,
+      };
+    });
+  const chosen = await read();
+  expect(chosen.worker).toBe(chosen.goblin);
+  await page.screenshot({
+    path: "docs/screenshots/work-choices.png",
+    fullPage: true,
+  });
+  await page
+    .getByLabel("Preferred work", { exact: true })
+    .selectOption("harvest");
+  expect(await read()).toEqual(chosen);
+  await coords(36, 29);
+  await page.getByLabel("Work priority", { exact: true }).selectOption("1");
+  await expect(page.locator("#inspection")).toContainText("Low");
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator(".goblin").first().click();
+  await expect(page.getByLabel("Preferred work", { exact: true })).toHaveValue(
+    "harvest",
+  );
+  await coords(36, 29);
+  await expect(page.getByLabel("Work priority", { exact: true })).toHaveValue(
+    "1",
+  );
 });

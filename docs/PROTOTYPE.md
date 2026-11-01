@@ -1,4 +1,4 @@
-# 0.1.0-prototype.10 — verification and handoff
+# 0.1.0-prototype.11 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 58 headless tests in fourteen files. Includes 1,000 seeded starts;
+- `npm test`: 67 headless tests in fifteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: thirteen Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: fourteen Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -49,7 +49,7 @@ and the production atlas remain open.
 
 GG-032/GG-034/GG-035 are verified on this branch: warned cave-ins/supports, seasonal weather and cached A* navigation. Completion records await merge.
 
-GG-040/044–050/053: richer utility/priorities,
+GG-044–050/053:
 stockpile filters, full interruption/direct-order/animation/debug criteria,
 safety needs, explicit bed reservations and complete structures/refund acceptance.
 The current buildings, hunger/rest and work tools are usable partial slices.
@@ -59,7 +59,7 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-New saves are schema 6; schema-1 through schema-5 saves migrate in place with their existing map,
+New saves are schema 7; schema-1 through schema-6 saves migrate in place with their existing map,
 knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
@@ -152,7 +152,7 @@ Schema 5 stores movement cooldowns. Versions 1–4 keep IDs and work; legacy act
 sharing a tile or standing on a wall move to nearby free discovered floor, with
 held items following their holder. New invalid overlaps are rejected. This is
 local cooperation for four workers; large population performance is GG-187.
-Full task priorities, direct orders, needs and bed reservations remain open.
+At that stage task priorities were still pending; iteration 11 below implements GG-040. Direct orders, full needs and bed reservations remain open.
 
 
 Merge verification: hosted Quality run 41324610105 passed all headless/build
@@ -190,3 +190,24 @@ clips and selects drop frame 5. Screenshots: [hauling](screenshots/hauling.png),
 [drop](screenshots/drop.png), [cardinal gallery](screenshots/cardinal-animations.png).
 Mining animation is still pending: GG-047 remains open. No attack art is repurposed
 as mining. Raw owner ZIPs remain unchanged and imports use version-pinned copies.
+
+
+## Iteration 11 verification
+
+GG-040 introduces three player priority tiers and optional preferred work. A global
+pool of eligible free-worker/job pairs chooses by priority, then route cost,
+preference, fatigue, food/support urgency, progress already made and a bounded
+seeded tie-break. Each worker and job is claimed once; active jobs are retained.
+Stored resources, known routes and physical item availability gate eligibility.
+The goblin inspector records why a job was chosen; planned tiles explain blockers.
+
+Nine new headless tests cover High before Normal, closest-worker assignment,
+four-worker distribution, preference as encouragement, food/support urgency,
+fatigue, urgent needs, missing stored resources, unreachable work, RNG independence
+of pure inspection, reproducible variation, invalid requests, migration and exact
+continuation. A real schema-6 wind-up fixture retains its original fields while
+adding Normal priorities and Any work. The browser edits both controls, checks
+choice reasons/worker identity, verifies active work stays reserved, uses a select
+without panning and restores priorities/preferences after save/reload.
+See [work choices](screenshots/work-choices.png) and ADR 0006. GG-048's full debug
+view, GG-044's stockpile filters and broader labour policies remain open.

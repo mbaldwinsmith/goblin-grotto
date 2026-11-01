@@ -1,3 +1,4 @@
+import { assignWork, adjacentWork, priorityLabels, workLabels } from "./labour";
 import { beginDrop, interruptDrop, updateDrop } from "./hauling";
 import { advance, makeRoom } from "./movement";
 import { facingFor } from "../core/facing";
@@ -14,6 +15,8 @@ import {
   type Job,
   type Resource,
   costs,
+  jobKinds,
+  jobPriorities,
   deposits,
   features,
   buildable,
@@ -39,12 +42,47 @@ function discover(s: GameState, p: Position): void {
 }
 export { createGame } from "./world";
 export function dispatch(s: GameState, c: Command): Result {
+  if (c.type === "preference") {
+    const actor = s.goblins.find((g) => g.id === c.actor);
+    if (!actor || (c.work !== null && !jobKinds.includes(c.work)))
+      return {
+        ok: false,
+        reason: "Choose a known goblin and work preference.",
+      };
+    actor.preferredWork = c.work;
+    emit(
+      s,
+      "command",
+      `${actor.name} will favour ${c.work ? workLabels[c.work].toLowerCase() : "any available work"} when choosing the next job.`,
+      actor.id,
+    );
+    return { ok: true };
+  }
   const p = c.position;
   if (!Number.isInteger(p.x) || !Number.isInteger(p.y) || p.z !== 0)
     return { ok: false, reason: "Choose a tile on this level." };
   const t = tileAt(s, p);
   if (!t?.discovered)
     return { ok: false, reason: "That place has not been discovered." };
+  if (c.type === "prioritize") {
+    if (!jobPriorities.includes(c.priority))
+      return { ok: false, reason: "Choose Low, Normal or High priority." };
+    const jobs = s.jobs.filter(
+      (j) => same(j.target, p) && ["open", "active"].includes(j.status),
+    );
+    if (!jobs.length)
+      return { ok: false, reason: "There is no pending work on this tile." };
+    for (const job of jobs) {
+      job.priority = c.priority;
+      job.reason = `${priorityLabels[c.priority]} priority · ${job.worker ? "worker is finishing this job" : "waiting for a free goblin"}`;
+    }
+    emit(
+      s,
+      "command",
+      `Work at ${p.x}, ${p.y} is now ${priorityLabels[c.priority].toLowerCase()} priority.`,
+    );
+    return { ok: true };
+  }
   if (c.type === "order") {
     const g = s.goblins.find((g) => g.id === c.actor);
     if (!g) return { ok: false, reason: "Unknown goblin." };
@@ -58,6 +96,8 @@ export function dispatch(s: GameState, c: Command): Result {
       result === "waiting" ? "Waiting for passage" : "Following your guidance";
     return { ok: true };
   }
+  if (c.priority !== undefined && !jobPriorities.includes(c.priority))
+    return { ok: false, reason: "Choose Low, Normal or High priority." };
   if (c.tool === "cancel") {
     for (const j of s.jobs.filter(
       (j) => same(j.target, p) && ["open", "active"].includes(j.status),
@@ -124,6 +164,7 @@ export function dispatch(s: GameState, c: Command): Result {
   s.jobs.push({
     id: `job-${s.nextId++}`,
     kind: c.tool,
+    priority: c.priority ?? 2,
     target: { ...p },
     structure: c.structure ?? null,
     item: null,
@@ -312,6 +353,7 @@ function autoJobs(s: GameState): void {
         s.jobs.push({
           id: `job-${s.nextId++}`,
           kind: "haul",
+          priority: 2,
           target,
           item: item.id,
           structure: null,
@@ -335,6 +377,7 @@ function autoJobs(s: GameState): void {
       s.jobs.push({
         id: `job-${s.nextId++}`,
         kind: "harvest",
+        priority: 2,
         target: p,
         item: null,
         structure: null,
@@ -371,10 +414,7 @@ function work(s: GameState, g: Goblin, j: Job): void {
     }
     return;
   }
-  const adjacent =
-    j.kind === "dig" ||
-    j.kind === "craft" ||
-    (j.kind === "build" && j.structure === "wall");
+  const adjacent = adjacentWork(j);
   if (!move(s, g, j.target, adjacent)) {
     if (g.job && g.activity !== "Waiting for passage")
       g.activity = `Walking to ${j.kind}`;
@@ -486,65 +526,32 @@ export function step(s: GameState): void {
   if (s.tick % 10 === 0) autoJobs(s);
   const first = s.tick % s.goblins.length;
   const workers = [...s.goblins.slice(first), ...s.goblins.slice(0, first)];
+  const busy = new Set<Goblin["id"]>();
   for (const g of workers) {
     if (updateDrop(s, g)) {
       decayNeeds(g);
+      busy.add(g.id);
       continue;
     }
-    if (needs(s, g)) continue;
-    let j = s.jobs.find((j) => j.id === g.job && j.status === "active");
-    if (!j) {
-      g.job = null;
-      const options = s.jobs
-        .filter((j) => j.status === "open")
-        .sort(
-          (a, b) =>
-            distance(g.position, a.target) - distance(g.position, b.target) ||
-            a.id.localeCompare(b.id),
-        );
-      j = options.find((candidate) => {
-        const target =
-          candidate.kind === "haul"
-            ? s.items.find((i) => i.id === candidate.item)?.position
-            : candidate.target;
-        if (!target) return false;
-        if (
-          candidate.kind === "build" &&
-          !candidate.paid &&
-          !(candidate.structure === "bed" && quantities(s).bedkit > 0)
-        ) {
-          const q = quantities(s);
-          if (
-            Object.entries(costs[candidate.structure!]).some(
-              ([r, n]) => q[r as Resource] < n,
-            )
-          ) {
-            candidate.reason = "Missing building materials";
-            return false;
-          }
-        }
-        const reachable =
-          path(
-            s,
-            g.position,
-            target,
-            candidate.kind === "dig" ||
-              candidate.kind === "craft" ||
-              (candidate.kind === "build" && candidate.structure === "wall"),
-          ) !== null;
-        candidate.reason = reachable
-          ? "Nearest available work"
-          : "No reachable working tile";
-        return reachable;
-      });
-      if (j) {
-        j.worker = g.id;
-        j.status = "active";
-        g.job = j.id;
-      }
+    if (needs(s, g)) {
+      busy.add(g.id);
+      continue;
     }
-    if (j) work(s, g, j);
-    else g.activity = "Idle: designate work or grow the grotto";
+    if (!s.jobs.some((j) => j.id === g.job && j.status === "active"))
+      g.job = null;
+  }
+  assignWork(
+    s,
+    s.goblins.filter((g) => !busy.has(g.id) && !g.job && !g.drop),
+  );
+  for (const g of workers) {
+    if (busy.has(g.id) || g.drop) continue;
+    const job = s.jobs.find((j) => j.id === g.job && j.status === "active");
+    if (job) work(s, g, job);
+    else
+      g.activity = s.jobs.some((j) => j.status === "open")
+        ? "Waiting: no suitable reachable work"
+        : "Idle: designate work or grow the grotto";
   }
   if (s.tick % 10 === 0) for (const g of s.goblins) discover(s, g.position);
   s.items = s.items.filter((i) => i.quantity > 0);

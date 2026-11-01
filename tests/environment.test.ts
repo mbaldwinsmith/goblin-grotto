@@ -137,7 +137,7 @@ it("migrates an actual v2 colony without adding hazards or losing work, then pre
       readFileSync("tests/fixtures/v2-active-colony.json.gz"),
     ).toString(),
     s = decodeSave(text);
-  expect(s.version).toBe(6);
+  expect(s.version).toBe(7);
   expect(s.weather).toEqual({ kind: "clear", changedAt: 0 });
   expect(s.tiles.every((t) => t.collapseAt === null)).toBe(true);
   expect(s.jobs.some((j) => j.status === "active")).toBe(true);
@@ -145,7 +145,10 @@ it("migrates an actual v2 colony without adding hazards or losing work, then pre
   expect({
     ...old,
     version: 2,
-    goblins: s.goblins.map(({ kind, facing, nextMoveAt, drop, ...g }) => g),
+    jobs: s.jobs.map(({ priority, ...job }) => job),
+    goblins: s.goblins.map(
+      ({ kind, facing, nextMoveAt, drop, preferredWork, ...g }) => g,
+    ),
     tiles: s.tiles.map(({ collapseAt, ...t }) => t),
   }).toEqual(JSON.parse(text));
   s.weather = { kind: "rain", changedAt: 0 };
@@ -177,6 +180,7 @@ it("a blocked haul releases both worker and carried item instead of locking them
   const job = {
     id: `job-${s.nextId++}` as const,
     kind: "haul" as const,
+    priority: 2 as const,
     target,
     structure: null,
     item: item.id,
