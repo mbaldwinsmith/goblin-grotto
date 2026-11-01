@@ -351,7 +351,7 @@ function update(): void {
     ...(["food", "wood", "stone", "ore", "gems", "bedkit"] as const).map(
       (r) => {
         const span = document.createElement("span");
-        span.innerHTML = `<i>${r === "food" ? "♧" : r === "wood" ? "▥" : r === "stone" ? "◆" : "✧"}</i><b>${r === "ore" ? q.ore + q.iron + q.copper + q.gold : q[r]}</b><small>${r === "bedkit" ? "kits" : r}</small>`;
+        span.innerHTML = `<i>${r === "food" ? "♧" : r === "wood" ? "▥" : r === "stone" ? "◆" : "✧"}</i><b>${r === "ore" ? q.ore + q.iron + q.copper + q.gold : q[r]}</b><small>${r === "bedkit" ? "crafts" : r}</small>`;
         const kinds: Resource[] =
           r === "ore" ? ["ore", "iron", "copper", "gold"] : [r];
         const count = (bucket: Record<Resource, number>) =>

@@ -16,6 +16,7 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 #### Changed
 
+- GG-055: rename the resource dashboard’s “kits” counter to “crafts” at the owner’s request.
 - Save schema 9 preserves tool swings and rejects invalid timelines. Versions 1–8 migrate with existing progress, maps and identities intact. Tool strokes apply 18 work per strike in an 18-tick cycle; hardness still determines required work, with completion quantized to strikes.
 
 ### 0.1.0-prototype.12 — a place for every shiny
