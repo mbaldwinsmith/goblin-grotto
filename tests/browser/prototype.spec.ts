@@ -473,6 +473,7 @@ test("goblin identity and facing survive import, selection and reload", async ({
 test("four scouts pass through a narrow entrance without stacking", async ({
   page,
 }) => {
+  test.setTimeout(60000);
   const { createGame } = await import("../../src/sim/game");
   const s = createGame("entrance-traffic");
   for (const t of s.tiles) {
@@ -546,6 +547,7 @@ test("four scouts pass through a narrow entrance without stacking", async ({
 test("loaded idle/walk and drop clips follow the held item, pause and saved release tick", async ({
   page,
 }) => {
+  test.setTimeout(60000);
   test.setTimeout(90000);
   const { createGame } = await import("../../src/sim/game");
   const s = createGame("cardinal-haul");
@@ -619,6 +621,34 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
           .length,
       };
     }, item.id);
+  // Pause on the same page frame as the observed phase; a host-side click can
+  // arrive after the short animation has already recovered on software renderers.
+  const pauseDrop = (released: boolean) =>
+    page.waitForFunction(
+      ({ actorId, itemId, released }) => {
+        const canvas = document.querySelector("canvas");
+        if (!canvas) return false;
+        const state = Reflect.get(canvas, "grottoScene")?.world;
+        const worker = state?.goblins.find(
+          (g: { id: string }) => g.id === actorId,
+        );
+        const cargo = state?.items.find((i: { id: string }) => i.id === itemId);
+        if (
+          !worker?.drop ||
+          !cargo ||
+          (released
+            ? cargo.holder !== null || !cargo.stored
+            : cargo.holder !== actorId)
+        )
+          return false;
+        document
+          .querySelector<HTMLButtonElement>('button[data-speed="0"]')
+          ?.click();
+        return true;
+      },
+      { actorId: g.id, itemId: item.id, released },
+      { polling: "raf", timeout: 30000 },
+    );
   await expect
     .poll(async () => (await read()).label)
     .toBe("haul-idle-east-000");
@@ -640,13 +670,7 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
     fullPage: true,
   });
   await page.getByRole("button", { name: "1×", exact: true }).click();
-  await expect
-    .poll(async () => (await read()).label, {
-      intervals: [20, 40, 60],
-      timeout: 30000,
-    })
-    .toMatch(/^drop-east-00[0-4]$/);
-  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await pauseDrop(false);
   const windup = await read();
   expect(windup.holder).toBe(g.id);
   expect(windup.stored).toBe(false);
@@ -661,10 +685,7 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   expect((await read()).drop?.startedAt).toBe(windup.drop.startedAt);
   await page.getByRole("button", { name: "1×", exact: true }).click();
-  await expect
-    .poll(async () => (await read()).holder, { intervals: [20, 40, 60] })
-    .toBeNull();
-  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await pauseDrop(true);
   const released = await read();
   expect(released.label).toMatch(/^drop-east-00[5-8]$/);
   expect(released.stored).toBe(true);

@@ -15,6 +15,10 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 - Lanterncap plots use two alternatives per growth stage: young 01/04, growing 03/05, mature 02/06. Plot variant remains consistent through growth; the mature stage coincides with harvest readiness.
 - Scenery gallery, material/anchor/colour reference, regression coverage for every source alternative and real browser checks for anchors, stage pairs, selection, chopping and persistence. GG-022 art-bible acceptance is verified; the packed atlas remains GG-023.
 
+#### Fixed
+
+- Browser drop checks pause on the observed animation phase, avoiding a race between release and a delayed Pause click on software-rendered CI. Multi-action scenario setup has its own bounded timeout.
+
 #### Changed
 
 - Wall faces gain a subtle upper highlight and darker foot; exposed tops fade from a dark front lip to black at the back. Interior roof tiles are black, with lighting removed during reveal/selected-actor fade so visibility remains clear. Original sprite PNGs are unchanged. Shared gradient textures and viewport culling keep lighting work bounded, with margins for tree canopies.

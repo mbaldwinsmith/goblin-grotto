@@ -317,3 +317,8 @@ geometry or per-wall gradient allocation.
 Scenery updates/rendering are limited to the camera region, retaining a margin
 for tree roots whose 96px canopies extend into view. A regression checks all
 intersecting canopies at map edges and multiple zoom levels.
+
+Browser phase checks pause through the existing Pause button in the same page
+frame that observes drop wind-up/release, preventing a slower runner from clicking
+after recovery. Multi-action scout/drop scenarios allow 60 seconds for UI setup;
+their completion, uniqueness and animation-phase assertions remain strict.
