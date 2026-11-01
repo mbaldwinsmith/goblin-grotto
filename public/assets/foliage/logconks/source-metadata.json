@@ -1,0 +1,152 @@
+{
+  "objects": [
+    {
+      "id": "a822de7f-679c-46cd-89d2-840ebc34ee48",
+      "name": "base",
+      "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_patch_of_forest_und.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "7ac48874-c7b6-412b-9a15-582e36c9c15b",
+      "name": "base",
+      "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_patch_of_forest_und_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "6200857a-26b1-4764-96e4-1777e89cde81",
+      "name": "base",
+      "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_patch_of_forest_und_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "5fdd5ad2-37fd-49fe-ba8d-a8157a02ab55",
+      "name": "base",
+      "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_charming_patch_of_forest_und_4.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "429d23a6-be9c-4f43-bfd8-48bb6a31d01d",
+      "folder": "objects/A_charming_patch_of_forest_und",
+      "objects": [
+        {
+          "id": "a822de7f-679c-46cd-89d2-840ebc34ee48",
+          "name": "base",
+          "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_patch_of_forest_und.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "008ebcbe-9976-44d6-ad0d-bf89c52a82b2",
+      "folder": "objects/A_charming_patch_of_forest_und_2",
+      "objects": [
+        {
+          "id": "7ac48874-c7b6-412b-9a15-582e36c9c15b",
+          "name": "base",
+          "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_patch_of_forest_und_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "251b1ba0-4e09-4e46-a188-0ad2f58f9ade",
+      "folder": "objects/A_charming_patch_of_forest_und_3",
+      "objects": [
+        {
+          "id": "6200857a-26b1-4764-96e4-1777e89cde81",
+          "name": "base",
+          "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_patch_of_forest_und_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "7f648a1b-a512-4c30-a45b-0d26085e34cc",
+      "folder": "objects/A_charming_patch_of_forest_und_4",
+      "objects": [
+        {
+          "id": "5fdd5ad2-37fd-49fe-ba8d-a8157a02ab55",
+          "name": "base",
+          "prompt": "A charming patch of forest undergrowth for a whimsical fantasy goblin colony game. A dense but readable cluster of low woodland plants, including ferns, leafy shrubs, tufts of wild grass, small brambles, mossy mounds, and a few tiny forest flowers or berries. Natural organic shapes with layered greenery in deep forest green, muted olive, moss green, sage, and earthy brown tones. Slightly irregular and storybook-like, with a cosy Brothers Grimm dark fairy-tale feel. Cute fantasy pixel art, fixed three-quarter JRPG perspective, designed as a ground object or environmental decoration, approximately 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines around the main plant clusters, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no text, no extra scenery.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_charming_patch_of_forest_und_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T19:12:13.512117"
+}

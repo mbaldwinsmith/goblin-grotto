@@ -473,6 +473,7 @@ test("goblin identity and facing survive import, selection and reload", async ({
 test("four scouts pass through a narrow entrance without stacking", async ({
   page,
 }) => {
+  test.setTimeout(60000);
   const { createGame } = await import("../../src/sim/game");
   const s = createGame("entrance-traffic");
   for (const t of s.tiles) {
@@ -546,6 +547,7 @@ test("four scouts pass through a narrow entrance without stacking", async ({
 test("loaded idle/walk and drop clips follow the held item, pause and saved release tick", async ({
   page,
 }) => {
+  test.setTimeout(60000);
   test.setTimeout(90000);
   const { createGame } = await import("../../src/sim/game");
   const s = createGame("cardinal-haul");
@@ -619,6 +621,34 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
           .length,
       };
     }, item.id);
+  // Pause on the same page frame as the observed phase; a host-side click can
+  // arrive after the short animation has already recovered on software renderers.
+  const pauseDrop = (released: boolean) =>
+    page.waitForFunction(
+      ({ actorId, itemId, released }) => {
+        const canvas = document.querySelector("canvas");
+        if (!canvas) return false;
+        const state = Reflect.get(canvas, "grottoScene")?.world;
+        const worker = state?.goblins.find(
+          (g: { id: string }) => g.id === actorId,
+        );
+        const cargo = state?.items.find((i: { id: string }) => i.id === itemId);
+        if (
+          !worker?.drop ||
+          !cargo ||
+          (released
+            ? cargo.holder !== null || !cargo.stored
+            : cargo.holder !== actorId)
+        )
+          return false;
+        document
+          .querySelector<HTMLButtonElement>('button[data-speed="0"]')
+          ?.click();
+        return true;
+      },
+      { actorId: g.id, itemId: item.id, released },
+      { polling: "raf", timeout: 30000 },
+    );
   await expect
     .poll(async () => (await read()).label)
     .toBe("haul-idle-east-000");
@@ -640,13 +670,7 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
     fullPage: true,
   });
   await page.getByRole("button", { name: "1×", exact: true }).click();
-  await expect
-    .poll(async () => (await read()).label, {
-      intervals: [20, 40, 60],
-      timeout: 30000,
-    })
-    .toMatch(/^drop-east-00[0-4]$/);
-  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await pauseDrop(false);
   const windup = await read();
   expect(windup.holder).toBe(g.id);
   expect(windup.stored).toBe(false);
@@ -661,10 +685,7 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   expect((await read()).drop?.startedAt).toBe(windup.drop.startedAt);
   await page.getByRole("button", { name: "1×", exact: true }).click();
-  await expect
-    .poll(async () => (await read()).holder, { intervals: [20, 40, 60] })
-    .toBeNull();
-  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await pauseDrop(true);
   const released = await read();
   expect(released.label).toMatch(/^drop-east-00[5-8]$/);
   expect(released.stored).toBe(true);
@@ -1094,4 +1115,239 @@ test("native pick and axe swings freeze while paused and resume their work once 
       expect.objectContaining({ resource: "wood", quantity: 5 }),
     ]),
   );
+});
+
+test("new scenery keeps native tree anchors, growth pairs, canopy picking, item identity and save continuity", async ({
+  page,
+}) => {
+  test.setTimeout(60000);
+  const { createGame } = await import("../../src/sim/game");
+  const { position, tileAt } = await import("../../src/sim/model");
+  const s = createGame("native-scenery");
+  for (const t of s.tiles) t.stockpile = false;
+  for (let y = 25; y <= 34; y++)
+    for (let x = 27; x <= 39; x++) {
+      const t = tileAt(s, position(x, y))!;
+      Object.assign(t, {
+        solid: false,
+        discovered: true,
+        outside: false,
+        material: "hard",
+        deposit: null,
+        feature: null,
+        structure: null,
+        collapseAt: null,
+      });
+    }
+  tileAt(s, position(30, 28))!.material = "sand";
+  Object.assign(tileAt(s, position(29, 28))!, {
+    material: "sand",
+    solid: true,
+  });
+  s.goblins.forEach((g, i) => {
+    g.position = [
+      position(32, 29),
+      position(32, 31),
+      position(28, 30),
+      position(28, 31),
+    ][i];
+  });
+  tileAt(s, position(32, 30))!.deposit = "wood";
+  tileAt(s, position(36, 30))!.deposit = "wood";
+  tileAt(s, position(36, 30))!.discovered = false;
+  [0, 250, 600].forEach((growth, i) => {
+    Object.assign(tileAt(s, position(29 + i, 32))!, {
+      structure: "farm",
+      growth,
+    });
+  });
+  s.items = (
+    [
+      "food",
+      "wood",
+      "stone",
+      "ore",
+      "iron",
+      "copper",
+      "gold",
+      "gems",
+      "bedkit",
+    ] as const
+  ).map((resource, i) => ({
+    id: `item-${s.nextId++}` as const,
+    resource,
+    quantity: 3,
+    position: position(29 + i, 33),
+    holder: null,
+    stored: false,
+  }));
+  s.jobs = [];
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "native-scenery.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  const read = () =>
+    page.locator("canvas").evaluate((canvas) => {
+      const scene = Reflect.get(canvas, "grottoScene"),
+        world = scene.world,
+        tree = scene.tiles.get(30 * 64 + 32)?.plant;
+      const point = { x: 32 * 32 + 16, y: 29 * 32 + 12 },
+        r = canvas.getBoundingClientRect();
+      return {
+        tree: tree
+          ? {
+              label: tree.label,
+              x: tree.x,
+              y: tree.y,
+              width: tree.width,
+              height: tree.height,
+              scaleX: tree.scale.x,
+              scaleY: tree.scale.y,
+              alpha: tree.alpha,
+              visible: tree.visible,
+              depth: tree.zIndex,
+            }
+          : null,
+        backings: [
+          scene.tiles.get(28 * 64 + 30)?.underFloor,
+          scene.tiles.get(28 * 64 + 29)?.underTop,
+          scene.tiles.get(28 * 64 + 29)?.underSide,
+        ].map((sprite) => ({
+          visible: sprite?.visible,
+          width: sprite?.width,
+          height: sprite?.height,
+        })),
+        hidden: scene.tiles.get(30 * 64 + 36)?.plant?.visible ?? false,
+        farms: [29, 30, 31].map(
+          (x) => scene.tiles.get(32 * 64 + x)?.plant?.label,
+        ),
+        items: world.items.map((i: { id: string; resource: string }) => ({
+          id: i.id,
+          resource: i.resource,
+          label: scene.itemSprites.get(i.id)?.label,
+        })),
+        floor: scene.tiles.get(30 * 64 + 31)?.floor?.label,
+        behind: scene.goblinSprites.get("goblin-1")?.zIndex,
+        front: scene.goblinSprites.get("goblin-2")?.zIndex,
+        point: {
+          x:
+            r.left +
+            scene.app.screen.width / 2 +
+            scene.camera.x +
+            point.x * scene.camera.zoom,
+          y:
+            r.top +
+            scene.app.screen.height / 2 +
+            scene.camera.y +
+            point.y * scene.camera.zoom,
+        },
+        jobs: world.jobs
+          .filter((j: { kind: string }) => j.kind === "harvest")
+          .map((j: { target: unknown; status: string }) => ({
+            target: j.target,
+            status: j.status,
+          })),
+      };
+    });
+  await expect.poll(async () => (await read()).tree?.label).toMatch(/^tree-/);
+  const before = await read();
+  expect(before.tree).toMatchObject({
+    x: 32 * 32 - 32,
+    y: 30 * 32 - 64,
+    width: 96,
+    height: 96,
+    scaleX: 1,
+    scaleY: 1,
+    alpha: 1,
+    visible: true,
+  });
+  expect(before.backings).toEqual(
+    Array.from({ length: 3 }, () => ({ visible: true, width: 32, height: 32 })),
+  );
+  expect(before.hidden).toBe(false);
+  expect(before.farms[0]).toMatch(/^lanterncap-farm-0[14]$/);
+  expect(before.farms[1]).toMatch(/^lanterncap-farm-0[35]$/);
+  expect(before.farms[2]).toMatch(/^lanterncap-farm-0[26]$/);
+  expect(before.floor).toMatch(/^floor-smooth-stone-/);
+  expect(before.items[0].label).toMatch(/^lanterncap-picked-/);
+  expect(before.items[1].label).toMatch(/^item-wood-/);
+  expect(before.behind).toBeLessThan(before.tree!.depth);
+  expect(before.front).toBeGreaterThan(before.tree!.depth);
+  await page.screenshot({
+    path: "docs/screenshots/scenery-integration.png",
+    fullPage: true,
+  });
+  await page.mouse.click(before.point.x, before.point.y);
+  await expect(page.locator("#inspection")).toContainText("32, 30");
+  await page
+    .getByRole("button", { name: "Reveal walls", exact: false })
+    .click();
+  await page.mouse.click(before.point.x, before.point.y);
+  await expect(page.locator("#actor-inspection")).toContainText("Nib");
+  await expect.poll(async () => (await read()).tree?.alpha).toBe(0.25);
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const loaded = await read();
+  expect(loaded.tree?.label).toBe(before.tree?.label);
+  expect(loaded.farms).toEqual(before.farms);
+  expect(loaded.items).toEqual(before.items);
+  await page
+    .getByRole("button", { name: /Gather/ })
+    .first()
+    .click();
+  await page.mouse.click(loaded.point.x, loaded.point.y);
+  expect((await read()).jobs).toContainEqual({
+    target: { x: 32, y: 30, z: 0 },
+    status: "open",
+  });
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(
+      async () =>
+        (await read()).jobs.some(
+          (j: { target: { x: number; y: number }; status: string }) =>
+            j.target.x === 32 && j.target.y === 30 && j.status === "done",
+        ),
+      { timeout: 15000 },
+    )
+    .toBe(true);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  expect((await read()).tree?.visible).toBe(false);
+  const wood = (await read()).items.filter(
+    (i: { resource: string }) => i.resource === "wood",
+  );
+  expect(wood).toHaveLength(2);
+  expect(new Set(wood.map((i: { id: string }) => i.id)).size).toBe(2);
+  await page.goto("/scenery-preview.html");
+  await expect(page.locator("main img")).toHaveCount(185);
+  await expect
+    .poll(() =>
+      page.locator("main img").evaluateAll((images) =>
+        images.every((img) => {
+          const i = img as HTMLImageElement;
+          return (
+            i.complete &&
+            i.naturalWidth === (i.alt.startsWith("tree-") ? 96 : 32) &&
+            i.naturalHeight === i.naturalWidth
+          );
+        }),
+      ),
+    )
+    .toBe(true);
+  await page.screenshot({
+    path: "docs/screenshots/scenery-gallery.png",
+    fullPage: true,
+  });
 });

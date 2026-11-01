@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "f7730004-717a-4fc3-805d-4aac9e3c4c61",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "d4023e40-35d8-45f2-bbdf-219b00dc96cc",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "d31332a2-3272-43fc-9dd1-8c6c3c251a6f",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "cab3ad5a-8332-4d7a-9da9-5b31c6423c32",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "bf299a88-24f5-4991-b8b4-c56f8d4c35b9",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "ac691791-c643-43c1-82d3-741cd790bbc7",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "49f5e57e-5038-4fbf-8fe2-b0c3d58a6fed",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "3a4cf566-9191-4c67-a615-55936d16d2aa",
+      "name": "base",
+      "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_small_rustic_woven_wicker_b_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "5851969d-4507-4dc1-898d-b671eb575031",
+      "folder": "objects/A_small_rustic_woven_wicker_b",
+      "objects": [
+        {
+          "id": "f7730004-717a-4fc3-805d-4aac9e3c4c61",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "cc17a5cc-6357-4d02-ba1e-535166e8e0dc",
+      "folder": "objects/A_small_rustic_woven_wicker_b_2",
+      "objects": [
+        {
+          "id": "d4023e40-35d8-45f2-bbdf-219b00dc96cc",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "2ab2e8e0-50e6-40e2-b4f8-c30b85baee79",
+      "folder": "objects/A_small_rustic_woven_wicker_b_3",
+      "objects": [
+        {
+          "id": "d31332a2-3272-43fc-9dd1-8c6c3c251a6f",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "660d1b72-016c-4810-9956-6dbcbc5a5bda",
+      "folder": "objects/A_small_rustic_woven_wicker_b_4",
+      "objects": [
+        {
+          "id": "cab3ad5a-8332-4d7a-9da9-5b31c6423c32",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "23666005-3276-4a56-b939-e294d94ee14a",
+      "folder": "objects/A_small_rustic_woven_wicker_b_5",
+      "objects": [
+        {
+          "id": "bf299a88-24f5-4991-b8b4-c56f8d4c35b9",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "94b5ddf2-f2d5-47c7-bd08-1bfe42c264cf",
+      "folder": "objects/A_small_rustic_woven_wicker_b_6",
+      "objects": [
+        {
+          "id": "ac691791-c643-43c1-82d3-741cd790bbc7",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "eba93516-706f-43e8-a969-40271bd09b38",
+      "folder": "objects/A_small_rustic_woven_wicker_b_7",
+      "objects": [
+        {
+          "id": "49f5e57e-5038-4fbf-8fe2-b0c3d58a6fed",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "325db65b-daee-40b3-bfc8-46214fbc17a5",
+      "folder": "objects/A_small_rustic_woven_wicker_b_8",
+      "objects": [
+        {
+          "id": "3a4cf566-9191-4c67-a615-55936d16d2aa",
+          "name": "base",
+          "prompt": "A small, rustic woven wicker basket overflowing with freshly picked cavern mushroom caps. The basket is squat and rounded, made from warm brown interwoven reeds, with a sturdy curved handle. Inside are 8\u201312 plump mushroom caps of varying sizes, in muted violet, dusky blue, earthy brown and soft mauve, with occasional pale undersides and tiny turquoise bioluminescent speckles. A few caps spill slightly over the rim. Whimsical, cosy dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, strong readable silhouette. Isolated inventory or storage object, transparent background, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_small_rustic_woven_wicker_b_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T18:27:17.151197"
+}

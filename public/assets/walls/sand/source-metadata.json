@@ -1,0 +1,584 @@
+{
+  "objects": [
+    {
+      "id": "e24f7fcf-497e-4e4d-9664-df21e84cffb3",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "cb2a0fba-8eaf-42f7-8b93-a83b7a0dde7f",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "c36c5c02-e146-4580-a3f5-2f4b803c43a8",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "802dd269-d4dc-4d23-b658-6ac7dc8c1c68",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "7926927a-8a94-4c63-8ce1-ec2981a15cb3",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "710d6f2f-7f82-49a0-8062-cb8fb8f8c8fa",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "70718d4d-7168-4ac3-8cf4-4cbc1758b776",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "557dbf3c-a580-48e9-8bb6-ecc99a97e38b",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "51a62e75-278f-40e7-bc90-fbd1423d53c0",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_9.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "4ad29c28-740f-4c77-800d-737773510182",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_10.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "30be54e5-c114-489a-a17a-c3b0e9a90a9c",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_11.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "1d5906dd-efac-40c8-b56b-26f4dea4e0db",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_12.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "1be7bb89-9515-4982-96fa-1a38865622c9",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_13.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "1a445967-84d0-46a7-b325-8c1cefd795d0",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_14.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "0c3b73f6-7093-40f8-bb12-ad3e4b315665",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_15.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "09530dc2-5253-442c-9460-d85a8deebc64",
+      "name": "base",
+      "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_solid_perfectly_square_323_16.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "f16dda63-9006-46bc-8f32-7e635e71620c",
+      "folder": "objects/A_solid_perfectly_square_323",
+      "objects": [
+        {
+          "id": "e24f7fcf-497e-4e4d-9664-df21e84cffb3",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "8b13ba4c-fdf9-4ab6-8916-1e9dfd76e81f",
+      "folder": "objects/A_solid_perfectly_square_323_2",
+      "objects": [
+        {
+          "id": "cb2a0fba-8eaf-42f7-8b93-a83b7a0dde7f",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "9c51f8bc-dbf2-4f91-8caa-20f41a697308",
+      "folder": "objects/A_solid_perfectly_square_323_3",
+      "objects": [
+        {
+          "id": "c36c5c02-e146-4580-a3f5-2f4b803c43a8",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "7a9c5f51-2d4d-40c5-a345-45d443f13ed6",
+      "folder": "objects/A_solid_perfectly_square_323_4",
+      "objects": [
+        {
+          "id": "802dd269-d4dc-4d23-b658-6ac7dc8c1c68",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "53c4f1c9-9a4a-413a-917e-e6151b669595",
+      "folder": "objects/A_solid_perfectly_square_323_5",
+      "objects": [
+        {
+          "id": "7926927a-8a94-4c63-8ce1-ec2981a15cb3",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "8d558564-1d72-4a4b-903e-3d2e2ef0994b",
+      "folder": "objects/A_solid_perfectly_square_323_6",
+      "objects": [
+        {
+          "id": "710d6f2f-7f82-49a0-8062-cb8fb8f8c8fa",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "887f0e87-ec34-4c31-9fd4-bcdc15287c22",
+      "folder": "objects/A_solid_perfectly_square_323_7",
+      "objects": [
+        {
+          "id": "70718d4d-7168-4ac3-8cf4-4cbc1758b776",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "a5db2f3d-6e45-4c0f-b790-56599515b4b6",
+      "folder": "objects/A_solid_perfectly_square_323_8",
+      "objects": [
+        {
+          "id": "557dbf3c-a580-48e9-8bb6-ecc99a97e38b",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "26c907f0-e43a-45fb-99c3-9081a82956a7",
+      "folder": "objects/A_solid_perfectly_square_323_9",
+      "objects": [
+        {
+          "id": "51a62e75-278f-40e7-bc90-fbd1423d53c0",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_9.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "81d65548-b3fc-4f9c-888f-72a2dc2cc819",
+      "folder": "objects/A_solid_perfectly_square_323_10",
+      "objects": [
+        {
+          "id": "4ad29c28-740f-4c77-800d-737773510182",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_10.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "7b39aefe-272f-40d5-b0a1-be2fda69b1ea",
+      "folder": "objects/A_solid_perfectly_square_323_11",
+      "objects": [
+        {
+          "id": "30be54e5-c114-489a-a17a-c3b0e9a90a9c",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_11.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "c822d255-4317-4433-ab10-e30463b58360",
+      "folder": "objects/A_solid_perfectly_square_323_12",
+      "objects": [
+        {
+          "id": "1d5906dd-efac-40c8-b56b-26f4dea4e0db",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_12.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "8ead1973-ab07-4884-96e6-ca297e181362",
+      "folder": "objects/A_solid_perfectly_square_323_13",
+      "objects": [
+        {
+          "id": "1be7bb89-9515-4982-96fa-1a38865622c9",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_13.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "30e22e88-54ef-40ff-b222-7580f9db3d32",
+      "folder": "objects/A_solid_perfectly_square_323_14",
+      "objects": [
+        {
+          "id": "1a445967-84d0-46a7-b325-8c1cefd795d0",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_14.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "e5de6cc8-3992-43a3-9da7-f9d5beb7e2d2",
+      "folder": "objects/A_solid_perfectly_square_323_15",
+      "objects": [
+        {
+          "id": "0c3b73f6-7093-40f8-bb12-ad3e4b315665",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_15.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "097b1836-b6d4-4668-96f9-78e9993b70ce",
+      "folder": "objects/A_solid_perfectly_square_323_16",
+      "objects": [
+        {
+          "id": "09530dc2-5253-442c-9460-d85a8deebc64",
+          "name": "base",
+          "prompt": "A solid, perfectly square 32\u00d732 pixel natural sand wall tile for a whimsical dark fairy-tale goblin colony simulator. The entire square is completely filled with densely packed sand in muted golden beige, warm ochre, dusty tan and pale sandstone tones. Fine granular texture with subtle horizontal layers of compacted sand, irregular patches of darker grains, tiny embedded pebbles and occasional shallow cracks. Slightly crumbly and unstable-looking, with small pockets of loosely packed grains and gentle variations in colour. Softer and more granular than stone, lighter and drier than soil. Cute fantasy pixel art, fixed three-quarter JRPG game aesthetic, crisp pixel placement, subtle dark outlines around major sand formations and fractures, limited harmonious colour palette, gentle upper-left lighting and restrained pixel shading. Seamlessly repeating texture on all four edges, with no visible tile boundaries, outer borders or frames. Perfectly square, fully opaque, edge-to-edge sand wall texture. No transparency, no empty corners, no isolated sand piles, no floor, no vegetation, no characters, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_solid_perfectly_square_323_16.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T19:55:58.516277"
+}

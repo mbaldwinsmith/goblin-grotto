@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "e9539b6a-beb1-4983-a4a9-4dd9b66a1d67",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "e6bb47e5-bb90-4134-a645-0529ba8bfeea",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "e3ec5446-130f-4474-88fb-4d41746ae670",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "d134480b-61ff-4767-b64a-df11f40b1009",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "c6410356-2d78-47f1-8c0d-32b4b8160971",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "a1f99cb4-6126-45f9-b72a-e6348bc8bbda",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "a163d6d8-a655-4219-b1d7-7bdf2685274e",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "2f2a39a1-ede1-4d17-a013-984b1232f64f",
+      "name": "base",
+      "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/A_compact_stockpile_of_freshly_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "09a1b2d4-2521-4378-bd3f-9de467aa7ca0",
+      "folder": "objects/A_compact_stockpile_of_freshly",
+      "objects": [
+        {
+          "id": "e9539b6a-beb1-4983-a4a9-4dd9b66a1d67",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "b14787ba-a36e-4018-ae79-b715e9cd627e",
+      "folder": "objects/A_compact_stockpile_of_freshly_2",
+      "objects": [
+        {
+          "id": "e6bb47e5-bb90-4134-a645-0529ba8bfeea",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "f4c73adf-bc74-4a8f-9a75-3d1cfc928913",
+      "folder": "objects/A_compact_stockpile_of_freshly_3",
+      "objects": [
+        {
+          "id": "e3ec5446-130f-4474-88fb-4d41746ae670",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "bca9969b-02ad-4d25-83ff-5b3149c03480",
+      "folder": "objects/A_compact_stockpile_of_freshly_4",
+      "objects": [
+        {
+          "id": "d134480b-61ff-4767-b64a-df11f40b1009",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "b9a6b33e-0b46-4f60-b8d1-8779b27bd1b3",
+      "folder": "objects/A_compact_stockpile_of_freshly_5",
+      "objects": [
+        {
+          "id": "c6410356-2d78-47f1-8c0d-32b4b8160971",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "063c7d63-fddc-47dc-b833-c93c46fd3550",
+      "folder": "objects/A_compact_stockpile_of_freshly_6",
+      "objects": [
+        {
+          "id": "a1f99cb4-6126-45f9-b72a-e6348bc8bbda",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "2ecbc8f2-e571-4b49-ae1a-f7d4e81dcaa7",
+      "folder": "objects/A_compact_stockpile_of_freshly_7",
+      "objects": [
+        {
+          "id": "a163d6d8-a655-4219-b1d7-7bdf2685274e",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "992ebd2a-710d-4f1c-983b-434d92bdbad6",
+      "folder": "objects/A_compact_stockpile_of_freshly_8",
+      "objects": [
+        {
+          "id": "2f2a39a1-ede1-4d17-a013-984b1232f64f",
+          "name": "base",
+          "prompt": "A compact stockpile of freshly mined metal ore for a fantasy goblin settlement, arranged in a tidy but slightly irregular heap. Rough, angular chunks of dark grey and blue-grey rock containing visible veins and flecks of metallic ore in rusty copper, dull silver and warm iron-brown tones. Some pieces have exposed mineral surfaces that catch the light with subtle metallic highlights. Uneven fractured edges, natural variations in size and shape, and a practical, rustic appearance. Designed as a stored mining resource for a cute underground colony simulator. Whimsical dark fairy-tale aesthetic, cute fantasy pixel art, fixed three-quarter JRPG perspective, 32\u00d732 pixel sprite, crisp pixel placement, thick clean black outlines, limited harmonious colour palette, subtle shading, clear readable silhouette, transparent background, isolated object, no scenery, no text.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/A_compact_stockpile_of_freshly_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T18:54:08.335998"
+}

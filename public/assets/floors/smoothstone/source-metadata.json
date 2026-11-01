@@ -1,0 +1,296 @@
+{
+  "objects": [
+    {
+      "id": "f9cf06c5-9deb-4801-88a4-615c1f9b2109",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "f31e1f99-6f28-4237-8adb-fd3793263957",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_2.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "dff1036b-3ffb-436c-ad3f-00ba5e3e4c99",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_3.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "d502d7fd-11fb-418f-9ea7-d7716aa28a48",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_4.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "955b0624-7066-443e-b72f-30a1a3800c3b",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_5.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "60f9f26d-2b7b-42cd-9330-fc6ec9e09d6c",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_6.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "40e830f3-848d-46c9-862e-ebcf3393b0f3",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_7.png"
+      },
+      "animations": {}
+    },
+    {
+      "id": "2ebf8bec-9398-485c-9203-7e5c4b34f661",
+      "name": "base",
+      "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "directions": 1,
+      "view": "low top-down",
+      "rotations": {
+        "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_8.png"
+      },
+      "animations": {}
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "a4edbf95-a55a-451e-aaae-be80027cca64",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t",
+      "objects": [
+        {
+          "id": "f9cf06c5-9deb-4801-88a4-615c1f9b2109",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "c12f1534-6f6b-4759-b774-cbd84e54311a",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t_2",
+      "objects": [
+        {
+          "id": "f31e1f99-6f28-4237-8adb-fd3793263957",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_2.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "019b88c2-5df2-422f-9946-2f9625086cef",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t_3",
+      "objects": [
+        {
+          "id": "dff1036b-3ffb-436c-ad3f-00ba5e3e4c99",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_3.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "9a0820a6-64c0-4a2e-837d-51f11c6d0755",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t_4",
+      "objects": [
+        {
+          "id": "d502d7fd-11fb-418f-9ea7-d7716aa28a48",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_4.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "1cc6f5c4-1f8f-4fff-bc59-f73cf447ff9f",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t_5",
+      "objects": [
+        {
+          "id": "955b0624-7066-443e-b72f-30a1a3800c3b",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_5.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "921b7b5d-4387-4ee6-890f-00de35f078b4",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t_6",
+      "objects": [
+        {
+          "id": "60f9f26d-2b7b-42cd-9330-fc6ec9e09d6c",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_6.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "b19a7f10-5e84-4b1d-ba6e-05822e8f92b1",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t_7",
+      "objects": [
+        {
+          "id": "40e830f3-848d-46c9-862e-ebcf3393b0f3",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_7.png"
+          },
+          "animations": {}
+        }
+      ]
+    },
+    {
+      "group_id": "a099b3ab-a5e0-4538-addc-464d932286df",
+      "folder": "objects/Cute_fantasy_pixel_art_floor_t_8",
+      "objects": [
+        {
+          "id": "2ebf8bec-9398-485c-9203-7e5c4b34f661",
+          "name": "base",
+          "prompt": "Cute fantasy pixel art floor tile for a whimsical dark fairy-tale goblin colony simulator. Seamlessly repeating 32\u00d732 pixel square tile, designed for a fixed three-quarter JRPG perspective. Crisp pixel placement, thick clean black outlines around major cracks and stone details, but no border around the tile itself. Limited harmonious palette of cool slate-grey, muted blue-grey, warm charcoal and soft stone highlights. Subtle upper-left lighting, gentle pixel shading, clear readable texture. Flat horizontal walkable surface, viewed from above, no raised edges, no walls, no objects, no vegetation, no characters, no text. Seamless on all four edges.",
+          "size": {
+            "width": 32,
+            "height": 32
+          },
+          "directions": 1,
+          "view": "low top-down",
+          "rotations": {
+            "unknown": "rotations/Cute_fantasy_pixel_art_floor_t_8.png"
+          },
+          "animations": {}
+        }
+      ]
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-11-01T19:34:59.711670"
+}

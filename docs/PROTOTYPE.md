@@ -1,4 +1,4 @@
-# 0.1.0-prototype.13 — verification and handoff
+# 0.1.0-prototype.14 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 84 headless tests in seventeen files. Includes 1,000 seeded starts;
+- `npm test`: 91 headless tests in eighteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: sixteen Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: seventeen Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -43,9 +43,9 @@ Firefox/WebKit compatibility or the latest hosted CI status. The endurance test 
 GG-011: the previous hosted Quality run is green (run 41239850553), but required
 checks/branch protection are not verified here. M00's full gate remains open for that reason.
 
-GG-022/GG-023: production art bible/atlas and polished animation.
-The original 29-file 32×32 PNG reference set is implemented; directional animation
-and the production atlas remain open.
+GG-022: the art bible now includes source references, palette, export rules,
+role mappings, cardinal timing, native dimensions/anchors and a validation checklist;
+its verified completion record awaits merge. GG-023’s packed atlas remains open.
 
 GG-032/GG-034/GG-035 are verified on this branch: warned cave-ins/supports, seasonal weather and cached A* navigation. Completion records await merge.
 
@@ -265,3 +265,60 @@ Schema 9 retains each swing’s start/impact phase. The real prototype.12 active
 fixture preserves old progress and identities. GG-047’s checked implementation
 record awaits merge with GG-040/GG-044 on PR #3. GG-045/GG-046 and milestone gates
 remain open; no new equipment economy, combat or release tag is introduced.
+
+
+## Iteration 14 verification
+
+The live renderer now uses all 185 alternatives from the owner's scenery exports.
+Stable coordinate/identity hashes choose textures without advancing simulation RNG.
+Sand, rough stone, smooth stone, bedrock and dwarven stone floor families provide
+ground/raised tops; wall families provide independent front faces. Reference art
+covers missing grass/mud-floor/boundary families and the bed-kit marker. Piles,
+picked food baskets, wild mushrooms and decorative undergrowth use source PNGs.
+
+Each tree remains 96×96 at scale 1. The bottom-middle source square (32,64)..(64,96)
+matches the root's logical 32×32 cell. Canopy depth, Inspect/Gather picking, selected
+actor fade and Reveal walls follow the root. Hidden roots show no canopy, and
+chopping removes the entire tree. Navigation still uses existing cells.
+
+The owner's farm-stage clarification is mapped explicitly: young 01/04 at 0–199,
+growing 03/05 at 200–599, mature 02/06 at 600. A plot keeps the same alternative
+through its stages; the mature image coincides with harvest readiness.
+
+Seven new headless tests verify every source alternative/role, unchanged simulation
+snapshots, growth pairs/thresholds, root geometry, full canopy bounds, foreground
+depth and reveal, hidden/removed roots, and saved visual consistency. The browser
+imports a controlled scene with trees, farms and physical resources, checks actual
+Pixi textures/96px native placement/depth, picks a canopy and a hidden actor via
+Reveal, saves/loads visual identities, gathers through the canopy and verifies one
+new wood stack with canopy removal. The scenery gallery decodes every source PNG.
+
+Evidence: [scenery scene](screenshots/scenery-integration.png),
+[scenery gallery](screenshots/scenery-gallery.png), and updated
+[normal prototype](screenshots/prototype.png). See ADR 0009 for choices. Saves
+remain schema 9. GG-022's full art-bible acceptance is verified on this branch;
+GG-023’s packed atlas and milestone gates remain open. No release tag exists.
+
+
+Supplied terrain PNGs have transparent gaps, especially the sparse sand overlays.
+Native reference tiles provide solid backing beneath ground, tops and faces,
+preserving source alpha and a continuous surface. Wall reveal hides these
+backings while fading the supplied face/top.
+
+
+The owner-requested lighting adds a light face gradient and a dark top-to-black
+roof fade using two shared native-resolution gradient textures. Reveal and selected-actor fades remove the
+lighting/backing, while mining clears the wall props. Original PNGs remain unchanged.
+
+The wall lighting reuses two 32-step nearest-sampled gradient textures; each
+exposed wall adds two simple rectangles to its cached props, avoiding per-row
+geometry or per-wall gradient allocation.
+
+Scenery updates/rendering are limited to the camera region, retaining a margin
+for tree roots whose 96px canopies extend into view. A regression checks all
+intersecting canopies at map edges and multiple zoom levels.
+
+Browser phase checks pause through the existing Pause button in the same page
+frame that observes drop wind-up/release, preventing a slower runner from clicking
+after recovery. Multi-action scout/drop scenarios allow 60 seconds for UI setup;
+their completion, uniqueness and animation-phase assertions remain strict.

@@ -1,14 +1,19 @@
+import { drawWallShading } from "./wall-shading";
+import { seedValue } from "../core/random";
+import {
+  tileScenery,
+  sceneryFrames,
+  sceneryViewport,
+  itemArt,
+  treeBounds,
+  treeOverlapsActor,
+  treeAtPoint,
+} from "./scenery";
 import { toolForJob } from "../sim/work-animation";
 import { movementTicks } from "../sim/navigation";
 import { GoblinAnimator, type GoblinPose } from "./goblin-animation";
 import { loadGoblinArt, goblinFrames } from "./goblin-art";
-import {
-  Application,
-  Container,
-  Graphics,
-  Sprite,
-  type Texture,
-} from "pixi.js";
+import { Application, Container, Graphics, Sprite, Texture } from "pixi.js";
 import { directions, type ActorId, type Position } from "../core/types";
 import {
   type GameState,
@@ -33,10 +38,14 @@ import { drawFeature } from "./features";
 import { loadArt } from "./art";
 interface TileArt {
   floor: Sprite;
+  underFloor: Sprite;
+  underTop: Sprite;
+  underSide: Sprite;
   top: Sprite;
   side: Sprite;
   plant: Sprite;
   props: Graphics;
+  pile: Sprite;
   signature: string;
 }
 export class Scene {
@@ -46,7 +55,7 @@ export class Scene {
   details = new Container();
   overlay = new Graphics();
   private tiles = new Map<number, TileArt>();
-  private itemSprites = new Map<string, Graphics>();
+  private itemSprites = new Map<string, Sprite>();
   private mapSize = { width: 64, height: 64 };
   private art: Record<string, Texture> = {};
   readonly goblinSprites = new Map<ActorId, Sprite>();
@@ -95,24 +104,44 @@ export class Scene {
       );
     });
   }
-  pick(clientX: number, clientY: number): Position {
+  pick(clientX: number, clientY: number, gather = false): Position {
     const r = this.app.canvas.getBoundingClientRect();
-    return unproject(
-      (clientX - r.left - this.app.screen.width / 2 - this.camera.x) /
+    const x =
+        (clientX - r.left - this.app.screen.width / 2 - this.camera.x) /
         this.camera.zoom,
-      (clientY - r.top - this.app.screen.height / 2 - this.camera.y) /
-        this.camera.zoom,
-    );
+      y =
+        (clientY - r.top - this.app.screen.height / 2 - this.camera.y) /
+        this.camera.zoom;
+    if (gather && this.world) {
+      const tree = treeAtPoint(this.world, x, y);
+      if (tree) return tree;
+    }
+    return unproject(x, y);
   }
   private makeTile(): TileArt {
     const floor = new Sprite(this.texture("floor-hard")),
       top = new Sprite(this.texture("wall-top-hard")),
       side = new Sprite(this.texture("wall-side-hard")),
       plant = new Sprite(this.texture("plant-mushroom")),
-      props = new Graphics();
-    this.ground.addChild(floor);
-    this.details.addChild(side, top, plant, props);
-    return { floor, top, side, plant, props, signature: "" };
+      props = new Graphics(),
+      pile = new Sprite(),
+      underFloor = new Sprite(this.texture("floor-hard")),
+      underTop = new Sprite(this.texture("wall-top-hard")),
+      underSide = new Sprite(this.texture("wall-side-hard"));
+    this.ground.addChild(underFloor, floor);
+    this.details.addChild(underSide, side, underTop, top, plant, pile, props);
+    return {
+      floor,
+      top,
+      side,
+      plant,
+      pile,
+      props,
+      underFloor,
+      underTop,
+      underSide,
+      signature: "",
+    };
   }
   draw(s: GameState, alpha = 0): void {
     if (this.world !== s) {
@@ -153,14 +182,19 @@ export class Scene {
       this.app.screen.height / 2 + this.camera.y,
     );
     this.root.scale.set(this.camera.zoom);
-    const o = this.overlay.clear();
+    const o = this.overlay.clear(),
+      seed = seedValue(s.seed);
     for (const node of this.tiles.values())
       for (const sprite of [
         node.floor,
+        node.underFloor,
+        node.underTop,
+        node.underSide,
         node.top,
         node.side,
         node.plant,
         node.props,
+        node.pile,
       ])
         sprite.visible = false;
     for (const item of this.itemSprites.values()) item.visible = false;
@@ -169,8 +203,9 @@ export class Scene {
     const selectedFeet = selectedGoblin
       ? this.renderPositions.get(selectedGoblin.id)
       : undefined;
-    for (let y = 0; y < s.height; y++)
-      for (let x = 0; x < s.width; x++) {
+    const view = sceneryViewport(this.camera, this.app.screen, this.mapSize);
+    for (let y = view.minY; y <= view.maxY; y++)
+      for (let x = view.minX; x <= view.maxX; x++) {
         const p = position(x, y),
           t = tileAt(s, p)!;
         if (!t.discovered) continue;
@@ -190,13 +225,23 @@ export class Scene {
           y <= selectedFeet.y + 1;
         const opacity = (wall || door) && (this.reveal || occludes) ? 0.25 : 1;
         node.floor.visible = true;
-        node.floor.texture = this.texture(
+        const art = tileScenery(seed, t, p);
+        node.floor.texture = this.texture(art.floor);
+        node.floor.label = art.floor;
+        node.floor.position.set(a.x - HALF_TILE, a.y);
+        // Source terrain has transparent gaps; retain a continuous native reference beneath it.
+        const material = t.structure === "wall" ? "hard" : t.material;
+        node.underFloor.texture = this.texture(
           t.outside ? "floor-grass" : `floor-${t.material}`,
         );
-        node.floor.position.set(a.x - HALF_TILE, a.y);
-        const material = t.structure === "wall" ? "hard" : t.material;
-        node.top.texture = this.texture(`wall-top-${material}`);
-        node.side.texture = this.texture(`wall-side-${material}`);
+        node.underFloor.position.copyFrom(node.floor.position);
+        node.underFloor.visible = sceneryFrames.has(art.floor);
+        node.underTop.texture = this.texture(`wall-top-${material}`);
+        node.underSide.texture = this.texture(`wall-side-${material}`);
+        node.top.texture = this.texture(art.top);
+        node.side.texture = this.texture(art.side);
+        node.top.label = art.top;
+        node.side.label = art.side;
         node.top.position.set(a.x - HALF_TILE, a.y - WALL_HEIGHT);
         node.side.position.set(a.x - HALF_TILE, a.y);
         node.top.visible = wall;
@@ -210,24 +255,47 @@ export class Scene {
         node.side.alpha = opacity;
         node.top.zIndex = objectDepth(p, true) - 1;
         node.side.zIndex = objectDepth(p, true) - 2;
-        const plant =
-          t.structure === "farm"
-            ? `plant-farm-${t.growth >= 600 ? "ripe" : "young"}`
-            : t.deposit === "wood"
-              ? "plant-tree"
-              : t.deposit === "food"
-                ? "plant-mushroom"
-                : t.feature === "grove"
-                  ? "plant-grove"
-                  : t.feature === "undergrowth"
-                    ? "plant-undergrowth"
-                    : null;
-        node.plant.visible = !t.solid && plant !== null;
-        if (plant) node.plant.texture = this.texture(plant);
-        node.plant.position.set(a.x - HALF_TILE, a.y);
-        node.plant.zIndex = objectDepth(p);
+        node.underTop.position.copyFrom(node.top.position);
+        node.underSide.position.copyFrom(node.side.position);
+        node.underTop.zIndex = node.top.zIndex - 0.25;
+        node.underSide.zIndex = node.side.zIndex - 0.25;
+        // Reveal removes the solid backing, leaving only the faded supplied surface.
+        node.underTop.visible =
+          wall && opacity === 1 && sceneryFrames.has(art.top);
+        node.underSide.visible =
+          node.side.visible && opacity === 1 && sceneryFrames.has(art.side);
+        const plant = art.plant,
+          tree = plant?.startsWith("tree-");
+        node.plant.visible = plant !== null;
+        if (plant) {
+          node.plant.texture = this.texture(plant);
+          node.plant.label = plant;
+        }
+        const bounds = tree ? treeBounds(p) : { x: a.x - HALF_TILE, y: a.y };
+        node.plant.position.set(bounds.x, bounds.y);
+        node.plant.zIndex = objectDepth(p) - 0.1;
         node.plant.alpha =
-          t.deposit === "wood" && (this.reveal || occludes) ? 0.25 : 1;
+          tree &&
+          (this.reveal ||
+            (selectedFeet &&
+              actorDepth(selectedFeet) < objectDepth(p) &&
+              treeOverlapsActor(p, selectedFeet)))
+            ? 0.25
+            : 1;
+        const pile =
+          !t.solid && t.deposit && t.deposit !== "wood" && t.deposit !== "food"
+            ? itemArt(
+                deposits[t.deposit].resource,
+                `deposit-${s.seed}-${x}-${y}`,
+              )
+            : null;
+        node.pile.visible = pile !== null;
+        if (pile) {
+          node.pile.texture = this.texture(pile);
+          node.pile.label = pile;
+        }
+        node.pile.position.set(a.x - HALF_TILE, a.y);
+        node.pile.zIndex = objectDepth(p) - 0.5;
         const d = node.props;
         d.visible = true;
         d.zIndex = objectDepth(p, wall || door);
@@ -266,10 +334,17 @@ export class Scene {
               snow ? 2 : 4,
             ).fill({ color: snow ? 0xe3e9dd : 0x91b9c7, alpha: 0.6 });
         }
-        const signature = `${t.solid}:${t.stockpile}:${t.stockpileFilter}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}`;
+        const signature = `${t.solid}:${t.stockpile}:${t.stockpileFilter}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}:${opacity === 1}`;
         if (node.signature !== signature) {
           node.signature = signature;
-          this.drawProps(d.clear(), t, a, node.side.visible);
+          this.drawProps(
+            d.clear(),
+            t,
+            a,
+            node.side.visible,
+            pile !== null,
+            opacity === 1,
+          );
         }
       }
     for (const item of s.items.filter(
@@ -286,14 +361,22 @@ export class Scene {
       const a = project(item.position);
       let d = this.itemSprites.get(item.id);
       if (!d) {
-        d = new Graphics();
+        d = new Sprite();
         this.itemSprites.set(item.id, d);
         this.details.addChild(d);
       }
-      d.clear();
+      const art = itemArt(item.resource, `${s.seed}-${item.id}`);
+      d.texture = art ? this.texture(art) : Texture.WHITE;
+      d.label = art ?? "item-bedkit-placeholder";
+      d.scale.set(1);
+      d.tint = art ? 0xffffff : resources[item.resource].color;
+      if (!art) {
+        d.width = 6;
+        d.height = 5;
+      }
+      d.position.set(a.x - (art ? HALF_TILE : 3), a.y + (art ? 0 : 22));
       d.visible = true;
-      d.zIndex = objectDepth(item.position);
-      d.rect(a.x - 3, a.y + 22, 6, 5).fill(resources[item.resource].color);
+      d.zIndex = objectDepth(item.position) - 0.5;
     }
     for (const j of s.jobs.filter(
       (j) => j.status === "open" || j.status === "active",
@@ -364,7 +447,11 @@ export class Scene {
     t: Tile,
     a: { x: number; y: number },
     sideVisible: boolean,
+    hasPile: boolean,
+    shade: boolean,
   ): void {
+    if (shade && (t.solid || t.structure === "wall"))
+      drawWallShading(d, a, sideVisible);
     if (t.stockpile) {
       const color = {
         all: 0xc1a46a,
@@ -388,7 +475,13 @@ export class Scene {
       d.rect(a.x + 2, a.y - 18, 5, 3).fill(c);
       if (sideVisible) d.rect(a.x + 7, a.y + 16, 3, 3).fill(c);
     }
-    if (t.deposit && !t.solid && t.deposit !== "wood" && t.deposit !== "food") {
+    if (
+      !hasPile &&
+      t.deposit &&
+      !t.solid &&
+      t.deposit !== "wood" &&
+      t.deposit !== "food"
+    ) {
       const c = resources[deposits[t.deposit].resource].color;
       if (t.deposit === "masonry") {
         d.rect(a.x - 10, a.y + 16, 10, 6).fill(c);

@@ -6,9 +6,30 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.14 — a living floor and a proper forest
+
+#### Added
+
+- GG-022/GG-023: integrate all 185 owner-supplied terrain, item and foliage alternatives with native PNGs and deterministic cosmetic selection. Exposed walls use wall textures; their raised tops use matching floor textures. Native reference backing fills transparent terrain gaps and sparse sand overlays. Resource piles, picked lanterncaps, wild mushrooms, logconks, redcaps and undergrowth now use supplied art.
+- Native 96×96 larch, silver birch and pine trees align their bottom-middle 32×32 square with the logical root tile. Canopies sort by root depth, fade for selected goblins/reveal mode, and resolve Inspect/Gather clicks to that root. Fog and tree removal hide the whole canopy.
+- Lanterncap plots use two alternatives per growth stage: young 01/04, growing 03/05, mature 02/06. Plot variant remains consistent through growth; the mature stage coincides with harvest readiness.
+- Scenery gallery, material/anchor/colour reference, regression coverage for every source alternative and real browser checks for anchors, stage pairs, selection, chopping and persistence. GG-022 art-bible acceptance is verified; the packed atlas remains GG-023.
+
+#### Fixed
+
+- Pin the reviewed mud source archive after a replacement ZIP arrives on main, preserving reproducible extraction and the new incoming export.
+- Browser drop checks pause on the observed animation phase, avoiding a race between release and a delayed Pause click on software-rendered CI. Multi-action scenario setup has its own bounded timeout.
+
+#### Changed
+
+- Wall faces gain a subtle upper highlight and darker foot; exposed tops fade from a dark front lip to black at the back. Interior roof tiles are black, with lighting removed during reveal/selected-actor fade so visibility remains clear. Original sprite PNGs are unchanged. Shared gradient textures and viewport culling keep lighting work bounded, with margins for tree canopies.
+- Cosmetic choices derive from the existing seed, tile and item identity. Saves keep schema 9; simulation RNG, growth timers, item identities and job rules retain their current behavior.
+
 ### 0.1.0-prototype.13 — picks in the rock, axes in the wood
 
 #### Added
+
+- GG-022/GG-023 preparation: extract 185 original terrain, item and foliage PNGs from the owner’s 21 exports into their family folders. Add consistent variant names, unchanged source metadata, a hashed source catalog and a reproducible extraction/check command. Native 32×32 sprites and 96×96 tree canvases are preserved; runtime curation remains open.
 
 - GG-047: the owner's native four-direction pick and axe sprites now animate digging and tree chopping. Work lands at the visible strike, with a saved wind-up and follow-through; rendering cannot advance jobs. Cutters stand beside trees and face them. Idle, walking, mining and hauling acceptance is verified together.
 - 155 unchanged tool PNGs join the existing 172-frame set, with pinned source ZIPs, hashes, original padding, per-direction frame counts and contact frames. The gallery now displays 40 directional clips. Axe approach uses its walking clip; missing east/west idle uses the supplied static east/west poses, and miners use the base walk because the pick pack has no walking clip.
