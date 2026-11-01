@@ -163,3 +163,8 @@ a cheap occupied corridor. Movement now checks occupants along the full remainin
 route, so the goblin completes the detour. The scouting scenario also has a
 120-second overall budget and 30-second per-trip waits for software rendering,
 retaining all discovery, fog and legacy-save assertions.
+
+Owner commit `37ad2ad` updates the incoming base ZIP and adds a hauling ZIP. The
+existing imported frames retain their original provenance via the archived
+`5473394` ZIP and manifest path; the new incoming ZIPs are preserved byte for byte.
+They are not automatically substituted for the curated runtime frames.

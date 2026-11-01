@@ -57,7 +57,9 @@ it("keeps every supplied PNG unchanged and aligns padded frames to the same body
   expect(manifest.directions).toHaveLength(8);
   expect(
     createHash("sha256")
-      .update(readFileSync("public/assets/goblin/Goblin-Base.zip"))
+      .update(
+        readFileSync(`public/assets/goblin/${manifest.provenance.archiveFile}`),
+      )
       .digest("hex"),
   ).toBe(manifest.provenance.archiveSha256);
   for (const frame of manifest.frames) {

@@ -51,7 +51,10 @@ Landmark props still use original code-drawn markers in `src/render/features.ts`
 
 ## Owner-supplied goblin base
 
-The ZIP and GIFs in `public/assets/goblin/` were supplied in owner commit `5473394`.
+The original ZIP and GIFs were supplied in owner commit `5473394`. The imported
+base is pinned to `public/assets/goblin/archive/Goblin-Base-5473394.zip`; the
+manifest records this path and hash. Newer incoming base/hauling ZIPs at the top
+level remain unchanged until their animations are curated.
 `python tools/import-goblin.py` copies eight idle poses and eight frames per facing
 into `base/`, recording provenance, source member names, hashes and anchors in its
 manifest. It selects `west-6b9bf452`, which matches the west GIF; the alternate take

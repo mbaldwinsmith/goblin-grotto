@@ -2,8 +2,9 @@
 from pathlib import Path
 from zipfile import ZipFile
 import hashlib, json, struct
-archive = Path('public/assets/goblin/Goblin-Base.zip')
-root = archive.parent / 'base'
+# The imported art remains reproducible when the owner updates the incoming ZIP.
+archive = Path('public/assets/goblin/archive/Goblin-Base-5473394.zip')
+root = Path('public/assets/goblin/base')
 directions = ['south', 'south-east', 'east', 'north-east', 'north', 'north-west', 'west', 'south-west']
 frames = []
 with ZipFile(archive) as source:
@@ -24,7 +25,7 @@ with ZipFile(archive) as source:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
             frames.append({'id': name, 'file': destination, 'width': width, 'height': height, 'footX': width // 2, 'footY': (height - 32) // 2 + 30, 'source': member, 'sha256': hashlib.sha256(data).hexdigest()})
-manifest = {'bodySize': 32, 'frameDurationTicks': 2, 'directions': directions, 'frames': frames, 'provenance': {'source': 'Owner-supplied Goblin-Base.zip', 'commit': '54733942f321de07ad064e1cd03688507760b39e', 'archiveSha256': hashlib.sha256(archive.read_bytes()).hexdigest(), 'view': character['view'], 'westVariant': 'west-6b9bf452', 'note': 'Original frames copied byte-for-byte. Alternate west take retained in the ZIP. Creative assets follow ASSETS-LICENSE.md.'}}
+manifest = {'bodySize': 32, 'frameDurationTicks': 2, 'directions': directions, 'frames': frames, 'provenance': {'source': 'Owner-supplied Goblin-Base.zip', 'archiveFile': 'archive/Goblin-Base-5473394.zip', 'commit': '54733942f321de07ad064e1cd03688507760b39e', 'archiveSha256': hashlib.sha256(archive.read_bytes()).hexdigest(), 'view': character['view'], 'westVariant': 'west-6b9bf452', 'note': 'Original frames copied byte-for-byte. Alternate west take retained in the ZIP. Creative assets follow ASSETS-LICENSE.md.'}}
 (root / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
 print(f'Imported {len(frames)} original goblin frames.')
 
