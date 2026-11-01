@@ -1,3 +1,4 @@
+import { treeAtPoint } from "./scenery";
 import { TILE_SIZE, WALL_HEIGHT, ACTOR_FEET } from "./metrics";
 import type { ActorId, Position } from "../core/types";
 import { type GameState, tileAt } from "../sim/model";
@@ -58,13 +59,23 @@ export function inspectPoint(
   const wall = walls.sort(
     (a, b) => objectDepth(b, true) - objectDepth(a, true),
   )[0];
+  const tree = treeAtPoint(s, x, y);
+  const foreground =
+    tree && (!wall || objectDepth(tree) > objectDepth(wall, true))
+      ? tree
+      : wall;
+  const depth =
+    foreground === tree && tree
+      ? objectDepth(tree)
+      : wall
+        ? objectDepth(wall, true)
+        : -Infinity;
   if (
     actor &&
     (reveal ||
-      !wall ||
-      actorDepth(renderPositions?.get(actor.id) ?? actor.position) >
-        objectDepth(wall, true))
+      !foreground ||
+      actorDepth(renderPositions?.get(actor.id) ?? actor.position) >= depth)
   )
     return { position: { ...actor.position }, actor: actor.id };
-  return { position: wall ?? floor, actor: null };
+  return { position: foreground ?? floor, actor: null };
 }

@@ -3,7 +3,7 @@
 The owner supplied 21 PixelLab scenery/item ZIPs in commit
 `81b42da802f4d23674759469086e607b1c25bad8`. Their **185 PNGs** are extracted
 beside the corresponding ZIPs. Archives and PNG bytes remain unchanged; the
-extraction does not choose runtime art or modify the game renderer.
+catalog preserves source art; `src/render/scenery.ts` selects runtime roles.
 
 ## Naming convention
 
@@ -24,11 +24,13 @@ such as `roughstone` and `sandOverlay` are retained; new filenames use
 export order, restarting for each family/species. Keep existing numbers when
 curating future variants. A number identifies an alternative image, **not** a
 rotation, animation frame, growth stage, resource quantity or quality tier.
+The runtime separately curates farm stage pairs: young 01/04, growing 03/05,
+mature 02/06.
 Trees are grouped into larch, silver birch and pine using their source prompts.
 Other family names follow the owner's folders, including logconks and redcaps.
 
-Wall exports are named as surfaces: separate top/side roles will be chosen during
-runtime curation. The `sand-overlay` name preserves the owner's folder category;
+Wall exports are used as front faces; corresponding floor families provide
+separate raised tops. The `sand-overlay` name preserves the owner's folder category;
 it does not assert that the exported image contains transparency.
 
 ## Inventory
@@ -63,7 +65,8 @@ and contains `source-metadata.json`, an unchanged copy of the ZIP's metadata.
 Totals: 40 floors, 64 walls, 32 items and 49 foliage sprites.
 **176 are 32×32; nine trees are 96×96.** Original dimensions, padding, alpha and
 pixel data are preserved. Trees have not been shrunk to the game's 32px tile size;
-placement and canopy/foot anchors remain a future integration decision.
+the image’s bottom-middle 32×32 square is aligned with its root tile. See
+`docs/ART_BIBLE.md` for placement and depth rules.
 
 ## Provenance and reproduction
 

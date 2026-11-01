@@ -6,6 +6,19 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.14 — a living floor and a proper forest
+
+#### Added
+
+- GG-022/GG-023: integrate all 185 owner-supplied terrain, item and foliage alternatives with native PNGs and deterministic cosmetic selection. Exposed walls use wall textures; their raised tops use matching floor textures. Native reference backing fills transparent terrain gaps and sparse sand overlays. Resource piles, picked lanterncaps, wild mushrooms, logconks, redcaps and undergrowth now use supplied art.
+- Native 96×96 larch, silver birch and pine trees align their bottom-middle 32×32 square with the logical root tile. Canopies sort by root depth, fade for selected goblins/reveal mode, and resolve Inspect/Gather clicks to that root. Fog and tree removal hide the whole canopy.
+- Lanterncap plots use two alternatives per growth stage: young 01/04, growing 03/05, mature 02/06. Plot variant remains consistent through growth; the mature stage coincides with harvest readiness.
+- Scenery gallery, material/anchor/colour reference, regression coverage for every source alternative and real browser checks for anchors, stage pairs, selection, chopping and persistence. GG-022 art-bible acceptance is verified; the packed atlas remains GG-023.
+
+#### Changed
+
+- Cosmetic choices derive from the existing seed, tile and item identity. Saves keep schema 9; simulation RNG, growth timers, item identities and job rules retain their current behavior.
+
 ### 0.1.0-prototype.13 — picks in the rock, axes in the wood
 
 #### Added

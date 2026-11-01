@@ -1,7 +1,8 @@
-# Prototype art reference — native 32×32
+# Goblin Grotto art bible — native pixels and a 32px grid
 
 The owner's required presentation is a fixed three-quarter JRPG view. Every floor,
-wall top, wall side and plant uses a **separate 32×32 RGBA PNG**. The owner-supplied
+wall top, wall side and small plant uses a **separate 32×32 RGBA PNG**. Trees
+retain their owner-supplied 96×96 canvases and bottom-middle tile anchors. The owner-supplied
 goblin has a 32×32 native body, 32×32 static poses and padded 40×40/44×44/48×48 animation canvases. The square
 gameplay grid projects to 32×32 screen pixels at the default 1× view. Camera zoom
 scales the whole scene uniformly; the tile/body scale remains 32 pixels.
@@ -45,8 +46,9 @@ nearest sampling. Tests verify file dimensions and browser decoding, projection,
 picking, wall reveal, painting and camera controls. Keep floor edges aligned with
 the grid at native size.
 
-This is an original prototype reference set. GG-022/GG-023 remain open for the full
-production art bible, directional idle/walk animation standards and curated atlas.
+The original prototype references remain available for missing asset families.
+The native owner-supplied set below defines the current art bible; packed atlas
+work remains GG-023.
 Landmark props still use original code-drawn markers in `src/render/features.ts`.
 
 ## Owner-supplied cardinal goblins
@@ -90,21 +92,18 @@ See [cardinal gallery](screenshots/cardinal-animations.png),
 
 The owner’s 21 exports from commit `81b42da` are extracted alongside their ZIPs
 under `public/assets/floors/`, `walls/`, `items/` and `foliage/`. This prepares
-185 source PNGs with documented names and provenance; runtime curation remains
-GG-022/GG-023. See the [inventory and naming convention](../public/assets/README.md)
+185 source PNGs with documented names and provenance, now used by the runtime. See the [inventory and naming convention](../public/assets/README.md)
 and [source catalog](../public/assets/sprite-catalog.json).
 
 Use lowercase kebab-case filenames with a two-digit, one-based variant suffix:
 `floor-bedrock-01.png`, `wall-rough-stone-01.png`, `item-wood-01.png`,
 `lanterncap-farm-01.png`, `tree-silver-birch-01.png`. Keep the owner's existing
 family directories. Numbers represent source alternatives, not animation frames,
-rotation, growth or quantity. Wall surface exports have not yet been assigned
-separate top/side roles.
+rotation, growth or quantity. Runtime stage/role mappings are explicit below.
 
 All 176 non-tree images retain 32×32 canvases; all nine tree source images retain
-96×96 canvases. This is a source-art exception to the current 32×32 runtime plant
-reference, not a change to the tile grid. Future tree placement/foot anchors need
-curation before integration. Preserve all original PNG bytes, alpha and padding;
+96×96 canvases. The larger tree canvases preserve the 32px tile grid and body scale. Their
+bottom-middle 32×32 square is the logical root tile. Preserve all original PNG bytes, alpha and padding;
 never automatically resize or crop these sources to fit the prototype renderer.
 
 Reproduce with `python tools/extract-scenery.py`; validate with `--check`.
@@ -112,3 +111,99 @@ The catalog records exact original member paths, IDs, dimensions and SHA-256s.
 Every family includes unchanged `source-metadata.json`; embedded original paths
 refer to its ZIP, while the catalog provides the extracted file paths. Original
 ZIPs remain in place. Creative rights follow ASSETS-LICENSE.md.
+
+
+## Runtime roles and references
+
+The fixed three-quarter JRPG view keeps horizontal surfaces square. Exposed wall
+faces sit at the cell origin; tops rise 32px. Use restrained upper-left lighting,
+dark one-pixel outlines around major forms, clear silhouettes and crisp integer
+pixel clusters. Avoid adding a black border around repeating floor tiles.
+
+| Logical material / role | Floor or top | Exposed face |
+| --- | --- | --- |
+| Sand | `floors/sandOverlay/floor-sand-overlay-*` | `walls/sand/wall-sand-*` |
+| Loose rock | `floors/roughstone/floor-rough-stone-*` | `walls/roughstone/wall-rough-stone-*` |
+| Hard stone | `floors/smoothstone/floor-smooth-stone-*` | `walls/smoothstone/wall-smooth-stone-*` |
+| Bedrock | `floors/bedrock/floor-bedrock-*` | `walls/bedrock/wall-bedrock-*` |
+| Ruin / built wall top | `floors/dwarvenstone/floor-dwarven-stone-*` | Built walls use smooth-stone faces |
+| Mud / grass / impenetrable boundary | Existing prototype references where no corresponding export exists | Mud uses supplied mud faces; boundary keeps its reference |
+
+The runtime resolves role IDs from `src/render/scenery.ts`; all originals remain
+separate textures. The 185-entry catalog resolves files and native dimensions.
+Replacing a curated asset keeps its semantic role/ID stable and requires updating
+its source catalog/hash intentionally. A packed atlas is still GG-023.
+
+Actual native reference sprites:
+
+| Floor | Wall face | Resource pile | Young farm | Mature farm | Native tree |
+| --- | --- | --- | --- | --- | --- |
+| ![Rough floor](../public/assets/floors/roughstone/floor-rough-stone-01.png) | ![Rough wall](../public/assets/walls/roughstone/wall-rough-stone-01.png) | ![Wood pile](../public/assets/items/wood/item-wood-01.png) | ![Young lanterncaps](../public/assets/foliage/lanterncaps/farm/lanterncap-farm-01.png) | ![Mature lanterncaps](../public/assets/foliage/lanterncaps/farm/lanterncap-farm-02.png) | ![Larch](../public/assets/foliage/trees/tree-larch-01.png) |
+
+Palette reference sampled from these original PNGs: rock `#5b5d62`, cool stone
+`#57605f`, outline/shadow `#02050b`, foliage midtone `#5b6b45`, leaf highlight
+`#a4b383`, lanterncap soil/shadow `#1d223d`. These are family references, not a
+mandatory recolour operation; preserve supplied palettes. New art should match
+its family in contrast, outline weight and upper-left light direction. Items
+use native 32×32 transparent canvases and appear as piles/baskets at the cell
+origin; their variant number does not claim a quantity. Interface icons should
+stay readable at 32px, with nearest sampling when enlarged. Bed kits keep their
+small reference marker until an original craft-item sprite is supplied.
+
+## Tree placement, canopy selection and growth
+
+A 96×96 tree stays at scale 1. Its source square `(32,64)` to `(64,96)` exactly
+covers the root tile. For tile `(x,y)`, image top-left is `(32x−32,32y−64)`.
+Equivalently, image point `(48,64)` anchors to the root tile's top centre. Logical
+feet are at `(48,92)`, matching the actor foot offset 28 within the root tile.
+Depth uses the root's logical feet, never the canopy's upper-left corner.
+
+The 3×3 canopy rectangle is the stable inspection/gather hit region. A canopy
+click resolves to its one root tile; gathering still uses adjacent cardinal work.
+Overlapping objects use logical depth; Reveal walls lets you select goblins
+behind trees and fades trees to 25%. Selecting a goblin also fades foreground
+canopies intersecting its silhouette. Undiscovered roots hide the whole tree;
+chopping it removes the canopy. Tree art adds no extra walkability footprint.
+
+Lanterncap farm art has **three stages with two alternatives each**, curated from
+the visible images rather than assuming consecutive filename pairs:
+
+| Stage | Growth ticks | Sprite variants |
+| --- | --- | --- |
+| Young | 0–199 | `lanterncap-farm-01`, `lanterncap-farm-04` |
+| Growing | 200–599 | `lanterncap-farm-03`, `lanterncap-farm-05` |
+| Mature / harvestable | 600 | `lanterncap-farm-02`, `lanterncap-farm-06` |
+
+A plot keeps its first/second alternative through all stages and after harvesting.
+Wild lanterncaps use wild sprites; harvested food uses picked baskets. Decorative
+undergrowth varies between undergrowth, logconks and redcaps without introducing
+new harvesting rules. Ore-family sprites represent mixed/iron/copper/gold piles;
+the inspector retains the precise resource identity. Ground items hide while held
+or represented by a goblin's put-down animation, avoiding duplicate cargo art.
+
+## Export and validation checklist
+
+- Export separate RGBA PNGs with original transparency, full canvas and integer
+  dimensions; preserve original ZIPs, metadata, filenames and hashes via the catalog.
+- Ground tiles, wall parts, small plants and item canvases stay 32×32. Trees stay
+  96×96 with the root square above. Goblin padded animation canvases and foot
+  anchors follow the cardinal section; never rescale bodies to fit a canvas.
+- Use nearest sampling at native scale 1. No automatic trimming, mirroring,
+  interpolation of pixels, smoothing or per-sprite stretching.
+- Goblin directions are south/east/north/west. Idle/walk/drop timing and curated
+  tool contacts are simulation-tick driven as documented in ADRs 0005 and 0008.
+- Run `python tools/extract-scenery.py --check` to verify all 185 originals and
+  catalog entries; the goblin hash tests verify animation sources separately.
+- Run `npm test` for role resolution, every source alternative, stage pairs,
+  deterministic selection, root alignment, depth/picking and save continuation.
+- Run browser checks for all loaded native textures, 96px trees at scale 1,
+  canopy/root selection, reveal, fog, chopping removal, farm stages, item identity,
+  camera/zoom and save/load. Inspect the supplied reference sprites and
+  [in-game evidence](screenshots/scenery-integration.png). No missing role may
+  silently substitute a different material or consume simulation randomness.
+
+
+Supplied terrain PNGs have transparent gaps, especially the sparse sand overlays.
+Native reference tiles provide solid backing beneath ground, tops and faces,
+preserving source alpha and a continuous surface. Wall reveal hides these
+backings while fading the supplied face/top.

@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.13`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.14`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -137,8 +137,11 @@ acceptance criteria; partial implementations remain unchecked. See
 ## Pixel-art scale
 
 The native grid is 32×32. Home restores 1× zoom: one tile occupies 32×32 screen
-pixels. Floors, wall tops, wall sides and all plants have separate
-32×32 PNGs; walls assemble a raised top and a separate exposed front face. Zoom
+pixels. Floors, wall tops, wall sides and small plants have separate
+32×32 PNGs; trees retain native 96×96 canvases, anchored by their bottom-middle
+32×32 square. Canopies sort by the root tile and fade with Reveal walls or a
+selected goblin behind them. Clicking a canopy for Inspect or Gather targets its root. Walls assemble a raised
+top and a separate exposed front face. Zoom
 magnifies the scene with nearest-neighbour sampling.
 
 The live goblins use your supplied base, hauling, pick and axe packs in four cardinal
@@ -212,5 +215,12 @@ the live goblin base was supplied by the owner and retains its source archive; n
 The owner-supplied terrain, item and foliage exports are extracted into their
 existing `public/assets/` family folders. See the
 [inventory and naming convention](public/assets/README.md) for all 185 PNGs,
-source metadata and reproduction/check commands. These files are prepared source
-art; the running game still uses its existing terrain/item/plant visuals.
+source metadata and reproduction/check commands. The game now selects these
+textures for terrain, resource piles, mushrooms, undergrowth and trees. Variants
+stay consistent across redraws and save/load without consuming simulation RNG.
+Lanterncap farm plots use two variants per growth stage: young 01/04 (0–199),
+growing 03/05 (200–599), and mature 02/06 (600, ready to harvest).
+
+See the [scenery gallery](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/scenery-preview.html)
+for every original PNG and the tree anchor square. Grass, mud floors, the blocked
+map boundary and bed-kit markers keep their existing reference art.
