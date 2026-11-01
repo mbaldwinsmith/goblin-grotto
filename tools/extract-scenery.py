@@ -18,12 +18,10 @@ FAMILIES = {
     'floors/bedrock': 'floor-bedrock',
     'floors/dwarvenstone': 'floor-dwarven-stone',
     'floors/roughstone': 'floor-rough-stone',
-    'floors/sandOverlay': 'floor-sand-overlay',
     'floors/smoothstone': 'floor-smooth-stone',
     'walls/bedrock': 'wall-bedrock',
-    'walls/mud': 'wall-mud',
+    'walls/dirt': 'wall-dirt',
     'walls/roughstone': 'wall-rough-stone',
-    'walls/sand': 'wall-sand',
     'walls/smoothstone': 'wall-smooth-stone',
     'foliage/lanterncaps/farm': 'lanterncap-farm',
     'foliage/lanterncaps/picked': 'lanterncap-picked',
@@ -47,11 +45,7 @@ def collect():
     outputs, archives, sprites = {}, [], []
     for family, stem in sorted(FAMILIES.items()):
         folder = ROOT / family
-        # The reviewed mud batch stays pinned when a newer incoming export replaces it.
-        if family == 'walls/mud':
-            sources = [folder / 'archive/pixellab-16-objects-81b42da.zip']
-        else:
-            sources = sorted(folder.glob('*.zip'))
+        sources = sorted(folder.glob('*.zip'))
         if len(sources) != 1:
             raise ValueError(f'{family}: expected one source ZIP, found {len(sources)}')
         archive = sources[0]
@@ -63,7 +57,7 @@ def collect():
             outputs[metadata_path] = metadata_bytes
             archives.append({
                 'file': archive_path, 'sha256': sha256(archive.read_bytes()),
-                'sourceCommit': SOURCE_COMMIT, 'metadataFile': metadata_path,
+                'sourceCommit': '04ed6d9ff994cd7d0d1a08912aa1783fafdf657e' if family == 'walls/dirt' else SOURCE_COMMIT, 'metadataFile': metadata_path,
                 'metadataSha256': sha256(metadata_bytes),
             })
             folders = {o['id']: g['folder'] for g in metadata['groups'] for o in g['objects']}

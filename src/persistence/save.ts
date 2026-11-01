@@ -1,4 +1,8 @@
-import { WORK_CYCLE_TICKS, WORK_IMPACT_TICKS } from "../sim/work-animation";
+import {
+  WORK_CYCLE_TICKS,
+  WORK_IMPACT_TICKS,
+  toolForJob,
+} from "../sim/work-animation";
 import { acceptsStockpile, reconcileStorage } from "../sim/storage";
 import { stockpileFilterKinds } from "../sim/model";
 import {
@@ -42,7 +46,7 @@ const structure = z.enum([
   "support",
 ]);
 const schema: z.ZodType<GameState> = z.object({
-  version: z.literal(9),
+  version: z.literal(10),
   weather: z.object({
     kind: z.enum(["clear", "rain", "snow"]),
     changedAt: natural,
@@ -56,14 +60,7 @@ const schema: z.ZodType<GameState> = z.object({
   tiles: z
     .array(
       z.object({
-        material: z.enum([
-          "sand",
-          "mud",
-          "loose",
-          "hard",
-          "bedrock",
-          "impenetrable",
-        ]),
+        material: z.enum(["dirt", "loose", "hard", "bedrock", "impenetrable"]),
         solid: z.boolean(),
         outside: z.boolean(),
         discovered: z.boolean(),
@@ -87,7 +84,7 @@ const schema: z.ZodType<GameState> = z.object({
         nextMoveAt: natural,
         workAction: z
           .object({
-            kind: z.enum(["mine", "chop"]),
+            kind: z.enum(["mine", "chop", "gather"]),
             startedAt: natural,
             hit: z.boolean(),
           })
@@ -293,10 +290,29 @@ export function decodeSave(text: string): GameState {
       version: 9,
       goblins: eighth.data.goblins.map((g) => ({ ...g, workAction: null })),
     };
+  const ninth = z
+    .object({
+      version: z.literal(9),
+      tiles: z.array(z.record(z.string(), z.unknown())),
+    })
+    .passthrough()
+    .safeParse(raw);
+  if (ninth.success)
+    raw = {
+      ...ninth.data,
+      version: 10,
+      tiles: ninth.data.tiles.map((tile) => ({
+        ...tile,
+        material:
+          tile.material === "sand" || tile.material === "mud"
+            ? "dirt"
+            : tile.material,
+      })),
+    };
   const result = schema.safeParse(raw);
   if (!result.success)
     throw new Error(
-      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5, 6, 7, 8 and 9.",
+      "Unsupported or damaged save. Supported Goblin Grotto saves: versions 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.",
     );
   const s = result.data;
   if (seventh.success) reconcileStorage(s);
@@ -337,9 +353,12 @@ export function decodeSave(text: string): GameState {
           (j) =>
             j.id === g.job &&
             j.status === "active" &&
-            (g.workAction!.kind === "mine"
-              ? j.kind === "dig"
-              : j.kind === "harvest"),
+            toolForJob(s, j) ===
+              (g.workAction!.kind === "mine"
+                ? "pick"
+                : g.workAction!.kind === "chop"
+                  ? "axe"
+                  : "hands"),
         )
       )
         throw new Error("Tool swing is missing its active job.");

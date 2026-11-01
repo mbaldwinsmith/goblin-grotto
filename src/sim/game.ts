@@ -496,7 +496,12 @@ function work(s: GameState, g: Goblin, j: Job): void {
   );
   const tool = toolForJob(s, j);
   if (tool) {
-    g.activity = tool === "pick" ? "Digging rock" : "Chopping wood";
+    g.activity =
+      tool === "pick"
+        ? "Digging rock"
+        : tool === "axe"
+          ? "Chopping wood"
+          : "Picking mushrooms";
     if (s.tick >= g.nextMoveAt) beginWorkSwing(s, g, tool);
     return;
   }

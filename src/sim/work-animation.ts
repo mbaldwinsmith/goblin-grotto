@@ -4,20 +4,23 @@ import { tileAt } from "./model";
 export const WORK_CYCLE_TICKS = 18;
 export const WORK_IMPACT_TICKS = 10;
 export const WORK_PER_STRIKE = 18;
-export type WorkTool = "pick" | "axe";
+export type WorkTool = "pick" | "axe" | "hands";
 export function toolForJob(
   s: GameState,
   job: Job | undefined,
 ): WorkTool | null {
-  return job?.kind === "dig"
-    ? "pick"
-    : job?.kind === "harvest" && tileAt(s, job.target)?.deposit === "wood"
-      ? "axe"
+  if (job?.kind === "dig") return "pick";
+  if (job?.kind !== "harvest") return null;
+  const tile = tileAt(s, job.target);
+  return tile?.deposit === "wood"
+    ? "axe"
+    : tile?.deposit === "food" || tile?.structure === "farm"
+      ? "hands"
       : null;
 }
 export function beginWorkSwing(s: GameState, g: Goblin, tool: WorkTool): void {
   g.workAction = {
-    kind: tool === "pick" ? "mine" : "chop",
+    kind: tool === "pick" ? "mine" : tool === "axe" ? "chop" : "gather",
     startedAt: s.tick,
     hit: false,
   };
@@ -42,9 +45,13 @@ export function workFrame(
       ),
   );
 }
-export const contactFrames: Record<"mine" | "chop", Record<Facing, number>> = {
+export const contactFrames: Record<
+  "mine" | "chop" | "gather",
+  Record<Facing, number>
+> = {
   mine: { south: 5, east: 4, north: 5, west: 5 },
   chop: { south: 4, east: 3, north: 4, west: 4 },
+  gather: { south: 4, east: 4, north: 4, west: 4 },
 };
 /** Simulation owns the once-only strike; onImpact applies work and may complete the job. */
 export function updateWorkSwing(

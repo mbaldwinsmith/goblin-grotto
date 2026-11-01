@@ -18,7 +18,8 @@
     "mine": 8,
     "axe-idle": 8,
     "axe-walk": 8,
-    "chop": 9
+    "chop": 9,
+    "gather": 8
   },
   "directionFrameCounts": {
     "idle": {
@@ -80,6 +81,12 @@
       "east": 8,
       "north": 9,
       "west": 8
+    },
+    "gather": {
+      "south": 8,
+      "east": 8,
+      "north": 8,
+      "west": 8
     }
   },
   "contactFrames": {
@@ -92,6 +99,12 @@
     "chop": {
       "south": 4,
       "east": 3,
+      "north": 4,
+      "west": 4
+    },
+    "gather": {
+      "south": 4,
+      "east": 4,
       "north": 4,
       "west": 4
     }
@@ -285,6 +298,94 @@
       "sha256": "5bfd857b94c37e6c9a85981498c828d4792118ba5aee686a46f19b4367b4db1b"
     },
     {
+      "id": "gather-south-000",
+      "file": "gather/south/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_000.png",
+      "sha256": "481a95c95c51bc9319af91af7077578797d739eb716b91c715e7f5ad62a133e4"
+    },
+    {
+      "id": "gather-south-001",
+      "file": "gather/south/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_001.png",
+      "sha256": "703a11e0a75e40121dc3bf0b15e248bacf41a6fefbd54018ab0dd4d003c64418"
+    },
+    {
+      "id": "gather-south-002",
+      "file": "gather/south/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_002.png",
+      "sha256": "3bc170a7ca547f6ac6396bcc105deddd250a93bdf0f7da5c4e7531ca7fdc4eb9"
+    },
+    {
+      "id": "gather-south-003",
+      "file": "gather/south/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_003.png",
+      "sha256": "872a2b38f0ecee846ad4e41c52f3150fc3e97f39203c23d4116d7334ed7e54ad"
+    },
+    {
+      "id": "gather-south-004",
+      "file": "gather/south/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_004.png",
+      "sha256": "097d910b94f2789bf7e1ee4cf1743e808658ba2c6875b3014bc6b5f3e758b3b0"
+    },
+    {
+      "id": "gather-south-005",
+      "file": "gather/south/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_005.png",
+      "sha256": "3401745e9de644e197a1ef9c8328b8ae2048dff7a25b55c9ea8f215e4c796471"
+    },
+    {
+      "id": "gather-south-006",
+      "file": "gather/south/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_006.png",
+      "sha256": "72c68adfaf7be5ddf6b89e96745f0e85712bc453daff50d319132b80cae1f29d"
+    },
+    {
+      "id": "gather-south-007",
+      "file": "gather/south/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/south/frame_007.png",
+      "sha256": "539315a8876fe046a363e03952bcee7408c8247283345385b2069499c43574e9"
+    },
+    {
       "id": "idle-east",
       "file": "idle/east.png",
       "width": 32,
@@ -470,6 +571,94 @@
       "archive": "base",
       "source": "Base/animations/Walking/east/frame_007.png",
       "sha256": "a79d3c56f038b731dca072fe8be11c2c54e18e3d02ea0c76d90f67d6a0b7f6a3"
+    },
+    {
+      "id": "gather-east-000",
+      "file": "gather/east/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_000.png",
+      "sha256": "6dd8b8a566c006bfff6dc5b5abbb73fa8a17da133d8781a0dae57bc393bb22e8"
+    },
+    {
+      "id": "gather-east-001",
+      "file": "gather/east/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_001.png",
+      "sha256": "ce017ae15c0ea48b176b7acacf7b91ea93c6d52ec3b8e2ada841b4ac6d71e0bc"
+    },
+    {
+      "id": "gather-east-002",
+      "file": "gather/east/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_002.png",
+      "sha256": "20d2558595d9053a9a3cccc202b0443027bc5b17c23b3048e4f16725ea5df03b"
+    },
+    {
+      "id": "gather-east-003",
+      "file": "gather/east/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_003.png",
+      "sha256": "22e568cf748e8ce4b7ec261f68ed175aaa76cdbb0fa181737ac5f826136c2913"
+    },
+    {
+      "id": "gather-east-004",
+      "file": "gather/east/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_004.png",
+      "sha256": "54e52bc2efe9c83310f4e756e8a48c5a29824331f44df680db6ea92bd406226b"
+    },
+    {
+      "id": "gather-east-005",
+      "file": "gather/east/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_005.png",
+      "sha256": "6ca547039e4e774e50ace5443be74141b1a9fa624847fe5bf04d53287a36f575"
+    },
+    {
+      "id": "gather-east-006",
+      "file": "gather/east/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_006.png",
+      "sha256": "b2f33b5cd4d56b96eeb2ed25c8065b639557247f80968a1d8d656e8f09d19684"
+    },
+    {
+      "id": "gather-east-007",
+      "file": "gather/east/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/east/frame_007.png",
+      "sha256": "e3c529c3b100741c61e24950cdccd92aff047e1b802cfca2a65845193415ea25"
     },
     {
       "id": "idle-north",
@@ -659,6 +848,94 @@
       "sha256": "a2f27ef689171d92d8995027c3f92570dcce843cd7c24715ac808c07a83326f2"
     },
     {
+      "id": "gather-north-000",
+      "file": "gather/north/000.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_000.png",
+      "sha256": "118cd73833f258a36bdb67bffd3e905f1cd7428c31d160b50bc2e84e4e69255b"
+    },
+    {
+      "id": "gather-north-001",
+      "file": "gather/north/001.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_001.png",
+      "sha256": "40f6155f652fbb2ebc86d068dedcab8618d50c80df11f00883e172120a701360"
+    },
+    {
+      "id": "gather-north-002",
+      "file": "gather/north/002.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_002.png",
+      "sha256": "9e7ffd5072b8e7953b1bbc62d4bca20ade7b9531671e323cf897e66ad12990d2"
+    },
+    {
+      "id": "gather-north-003",
+      "file": "gather/north/003.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_003.png",
+      "sha256": "ad1726254f8baade87585d961d7ea8f8bc115919deeceedb6d253d7035043c18"
+    },
+    {
+      "id": "gather-north-004",
+      "file": "gather/north/004.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_004.png",
+      "sha256": "7ba1ac471d067bdc4e6f1bc3265629fdc155c3d50d1ad5110df5164c865ab77c"
+    },
+    {
+      "id": "gather-north-005",
+      "file": "gather/north/005.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_005.png",
+      "sha256": "7ba1ac471d067bdc4e6f1bc3265629fdc155c3d50d1ad5110df5164c865ab77c"
+    },
+    {
+      "id": "gather-north-006",
+      "file": "gather/north/006.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_006.png",
+      "sha256": "b1550e3fcea2892ae7cca9e941974cea81c9ecf2dc78148ed9996ddbc781b8e3"
+    },
+    {
+      "id": "gather-north-007",
+      "file": "gather/north/007.png",
+      "width": 44,
+      "height": 44,
+      "footX": 22,
+      "footY": 36,
+      "archive": "base",
+      "source": "Base/animations/Attack/north/frame_007.png",
+      "sha256": "d625e847c9fddaef6a27698091ead8b6b2682d0fe6e557d8b8469ad40156eca7"
+    },
+    {
       "id": "idle-west",
       "file": "idle/west.png",
       "width": 32,
@@ -844,6 +1121,94 @@
       "archive": "base",
       "source": "Base/animations/Walking/west-6b9bf452/frame_007.png",
       "sha256": "70d00857a37ee126af2dee694905df21c884293dad7a14b21f168855d9e425b5"
+    },
+    {
+      "id": "gather-west-000",
+      "file": "gather/west/000.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_000.png",
+      "sha256": "20390c21eba0a3a94a3c2db19fdbdd37ec2c466031ba1195f0a8e052c076d17e"
+    },
+    {
+      "id": "gather-west-001",
+      "file": "gather/west/001.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_001.png",
+      "sha256": "633e6018184c1a0356238024471cc2ffbe7751ca5ccaf8cb653348e1a406aebe"
+    },
+    {
+      "id": "gather-west-002",
+      "file": "gather/west/002.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_002.png",
+      "sha256": "e8144cb1ca2fb881e37fb8b0e275ad5fdbe50be3581d261c6af14d7bafa3b274"
+    },
+    {
+      "id": "gather-west-003",
+      "file": "gather/west/003.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_003.png",
+      "sha256": "693bf3a910f8fb693f0cd4f7619971ad667a8eaa97bffae52005cc70bb34963c"
+    },
+    {
+      "id": "gather-west-004",
+      "file": "gather/west/004.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_004.png",
+      "sha256": "49c4eeff69cc395624b1abc4e2a55243665b7035374680e5c53bbf7c3036e76a"
+    },
+    {
+      "id": "gather-west-005",
+      "file": "gather/west/005.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_005.png",
+      "sha256": "552c6796851797efc2855c1faa6b6607cf5747164415387762898ea4edf06472"
+    },
+    {
+      "id": "gather-west-006",
+      "file": "gather/west/006.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_006.png",
+      "sha256": "f69d9d94a104ae1eef5a9651d0ef2cea06f89745037fcc0f377e5fb241d58792"
+    },
+    {
+      "id": "gather-west-007",
+      "file": "gather/west/007.png",
+      "width": 40,
+      "height": 40,
+      "footX": 20,
+      "footY": 34,
+      "archive": "base",
+      "source": "Base/animations/Attack/west/frame_007.png",
+      "sha256": "481495d17101e3d580a54dcff1717bb1e2d80c75caddcc320b7c9e97cabc62b9"
     },
     {
       "id": "haul-pose-south",
@@ -3725,6 +4090,6 @@
       }
     ],
     "westVariant": "west-6b9bf452",
-    "note": "Original PNG bytes; native padding and 32px body. Other directions and alternate takes stay in the ZIPs. Axe Attack is curated as tree chopping; no combat is added. East/west axe idle uses unmodified static poses. Creative assets follow ASSETS-LICENSE.md."
+    "note": "Original PNG bytes; native padding and 32px body. Other directions and alternate takes stay in the ZIPs. Base Attack is curated as mushroom gathering and Axe Attack as tree chopping; no combat is added. East/west axe idle uses unmodified static poses. Creative assets follow ASSETS-LICENSE.md."
   }
 }

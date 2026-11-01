@@ -1,3 +1,4 @@
+import { legacyTerrain } from "./legacy-terrain";
 import { expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
@@ -165,7 +166,7 @@ it("migrates an actual schema-5 active haul and maps diagonal facing to a cardin
   ).toString();
   const old = JSON.parse(text),
     s = decodeSave(text);
-  expect(s.version).toBe(9);
+  expect(s.version).toBe(10);
   const worker = s.goblins.find((g) => g.carrying)!;
   expect(worker.facing).toBe("north");
   expect(worker.drop).toBeNull();
@@ -178,7 +179,7 @@ it("migrates an actual schema-5 active haul and maps diagonal facing to a cardin
       ...g,
       facing: old.goblins.find((o: { id: string }) => o.id === g.id).facing,
     })),
-  }).toEqual(old);
+  }).toEqual(legacyTerrain(old));
   for (let i = 0; i < 250; i++) step(s);
   expect(s.jobs.some((j) => j.kind === "haul" && j.status === "done")).toBe(
     true,

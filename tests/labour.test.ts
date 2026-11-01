@@ -1,3 +1,4 @@
+import { legacyTerrain } from "./legacy-terrain";
 import { expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
@@ -212,7 +213,7 @@ it("migrates a real schema-6 drop wind-up and continues priorities and seeded de
       readFileSync("tests/fixtures/v6-drop-windup.json.gz"),
     ).toString(),
     s = decodeSave(text);
-  expect(s.version).toBe(9);
+  expect(s.version).toBe(10);
   expect(s.goblins.some((g) => g.drop)).toBe(true);
   expect({
     ...s,
@@ -220,7 +221,7 @@ it("migrates a real schema-6 drop wind-up and continues priorities and seeded de
     tiles: s.tiles.map(({ stockpileFilter, ...tile }) => tile),
     goblins: s.goblins.map(({ preferredWork, workAction, ...g }) => g),
     jobs: s.jobs.map(({ priority, ...j }) => j),
-  }).toEqual(JSON.parse(text));
+  }).toEqual(legacyTerrain(JSON.parse(text)));
   dispatch(s, { type: "preference", actor: s.goblins[0].id, work: "build" });
   plan(s, "build", 31, 29, 3, "bed");
   const b = decodeSave(encodeSave(s));
