@@ -12,6 +12,8 @@
 
 ### Prototype implementation note — 0.1.0-prototype.16
 
+Documentation follow-up: refresh the README with linked CI/build/licence/stack badges, a screenshot-led overview, quick navigation, controls tables and collapsible player guides. Setup, save schema 10, 48px source/display rules and private-preview access stay explicit. GG-191 and release gates remain open.
+
 The first playable colony slice is implemented and verified. The current presentation uses the owner-requested fixed three-quarter JRPG view, with rectangular floors and raised front wall faces (GG-013/GG-015/GG-017); it supersedes the initial isometric choice. Checkmarks in
 this change identify criteria verified on this branch and become completion
 records when merged, as required above. Iteration 14 integrates the native scenery set, 96×96 trees anchored to their bottom-middle tile, deterministic alternatives and two farm sprites per growth stage. Iteration 15 follows the owner’s scope revision: remove sand, rename mud to dirt, use the eight new dirt walls and animate mushroom gathering with Base/Attack. Schema 10 migrates old earth materials without replacing maps or work. Iteration 16 revises the display standard to 48×48 for the purchased tileset bundle: scale existing art uniformly at 1.5×, retain original files and update camera/picking/tree anchors. Purchased assets await supplied files; packed-atlas acceptance remains open. The terrain count is now five; the earlier six-material descriptions below are historical. No milestone release gate or tag is claimed.

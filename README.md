@@ -1,194 +1,253 @@
+<div align="center">
+
+<img src="public/assets/goblin/base/idle/south.png" alt="A little goblin, ready to make trouble" width="32" height="32">
+
 # 🍄 Goblin Grotto
 
-> **Dig deep. Hoard shinies. Cause trouble.**
+**Dig deep. Hoard shinies. Cause trouble.**
 
-A browser-first, dark-fairy-tale colony simulator and dungeon-defence game.
-You are the **Spirit of the Grotto**, guiding eccentric goblins as they make a
-home beneath the hill. The Brothers Grimm meet slapstick.
+*A little cave. A grand beginning.*
 
-## Play the prototype
+[![Quality checks](https://github.com/mbaldwinsmith/goblin-grotto/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/mbaldwinsmith/goblin-grotto/actions/workflows/quality.yml)
+[![Prototype build](https://img.shields.io/badge/build-0.1.0--prototype.16-667B55?style=flat-square)](CHANGELOG.md)
+[![Code licence: MIT](https://img.shields.io/badge/code-MIT-C5AF73?style=flat-square)](LICENSE.md)
+[![Art: separate terms](https://img.shields.io/badge/art-separate_terms-8A654C?style=flat-square)](ASSETS-LICENSE.md)
 
-**Current build: `0.1.0-prototype.16`**, an early local playable colony slice.
-This is not the completed v0.1 milestone or a public release.
+[![Node.js 24+](https://img.shields.io/badge/Node.js-24%2B-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Strict TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?style=flat-square&logo=typescript&logoColor=white)](tsconfig.json)
+[![PixiJS 8](https://img.shields.io/badge/PixiJS-8-E72264?style=flat-square)](package.json)
 
-A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
+[**Play the private preview**](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/) · [**Run locally**](#run-locally) · [**Controls**](#controls-and-saves) · [**Roadmap**](PLAN.md)
 
-To run locally, use Node 24:
+</div>
+
+---
+
+You are the **Spirit of the Grotto**, guiding four eccentric goblins as they carve
+out a home beneath the hill. Grow mushrooms, gather supplies, shore up loose
+ceilings and watch your little troublemakers get on with the work.
+
+Goblin Grotto is a browser-first, dark-fairy-tale colony simulator and
+dungeon-defence game in development. **The Brothers Grimm meet slapstick.**
+
+![Goblin Grotto: four goblins making a home in the 48px JRPG-style cavern](docs/screenshots/prototype.png)
+
+> **Early playable · `0.1.0-prototype.16`**<br>
+> The home-building loop is playable. This is an early prototype; the full v0.1
+> milestone is still open. The hosted preview is private and requires the owner's
+> ChatGPT sign-in. You can also run the game locally.
+
+## A home worth digging for
+
+| | In the current prototype |
+| --- | --- |
+| **👺 Four little troublemakers** | Nib, Moss, Grub and Pip dig, haul, build, gather, eat and sleep autonomously. Their identities and facing persist through saves. |
+| **⛏️ A grotto to discover** | Seeded 64×64 caves, hidden chambers, a small outdoor region, trees, fungi and iron, copper, gold and gem deposits. |
+| **🍄 A working little colony** | Mushroom farms, beds, filtered stockpiles, workshops and bed-kit crafting. Priorities and preferred work guide the goblins. |
+| **🪵 A roof to keep up** | Warned cave-ins, buildable supports, seasonal weather and routes that account for terrain and travel costs. |
+| **🎨 A proper JRPG view** | Fixed three-quarter perspective, a 48×48 display grid, separate wall tops and sides, and four-direction goblin animations. |
+| **💾 A home to return to** | Manual saves, separate autosaves and portable JSON export/import, including migration of older colonies. |
+
+## Run locally
+
+You need **Node.js 24+**, npm and a desktop browser with **WebGL** enabled.
+The game runs entirely in your browser; gameplay needs no backend or remote art service.
 
 ```sh
+git clone https://github.com/mbaldwinsmith/goblin-grotto.git
+cd goblin-grotto
 npm ci
 npm run dev
 ```
 
-Open the URL printed by Vite (normally `http://localhost:5173`). A desktop browser
-with WebGL enabled is required. The game uses no backend or remote art services.
+Open the address printed by Vite, normally **http://localhost:5173**.
+For a production build, run `npm run build`, then `npm run preview`.
 
-![The first playable grotto](docs/screenshots/prototype.png)
+## Your first home
 
-Four named common goblins—Nib, Moss, Grub and Pip—keep their identity and facing through saves and autonomously dig, haul, build,
-gather, eat and sleep. The seeded 64×64 world has connected chambers, an entrance,
-a small outdoor strip, hidden chambers, mushrooms, trees and distinct ore veins. Designate work and let them do it.
+1. **Grow dinner.** Place two **Mushroom patches** on empty cavern floor, at one
+   stone each. They grow and harvest automatically; goblins haul and eat the food.
+2. **Make somewhere to sleep.** Build **Beds** with two stored wood each. Goblins
+   can sleep on the floor while you get established.
+3. **Carve out a room.** Use **Dig** on exposed rock. Harder materials take more
+   strikes; excavation reveals neighbouring cells and drops resources.
+4. **Give supplies a home.** Paint a **Stockpile** on empty floor and choose the
+   goods it accepts. Haulers find reachable matching storage.
+5. **Gather and craft.** Gather outdoor trees and wild mushrooms. Build a
+   **Workshop**, then use **Craft** there: one stored wood makes a bed kit,
+   automatically used before raw wood when building a bed.
+6. **Keep your grotto.** Use **Save**, and **Export** a backup you can keep outside
+   the browser.
 
-### Explore the new world
-
-Start **New grotto** to see the new generation rules. Existing saves retain their
-original layouts and knowledge. Choose **Explore** and click a turquoise frontier
-dot on a known passage: a goblin walks there and reveals more. Digging can open
-sealed chambers. Inspect groves, ruins, old workings, pools, shrines and dens for
-local stories and resources. Pools block movement; known terrain stays remembered.
-
-Mine coloured iron, copper, gold and gem deposits. Gather trees, edible mushrooms,
-loose stone and ancient masonry. The ore counter's tooltip breaks down the metals;
-gems have their own total. Distant, unseen landmarks do not appear in the inspector.
-
-### Your first home
-
-1. Select **Mushroom patch** and place two on empty cavern floor (one stone each).
-   Mushrooms grow and are harvested automatically; food is hauled and eaten.
-2. Build **beds** (two wood each). Goblins can sleep on the floor in the meantime.
-3. Select **Dig** and click the exposed rock around the cave. Harder materials
-   take longer. Newly excavated tiles reveal their neighbours and drop resources.
-4. Mark a **stockpile** on empty floor to collect loose supplies automatically.
-5. **Gather** trees outside or wild mushrooms. Build a **workshop**, then select
-   **Craft** on it: one stored wood becomes a physical bed kit, automatically used
-   before raw wood when constructing a bed.
-6. **Save** in this browser or **Export** a portable JSON backup.
-
-Gold outlines show excavation; teal outlines show other planned work. Select a
-tile to inspect its progress or failure reason. Hungry and tired goblins interrupt
-work to look after themselves. The sidebar tracks food and energy. The **Crafts** resource counter currently
+Gold outlines mark excavation; teal outlines mark other work. Inspect a planned
+tile to read its progress or failure reason. Hungry and exhausted goblins take
+care of themselves before returning to work. The **Crafts** counter currently
 tracks stored bed kits.
 
-### Sort your supplies
+## Controls and saves
 
-Choose **Stockpile**, select a goods filter and drag across clear floor, or use
-coordinates to mark an area. Filters cover all goods, food, building supplies
-(wood/stone), ore and valuables, and crafted goods (bed kits). Painting again
-updates the filter; **Stockpile mode → Remove** erases an area.
+| Action | Control |
+| --- | --- |
+| Inspect or apply the selected tool | Left-click; coordinate inputs provide a keyboard alternative |
+| Paint work across cells | Hold the left mouse button and drag |
+| Pan | Right-drag or arrow keys |
+| Zoom around the pointer | Scroll; `+` / `−` also zoom |
+| Reset the view | **Home** |
+| Pause or resume | **Space**; speed buttons offer pause, 1×, 2× and 4× |
+| Return to Inspect | **Escape** |
+| Select a goblin behind obstacles | **Reveal walls**; it also fades tree canopies |
+| Open the guide | **How to play** |
 
-Inspect a pile to change **Accept goods**, read its stored contents or remove it.
-Haulers use the nearest reachable matching pile. Existing valid deliveries keep
-their destination; changing or removing it reroutes them. If no suitable pile
-exists, goods stay recoverable where they are. Buildings and collapses clear
-storage beneath them. New piles can include goods already on that floor.
+Selecting a goblin follows their location in the inspector. The Chronicle opens
+as a keyboard-accessible drawer. Simulation and animations pause in dialogs and
+hidden tabs. Cancel work releases reservations and refunds construction.
 
-Hover a resource total for its **stored / carried / loose** breakdown. Every
-quantity belongs to one category; painting and filtering never create or delete
-supplies. Stored goods are available for construction; loose food can still be eaten.
+**Save / Load** use a manual IndexedDB slot in this browser. A separate autosave
+is written every 30 seconds; **Load auto** restores it. **Export** before clearing
+browser data or moving to another browser.
 
-### Guide the work
+**Import** validates saves from **versions 1–10** before replacing the current
+game. Unsupported or damaged saves leave the active grotto intact. Current saves
+use **schema 10**; older sand/mud tiles migrate to dirt while keeping the map,
+objects, discovery, RNG, hazards and active work.
 
-Set **New work priority** to Low, Normal or High before placing jobs. Inspect a
-planned tile to change its **Work priority**. One, two or three dots mark the
-priority on the map. Free workers take eligible High work before Normal and Low;
-a missing-resource or unreachable job does not block other work.
+**New grotto** asks for a seed and replaces the active session. Save first.
 
-Select a goblin and choose **Preferred work** to encourage a particular job type.
-They can still do other work. The inspector explains their last choice: preference,
-trip length, food shortages, ceiling supports or work already started. Tiredness
-favours lighter tasks; urgent eating and rest still interrupt work. Current jobs
-finish before a new priority or preference guides the next choice. Priorities and
-preferences are included in saves.
+## Dig a little deeper
 
-### Loose ceilings and the weather
+<details>
+<summary><strong>🧭 Explore, discover and gather</strong></summary>
+
+Start **New grotto** to use the latest generation rules; existing saves retain
+their original layouts and knowledge. Choose **Explore** and click a turquoise
+frontier dot on a known passage. A goblin walks there and reveals more.
+
+Digging can open sealed chambers. Inspect glowing groves, old ruins, mine workings,
+pools, shrines and dens for local stories and resources. Pools block movement;
+known terrain stays remembered. Hidden landmarks do not leak into the inspector.
+
+Mine coloured metal and gem deposits, or gather trees, edible mushrooms, loose
+stone and ancient masonry. Clicking a tree's canopy for Inspect or Gather targets
+its root. Workers face their target and apply work when the visible strike lands.
+Wild mushrooms and automatic farm harvests use a picking animation. Harder rock
+needs more strikes; cancelling a wind-up grants no work, and saves retain the swing.
+
+</details>
+
+<details>
+<summary><strong>📦 Sort supplies and guide the work</strong></summary>
+
+Choose **Stockpile**, select a goods filter and drag to paint an area. Filters
+cover All goods, Food, Building supplies, Ore and valuables, and Crafted goods.
+Painting again updates the filter. Use **Stockpile mode → Remove** to erase areas,
+or inspect a pile to edit **Accept goods**, read its contents or remove it.
+
+Haulers choose the nearest reachable matching pile. Filter edits, removed areas
+or blocked destinations reroute the same cargo. When no suitable pile exists,
+goods remain recoverable. Buildings and collapses clear storage beneath them.
+Goods already on a newly marked matching pile count as stored without being moved.
+
+Resource tooltips break quantities into **stored / carried / loose**. Supplies
+belong to one category; painting and filtering never create or delete them.
+Stored goods fund construction; loose food can still be eaten. The ore tooltip
+also separates the metals, while gems have their own counter.
+
+Set **New work priority** before placing a job, or inspect a planned tile to edit
+its **Work priority**. One, two or three dots show Low, Normal or High. Free workers
+prefer eligible High work; a blocked or unfunded job does not hold up other work.
+
+Select a goblin and choose **Preferred work** to encourage a job type. They can
+still do other work. The inspector explains their choice using preference, trip
+length, food shortages, supports and work already started. Tiredness favours
+lighter jobs; urgent eating and rest interrupt work. Current jobs finish before
+new priorities guide the next choice. Saves retain priorities and preferences.
+
+</details>
+
+<details>
+<summary><strong>🪨 Watch the ceiling—and the weather</strong></summary>
 
 Excavating weak material beside a wide opening may reveal a loose ceiling. An
 amber crack and Chronicle warning give you **30 game seconds** to build a
-**Support**: one wood and one stone, protecting a two-tile Manhattan radius.
-Supports leave the passage walkable. Unsupported falls leave diggable rubble;
-this prototype avoids landing on goblins or cutting the colony off from food.
+**Support**, costing one wood and one stone. It protects a two-tile Manhattan
+radius and leaves the passage walkable.
 
-The header shows the day, season and weather. Seasons last five days; seeded
-weather changes can bring rain, or snow in winter. Rain adds one movement tick
-outside and snow adds two; cave movement is unaffected. Routes account for terrain
-costs and prefer to avoid warned ceilings.
+Unsupported falls leave diggable rubble. This prototype avoids landing on goblins
+or cutting the colony off from food. Dirt and loose rock slow movement; inspect
+terrain to see its movement, digging and support properties.
 
-### Controls and saves
+The header shows the day, season and weather. Seasons last five days. Seeded
+weather brings rain, or snow in winter. Rain adds one movement tick outdoors and
+snow adds two; the cave stays sheltered. Routes account for travel costs and
+prefer to avoid warned ceilings.
 
-- Left-click: inspect goblins, tiles and structures, or apply the selected tool.
-  Hold and drag to paint work; each tile is affected once per stroke. Coordinate inputs provide
-  a keyboard alternative. Cancel work releases reservations and refunds construction.
-- Right-drag / arrow keys: pan. Scroll / `+` / `−`: zoom. **Home**: reset the view. Zoom follows the pointer; the camera stays within map bounds.
-- **Reveal walls** fades foreground obstacles so hidden goblins can be selected.
-  Selecting a goblin follows their location in the inspector; the Chronicle opens
-  and closes as a keyboard-accessible drawer.
-- **Space**: pause/resume. Speed buttons: pause, 1×, 2×, 4×. **Escape**: inspect mode.
-- **How to play** opens the guide. Simulation pauses in dialogs and hidden tabs.
-- **Save / Load** use a manual IndexedDB slot. Every 30 seconds, a separate autosave
-  is written; **Load auto** restores it. Export before clearing browser data.
-- **Import** validates a version-1, version-2, version-3, version-4, version-5, version-6, version-7, version-8 or version-9 save before replacing the current game. Future
-  or damaged saves show a message and leave the current grotto intact.
-- **New grotto** asks for a seed and replaces the active session; save first.
+</details>
 
-### Prototype boundaries
+## Art and sprite library
 
-This slice demonstrates the home-building loop with supplied goblin sprites,
-directional walking and cached A* routes. It does **not** yet implement Souls,
-Chief/Shaman politics, possession, inventory equipment, combat, raids, generations
-or the Overlord. Large-crowd behaviour, camera polish and the production art pipeline
-still need work.
-There is no starvation death or combat failure state yet. Workshop content is one
-small recipe; a full economy is later work.
+The fixed **three-quarter JRPG** view uses a **48×48 display grid** and four
+cardinal directions. Floors, raised wall tops and exposed faces are separate.
+Nearest-neighbour sampling keeps enlarged sprites sharp.
 
-The ambitious design remains in [PLAN.md](PLAN.md). Task checkboxes reflect tested
-acceptance criteria; partial implementations remain unchecked. See
-[prototype verification and remaining work](docs/PROTOTYPE.md).
+Original 32px goblin bodies and terrain display uniformly at **1.5×**. Padded
+40×40/44×44/48×48 animation canvases and foot anchors scale together; source PNGs
+remain unchanged. Native 48px terrain will fit at scale 1 once imported. The
+purchased tileset bundle has not yet been imported.
 
-## Pixel-art scale
+The nine native 96×96 trees display at **144×144**. Their bottom-middle source
+square covers one 48×48 root cell. Canopies sort by root depth and fade for Reveal
+walls or selected goblins behind them. Wall tops rise one cell above their faces.
 
-The display grid is **48×48**. Home restores 1× zoom: one tile occupies 48×48
-screen pixels. Floors, wall tops, wall sides and small plants fit one cell.
-Existing 32×32 PNGs display uniformly at 1.5× with nearest sampling; their source
-bytes stay unchanged. Native 48×48 terrain will fit at scale 1 when imported.
-The current 96×96 tree PNGs display at 144×144, with their bottom-middle source
-square covering the 48×48 root tile. Canopies sort by the root tile and fade with Reveal walls or a
-selected goblin behind them. Clicking a canopy for Inspect or Gather targets its root. Walls assemble a raised
-top and a separate exposed front face. Zoom
-magnifies the scene with nearest-neighbour sampling.
+The supplied base, hauling, pick and axe packs animate idle breathing, walking,
+mining, chopping, mushroom picking, loaded travel and putting cargo down. Deliveries
+release their item during the put-down motion; interrupted cargo remains
+recoverable. Missing pick walking uses the base walk, and missing east/west axe
+idle cycles use the supplied static poses.
 
-The live goblins use your supplied base, hauling, pick and axe packs in four cardinal
-directions: breathing at rest, walking, mining, chopping trees, picking mushrooms, carrying a bag and putting it down.
-The original 32px goblin body displays at 48px. Padded 40×40/44×44/48×48 source
-canvases and foot anchors scale together by 1.5; the PNGs remain unchanged. Pause freezes every clip.
-Haulers take a moment to put supplies down at a stockpile; an interrupted haul
-leaves its item recoverable. Saves retain a delivery in progress, and schema-1
-through schema-9 saves migrate without regenerating the map or adding pending falls.
+The scenery library contains **153 original PNGs**, with deterministic alternatives
+for terrain, item piles, fungi, undergrowth and trees. Farm plots use two sprites
+per stage: young **01/04** (0–199 ticks), growing **03/05** (200–599), and mature
+**02/06** (600, harvestable). Variants stay consistent across save/load without
+consuming simulation RNG.
 
-Use **Dig** on exposed rock or **Gather** on trees and wild mushrooms: workers choose the tool automatically,
-face the target and apply work when the strike lands. Gatherers stand beside their target.
-Wild mushrooms and automatically harvested farm plots use the base attack motion
-as a picking animation; each completed harvest creates one food stack.
-Harder rock takes more strikes. Cancelling a wind-up grants no work; save/load preserves
-the swing. The pack has no pick walk, so miners approach with the base walk. The missing
-east and west axe idle cycles use the supplied static poses.
+Five terrain materials remain: **dirt, loose rock, hard stone, bedrock and
+impenetrable stone**. Eight new dirt-wall sprites replace the previous walls.
+Grass, dirt floors/tops, the map boundary and bed-kit markers retain reference art.
+The packed atlas remains open work.
 
-See the [goblin preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html).
+| Reference | Browse |
+| --- | --- |
+| Source dimensions, anchors, palette and export rules | [Art bible](docs/ART_BIBLE.md) |
+| Scenery inventory, names and provenance | [Sprite library](public/assets/README.md) |
+| Every goblin clip, with frame controls | [Animation gallery](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/goblin-preview.html) |
+| Terrain, items, foliage and tree root squares | [Scenery gallery](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/scenery-preview.html) |
+| The 26 original reference sprites | [Reference gallery](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/art-preview.html) |
 
-See the [individual art preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/art-preview.html).
-The 26-file reference set is listed in `public/assets/prototype/manifest.json` and
-reproduced with `node tools/generate-pixel-art.mjs`. Import the supplied base with `python tools/import-goblin.py`. The packed atlas remains open. Goblins now take free detours, make
-room for one another and pass in narrow tunnels without sharing a logical tile.
-Older stacked colonies are separated onto nearby known floor when imported.
+The hosted galleries share the private preview's access requirements.
 
-## Where the game is heading
+<details>
+<summary><strong>Reproduce and verify the existing source art</strong></summary>
 
-Goblins will have compact **Souls**—Four Humours, ambitions, memories and
-relationships. Policies and leaders guide their choices; possession lets the
-Spirit intervene at a personal and political cost. Goblins defeat stronger foes
-through traps, morale, tunnels and scavenged equipment. Named treasures carry
-histories and ancestral claims, activated by what factions actually learn.
-Generations inherit those stories. Defeating the Overlord is optional; the grotto
-continues afterwards. One playable Z-level and an abstract wider world keep v1
-bounded and focused on what goblins can experience.
+```sh
+node tools/generate-pixel-art.mjs
+python tools/import-goblin.py
+python tools/extract-scenery.py --check
+```
+
+The reference manifest is in `public/assets/prototype/manifest.json`. See the
+[sprite-library guide](public/assets/README.md) for extraction and validation
+commands. Preserve original canvases, padding, alpha and source hashes.
+
+</details>
 
 ## Development
 
-Dirt and loose ground slow movement; the terrain inspector shows movement, digging
-and support properties. Weak excavations may need supports before a warned cave-in.
+**Strict TypeScript · Vite · PixiJS WebGL · semantic HTML/CSS · IndexedDB**
 
-Strict TypeScript + Vite, PixiJS WebGL with a fixed three-quarter JRPG view, semantic HTML/CSS, a pure 10 Hz simulation,
-seeded serializable RNG, typed commands/events, and versioned IndexedDB saves.
-Rendering never decides gameplay outcomes.
+The authoritative simulation runs at **10 Hz** with seeded serialisable RNG,
+stable identities, validated commands and versioned saves. Rendering never
+decides gameplay outcomes. Vitest covers the headless simulation; Playwright
+checks real browser interactions.
 
 ```sh
 npm run typecheck
@@ -200,36 +259,39 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-Browser tests also work with `/usr/bin/chromium` when installed. Tests cover
-replay, projection, seed reachability, colony endurance, construction refunds,
-item transfers, save continuation and real browser interactions. `npm run preview`
-serves the production build. [AGENTS.md](AGENTS.md) and
-[contribution guidance](docs/CONTRIBUTING.md) describe the workflow.
+Browser tests can also use `/usr/bin/chromium` when installed. Coverage includes
+seed reachability, replay, colony endurance, item transfers, construction refunds,
+projection, sprite anchors, save continuation and browser controls.
+
+See [AGENTS.md](AGENTS.md) for working rules,
+[CONTRIBUTING.md](docs/CONTRIBUTING.md) for contribution guidance, and
+[prototype verification](docs/PROTOTYPE.md) for evidence and remaining gaps.
+
+## Beyond the first grotto
+
+The current slice demonstrates a sustainable home-building loop. **Souls,
+Chief/Shaman politics, possession, equipment, combat, raids, generations and the
+Overlord remain planned.** Workshop content is one starter recipe. There is no
+starvation death, combat failure state or win screen yet; large-crowd behaviour,
+camera polish and the production art pipeline still need work.
+
+The longer plan gives goblins Four Humours, ambitions, memories and relationships.
+Leaders interpret the Spirit's wishes; individual and communal property can
+conflict. Goblins overcome stronger foes through traps, morale, tunnels and
+scavenged equipment. Named treasures carry histories and ancestral claims, and
+generations inherit those stories. Defeating the Overlord is optional—the grotto
+continues afterwards.
+
+Explore the [master plan](PLAN.md) and [changelog](CHANGELOG.md). Task checkboxes
+record verified acceptance; a README refresh does not close a release milestone.
 
 ## Licences
 
-Source and technical documentation: [MIT](LICENSE.md), © 2026 Mark Baldwin-Smith.
-Creative assets: [separate rights notice](ASSETS-LICENSE.md). Original creative
-assets are not automatically MIT-licensed. Terrain/plant references were generated from original integer-pixel drawings;
-the live goblin base was supplied by the owner and retains its source archive; no third-party game graphics, fonts or audio were imported.
+**Code and technical documentation:** [MIT](LICENSE.md), © 2026 Mark Baldwin-Smith.
 
+**Creative assets:** [separate rights notice](ASSETS-LICENSE.md); artwork is not
+covered by the code's MIT licence.
 
-## Source sprite library
-
-The owner-supplied terrain, item and foliage exports are extracted into their
-existing `public/assets/` family folders. See the
-[inventory and naming convention](public/assets/README.md) for all 153 PNGs,
-source metadata and reproduction/check commands. The game now selects these
-textures for terrain, resource piles, mushrooms, undergrowth and trees. Variants
-stay consistent across redraws and save/load without consuming simulation RNG.
-Lanterncap farm plots use two variants per growth stage: young 01/04 (0–199),
-growing 03/05 (200–599), and mature 02/06 (600, ready to harvest).
-
-See the [scenery gallery](https://goblin-grotto-prototype.breezyeft133.chatgpt.site/scenery-preview.html)
-for every original PNG and the tree anchor square. Grass, dirt floors/tops, the blocked
-map boundary and bed-kit markers keep their existing reference art.
-
-Sand has been removed. The five terrain materials are dirt, loose rock, hard stone,
-bedrock and impenetrable stone. Eight new native dirt-wall sprites replace the
-previous walls. New saves use schema 10; versions 1–9 migrate legacy sand and mud
-to dirt while keeping the existing map, objects, RNG, hazards and work progress.
+The current goblin and scenery sources were supplied by the owner and retain
+recorded provenance. Reference art comes from original integer-pixel drawings.
+Third-party materials, when included, retain their own applicable terms.
