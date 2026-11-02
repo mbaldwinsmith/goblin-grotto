@@ -18,7 +18,7 @@ it("prefers a fast route over a shorter muddy route and tolerates occupied cells
       t.discovered = true;
     }
   for (const x of [29, 30, 31, 32, 33])
-    tileAt(s, position(x, 30))!.material = "mud";
+    tileAt(s, position(x, 30))!.material = "dirt";
   const route = path(s, position(28, 30), position(34, 30), false, true)!;
   expect(route.some((p) => p.y === 29)).toBe(true);
   s.goblins[1].position = { ...route[0] };

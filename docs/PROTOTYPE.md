@@ -1,4 +1,4 @@
-# 0.1.0-prototype.14 — verification and handoff
+# 0.1.0-prototype.15 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -16,13 +16,13 @@ uses a stored kit before falling back to two raw wood.
 
 - `npm run typecheck`: strict TypeScript, including browser and simulation tests.
 - `npm run lint` and `npm run format:check`: Biome checks.
-- `npm test`: 91 headless tests in eighteen files. Includes 1,000 seeded starts;
+- `npm test`: 97 headless tests in nineteen files. Includes 1,000 seeded starts;
   a 24,000-tick colony run; three further 16,000-tick runs with save validation
   every 200 ticks; item, reservation, hunger, construction/refund and craft/use
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: seventeen Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: eighteen Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -37,6 +37,7 @@ workspace. The Playwright CDN is blocked by network policy; CI uses the standard
 Playwright installation path. This does not establish real GPU performance,
 Firefox/WebKit compatibility or the latest hosted CI status. The endurance test has a
 20-second timeout because concurrent browser software rendering can slow it down.
+The three-seed save-validation soak has a 60-second budget for that heavier workload.
 
 ## Open work and honest scope
 
@@ -45,7 +46,7 @@ checks/branch protection are not verified here. M00's full gate remains open for
 
 GG-022: the art bible now includes source references, palette, export rules,
 role mappings, cardinal timing, native dimensions/anchors and a validation checklist;
-its verified completion record awaits merge. GG-023’s packed atlas remains open.
+its completion record was merged in prototype.14. GG-023’s packed atlas remains open.
 
 GG-032/GG-034/GG-035 are verified on this branch: warned cave-ins/supports, seasonal weather and cached A* navigation. Completion records await merge.
 
@@ -59,7 +60,7 @@ GG-061 and the v0.1 gate remain open. No public build or milestone tag was creat
 Souls, government, possession, raids, equipment, relics and generations are later
 milestones and were not introduced into this prototype.
 
-New saves are schema 9; schema-1 through schema-8 saves migrate in place with their existing map,
+New saves are schema 10; schema-1 through schema-9 saves migrate in place with their existing map,
 knowledge, objects and work preserved. Unsupported versions are explicitly rejected. Future schema
 changes need migration fixtures. No death or starvation failure state is present.
 The colony has a sustainability goal rather than a win screen. Source and technical
@@ -322,3 +323,35 @@ Browser phase checks pause through the existing Pause button in the same page
 frame that observes drop wind-up/release, preventing a slower runner from clicking
 after recovery. Multi-action scout/drop scenarios allow 60 seconds for UI setup;
 their completion, uniqueness and animation-phase assertions remain strict.
+
+
+## Iteration 15 — dirt and mushroom gathering
+
+The owner removes sand from gameplay. Five materials remain; former mud becomes
+dirt, retaining its movement, digging and support properties. New worlds contain
+neither retired material. Eight native 32×32 dirt walls from owner commit
+`04ed6d9` replace the previous 16-wall batch; retired sand art is removed from
+active source archives, catalogs, references and galleries. The current scenery
+library is 153 unchanged PNGs from 19 archives; the reference set is 26 PNGs.
+
+Schema 10 migrates versions 1–9 by mapping legacy sand/mud to dirt. A real
+schema-9 active mine fixture verifies exact preservation of map coordinates,
+discovery, hazards, IDs, RNG and ongoing tool work, then deterministic continuation.
+New schema-10 saves reject retired and unknown material tokens. Older fixture
+bytes remain unchanged.
+
+Base/Attack now provides eight native frames per cardinal direction for wild
+mushroom gathering and automatic farm harvesting. Gatherers approach adjacent
+tiles, face the patch and apply work at tick 10 of an 18-tick stroke, aligned with
+source frame 4. Completion produces one food stack (wild 5, farm 8), followed by
+recovery. Pause and renderer calls grant no work. Cancellation, urgent hunger,
+save/load during wind-up, impact and recovery, and four-direction facing are
+covered by simulation regressions. The goblin import is now 359 unchanged PNGs
+and 44 directional clips.
+
+All required checks passed: typecheck, lint, format, 97 headless tests in 19 files,
+production build and 18 browser scenarios. The new browser scenario imports the
+real old save, checks new dirt walls, observes actual gathering textures for both
+patch types, saves/reloads and finishes without duplicate food. See
+[mushroom gathering](screenshots/mushroom-gathering.png). GG-023 remains open
+for a packed atlas; no milestone gate or release tag is claimed.

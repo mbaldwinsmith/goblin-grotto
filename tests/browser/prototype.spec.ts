@@ -277,7 +277,7 @@ test("all separate native art files decode as 32x32 images", async ({
   page,
 }) => {
   await page.goto("/art-preview.html");
-  await expect(page.locator("img")).toHaveCount(29);
+  await expect(page.locator("img")).toHaveCount(26);
   await expect
     .poll(() =>
       page
@@ -702,7 +702,7 @@ test("cardinal animation gallery decodes every clip and allows frame-by-frame re
   page,
 }) => {
   await page.goto("/goblin-preview.html");
-  await expect(page.locator("main img")).toHaveCount(40);
+  await expect(page.locator("main img")).toHaveCount(44);
   await expect
     .poll(() =>
       page
@@ -1039,7 +1039,7 @@ test("native pick and axe swings freeze while paused and resume their work once 
     g.position = position(i < 2 ? 30 + i * 4 : 10 + i, i < 2 ? 30 : 10);
   });
   tileAt(s, position(31, 30))!.solid = true;
-  tileAt(s, position(31, 30))!.material = "sand";
+  tileAt(s, position(31, 30))!.material = "dirt";
   tileAt(s, position(34, 29))!.deposit = "wood";
   dispatch(s, { type: "designate", tool: "dig", position: position(31, 30) });
   dispatch(s, {
@@ -1139,9 +1139,13 @@ test("new scenery keeps native tree anchors, growth pairs, canopy picking, item 
         collapseAt: null,
       });
     }
-  tileAt(s, position(30, 28))!.material = "sand";
+  tileAt(s, position(30, 28))!.material = "loose";
   Object.assign(tileAt(s, position(29, 28))!, {
-    material: "sand",
+    material: "loose",
+    solid: true,
+  });
+  Object.assign(tileAt(s, position(28, 28))!, {
+    material: "dirt",
     solid: true,
   });
   s.goblins.forEach((g, i) => {
@@ -1222,6 +1226,7 @@ test("new scenery keeps native tree anchors, growth pairs, canopy picking, item 
           width: sprite?.width,
           height: sprite?.height,
         })),
+        dirt: scene.tiles.get(28 * 64 + 28)?.side?.label,
         hidden: scene.tiles.get(30 * 64 + 36)?.plant?.visible ?? false,
         farms: [29, 30, 31].map(
           (x) => scene.tiles.get(32 * 64 + x)?.plant?.label,
@@ -1269,6 +1274,7 @@ test("new scenery keeps native tree anchors, growth pairs, canopy picking, item 
   expect(before.backings).toEqual(
     Array.from({ length: 3 }, () => ({ visible: true, width: 32, height: 32 })),
   );
+  expect(before.dirt).toMatch(/^wall-dirt-0[1-8]$/);
   expect(before.hidden).toBe(false);
   expect(before.farms[0]).toMatch(/^lanterncap-farm-0[14]$/);
   expect(before.farms[1]).toMatch(/^lanterncap-farm-0[35]$/);
@@ -1331,7 +1337,7 @@ test("new scenery keeps native tree anchors, growth pairs, canopy picking, item 
   expect(wood).toHaveLength(2);
   expect(new Set(wood.map((i: { id: string }) => i.id)).size).toBe(2);
   await page.goto("/scenery-preview.html");
-  await expect(page.locator("main img")).toHaveCount(185);
+  await expect(page.locator("main img")).toHaveCount(153);
   await expect
     .poll(() =>
       page.locator("main img").evaluateAll((images) =>
@@ -1350,4 +1356,131 @@ test("new scenery keeps native tree anchors, growth pairs, canopy picking, item 
     path: "docs/screenshots/scenery-gallery.png",
     fullPage: true,
   });
+});
+
+test("legacy earth migrates to dirt and attack clips gather wild and farm mushrooms once after load", async ({
+  page,
+}) => {
+  test.setTimeout(60000);
+  const { readFileSync } = await import("node:fs"),
+    { gunzipSync } = await import("node:zlib");
+  const { createGame, dispatch, step } = await import("../../src/sim/game"),
+    { position, tileAt } = await import("../../src/sim/model");
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await page.locator("#import").setInputFiles({
+    name: "legacy-earth.json",
+    mimeType: "application/json",
+    buffer: gunzipSync(readFileSync("tests/fixtures/v9-soft-earth.json.gz")),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  expect(
+    await page.locator("canvas").evaluate((canvas) => {
+      const s = Reflect.get(canvas, "grottoScene").world;
+      return {
+        version: s.version,
+        legacy: s.tiles.some(
+          (t: { material: string }) =>
+            t.material === "sand" || t.material === "mud",
+        ),
+      };
+    }),
+  ).toEqual({ version: 10, legacy: false });
+  const s = createGame("picking-mushrooms");
+  for (const t of s.tiles)
+    Object.assign(t, {
+      solid: false,
+      discovered: true,
+      outside: false,
+      material: "dirt",
+      deposit: null,
+      feature: null,
+      structure: null,
+      stockpile: false,
+      collapseAt: null,
+    });
+  s.goblins.forEach((g, i) => {
+    g.position = [
+      position(30, 30),
+      position(34, 30),
+      position(10, 10),
+      position(11, 10),
+    ][i];
+  });
+  s.items = [];
+  s.jobs = [];
+  s.tick = 9;
+  tileAt(s, position(31, 30))!.deposit = "food";
+  Object.assign(tileAt(s, position(35, 30))!, {
+    structure: "farm",
+    growth: 600,
+  });
+  tileAt(s, position(29, 28))!.solid = true;
+  dispatch(s, {
+    type: "designate",
+    tool: "harvest",
+    position: position(31, 30),
+  });
+  for (let i = 0; i < 5; i++) step(s);
+  await page.locator("#import").setInputFiles({
+    name: "mushroom-windup.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(s)),
+  });
+  await expect(page.locator("#notice")).toContainText("restored");
+  const read = () =>
+    page.locator("canvas").evaluate((canvas) => {
+      const scene = Reflect.get(canvas, "grottoScene"),
+        state = scene.world;
+      return {
+        labels: ["goblin-1", "goblin-2"].map(
+          (id) => scene.goblinSprites.get(id)?.label,
+        ),
+        progress: state.jobs.map((j: { progress: number }) => j.progress),
+        done: state.jobs.filter((j: { status: string }) => j.status === "done")
+          .length,
+        food: state.items.map(
+          (i: { id: string; resource: string; quantity: number }) => ({
+            id: i.id,
+            resource: i.resource,
+            quantity: i.quantity,
+          }),
+        ),
+        dirt: scene.tiles.get(28 * 64 + 29)?.side?.label,
+      };
+    });
+  await expect
+    .poll(async () => (await read()).labels)
+    .toEqual(["gather-east-001", "gather-east-001"]);
+  const frozen = await read();
+  expect(frozen.progress).toEqual([0, 0]);
+  expect(frozen.dirt).toMatch(/^wall-dirt-0[1-8]$/);
+  await page.waitForTimeout(250);
+  expect(await read()).toEqual(frozen);
+  await page.screenshot({
+    path: "docs/screenshots/mushroom-gathering.png",
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.locator("#notice")).toHaveText(
+    "Grotto saved in this browser.",
+  );
+  await page.reload();
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Load", exact: true }).click();
+  await expect(page.locator("#notice")).toContainText("restored");
+  await page.getByRole("button", { name: "4×", exact: true }).click();
+  await expect
+    .poll(async () => (await read()).done, { timeout: 15000 })
+    .toBe(2);
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const result = await read();
+  expect(result.food).toHaveLength(2);
+  expect(
+    result.food
+      .map((i: { quantity: number }) => i.quantity)
+      .sort((a: number, b: number) => a - b),
+  ).toEqual([5, 8]);
+  expect(new Set(result.food.map((i: { id: string }) => i.id)).size).toBe(2);
 });

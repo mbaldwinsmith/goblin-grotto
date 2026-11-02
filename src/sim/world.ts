@@ -11,7 +11,7 @@ import { revealFrom } from "./visibility";
 import { validateWorld } from "./validation";
 export function createGame(seed: string): GameState {
   const s: GameState = {
-    version: 9,
+    version: 10,
     weather: { kind: "clear", changedAt: 0 },
     seed,
     rng: seedValue(seed),
@@ -25,7 +25,7 @@ export function createGame(seed: string): GameState {
     jobs: [],
     events: [],
   };
-  const names: Material[] = ["sand", "mud", "loose", "hard", "bedrock"];
+  const names: Material[] = ["dirt", "loose", "hard", "bedrock"];
   for (let y = 0; y < s.height; y++)
     for (let x = 0; x < s.width; x++) {
       const edge = x === 0 || y === 0 || x === 63 || y === 63;
@@ -39,7 +39,7 @@ export function createGame(seed: string): GameState {
       const outside = x >= 53;
       const entrance = y >= 29 && y <= 32 && x >= 44;
       s.tiles.push({
-        material: edge ? "impenetrable" : names[range(s, 0, 4)],
+        material: edge ? "impenetrable" : names[range(s, 0, names.length - 1)],
         solid: edge || !(room || tunnel || outside || entrance),
         outside,
         discovered: firstRoom,

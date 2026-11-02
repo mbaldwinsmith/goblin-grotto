@@ -1,9 +1,9 @@
 import { expect, it } from "vitest";
 import { createGame, dispatch, step } from "../src/sim/game";
 import { materials, position, tileAt } from "../src/sim/model";
-it("all six storybook materials define digging, support, drops and movement", () => {
-  expect(Object.keys(materials)).toHaveLength(6);
-  expect(materials.sand.hardness).toBeLessThan(materials.hard.hardness);
+it("all five storybook materials define digging, support, drops and movement", () => {
+  expect(Object.keys(materials)).toHaveLength(5);
+  expect(materials.dirt.hardness).toBeLessThan(materials.hard.hardness);
   expect(materials.loose.stability).toBeLessThan(materials.bedrock.stability);
   expect(materials.impenetrable.diggable).toBe(false);
   const s = createGame("boundary");
@@ -14,9 +14,9 @@ it("all six storybook materials define digging, support, drops and movement", ()
       .ok,
   ).toBe(false);
 });
-it("autonomous workers take longer to cross mud than hard stone", () => {
+it("autonomous workers take longer to cross dirt than hard stone", () => {
   for (const [material, ticks] of [
-    ["mud", 6],
+    ["dirt", 6],
     ["hard", 3],
   ] as const) {
     const s = createGame("movement");
@@ -43,7 +43,7 @@ it("autonomous workers take longer to cross mud than hard stone", () => {
   }
 });
 it("mining duration and rubble drops use terrain properties", () => {
-  for (const material of ["sand", "bedrock"] as const) {
+  for (const material of ["dirt", "bedrock"] as const) {
     const s = createGame("dig-properties");
     s.goblins = s.goblins.slice(0, 1);
     s.goblins[0].position = position(30, 30);

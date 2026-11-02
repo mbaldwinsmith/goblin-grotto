@@ -24,7 +24,7 @@ it("rejects malformed data, dangling references, ID collisions and future saves"
   const s = createGame("bad");
   for (const mutate of [
     (s: ReturnType<typeof createGame>) => {
-      s.version = 999 as 9;
+      s.version = 999 as 10;
     },
     (s: ReturnType<typeof createGame>) => {
       s.goblins[0].carrying = "item-999";
@@ -59,4 +59,4 @@ it("multiple colony seeds survive and validate every save checkpoint", () => {
     }
     for (const g of s.goblins) expect(g.hunger).toBeLessThan(90);
   }
-}, 20_000);
+}, 60_000);

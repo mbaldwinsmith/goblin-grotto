@@ -4,8 +4,8 @@ import {deflateSync} from 'node:zlib';
 const directory='public/assets/prototype';mkdirSync(directory,{recursive:true});
 const definitions=new Map();
 function art(name,paint){const rectangles=[];const r=(x,y,w,h,color)=>{if(![x,y,w,h].every(Number.isInteger)||x<0||y<0||x+w>32||y+h>32)throw Error(`Out of bounds: ${name}`);rectangles.push({x,y,w,h,color});};paint(r);definitions.set(name,rectangles);}
-const palette={sand:['#796e54','#514b3d','#9d8a65'],mud:['#4d5444','#343f37','#758267'],loose:['#55565d','#383f48','#7b7e86'],hard:['#414a53','#293641','#697883'],bedrock:['#303944','#202c36','#546270'],impenetrable:['#252d39','#18212b','#42505c']};
-const floorPalette={sand:'#484c49',mud:'#394743',loose:'#41484e',hard:'#3b454d',bedrock:'#35404a',impenetrable:'#303a46'};
+const palette={dirt:['#6f5740','#463629','#a0835c'],loose:['#55565d','#383f48','#7b7e86'],hard:['#414a53','#293641','#697883'],bedrock:['#303944','#202c36','#546270'],impenetrable:['#252d39','#18212b','#42505c']};
+const floorPalette={dirt:'#4b4033',loose:'#41484e',hard:'#3b454d',bedrock:'#35404a',impenetrable:'#303a46'};
 function shade(hex,delta){const n=parseInt(hex.slice(1),16);return '#'+[n>>>16,(n>>>8)&255,n&255].map(c=>Math.max(0,Math.min(255,c+delta)).toString(16).padStart(2,'0')).join('');}
 for(const [material,[base,dark,light]]of Object.entries(palette)){
  art(`floor-${material}`,r=>{const floor=floorPalette[material];r(0,0,32,32,floor);for(let i=0;i<17;i++)r((i*13+3)%30,(i*7+5)%30,2,1,shade(floor,i%3===0?7:-7));r(0,31,32,1,shade(floor,-9));r(31,0,1,31,shade(floor,-9));});

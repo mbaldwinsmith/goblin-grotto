@@ -1,3 +1,4 @@
+import { legacyTerrain } from "./legacy-terrain";
 import { expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
@@ -54,7 +55,7 @@ it("migrates the committed schema-3 colony with original goblin fields unchanged
   ).toString();
   const old = JSON.parse(text),
     loaded = decodeSave(text);
-  expect(loaded.version).toBe(9);
+  expect(loaded.version).toBe(10);
   expect(
     loaded.goblins.every((g) => g.kind === "common" && g.facing === "south"),
   ).toBe(true);
@@ -67,7 +68,7 @@ it("migrates the committed schema-3 colony with original goblin fields unchanged
       ({ kind, facing, nextMoveAt, drop, preferredWork, workAction, ...g }) =>
         g,
     ),
-  }).toEqual(old);
+  }).toEqual(legacyTerrain(old));
   const invalid = JSON.parse(encodeSave(loaded));
   invalid.goblins[0].kind = "unknown";
   expect(() => decodeSave(JSON.stringify(invalid))).toThrow("damaged");

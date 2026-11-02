@@ -6,6 +6,18 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.15 — dirt underfoot, mushrooms in hand
+
+#### Changed
+
+- Owner-directed GG-025 scope revision: remove sand and rename mud to dirt, leaving five terrain materials. Eight new native dirt walls replace the old wall batch; retire sand assets and references. The active scenery library now contains 153 unchanged PNGs from 19 archives.
+- Save schema 10 migrates versions 1–9, converting legacy sand/mud to dirt while preserving map coordinates, discovery, hazards, RNG, identities and active work. A real schema-9 fixture verifies exact migration and continuation; new saves reject retired material tokens.
+
+#### Added
+
+- GG-047 extension: four-cardinal Base/Attack sprites animate wild-mushroom gathering and automatic farm harvesting. Workers approach adjacent cells, face the patch and apply work once at the visible contact. Pause, cancellation, urgent needs and saved wind-up/impact/recovery preserve correct food output.
+- Import 32 original gathering frames without resizing, trimming or mirroring; the goblin library now contains 359 PNGs and 44 directional clips. Update art/provenance records and migration fixtures. Verification passes 97 headless tests and 18 browser scenarios, including real textures, old-save import and unique harvested food after reload.
+
 ### 0.1.0-prototype.14 — a living floor and a proper forest
 
 #### Added

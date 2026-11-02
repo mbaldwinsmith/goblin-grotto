@@ -1,3 +1,4 @@
+import { legacyTerrain } from "./legacy-terrain";
 import { expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
@@ -74,7 +75,7 @@ it("mining and gathering produce the declared resource, without sharing item IDs
   const t = tileAt(s, position(31, 30))!;
   t.solid = true;
   t.discovered = true;
-  t.material = "sand";
+  t.material = "dirt";
   t.deposit = "gold";
   dispatch(s, { type: "designate", tool: "dig", position: position(31, 30) });
   for (let i = 0; i < 12; i++) step(s);
@@ -102,7 +103,7 @@ it("the actual v1 active-colony fixture migrates without losing work or known te
     readFileSync("tests/fixtures/v1-active-colony.json.gz"),
   ).toString();
   const migrated = decodeSave(text);
-  expect(migrated.version).toBe(9);
+  expect(migrated.version).toBe(10);
   expect(migrated.jobs.some((j) => j.status === "active")).toBe(true);
   expect(migrated.tiles.every((t) => t.feature === null)).toBe(true);
   // Removing just the new fields reproduces the original snapshot exactly.
@@ -120,7 +121,7 @@ it("the actual v1 active-colony fixture migrates without losing work or known te
       ({ feature, collapseAt, stockpileFilter, ...tile }) => tile,
     ),
   };
-  expect(restored).toEqual(legacy);
+  expect(restored).toEqual(legacyTerrain(legacy));
   const again = decodeSave(encodeSave(migrated));
   for (let i = 0; i < 500; i++) {
     step(migrated);

@@ -41,7 +41,7 @@ function setup(kind: "dig" | "harvest" = "dig", dx = 1, dy = 0) {
 }
 it("uses original cardinal contacts, the nine-frame north chop and the supplied static east/west idle", () => {
   expect(manifest.contactFrames).toEqual(contactFrames);
-  for (const kind of ["mine", "chop"] as const)
+  for (const kind of ["mine", "chop", "gather"] as const)
     for (const facing of facings) {
       const count = manifest.directionFrameCounts[kind][facing];
       expect(workFrame(10, contactFrames[kind][facing], count)).toBe(
@@ -211,7 +211,7 @@ it("migrates the real version-8 active mine without changing progress or identit
     ).toString(),
   );
   const s = decodeSave(JSON.stringify(raw));
-  expect(s.version).toBe(9);
+  expect(s.version).toBe(10);
   expect(s.goblins.every((g) => g.workAction === null)).toBe(true);
   expect(s.jobs).toEqual(raw.jobs);
   expect(s.items).toEqual(raw.items);

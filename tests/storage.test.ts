@@ -1,3 +1,4 @@
+import { legacyTerrain } from "./legacy-terrain";
 import { expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
@@ -226,13 +227,13 @@ it("migrates the actual v7 delivery with All goods filters and rejects mismatche
       readFileSync("tests/fixtures/v7-storage-delivery.json.gz"),
     ).toString(),
     s = decodeSave(text);
-  expect(s.version).toBe(9);
+  expect(s.version).toBe(10);
   expect({
     ...s,
     version: 7,
     goblins: s.goblins.map(({ workAction, ...g }) => g),
     tiles: s.tiles.map(({ stockpileFilter, ...tile }) => tile),
-  }).toEqual(JSON.parse(text));
+  }).toEqual(legacyTerrain(JSON.parse(text)));
   const b = decodeSave(encodeSave(s));
   for (let i = 0; i < 250; i++) {
     step(s);
