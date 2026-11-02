@@ -1,29 +1,35 @@
-# Goblin Grotto art bible — native pixels and a 32px grid
+# Goblin Grotto art bible — source pixels and a 48px grid
 
-The owner's required presentation is a fixed three-quarter JRPG view. Every floor,
-wall top, wall side and small plant uses a **separate 32×32 RGBA PNG**. Trees
-retain their owner-supplied 96×96 canvases and bottom-middle tile anchors. The owner-supplied
-goblin has a 32×32 native body, 32×32 static poses and padded 40×40/44×44/48×48 animation canvases. The square
-gameplay grid projects to 32×32 screen pixels at the default 1× view. Camera zoom
-scales the whole scene uniformly; the tile/body scale remains 32 pixels.
+The owner’s required presentation is a fixed three-quarter JRPG view on a
+**48×48 display grid**, revised in prototype.16 for the purchased tileset bundle.
+New single-cell terrain targets 48×48 RGBA PNGs, with separate floor, wall top
+and wall side textures. The purchased files are not yet supplied or imported.
+
+Existing 32×32 terrain/plant PNGs, 96×96 trees and native 32px goblin bodies remain
+unchanged on disk. Display old art uniformly at 1.5× using nearest sampling.
+Goblins keep their full 32/40/44/48px source canvases and scaled foot anchors;
+trees display at 144×144. Home restores camera zoom 1, with a 48px cell and body.
+Camera zoom then scales the whole scene uniformly. A 48px terrain source fits
+one cell at scale 1; never apply the legacy 1.5× scale twice.
 
 ## Layers and anchors
 
-- Floors: top-left at the logical cell's top-left, 32×32.
-- Wall tops: their own 32×32 texture, raised one tile (32 pixels) above the cell.
-- Wall sides: their own 32×32 texture, at the cell origin. Render the front face
+- Floors: top-left at the logical cell's top-left, 48×48 displayed.
+- Wall tops: their own texture, raised one tile (48 display pixels) above the cell.
+- Wall sides: their own texture, covering 48×48 at the cell origin. Render the front face
   where a discovered open cell lies to the south; adjacent solid tiles join at
   their tops. Tops and sides use independent sprites, opacity and textures.
 - Goblins: original owner-supplied PNGs, never resized or trimmed. Idle foot anchor
   is (16,30). Every animation foot anchor is (width/2, (height−32)/2+30). Both are placed
-  at the cell centre and logical foot offset 28, retaining the same body scale.
-- Plants: untrimmed 32×32 transparent canvases at the cell origin. Separate tree,
+  at the cell centre and display foot offset 42. Multiply source anchor coordinates
+  by 1.5, matching the body/canvas scale.
+- Plants: untrimmed transparent canvases displayed at 48×48 at the cell origin. Separate tree,
   edible mushroom, grove, undergrowth and young/ripe mushroom-patch images.
 
 Depth follows logical feet with stable column ties. Reveal walls changes opacity
 and inspection priority, never world solidity or navigation. Unknown tiles and
 plants stay hidden. Source art uses native integer pixels; render interpolation moves the sprite without changing its scale. Use nearest-neighbour
-sampling; no per-sprite stretching, smoothing, atlas trimming or automatic cropping.
+sampling; no nonuniform stretching, smoothing, atlas trimming or automatic cropping.
 
 ## Files and reproduction
 
@@ -82,7 +88,8 @@ simulation saves; renderer interpolation changes only displayed position.
 
 The padded canvases are margins, not larger goblins. Never shrink a 48×48 frame
 into 32×32, trim its canvas, move its foot anchor independently or stretch it.
-Feet use (width/2, (height−32)/2+30), with nearest sampling at scale 1. Sprite
+Source feet use (width/2, (height−32)/2+30); source positions and canvases display
+at scale 1.5 with nearest sampling. Sprite
 selection and depth use displayed positions.
 
 `/goblin-preview.html` shows all 44 directional clips at 3× with pause and frame controls.
@@ -105,9 +112,9 @@ family directories. Numbers represent source alternatives, not animation frames,
 rotation, growth or quantity. Runtime stage/role mappings are explicit below.
 
 All 144 non-tree images retain 32×32 canvases; all nine tree source images retain
-96×96 canvases. The larger tree canvases preserve the 32px tile grid and body scale. Their
+96×96 canvases. The larger tree canvases preserve the original 32px design units. Their
 bottom-middle 32×32 square is the logical root tile. Preserve all original PNG bytes, alpha and padding;
-never automatically resize or crop these sources to fit the prototype renderer.
+never resize or crop these source files. Runtime sizing fits the revised 48px grid.
 
 Reproduce with `python tools/extract-scenery.py`; validate with `--check`.
 The catalog records exact original member paths, IDs, dimensions and SHA-256s.
@@ -125,12 +132,13 @@ Use explicit native dimensions and low top-down references for this JRPG view.
 Character APIs differ: request four directions on a supported path; v3 needs a
 south-facing reference to respect that count. Check returned directions, padding
 and anchors before accepting an export. Map objects support transparent canvases;
-32px terrain and 96px trees must still satisfy our local anchor rules.
+48px terrain and 3×3-tile trees must satisfy our local anchor rules. Existing
+96px trees remain legacy sources enlarged to 144px in the game.
 
 ## Runtime roles and references
 
 The fixed three-quarter JRPG view keeps horizontal surfaces square. Exposed wall
-faces sit at the cell origin; tops rise 32px. Use restrained upper-left lighting,
+faces sit at the cell origin; tops rise 48 display pixels. Use restrained upper-left lighting,
 dark one-pixel outlines around major forms, clear silhouettes and crisp integer
 pixel clusters. Avoid adding a black border around repeating floor tiles.
 
@@ -166,10 +174,11 @@ small reference marker until an original craft-item sprite is supplied.
 
 ## Tree placement, canopy selection and growth
 
-A 96×96 tree stays at scale 1. Its source square `(32,64)` to `(64,96)` exactly
-covers the root tile. For tile `(x,y)`, image top-left is `(32x−32,32y−64)`.
-Equivalently, image point `(48,64)` anchors to the root tile's top centre. Logical
-feet are at `(48,92)`, matching the actor foot offset 28 within the root tile.
+A native 96×96 tree displays at 144×144 (scale 1.5). Source square
+`(32,64)` to `(64,96)` maps to the 48px root tile. For tile `(x,y)`, image
+top-left is `(48x−48,48y−96)`. Source point `(48,64)` maps to the root
+tile’s top centre; source feet `(48,92)` map to display offset 42 in that cell.
+A future native 144px tree with a 48px root square uses scale 1.
 Depth uses the root's logical feet, never the canopy's upper-left corner.
 
 The 3×3 canopy rectangle is the stable inspection/gather hit region. A canopy
@@ -199,10 +208,12 @@ or represented by a goblin's put-down animation, avoiding duplicate cargo art.
 
 - Export separate RGBA PNGs with original transparency, full canvas and integer
   dimensions; preserve original ZIPs, metadata, filenames and hashes via the catalog.
-- Ground tiles, wall parts, small plants and item canvases stay 32×32. Trees stay
-  96×96 with the root square above. Goblin padded animation canvases and foot
-  anchors follow the cardinal section; never rescale bodies to fit a canvas.
-- Use nearest sampling at native scale 1. No automatic trimming, mirroring,
+- New ground tiles, wall parts, small plants and item canvases target 48×48.
+  Retain existing 32px and 96px source exports unchanged; runtime display sizes
+  are 48px and 144px. Goblin padded canvases and foot anchors scale together;
+  never crop padding or stretch a body to the padded canvas dimensions.
+- Use nearest sampling: native 48px terrain at scale 1, legacy 32px art at 1.5.
+  No automatic trimming, mirroring,
   interpolation of pixels, smoothing or per-sprite stretching.
 - Goblin directions are south/east/north/west. Idle/walk/drop timing and curated
   tool contacts are simulation-tick driven as documented in ADRs 0005 and 0008.
@@ -210,7 +221,7 @@ or represented by a goblin's put-down animation, avoiding duplicate cargo art.
   catalog entries; the goblin hash tests verify animation sources separately.
 - Run `npm test` for role resolution, every source alternative, stage pairs,
   deterministic selection, root alignment, depth/picking and save continuation.
-- Run browser checks for all loaded native textures, 96px trees at scale 1,
+- Run browser checks for all loaded native textures, 144px displayed trees at scale 1.5,
   canopy/root selection, reveal, fog, chopping removal, farm stages, item identity,
   camera/zoom and save/load. Inspect the supplied reference sprites and
   [in-game evidence](screenshots/scenery-integration.png). No missing role may
@@ -228,15 +239,15 @@ backings while fading the supplied face/top.
 Renderer-only native-resolution gradients add a restrained upper-face highlight, tapering to
 shade at the foot. Exposed wall tops retain a dark textured front lip and fade to
 pure black towards the back/north edge. Interior top tiles join the black roof.
-The lighting uses each wall's same 32px geometry, never repaints or rescales source
+The lighting uses each wall’s same 48px display geometry, never repaints or rescales source
 PNGs, and is cached with the tile's props. Reveal/selected-actor fade removes the
 lighting and solid backings while leaving supplied textures translucent, so the
 black roof cannot keep hiding the goblin. Excavation clears the cached wall props.
 
-The wall lighting reuses two 32-step nearest-sampled gradient textures; each
+The wall lighting reuses two 48-step nearest-sampled gradient textures; each
 exposed wall adds two simple rectangles to its cached props, avoiding per-row
 geometry or per-wall gradient allocation.
 
 Scenery updates/rendering are limited to the camera region, retaining a margin
-for tree roots whose 96px canopies extend into view. A regression checks all
+for tree roots whose 144px displayed canopies extend into view. A regression checks all
 intersecting canopies at map edges and multiple zoom levels.

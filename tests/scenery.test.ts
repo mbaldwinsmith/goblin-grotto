@@ -100,14 +100,14 @@ it("uses the two correct visual alternatives per farm stage and changes stage on
     expect(farmArt(600, key)).toBe(farmStages.ripe[key % 2]);
   }
 });
-it("aligns the bottom-middle 32px square of every native 96px tree with the logical tile", () => {
+it("aligns each native 96px tree’s bottom-middle square with a 48px logical tile", () => {
   for (const p of [position(0, 0), position(32, 30), position(63, 63)]) {
     const b = treeBounds(p);
-    expect(b).toMatchObject({ width: 96, height: 96 });
-    expect(b.x + 32).toBe(p.x * 32);
-    expect(b.y + 64).toBe(p.y * 32);
-    expect(b.x + 64).toBe((p.x + 1) * 32);
-    expect(b.y + 96).toBe((p.y + 1) * 32);
+    expect(b).toMatchObject({ width: 144, height: 144 });
+    expect(b.x + 48).toBe(p.x * 48);
+    expect(b.y + 96).toBe(p.y * 48);
+    expect(b.x + 96).toBe((p.x + 1) * 48);
+    expect(b.y + 144).toBe((p.y + 1) * 48);
   }
   const trees = [...sceneryFrames.values()].filter(
     (f) => f.family === "foliage/trees",
@@ -135,17 +135,17 @@ it("picks tree canopies at their roots, uses logical depth and reveals actors be
   const { s, root } = treeWorld(),
     g = s.goblins[0];
   g.position = position(32, 29);
-  const x = 32 * 32 + 16,
-    y = 29 * 32 + 12;
+  const x = 32 * 48 + 24,
+    y = 29 * 48 + 18;
   expect(treeAtPoint(s, x, y)).toEqual(root);
   expect(inspectPoint(s, x, y, false)).toEqual({ position: root, actor: null });
   expect(inspectPoint(s, x, y, true).actor).toBe(g.id);
   expect(treeOverlapsActor(root, g.position)).toBe(true);
   expect(objectDepth(root)).toBeGreaterThan(actorDepth(g.position));
   g.position = root;
-  expect(inspectPoint(s, x, 30 * 32 + 12, false).actor).toBe(g.id);
+  expect(inspectPoint(s, x, 30 * 48 + 18, false).actor).toBe(g.id);
   g.position = position(32, 31);
-  expect(inspectPoint(s, x, 31 * 32 + 12, false).actor).toBe(g.id);
+  expect(inspectPoint(s, x, 31 * 48 + 18, false).actor).toBe(g.id);
   tileAt(s, root)!.discovered = false;
   expect(treeAtPoint(s, x, y)).toBeNull();
   tileAt(s, root)!.discovered = true;
@@ -155,15 +155,15 @@ it("picks tree canopies at their roots, uses logical depth and reveals actors be
 it("covers the whole 3x3 canopy, excludes its outside edges and keeps the nearest visible occluder", () => {
   const { s, root } = treeWorld(),
     b = treeBounds(root);
-  for (const dx of [0, 31.9, 32, 95.9])
-    for (const dy of [0, 63.9, 64, 95.9])
+  for (const dx of [0, 47.9, 48, 143.9])
+    for (const dy of [0, 95.9, 96, 143.9])
       expect(treeAtPoint(s, b.x + dx, b.y + dy)).toEqual(root);
   expect(treeAtPoint(s, b.x - 0.1, b.y)).toBeNull();
-  expect(treeAtPoint(s, b.x + 96, b.y)).toBeNull();
+  expect(treeAtPoint(s, b.x + 144, b.y)).toBeNull();
   expect(treeAtPoint(s, b.x, b.y - 0.1)).toBeNull();
-  expect(treeAtPoint(s, b.x, b.y + 96)).toBeNull();
+  expect(treeAtPoint(s, b.x, b.y + 144)).toBeNull();
   tileAt(s, position(32, 31))!.structure = "wall";
-  expect(inspectPoint(s, 32 * 32 + 16, 30 * 32 + 10, false).position).toEqual(
+  expect(inspectPoint(s, 32 * 48 + 24, 30 * 48 + 15, false).position).toEqual(
     position(32, 31),
   );
 });
@@ -191,8 +191,8 @@ it("culls distant scenery but retains every tree whose canopy reaches the camera
   for (const zoom of [0.6, 1, 4])
     for (const centre of [position(0, 0), position(32, 30), position(63, 63)]) {
       const camera = {
-        x: -(centre.x * 32 + 16) * zoom,
-        y: -(centre.y * 32 + 16) * zoom,
+        x: -(centre.x * 48 + 24) * zoom,
+        y: -(centre.y * 48 + 24) * zoom,
         zoom,
       };
       const v = sceneryViewport(camera, screen, map),

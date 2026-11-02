@@ -6,6 +6,14 @@ This project uses milestone versions described in [PLAN.md](PLAN.md). Entries re
 
 ## [Unreleased]
 
+### 0.1.0-prototype.16 — room for a 48px world
+
+#### Changed
+
+- Owner-directed GG-022/GG-023 art revision: use a 48×48 display grid for the purchased tileset bundle. Existing terrain, goblins, plants, items and vector furnishings enlarge uniformly by 1.5 with nearest sampling; source PNGs and their hashes remain unchanged. Single-cell textures fit 48px regardless of their source size, so native 48px terrain can use scale 1. Purchased files are not yet imported.
+- Wall tops rise 48px; wall lighting, selection, painting, camera bounds and silhouettes follow the enlarged grid. Native 96px trees display at 144px, preserving their bottom-middle root square, canopy picking and reveal. Padded animation canvases and source foot anchors scale together.
+- Keep logical map positions, simulation timing, identities and save schema 10 unchanged. Update art/agent guidance, projection/camera/canopy regressions and browser checks. Verification covers 97 headless tests and 19 browser scenarios, including native 48px texture fitting without double scaling. GG-023’s packed atlas remains open.
+
 ### 0.1.0-prototype.15 — dirt underfoot, mushrooms in hand
 
 #### Changed

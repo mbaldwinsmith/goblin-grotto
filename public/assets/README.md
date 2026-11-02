@@ -61,7 +61,7 @@ and contains `source-metadata.json`, an unchanged copy of the ZIP's metadata.
 Totals: 32 floors, 40 walls, 32 items and 49 foliage sprites.
 **144 are 32×32; nine trees are 96×96.** Original dimensions, padding, alpha and
 pixel data are preserved. Trees have not been shrunk to the game's 32px tile size;
-the image’s bottom-middle 32×32 square is aligned with its root tile. See
+the image’s bottom-middle source square is scaled to align with its root tile. See
 `docs/ART_BIBLE.md` for placement and depth rules.
 
 ## Provenance and reproduction
@@ -97,3 +97,11 @@ It is moved unchanged to `walls/dirt/`; SHA-256:
 `7afa6b0a107e1fc4fc28063ec6daaa83c3c3bd84ffb5aed53dc0e28d64016738`.
 At the owner’s request these replace the old 16-wall family, and all sand sources
 are removed from the active library. Retired files remain in Git history.
+
+## Display scale revision — prototype.16
+
+The display grid is now 48×48. Original source PNGs, dimensions, padding, hashes
+and native anchors remain unchanged. Existing 32px art displays uniformly at 1.5×;
+96px trees display at 144px, keeping their bottom-middle square on the 48px root
+tile. Native 48px terrain will fit at scale 1 once imported. Source galleries
+continue to show original dimensions, independently of the game’s display grid.

@@ -153,14 +153,14 @@ test("camera, entity inspection, drawer and drag tools work while paused and aft
   const box = (await canvas.boundingBox())!;
   const cx = box.x + box.width / 2,
     cy = box.y + box.height / 2;
-  await page.mouse.move(cx - 2 * 32, cy + 3 * 32);
+  await page.mouse.move(cx - 2 * 48, cy + 3 * 48);
   await page.mouse.down();
-  await page.mouse.move(cx, cy + 3 * 32, { steps: 8 });
+  await page.mouse.move(cx, cy + 3 * 48, { steps: 8 });
   await page.mouse.up();
-  await page.mouse.move(cx - 3 * 32, cy + 3 * 32);
+  await page.mouse.move(cx - 3 * 48, cy + 3 * 48);
   await page.mouse.down();
   await page.keyboard.press("Escape");
-  await page.mouse.move(cx - 3 * 32, cy + 4 * 32);
+  await page.mouse.move(cx - 3 * 48, cy + 4 * 48);
   await page.mouse.up();
 
   await expect(page.locator("[data-tool=inspect]")).toHaveAttribute(
@@ -340,8 +340,8 @@ test("the supplied padded goblin walk animates only during movement and freezes 
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   const paused = await readVisual();
   expect([40, 44]).toContain(paused?.width);
-  expect(paused?.scaleX).toBe(1);
-  expect(paused?.scaleY).toBe(1);
+  expect(paused?.scaleX).toBe(1.5);
+  expect(paused?.scaleY).toBe(1.5);
   await page.waitForTimeout(350);
   expect(await readVisual()).toEqual(paused);
   await page.getByRole("button", { name: "4×", exact: true }).click();
@@ -662,7 +662,7 @@ test("loaded idle/walk and drop clips follow the held item, pause and saved rele
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   const frozen = await read();
   expect(frozen.holder).toBe(g.id);
-  expect(frozen.scale).toBe(1);
+  expect(frozen.scale).toBe(1.5);
   await page.waitForTimeout(250);
   expect(await read()).toEqual(frozen);
   await page.screenshot({
@@ -1200,7 +1200,7 @@ test("new scenery keeps native tree anchors, growth pairs, canopy picking, item 
       const scene = Reflect.get(canvas, "grottoScene"),
         world = scene.world,
         tree = scene.tiles.get(30 * 64 + 32)?.plant;
-      const point = { x: 32 * 32 + 16, y: 29 * 32 + 12 },
+      const point = { x: 32 * 48 + 24, y: 29 * 48 + 18 },
         r = canvas.getBoundingClientRect();
       return {
         tree: tree
@@ -1262,17 +1262,17 @@ test("new scenery keeps native tree anchors, growth pairs, canopy picking, item 
   await expect.poll(async () => (await read()).tree?.label).toMatch(/^tree-/);
   const before = await read();
   expect(before.tree).toMatchObject({
-    x: 32 * 32 - 32,
-    y: 30 * 32 - 64,
-    width: 96,
-    height: 96,
-    scaleX: 1,
-    scaleY: 1,
+    x: 32 * 48 - 48,
+    y: 30 * 48 - 96,
+    width: 144,
+    height: 144,
+    scaleX: 1.5,
+    scaleY: 1.5,
     alpha: 1,
     visible: true,
   });
   expect(before.backings).toEqual(
-    Array.from({ length: 3 }, () => ({ visible: true, width: 32, height: 32 })),
+    Array.from({ length: 3 }, () => ({ visible: true, width: 48, height: 48 })),
   );
   expect(before.dirt).toMatch(/^wall-dirt-0[1-8]$/);
   expect(before.hidden).toBe(false);
@@ -1483,4 +1483,81 @@ test("legacy earth migrates to dirt and attack clips gather wild and farm mushro
       .sort((a: number, b: number) => a - b),
   ).toEqual([5, 8]);
   expect(new Set(result.food.map((i: { id: string }) => i.id)).size).toBe(2);
+});
+
+test("48px cells keep scaled feet aligned and accept native 48px textures without double scaling", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("canvas")).toBeVisible();
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  const result = await page.locator("canvas").evaluate((canvas) => {
+    const scene = Reflect.get(canvas, "grottoScene"),
+      state = scene.world;
+    scene.reset();
+    scene.draw(state);
+    const floor = scene.tiles.get(30 * 64 + 30).floor;
+    const neighbour = scene.tiles.get(30 * 64 + 31).floor;
+    const before = JSON.stringify(state);
+    const worker = state.goblins[0],
+      actor = scene.goblinSprites.get(worker.id);
+    const p = scene.renderPositions.get(worker.id);
+    const geometry = {
+      zoom: scene.camera.zoom,
+      tile: {
+        x: floor.x,
+        y: floor.y,
+        width: floor.width,
+        height: floor.height,
+        sourceWidth: floor.texture.width,
+        scale: floor.scale.x,
+      },
+      nextCell: neighbour.x - floor.x,
+      footX: actor.x + (actor.texture.width / 2) * actor.scale.x,
+      footY: actor.y + ((actor.texture.height - 32) / 2 + 30) * actor.scale.y,
+      expectedFootX: p.x * 48 + 24,
+      expectedFootY: p.y * 48 + 42,
+      actorScale: actor.scale.x,
+    };
+    // Reuse an already-loaded padded 48px texture as a geometry fixture. This
+    // verifies source-size handling without importing the purchased artwork.
+    const native = Object.values<{ width: number; height: number }>(
+      scene.art,
+    ).find((t) => t.width === 48 && t.height === 48);
+    if (!native) throw Error("Missing native 48px texture fixture");
+    const original = scene.art[floor.label];
+    scene.art[floor.label] = native;
+    scene.draw(state);
+    const fit = {
+      width: floor.width,
+      height: floor.height,
+      sourceWidth: floor.texture.width,
+      scale: floor.scale.x,
+    };
+    scene.art[floor.label] = original;
+    scene.draw(state);
+    return { geometry, fit, unchanged: JSON.stringify(state) === before };
+  });
+  expect(result.geometry).toMatchObject({
+    zoom: 1,
+    tile: {
+      x: 30 * 48,
+      y: 30 * 48,
+      width: 48,
+      height: 48,
+      sourceWidth: 32,
+      scale: 1.5,
+    },
+    nextCell: 48,
+    actorScale: 1.5,
+  });
+  expect(result.geometry.footX).toBeCloseTo(result.geometry.expectedFootX);
+  expect(result.geometry.footY).toBeCloseTo(result.geometry.expectedFootY);
+  expect(result.fit).toEqual({
+    width: 48,
+    height: 48,
+    sourceWidth: 48,
+    scale: 1,
+  });
+  expect(result.unchanged).toBe(true);
 });

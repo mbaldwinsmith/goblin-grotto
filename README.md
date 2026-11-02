@@ -8,7 +8,7 @@ home beneath the hill. The Brothers Grimm meet slapstick.
 
 ## Play the prototype
 
-**Current build: `0.1.0-prototype.15`**, an early local playable colony slice.
+**Current build: `0.1.0-prototype.16`**, an early local playable colony slice.
 This is not the completed v0.1 milestone or a public release.
 
 A [private hosted preview](https://goblin-grotto-prototype.breezyeft133.chatgpt.site) is available to the owner through ChatGPT sign-in.
@@ -136,18 +136,20 @@ acceptance criteria; partial implementations remain unchecked. See
 
 ## Pixel-art scale
 
-The native grid is 32×32. Home restores 1× zoom: one tile occupies 32×32 screen
-pixels. Floors, wall tops, wall sides and small plants have separate
-32×32 PNGs; trees retain native 96×96 canvases, anchored by their bottom-middle
-32×32 square. Canopies sort by the root tile and fade with Reveal walls or a
+The display grid is **48×48**. Home restores 1× zoom: one tile occupies 48×48
+screen pixels. Floors, wall tops, wall sides and small plants fit one cell.
+Existing 32×32 PNGs display uniformly at 1.5× with nearest sampling; their source
+bytes stay unchanged. Native 48×48 terrain will fit at scale 1 when imported.
+The current 96×96 tree PNGs display at 144×144, with their bottom-middle source
+square covering the 48×48 root tile. Canopies sort by the root tile and fade with Reveal walls or a
 selected goblin behind them. Clicking a canopy for Inspect or Gather targets its root. Walls assemble a raised
 top and a separate exposed front face. Zoom
 magnifies the scene with nearest-neighbour sampling.
 
 The live goblins use your supplied base, hauling, pick and axe packs in four cardinal
 directions: breathing at rest, walking, mining, chopping trees, picking mushrooms, carrying a bag and putting it down.
-The body stays at native 32-pixel scale; padded 40×40/44×44/48×48 canvases keep
-their original pixels and align by their feet. Pause freezes every clip.
+The original 32px goblin body displays at 48px. Padded 40×40/44×44/48×48 source
+canvases and foot anchors scale together by 1.5; the PNGs remain unchanged. Pause freezes every clip.
 Haulers take a moment to put supplies down at a stockpile; an interrupted haul
 leaves its item recoverable. Saves retain a delivery in progress, and schema-1
 through schema-9 saves migrate without regenerating the map or adding pending falls.
