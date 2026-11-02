@@ -1,4 +1,4 @@
-# 0.1.0-prototype.15 — verification and handoff
+# 0.1.0-prototype.16 — verification and handoff
 
 The first local playable prototype is implemented on `feat/playable-prototype`.
 It is not the full v0.1 release. The current fixed three-quarter JRPG renderer supersedes the initial isometric presentation. Checkboxes in this change represent verified
@@ -22,7 +22,7 @@ uses a stored kit before falling back to two raw wood.
   invariants; snapshot replay; exact clock steps at several render frequencies;
   projection inverse tests including negative coordinates and zoom.
 - `npm run build`: production static Vite build.
-- `npm run test:browser`: eighteen Chromium scenarios. Builds a farm, digs rock,
+- `npm run test:browser`: nineteen Chromium scenarios. Builds a farm, digs rock,
   inspects tiles, pans/zooms, opens help, saves/reloads, rejects bad imports, exports
   and imports into a fresh browser profile. Also checks both projection studies, scouting, hidden landmark information,
   actual schema-1 save import, wall reveal/entity picking, keyboard focus,
@@ -80,7 +80,7 @@ landmark and then imports the previous committed save and finishes its active fa
 See [discovery screenshot](screenshots/discovery.png). No new generation is injected
 into an imported colony.
 
-## Native art verification
+## Historical native art verification (before iteration 16)
 
 Every floor, wall top, wall side and plant PNG is 32×32. The owner-supplied
 static goblin poses are 32×32; current animation canvases retain 40×40/44×44/48×48 at scale 1. Home resets the
@@ -355,3 +355,31 @@ real old save, checks new dirt walls, observes actual gathering textures for bot
 patch types, saves/reloads and finishes without duplicate food. See
 [mushroom gathering](screenshots/mushroom-gathering.png). GG-023 remains open
 for a packed atlas; no milestone gate or release tag is claimed.
+
+
+## Iteration 16 — 48px display grid
+
+The owner’s purchased tileset bundle changes the target cell size to 48×48. The
+renderer now projects 48px square cells with separate 48px tops and faces.
+Existing native 32px textures fit the cell at scale 1.5, while a 48px texture fits
+at scale 1. PNG source files, import manifests, hashes and gallery dimensions
+remain unchanged. Purchased archives are not supplied or imported yet.
+
+Goblins retain their original padded canvases and native body pixels; the whole
+canvas and its source foot coordinates scale together at 1.5. Logical feet are
+42px below the cell origin. Trees display at 144×144, with image top-left
+`(48x−48,48y−96)` and the bottom-middle source square covering the 48px root.
+Camera focus/bounds/zoom, actor/wall silhouettes, canopy picking/culling and
+painting all use the larger grid. Legacy vector props and work/weather markers
+scale through drawing transforms; wall gradients use the actual 48px geometry.
+
+Simulation positions remain tile coordinates. Schema 10, RNG, job timing, food
+output and map generation are unchanged; existing saves need no new migration.
+The art bible and agent instructions distinguish source dimensions from display
+size. GG-023 remains open for packed-atlas completion.
+
+Verification: 97 headless tests pass. All 18 existing browser scenarios pass on
+the enlarged grid; the additional 48px scenario checks adjacent cell spacing,
+scaled source foot anchors, fitting both 32px and 48px textures to one cell,
+and renderer-only state preservation. Native-source extraction still verifies
+all 153 unchanged PNGs from 19 archives.

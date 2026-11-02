@@ -76,7 +76,7 @@ Goblin Grotto is a browser-first, real-time, fixed-perspective **2.5D pixel-art 
 - **World:** one playable `z = 0` level for v1; logical positions may have `z` for future expansion. Terrain types are fiction-first, not realistic geological taxonomy.
 - **AI:** bounded utility scoring, task reservations, priorities, and explainable failure reasons. Prefer event-driven or scheduled reevaluation to expensive frame-by-frame searches.
 - **UI/accessibility:** keep essential interface elements in HTML where practical, with keyboard access, focus indicators, readable information, and reduced-motion support. Treat names, imported saves, and Chronicle text as untrusted content; don't inject them as raw HTML.
-- **Art:** establish projection/anchors in the `GG-013` spike and `docs/ART_BIBLE.md` before mass-producing sprites. Target 32×32 native goblin sprites, nearest-neighbour scaling, and a consistent PixelLab-assisted palette.
+- **Art:** establish projection/anchors in the `GG-013` spike and `docs/ART_BIBLE.md` before mass-producing sprites. Use a 48×48 display tile grid (owner revision in prototype.16), nearest-neighbour scaling, and a consistent palette. Preserve existing 32px native goblin bodies and padded PNG canvases; display them uniformly at 1.5×. New terrain targets native 48×48. See `docs/ART_BIBLE.md` for source/display anchors.
 - **Content:** use typed data for materials, jobs, items, encounters, and narrative templates. Avoid huge hardcoded conditionals and overengineered plugin frameworks.
 
 Use the planned directory boundaries in `PLAN.md` as guidance; **do not create empty directories or abstractions merely to match a diagram**.
