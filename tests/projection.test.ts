@@ -14,9 +14,9 @@ it("projection round trips tile centres including negative coordinates and zoom"
 });
 it("JRPG cardinal directions stay aligned with the screen axes", () => {
   const p = project({ x: 5, y: 7, z: 0 });
-  expect(project({ x: 6, y: 7, z: 0 })).toEqual({ x: p.x + 32, y: p.y });
-  expect(project({ x: 5, y: 8, z: 0 })).toEqual({ x: p.x, y: p.y + 32 });
-  expect(unproject(p.x - 16, p.y)).toEqual({ x: 5, y: 7, z: 0 });
-  expect(unproject(p.x + 15.99, p.y + 31.99)).toEqual({ x: 5, y: 7, z: 0 });
-  expect(unproject(p.x + 16, p.y + 32)).toEqual({ x: 6, y: 8, z: 0 });
+  expect(project({ x: 6, y: 7, z: 0 })).toEqual({ x: p.x + 48, y: p.y });
+  expect(project({ x: 5, y: 8, z: 0 })).toEqual({ x: p.x, y: p.y + 48 });
+  expect(unproject(p.x - 24, p.y)).toEqual({ x: 5, y: 7, z: 0 });
+  expect(unproject(p.x + 23.99, p.y + 47.99)).toEqual({ x: 5, y: 7, z: 0 });
+  expect(unproject(p.x + 24, p.y + 48)).toEqual({ x: 6, y: 8, z: 0 });
 });

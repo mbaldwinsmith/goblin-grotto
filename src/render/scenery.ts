@@ -90,7 +90,7 @@ export function itemArt(resource: Resource, identity: string): string | null {
         : `items/${["iron", "copper", "gold"].includes(resource) ? "ore" : resource}`;
   return family ? variant(family, seedValue(identity)) : null;
 }
-/** The image's [32,64]..[64,96] square coincides exactly with its logical tile. */
+/** The source bottom-middle square scales to the logical tile (48px currently). */
 export function treeBounds(p: Position) {
   const a = project(p);
   return {

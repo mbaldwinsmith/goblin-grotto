@@ -1,5 +1,5 @@
 import { treeAtPoint } from "./scenery";
-import { TILE_SIZE, WALL_HEIGHT, ACTOR_FEET } from "./metrics";
+import { TILE_SIZE, HALF_TILE, WALL_HEIGHT, ACTOR_FEET } from "./metrics";
 import type { ActorId, Position } from "../core/types";
 import { type GameState, tileAt } from "../sim/model";
 import { project, unproject } from "./projection";
@@ -26,8 +26,8 @@ export function inspectPoint(
       const a = project(renderPositions?.get(g.id) ?? g.position);
       return (
         tileAt(s, g.position)?.discovered &&
-        x >= a.x - 16 &&
-        x < a.x + 16 &&
+        x >= a.x - HALF_TILE &&
+        x < a.x + HALF_TILE &&
         y >= a.y + ACTOR_FEET - TILE_SIZE &&
         y < a.y + ACTOR_FEET
       );
@@ -49,8 +49,8 @@ export function inspectPoint(
     if (
       t?.discovered &&
       (t.solid || t.structure === "wall" || t.structure === "door") &&
-      x >= a.x - 16 &&
-      x < a.x + 16 &&
+      x >= a.x - HALF_TILE &&
+      x < a.x + HALF_TILE &&
       y >= a.y - WALL_HEIGHT &&
       y < a.y + TILE_SIZE
     )

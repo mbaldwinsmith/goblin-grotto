@@ -18,7 +18,7 @@ from the source: their original static rotations provide one-frame fallbacks.
 No pick walking clip exists: gameplay uses the base walk while approaching.
 Other takes and legacy diagonal files are retained but not loaded.
 
-Bodies stay at native 32px scale. Original 32/40/44/48px PNG canvases are never
+Bodies retain their native 32px source pixels. Original 32/40/44/48px PNG files are never
 resized, trimmed, cropped or mirrored. Feet use (width/2, (height−32)/2+30).
 Idle/walk/drop frames last two ticks; drop releases on frame 5. Tool playback
 samples source frames in order across 18 ticks, aligning direction-specific
@@ -26,3 +26,11 @@ contact frames with tick 10. Work is applied by the simulation, never the render
 The nine-frame north chop has the same strike rate as the eight-frame directions.
 
 Creative assets follow ASSETS-LICENSE.md and are not relicensed under MIT.
+
+## Display scale revision — prototype.16
+
+The display grid is now 48×48. Original source PNGs, dimensions, padding, hashes
+and native anchors remain unchanged. Existing 32px art displays uniformly at 1.5×;
+96px trees display at 144px, keeping their bottom-middle square on the 48px root
+tile. Native 48px terrain will fit at scale 1 once imported. Source galleries
+continue to show original dimensions, independently of the game’s display grid.

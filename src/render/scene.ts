@@ -29,6 +29,8 @@ import { actorDepth, objectDepth, inspectPoint } from "./picking";
 import { type Camera, project, unproject } from "./projection";
 import {
   TILE_SIZE,
+  SOURCE_TILE_SIZE,
+  LEGACY_ART_SCALE,
   HALF_TILE,
   WALL_HEIGHT,
   ACTOR_FEET,
@@ -271,6 +273,19 @@ export class Scene {
           node.plant.texture = this.texture(plant);
           node.plant.label = plant;
         }
+        for (const sprite of [
+          node.floor,
+          node.underFloor,
+          node.underTop,
+          node.underSide,
+          node.top,
+          node.side,
+        ]) {
+          sprite.width = TILE_SIZE;
+          sprite.height = TILE_SIZE;
+        }
+        node.plant.width = TILE_SIZE * (tree ? 3 : 1);
+        node.plant.height = TILE_SIZE * (tree ? 3 : 1);
         const bounds = tree ? treeBounds(p) : { x: a.x - HALF_TILE, y: a.y };
         node.plant.position.set(bounds.x, bounds.y);
         node.plant.zIndex = objectDepth(p) - 0.1;
@@ -294,12 +309,19 @@ export class Scene {
           node.pile.texture = this.texture(pile);
           node.pile.label = pile;
         }
+        node.pile.width = TILE_SIZE;
+        node.pile.height = TILE_SIZE;
         node.pile.position.set(a.x - HALF_TILE, a.y);
         node.pile.zIndex = objectDepth(p) - 0.5;
         const d = node.props;
         d.visible = true;
         d.zIndex = objectDepth(p, wall || door);
         d.alpha = opacity;
+        o.context
+          .save()
+          .translate(a.x, a.y)
+          .scale(LEGACY_ART_SCALE, LEGACY_ART_SCALE);
+        const marker = { x: 0, y: 0 };
         if (
           this.scouting &&
           walkable(t) &&
@@ -308,32 +330,38 @@ export class Scene {
             return n && !n.discovered;
           })
         )
-          o.rect(a.x - 1, a.y + 15, 2, 2).fill(0x91ccb1);
+          o.rect(marker.x - 1, marker.y + 15, 2, 2).fill(0x91ccb1);
         if (t.collapseAt !== null) {
           const urgent = t.collapseAt - s.tick < 100;
-          o.rect(a.x - 13, a.y + 3, 26, 26).stroke({
+          o.rect(marker.x - 13, marker.y + 3, 26, 26).stroke({
             color: urgent ? 0xe19378 : 0xd9bd72,
             width: 2,
           });
-          o.moveTo(a.x - 9, a.y + 6)
-            .lineTo(a.x - 2, a.y + 14)
-            .lineTo(a.x - 7, a.y + 20)
+          o.moveTo(marker.x - 9, marker.y + 6)
+            .lineTo(marker.x - 2, marker.y + 14)
+            .lineTo(marker.x - 7, marker.y + 20)
             .stroke({ color: 0xe5cc92, width: 1 });
         }
         if (t.outside && s.weather.kind !== "clear") {
           const snow = s.weather.kind === "snow";
-          o.rect(a.x - HALF_TILE, a.y, TILE_SIZE, TILE_SIZE).fill({
+          o.rect(
+            marker.x - SOURCE_TILE_SIZE / 2,
+            marker.y,
+            SOURCE_TILE_SIZE,
+            SOURCE_TILE_SIZE,
+          ).fill({
             color: snow ? 0xdbe4db : 0x779fac,
             alpha: snow ? 0.12 : 0.05,
           });
           for (let i = 0; i < 2; i++)
             o.rect(
-              a.x - 10 + i * 17,
-              a.y + ((s.tick + i * 11) % 29),
+              marker.x - 10 + i * 17,
+              marker.y + ((s.tick + i * 11) % 29),
               snow ? 2 : 1,
               snow ? 2 : 4,
             ).fill({ color: snow ? 0xe3e9dd : 0x91b9c7, alpha: 0.6 });
         }
+        o.context.restore();
         const signature = `${t.solid}:${t.stockpile}:${t.stockpileFilter}:${t.deposit}:${t.feature}:${t.structure}:${node.side.visible}:${opacity === 1}`;
         if (node.signature !== signature) {
           node.signature = signature;
@@ -370,18 +398,24 @@ export class Scene {
       d.label = art ?? "item-bedkit-placeholder";
       d.scale.set(1);
       d.tint = art ? 0xffffff : resources[item.resource].color;
-      if (!art) {
-        d.width = 6;
-        d.height = 5;
-      }
-      d.position.set(a.x - (art ? HALF_TILE : 3), a.y + (art ? 0 : 22));
+      d.width = art ? TILE_SIZE : 6 * LEGACY_ART_SCALE;
+      d.height = art ? TILE_SIZE : 5 * LEGACY_ART_SCALE;
+      d.position.set(
+        a.x - (art ? HALF_TILE : 3 * LEGACY_ART_SCALE),
+        a.y + (art ? 0 : 22 * LEGACY_ART_SCALE),
+      );
       d.visible = true;
       d.zIndex = objectDepth(item.position) - 0.5;
     }
     for (const j of s.jobs.filter(
       (j) => j.status === "open" || j.status === "active",
     )) {
-      const a = project(j.target);
+      const origin = project(j.target),
+        a = { x: 0, y: 0 };
+      o.context
+        .save()
+        .translate(origin.x, origin.y)
+        .scale(LEGACY_ART_SCALE, LEGACY_ART_SCALE);
       o.rect(a.x - 14, a.y + 2, 28, 28).stroke({
         color:
           j.priority === 3
@@ -399,6 +433,7 @@ export class Scene {
         o.rect(a.x - 10, a.y + 29, Math.min(20, j.progress / 3), 2).fill(
           0xe1b66a,
         );
+      o.context.restore();
     }
     for (const g of s.goblins) {
       const pose = this.poses.get(g.id)!,
@@ -413,11 +448,20 @@ export class Scene {
       sprite.label = pose.textureId;
       sprite.anchor.set(0, 0);
       const a = project(pose.position);
-      sprite.position.set(a.x - frame.footX, a.y + ACTOR_FEET - frame.footY);
+      sprite.scale.set(LEGACY_ART_SCALE);
+      sprite.position.set(
+        a.x - frame.footX * LEGACY_ART_SCALE,
+        a.y + ACTOR_FEET - frame.footY * LEGACY_ART_SCALE,
+      );
       sprite.zIndex = actorDepth(pose.position);
       sprite.alpha = g.activity === "Sleeping" ? 0.6 : 1;
       if (this.selectedActor === g.id)
-        o.ellipse(a.x, a.y + ACTOR_FEET, 12, 4).stroke({
+        o.ellipse(
+          a.x,
+          a.y + ACTOR_FEET,
+          12 * LEGACY_ART_SCALE,
+          4 * LEGACY_ART_SCALE,
+        ).stroke({
           color: 0xe9d69e,
           width: 1,
         });
@@ -445,13 +489,18 @@ export class Scene {
   private drawProps(
     d: Graphics,
     t: Tile,
-    a: { x: number; y: number },
+    origin: { x: number; y: number },
     sideVisible: boolean,
     hasPile: boolean,
     shade: boolean,
   ): void {
     if (shade && (t.solid || t.structure === "wall"))
-      drawWallShading(d, a, sideVisible);
+      drawWallShading(d, origin, sideVisible);
+    d.context
+      .save()
+      .translate(origin.x, origin.y)
+      .scale(LEGACY_ART_SCALE, LEGACY_ART_SCALE);
+    const a = { x: 0, y: 0 };
     if (t.stockpile) {
       const color = {
         all: 0xc1a46a,
@@ -523,6 +572,7 @@ export class Scene {
       d.rect(a.x - 10, a.y + 2, 20, 28).fill(0x69543d);
       d.rect(a.x + 5, a.y + 17, 2, 2).fill(0xd7ba73);
     }
+    d.context.restore();
   }
   reset(): void {
     this.camera.zoom = DEFAULT_ZOOM;
